@@ -13,14 +13,16 @@ I started this side project because I wanted a robust map generator for Dominion
 4. Once the map is generated, you can move the camera around by clicking and dragging.
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
+7. Currently, this program does not support TGA output so you need to use image editing software (like Photoshop) to change the PNG files to TGA.
 
 ### The to-do list
 
 Shortcomings I've acknowledged but lazily ignored.
 
+- Support for TGA output. I'm really mad that Unity doesn't have this built in.
 - Support for all valid playercounts. Currently missing support for: 17, 19, 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
-- Improve poor FPS when many sprites are being rendered on large maps. Not sure if this is doable.
+- Improve poor FPS when many sprites are being rendered on large maps.... If possible.
 - Improve sprite placement. Currently some sprites will overlap in places where they shouldn't. 
 
 ### The art to-do list
@@ -41,3 +43,7 @@ Some features I'd have liked to have that were ultimately too much work.
 - Expose all relevant map generation parameters in a nice little UI dialog box so the user can tweak more parameters.
 - Add a dialog that lets players give provinces custom names if they want.
 - Support for non-wrapping maps.
+
+### Other info
+
+You can contact me on twitter (terrible idea): https://twitter.com/nuke_makes_game

@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1115713290887390}
+  m_IsPrefabAsset: 1
+--- !u!1 &1115713290887390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4650347053878006}
+  - component: {fileID: 114514387053798178}
+  - component: {fileID: 23795104891775180}
+  - component: {fileID: 33538436164232774}
+  - component: {fileID: 120482728442978728}
+  - component: {fileID: 64151639672483506}
+  m_Layer: 9
+  m_Name: ProvinceWrapMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4650347053878006
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23795104891775180
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33538436164232774
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_Mesh: {fileID: 0}
+--- !u!64 &64151639672483506
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
+--- !u!114 &114514387053798178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b78d2efd6039043ac4153250695ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MatSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
+  MatForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
+  MatWaste: {fileID: 2100000, guid: d6c3602522938b04491b1083299e3fec, type: 2}
+  MatMountain: {fileID: 2100000, guid: 5ebe3afd00a4f654387fe6b6c567cd08, type: 2}
+  MatHighland: {fileID: 2100000, guid: 35efbc1f749ad1f40a0873f7085ecba6, type: 2}
+  MatCave: {fileID: 2100000, guid: 6cc23965055c2c8439cb87c0f334f890, type: 2}
+  MatFarm: {fileID: 2100000, guid: 6ee5f9a4e31fbeb489e6a426237bbcc9, type: 2}
+  MatPlains: {fileID: 2100000, guid: 96cc9bff7aec6ed44b9285f9c44d05a2, type: 2}
+  MatSea: {fileID: 2100000, guid: 69ea38c3eccf0da4bb5d6dbb8e4089ff, type: 2}
+  MatDeepSea: {fileID: 2100000, guid: ec42455f74cb956458d8429213df1a88, type: 2}
+  MatWinterSwamp: {fileID: 2100000, guid: ebd736fe41d341943b4f51bb9f503b98, type: 2}
+  MatWinterForest: {fileID: 2100000, guid: 3dbd3889011c3a74da19479ab6b2cdee, type: 2}
+  MatWinterWaste: {fileID: 2100000, guid: b17b20647d2176a4cbf2633181d728c2, type: 2}
+  MatWinterMountain: {fileID: 2100000, guid: 9111c0c94b887fb498658ca442be0cdb, type: 2}
+  MatWinterHighland: {fileID: 2100000, guid: cf23d5cbf9bf7524dab9920d19d717e7, type: 2}
+  MatWinterCave: {fileID: 2100000, guid: eeaa8e67bf2776d469488333f90dba70, type: 2}
+  MatWinterFarm: {fileID: 2100000, guid: 4a4718c4ceded224cac6040fc42c91c3, type: 2}
+  MatWinterPlains: {fileID: 2100000, guid: e2991195258d390498822024b6f29901, type: 2}
+  MatWinterSea: {fileID: 2100000, guid: 304fc85367e1dcf4cafa06a21d322144, type: 2}
+  MatWinterDeepSea: {fileID: 2100000, guid: c4601cd7b296d0448990f7262b157521, type: 2}
+  Mesh: {fileID: 23795104891775180}
+  MeshFilter: {fileID: 33538436164232774}
+  MeshCollider: {fileID: 64151639672483506}
+  MeshObj: {fileID: 1115713290887390}
+  BorderLine: {fileID: 120482728442978728}
+  MapSpritePrefab: {fileID: 1046635996423882, guid: ba1efdff4df0d574288077580a093a23,
+    type: 2}
+--- !u!120 &120482728442978728
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115713290887390}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -422544403
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.21000862
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 6
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
