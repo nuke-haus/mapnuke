@@ -12,7 +12,7 @@ I started this side project because I wanted a robust map generator for Dominion
 3. Click the generate button. Depending on the player count the generation process could take up to 3 minutes.
 4. Once the map is generated, you can move the camera around by clicking and dragging.
 5. Right click a province node or connection node to open the editor panel for that node.
-6. Once you are happy with the map, click the export button.
+6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
 
 ### The to-do list
 
