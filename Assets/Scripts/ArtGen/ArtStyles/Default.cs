@@ -81,8 +81,6 @@ public class DefaultArtStyle: ArtStyle
             pm.ConstructPoly();
         }
 
-        m_all_sprites = new List<SpriteMarker>();
-
         foreach (ConnectionMarker cm in conns)
         {
             cm.CreatePolygon(this);
@@ -94,6 +92,18 @@ public class DefaultArtStyle: ArtStyle
             pm.CalculateSpritePoints();
             m_all_sprites.AddRange(pm.PlaceSprites());
         }
+
+        List<SpriteMarker> all = new List<SpriteMarker>();
+
+        foreach (SpriteMarker m in m_all_sprites)
+        {
+            if (m != null && m.gameObject != null)
+            {
+                all.Add(m);
+            }
+        }
+
+        m_all_sprites = all;
 
         sort_sprites();
     }
