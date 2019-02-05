@@ -371,6 +371,41 @@ static class WorldGenerator
         n16.AddSpawn(new SpawnPoint(15, 11, SpawnType.THRONE));
         n16.AddSpawn(new SpawnPoint(15, 15, SpawnType.THRONE));
 
+        NodeLayout n17 = new NodeLayout(17, 16, 20, 20, 23);
+        n17.AddSpawn(new SpawnPoint(2, 3, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(6, 5, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(10, 3, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(10, 9, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(14, 13, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(14, 6, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(18, 15, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(18, 8, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(18, 2, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(2, 10, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(6, 12, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(10, 15, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(14, 17, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(6, 17, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(2, 16, SpawnType.PLAYER));
+        n17.AddSpawn(new SpawnPoint(3, 0, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(9, 0, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(10, 6, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(14, 11, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(14, 8, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(14, 3, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(18, 11, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(19, 5, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(2, 7, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(6, 7, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(6, 10, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(6, 15, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(1, 13, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(10, 12, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(11, 18, SpawnType.THRONE));
+        n17.AddSpawn(new SpawnPoint(17, 17, SpawnType.THRONE));
+
         NodeLayout n18 = new NodeLayout(18, 18, 20, 20, 22);
         n18.AddSpawn(new SpawnPoint(2, 1, SpawnType.PLAYER));
         n18.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
@@ -408,6 +443,45 @@ static class WorldGenerator
         n18.AddSpawn(new SpawnPoint(8, 18, SpawnType.THRONE));
         n18.AddSpawn(new SpawnPoint(12, 19, SpawnType.THRONE));
         n18.AddSpawn(new SpawnPoint(15, 19, SpawnType.THRONE));
+
+        NodeLayout n19 = new NodeLayout(19, 19, 20, 20, 21);
+        n19.AddSpawn(new SpawnPoint(2, 2, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(6, 2, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(10, 1, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(10, 9, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(12, 5, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(14, 11, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(17, 6, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(18, 16, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(18, 11, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(18, 1, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(2, 7, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(6, 7, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(3, 12, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(8, 13, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(2, 17, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(6, 17, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(10, 17, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(14, 16, SpawnType.PLAYER));
+        n19.AddSpawn(new SpawnPoint(5, 4, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(9, 6, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(9, 3, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(14, 8, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(15, 14, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(15, 4, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(18, 9, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(19, 14, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(1, 4, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(2, 9, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(6, 10, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(5, 14, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(11, 12, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(11, 15, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(2, 19, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(7, 19, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(13, 19, SpawnType.THRONE));
+        n19.AddSpawn(new SpawnPoint(18, 19, SpawnType.THRONE));
 
         NodeLayout n20 = new NodeLayout(20, 20, 20, 16, 16);
         n20.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
@@ -466,7 +540,9 @@ static class WorldGenerator
         m_layouts.Add(n14);
         m_layouts.Add(n15);
         m_layouts.Add(n16);
+        m_layouts.Add(n17);
         m_layouts.Add(n18);
+        m_layouts.Add(n19);
         m_layouts.Add(n20);
     }
     
