@@ -29,10 +29,9 @@ Shortcomings I've acknowledged but lazily ignored.
 
 I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
-- Add more house sprites. My goal was to have small houses and large house sprites for each province type. Small provinces have no houses, normal ones have small houses, and large ones have large houses scattered around. Only wastelands have house sprites at the moment.
-- Redo farmland sprites. They suck.
 - Improve kelp forest sprites.
-- Add specific sprites for trench/highland provinces to make it visually obvious they have a trench/highland.
+- Add some sort of sprite to signify large water provinces.
+- Add specific sprites for trench water provinces to make it visually obvious they have a trench.
 - More sprite variety. Doesn't hurt to have more sprite variants.
 - Improve province shaders. In general more visual polish is needed.
 
