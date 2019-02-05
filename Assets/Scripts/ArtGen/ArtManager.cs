@@ -47,6 +47,11 @@ public class ArtManager: MonoBehaviour
         return SpriteSetCollection.GetMapSprite(flags);
     }
 
+    public MapSpriteSet GetMapSpriteSet(Terrain flags)
+    {
+        return SpriteSetCollection.GetMapSpriteSet(flags);
+    }
+
     public ConnectionSprite GetConnectionSprite(ConnectionType flags)
     {
         return SpriteSetCollection.GetConnectionSprite(flags);

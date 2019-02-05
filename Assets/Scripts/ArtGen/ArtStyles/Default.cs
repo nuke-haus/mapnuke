@@ -218,18 +218,19 @@ public class DefaultArtStyle: ArtStyle
         }
 
         m_all_sprites = fix;
+        int max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
 
-        int ct = 0;
-
-        foreach (SpriteMarker m in m_all_sprites.OrderBy(x => 9000f - x.transform.position.y))
+        foreach (SpriteMarker m in m_all_sprites) //.OrderBy(x => 9000f - x.transform.position.y))
         {
             if (m == null)
             {
                 continue;
             }
 
-            m.SetOrder(ct);
-            ct++;
+            Vector3 pos = m.transform.position;
+            int y = max_y - Mathf.RoundToInt(pos.y * 100f);
+
+            m.SetOrder(y);
         }
     }
 

@@ -276,25 +276,31 @@ public class ElementManager: MonoBehaviour
 
     void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
     {
-        int xpos = 0;
-        var row = m_provinces.Where(x => x.Node.X == xpos);
+        int ypos = 0;
+        var row = m_provinces.Where(x => x.Node.Y == ypos).ToList();
 
         while (row.Any())
         {
             foreach (ProvinceMarker m in row)
             {
                 Vector3 pos = m.transform.position;
+                float add = 0.02f;
 
-                while (row.Any(x => Mathf.Abs(x.transform.position.y - pos.y) < 0.02f))
+                if (UnityEngine.Random.Range(0,2) == 0)
                 {
-                    pos.y += 0.03f;
+                    add = -0.02f;
+                }
+
+                while (row.Any(x => x != m && Mathf.Abs(x.transform.position.y - pos.y) < 0.02f))
+                {
+                    pos.y += add;
                 }
 
                 m.transform.position = pos;
             }
 
-            xpos++;
-            row = m_provinces.Where(x => x.Node.X == xpos);
+            ypos++;
+            row = m_provinces.Where(x => x.Node.Y == ypos).ToList();
         }
     }
 

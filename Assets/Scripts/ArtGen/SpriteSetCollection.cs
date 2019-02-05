@@ -114,6 +114,50 @@ public class SpriteSetCollection : MonoBehaviour
         }
     }
 
+    public MapSpriteSet GetMapSpriteSet(Terrain flags)
+    {
+        if (flags.IsFlagSet(Terrain.SEA))
+        {
+            return Sea;
+        }
+        else if (flags.IsFlagSet(Terrain.DEEPSEA))
+        {
+            return DeepSea;
+        }
+        else if (flags.IsFlagSet(Terrain.FARM))
+        {
+            return Farm;
+        }
+        else if (flags.IsFlagSet(Terrain.SWAMP))
+        {
+            return Swamp;
+        }
+        else if (flags.IsFlagSet(Terrain.CAVE))
+        {
+            return Cave;
+        }
+        else if (flags.IsFlagSet(Terrain.FOREST))
+        {
+            return Forest;
+        }
+        else if (flags.IsFlagSet(Terrain.HIGHLAND))
+        {
+            return Highland;
+        }
+        else if (flags.IsFlagSet(Terrain.MOUNTAINS))
+        {
+            return Mountains;
+        }
+        else if (flags.IsFlagSet(Terrain.WASTE))
+        {
+            return Waste;
+        }
+        else
+        {
+            return Plains;
+        }
+    }
+
     public ProvinceSprite GetMapSprite(Terrain flags)
     {
         if (flags.IsFlagSet(Terrain.SEA))

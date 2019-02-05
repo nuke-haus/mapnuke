@@ -108,7 +108,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GridSize: 1
+    - _GridSize: 1.5
     - _Metallic: 0
     - _Metallic0: 0
     - _Metallic1: 0
@@ -118,7 +118,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.2
+    - _ScaleY: 0.3
     - _Smoothness0: 1
     - _Smoothness1: 1
     - _Smoothness2: 1
@@ -126,8 +126,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0
     - _SrcBlend: 1
-    - _Threshold1: 0.4
-    - _Threshold2: 0.85
+    - _Threshold1: 0
+    - _Threshold2: 0.6
     - _UVSec: 0
     - _X: 1
     - _Y: 1

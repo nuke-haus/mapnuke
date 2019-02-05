@@ -139,6 +139,11 @@ public class SpriteMarker: MonoBehaviour
         sm.CopyFrom(this);
         sm.transform.position = pos;
 
+        int max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
+        int y = max_y - Mathf.RoundToInt(pos.y * 100f);
+
+        sm.SetOrder(y);
+
         return sm;
     }
 }

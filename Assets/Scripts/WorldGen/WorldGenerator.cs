@@ -1204,17 +1204,17 @@ static class WorldGenerator
 
             if (rand == 0)
             {
-                n.ProvinceData.SetTerrainFlags(Terrain.DEEPSEA);
-            }
-            else if (rand < 2)
-            {
                 n.ProvinceData.AddTerrainFlag(Terrain.CAVE);
             }
-            else if (rand < 3)
+            else if (rand == 1)
             {
                 n.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
             }
-            else if (rand < 5)
+            else if (rand < 4)
+            {
+                n.ProvinceData.SetTerrainFlags(Terrain.DEEPSEA);
+            }
+            else if (rand < 6)
             {
                 n.ProvinceData.AddTerrainFlag(Terrain.FOREST);
             }
