@@ -3,7 +3,7 @@
 
 ### Foreword
 
-I started this side project because I wanted a robust map generator for Dominions 5 that also allowed the user to tweak the results to their liking. I'm really happy with how it turned out but there is still polishing to be done.
+I started this side project because I wanted a robust map generator for Dominions 5 that also allowed the user to manually tweak the results to their liking. I'm really happy with how it turned out but there is still polishing to be done.
 
 ### How to use
 
