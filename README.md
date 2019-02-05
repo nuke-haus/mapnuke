@@ -19,8 +19,8 @@ I started this side project because I wanted a robust map generator for Dominion
 
 Shortcomings I've acknowledged but lazily ignored.
 
-- Support for TGA output. I'm really mad that Unity doesn't have this built in.
-- Support for all valid playercounts. Currently missing support for: 17, 19, 21, 22.
+- Support for TGA output. Currently all maps are output as PNG, which Dominions doesn't like.
+- Support for all valid playercounts. Currently missing support for the following player counts: 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
 - Improve poor FPS when many sprites are being rendered on large maps.... If possible.
 - Improve sprite placement. Currently some sprites will overlap in places where they shouldn't. 
@@ -41,7 +41,7 @@ I'm a programmer first and foremost, so my sprite art is kind of lacking.
 Some features I'd have liked to have that were ultimately too much work.
 
 - Expose all relevant map generation parameters in a nice little UI dialog box so the user can tweak more parameters.
-- Add a dialog that lets players give provinces custom names if they want.
+- Add a dialog box somewhere that lets players give provinces custom names if they want.
 - Support for non-wrapping maps.
 
 ### Other info
