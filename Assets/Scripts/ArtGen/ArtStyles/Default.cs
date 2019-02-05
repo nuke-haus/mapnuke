@@ -9,6 +9,12 @@ public abstract class ArtStyle
     public abstract List<GameObject> Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
     public abstract void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
     public abstract void ChangeSeason(Season s);
+
+    public bool JustChangedSeason
+    {
+        get;
+        protected set;
+    }
 }
 
 /// <summary>
@@ -186,6 +192,8 @@ public class DefaultArtStyle: ArtStyle
 
     public override void ChangeSeason(Season s)
     {
+        JustChangedSeason = false;
+
         foreach (SpriteMarker m in m_all_sprites)
         {
             if (m != null)
@@ -203,6 +211,8 @@ public class DefaultArtStyle: ArtStyle
         {
             m.SetSeason(s);
         }
+
+        JustChangedSeason = true;
     }
 
     void sort_sprites()

@@ -286,9 +286,10 @@ public class GenerationManager : MonoBehaviour
 
         do_season_change();
 
+        yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
         yield return null;
-        yield return new WaitForSeconds(3f);
-
+        yield return new WaitForSeconds(0.5f);
+        
         MapFileWriter.GenerateImage(str + "winter", mgr.Texture); // winter
 
         if (m_season == Season.SUMMER)

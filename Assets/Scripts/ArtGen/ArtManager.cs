@@ -37,6 +37,14 @@ public class ArtManager: MonoBehaviour
         m_art = new DefaultArtStyle();
     }
 
+    public bool JustChangedSeason
+    {
+        get
+        {
+            return m_art.JustChangedSeason;
+        }
+    }
+
     public void ChangeSeason(Season s)
     {
         m_art.ChangeSeason(s);
