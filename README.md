@@ -18,7 +18,7 @@ I started this side project because I wanted a robust map generator for Dominion
 
 Shortcomings I've acknowledged but lazily ignored.
 
-- Support for all valid playercounts. Currently missing support for the following player counts: 21, 22.
+- Currently missing map layouts for the following player counts: 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
 - Improve poor FPS when many sprites are being rendered on large maps.... If possible.
 - Improve sprite placement. Currently some sprites will overlap in places where they shouldn't. 
@@ -27,11 +27,11 @@ Shortcomings I've acknowledged but lazily ignored.
 
 I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
-- Improve kelp forest sprites.
 - Add some sort of sprite to signify large water provinces.
 - Add specific sprites for trench water provinces to make it visually obvious they have a trench.
-- More sprite variety. Doesn't hurt to have more sprite variants.
-- Improve province shaders. In general more visual polish is needed.
+- More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 4 variants.
+- Improve province shaders. Sea shaders should have a nice shoreline but they don't. Mountain province shaders kind of suck.
+- Improve various sprites. Some sprites (like kelp forests) kind of suck. If anyone can come up with something better i'm all ears.
 
 ### The wish list
 
