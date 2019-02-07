@@ -4,35 +4,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public struct IntRange
-{
-    public int Min
-    {
-        get;
-        private set;
-    }
-
-    public int Max
-    {
-        get;
-        private set;
-    }
-
-    public int Random
-    {
-        get
-        {
-            return UnityEngine.Random.Range(Min, Max + 1);
-        }
-    }
-
-    public IntRange(int min, int max)
-    {
-        Min = min;
-        Max = max;
-    }
-}
-
 public enum SpawnType
 {
     PLAYER,
@@ -41,28 +12,30 @@ public enum SpawnType
 
 public class SpawnPoint
 {
-    public readonly IntRange XRange;
-    public readonly IntRange YRange;
+    public readonly int TeamNum = -1;
     public readonly int X;
     public readonly int Y;
     public readonly SpawnType SpawnType;
 
-    [Obsolete]
-    public SpawnPoint(IntRange xr, IntRange yr)
+    /// <summary>
+    /// Throne constructor
+    /// </summary>
+    public SpawnPoint(int x, int y)
     {
-        XRange = xr;
-        YRange = yr;
-        X = xr.Random;
-        Y = yr.Random;
-    }
-
-    public SpawnPoint(int x, int y, SpawnType st)
-    {
-        XRange = new IntRange(x, x);
-        YRange = new IntRange(y, y);
         X = x;
         Y = y;
-        SpawnType = st;
+        SpawnType = SpawnType.THRONE;
+    }
+
+    /// <summary>
+    /// Player constructor
+    /// </summary>
+    public SpawnPoint(int x, int y, int team_num)
+    {
+        X = x;
+        Y = y;
+        TeamNum = team_num;
+        SpawnType = SpawnType.PLAYER;
     }
 }
 
@@ -137,8 +110,15 @@ public class NodeLayout
         Spawns = new List<SpawnPoint>();
     }
 
-    public void AddSpawn(SpawnPoint p)
+    public void AddThrone(int x, int y)
     {
+        SpawnPoint p = new SpawnPoint(x, y);
+        Spawns.Add(p);
+    }
+
+    public void AddPlayer(int x, int y, int team_num = 0)
+    {
+        SpawnPoint p = new SpawnPoint(x, y, team_num);
         Spawns.Add(p);
     }
 

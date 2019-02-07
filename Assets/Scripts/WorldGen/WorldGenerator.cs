@@ -71,459 +71,459 @@ static class WorldGenerator
         // Spawn point X and Y values start at 0, it helps to draw the grid on a piece of paper to visualize it.
         // Example: The bottom left position on a 6x6 grid is [0,0]. The top left position on the grid is [5,5].
         NodeLayout n2 = new NodeLayout(2, 2, 6, 6, 18);
-        n2.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n2.AddSpawn(new SpawnPoint(4, 4, SpawnType.PLAYER));
-        n2.AddSpawn(new SpawnPoint(1, 4, SpawnType.THRONE));
-        n2.AddSpawn(new SpawnPoint(4, 1, SpawnType.THRONE));
+        n2.AddPlayer(1, 1);
+        n2.AddPlayer(4, 4);
+        n2.AddThrone(1, 4);
+        n2.AddThrone(4, 1);
 
         NodeLayout n3 = new NodeLayout(3, 3, 8, 8, 21);
-        n3.AddSpawn(new SpawnPoint(1, 3, SpawnType.PLAYER));
-        n3.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n3.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n3.AddSpawn(new SpawnPoint(3, 1, SpawnType.THRONE));
-        n3.AddSpawn(new SpawnPoint(3, 5, SpawnType.THRONE));
-        n3.AddSpawn(new SpawnPoint(5, 3, SpawnType.THRONE));
+        n3.AddPlayer(1, 3);
+        n3.AddPlayer(5, 1);
+        n3.AddPlayer(5, 5);
+        n3.AddThrone(3, 1);
+        n3.AddThrone(3, 5);
+        n3.AddThrone(5, 3);
 
         NodeLayout n4 = new NodeLayout(4, 4, 8, 8, 16);
-        n4.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n4.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n4.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n4.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n4.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n4.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n4.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n4.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
+        n4.AddPlayer(1, 1, 0);
+        n4.AddPlayer(1, 5, 0);
+        n4.AddPlayer(5, 1, 1);
+        n4.AddPlayer(5, 5, 1);
+        n4.AddThrone(3, 3);
+        n4.AddThrone(3, 7);
+        n4.AddThrone(7, 3);
+        n4.AddThrone(7, 7);
 
         NodeLayout n5 = new NodeLayout(5, 6, 9, 9, 16);
-        n5.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n5.AddSpawn(new SpawnPoint(1, 6, SpawnType.PLAYER));
-        n5.AddSpawn(new SpawnPoint(4, 4, SpawnType.PLAYER));
-        n5.AddSpawn(new SpawnPoint(7, 2, SpawnType.PLAYER));
-        n5.AddSpawn(new SpawnPoint(7, 7, SpawnType.PLAYER));
-        n5.AddSpawn(new SpawnPoint(0, 3, SpawnType.THRONE));
-        n5.AddSpawn(new SpawnPoint(2, 3, SpawnType.THRONE));
-        n5.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n5.AddSpawn(new SpawnPoint(5, 1, SpawnType.THRONE));
-        n5.AddSpawn(new SpawnPoint(6, 5, SpawnType.THRONE));
-        n5.AddSpawn(new SpawnPoint(8, 5, SpawnType.THRONE));
+        n5.AddPlayer(1, 1);
+        n5.AddPlayer(1, 6);
+        n5.AddPlayer(4, 4);
+        n5.AddPlayer(7, 2);
+        n5.AddPlayer(7, 7);
+        n5.AddThrone(0, 3);
+        n5.AddThrone(2, 3);
+        n5.AddThrone(3, 7);
+        n5.AddThrone(5, 1);
+        n5.AddThrone(6, 5);
+        n5.AddThrone(8, 5);
 
         NodeLayout n6 = new NodeLayout(6, 6, 12, 8, 16);
-        n6.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n6.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n6.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n6.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n6.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n6.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n6.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
+        n6.AddPlayer(1, 1, 0);
+        n6.AddPlayer(1, 5, 0);
+        n6.AddPlayer(5, 1, 1);
+        n6.AddPlayer(5, 5, 1);
+        n6.AddPlayer(9, 1, 2);
+        n6.AddPlayer(9, 5, 2);
+        n6.AddThrone(3, 3);
+        n6.AddThrone(3, 7);
+        n6.AddThrone(7, 3);
+        n6.AddThrone(7, 7);
+        n6.AddThrone(11, 3);
+        n6.AddThrone(11, 7);
 
         NodeLayout n7 = new NodeLayout(7, 7, 12, 12, 20);
-        n7.AddSpawn(new SpawnPoint(2, 1, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(10, 3, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(6, 5, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(2, 7, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(6, 9, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(10, 9, SpawnType.PLAYER));
-        n7.AddSpawn(new SpawnPoint(0, 2, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(0, 8, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(4, 1, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(4, 6, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(8, 4, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(6, 11, SpawnType.THRONE));
-        n7.AddSpawn(new SpawnPoint(8, 9, SpawnType.THRONE));
+        n7.AddPlayer(2, 1);
+        n7.AddPlayer(6, 1);
+        n7.AddPlayer(10, 3);
+        n7.AddPlayer(6, 5);
+        n7.AddPlayer(2, 7);
+        n7.AddPlayer(6, 9);
+        n7.AddPlayer(10, 9);
+        n7.AddThrone(0, 2);
+        n7.AddThrone(0, 8);
+        n7.AddThrone(4, 1);
+        n7.AddThrone(4, 6);
+        n7.AddThrone(8, 4);
+        n7.AddThrone(6, 11);
+        n7.AddThrone(8, 9);
 
         NodeLayout n8 = new NodeLayout(8, 8, 16, 8, 16);
-        n8.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(13, 1, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n8.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n8.AddSpawn(new SpawnPoint(15, 7, SpawnType.THRONE));
+        n8.AddPlayer(1, 1, 0);
+        n8.AddPlayer(1, 5, 0);
+        n8.AddPlayer(5, 1, 1);
+        n8.AddPlayer(5, 5, 1);
+        n8.AddPlayer(9, 1, 2);
+        n8.AddPlayer(9, 5, 2);
+        n8.AddPlayer(13, 1, 3);
+        n8.AddPlayer(13, 5, 3);
+        n8.AddThrone(3, 3);
+        n8.AddThrone(3, 7);
+        n8.AddThrone(7, 3);
+        n8.AddThrone(7, 7);
+        n8.AddThrone(11, 3);
+        n8.AddThrone(11, 7);
+        n8.AddThrone(15, 3);
+        n8.AddThrone(15, 7);
 
         NodeLayout n9 = new NodeLayout(9, 9, 12, 12, 16);
-        n9.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(5, 9, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(9, 9, SpawnType.PLAYER));
-        n9.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(3, 11, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n9.AddSpawn(new SpawnPoint(11, 11, SpawnType.THRONE));
+        n9.AddPlayer(1, 1);
+        n9.AddPlayer(1, 5);
+        n9.AddPlayer(1, 9);
+        n9.AddPlayer(5, 1);
+        n9.AddPlayer(5, 5);
+        n9.AddPlayer(5, 9);
+        n9.AddPlayer(9, 1);
+        n9.AddPlayer(9, 5);
+        n9.AddPlayer(9, 9);
+        n9.AddThrone(3, 3);
+        n9.AddThrone(3, 7);
+        n9.AddThrone(3, 11);
+        n9.AddThrone(7, 3);
+        n9.AddThrone(7, 7);
+        n9.AddThrone(7, 11);
+        n9.AddThrone(11, 3);
+        n9.AddThrone(11, 7);
+        n9.AddThrone(11, 11);
 
         NodeLayout n10 = new NodeLayout(10, 10, 15, 15, 22);
-        n10.AddSpawn(new SpawnPoint(2, 2, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(6, 2, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(11, 1, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(9, 6, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(5, 8, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(3, 13, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(8, 12, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(12, 12, SpawnType.PLAYER));
-        n10.AddSpawn(new SpawnPoint(6, 0, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(13, 0, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(1, 4, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(6, 6, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(8, 8, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(13, 7, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(13, 10, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(1, 7, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(1, 14, SpawnType.THRONE));
-        n10.AddSpawn(new SpawnPoint(8, 14, SpawnType.THRONE));
+        n10.AddPlayer(2, 2, 0);
+        n10.AddPlayer(6, 2, 0);
+        n10.AddPlayer(11, 1, 1);
+        n10.AddPlayer(13, 5, 1);
+        n10.AddPlayer(9, 6, 2);
+        n10.AddPlayer(5, 8, 2);
+        n10.AddPlayer(1, 9, 3);
+        n10.AddPlayer(3, 13, 3);
+        n10.AddPlayer(8, 12, 4);
+        n10.AddPlayer(12, 12, 4);
+        n10.AddThrone(6, 0);
+        n10.AddThrone(13, 0);
+        n10.AddThrone(1, 4);
+        n10.AddThrone(6, 6);
+        n10.AddThrone(8, 8);
+        n10.AddThrone(13, 7);
+        n10.AddThrone(13, 10);
+        n10.AddThrone(1, 7);
+        n10.AddThrone(1, 14);
+        n10.AddThrone(8, 14);
 
         NodeLayout n11 = new NodeLayout(11, 12, 16, 16, 23);
-        n11.AddSpawn(new SpawnPoint(4, 1, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(5, 2, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(8, 7, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(12, 5, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(4, 9, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(2, 13, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(7, 13, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(12, 13, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(14, 9, SpawnType.PLAYER));
-        n11.AddSpawn(new SpawnPoint(2, 1, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(7, 1, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(6, 4, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(10, 4, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(4, 6, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(1, 11, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(6, 10, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(12, 8, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(10, 10, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(9, 13, SpawnType.THRONE));
-        n11.AddSpawn(new SpawnPoint(14, 13, SpawnType.THRONE));
+        n11.AddPlayer(4, 1);
+        n11.AddPlayer(5, 2);
+        n11.AddPlayer(9, 1);
+        n11.AddPlayer(8, 7);
+        n11.AddPlayer(12, 5);
+        n11.AddPlayer(14, 1);
+        n11.AddPlayer(4, 9);
+        n11.AddPlayer(2, 13);
+        n11.AddPlayer(7, 13);
+        n11.AddPlayer(12, 13);
+        n11.AddPlayer(14, 9);
+        n11.AddThrone(2, 1);
+        n11.AddThrone(7, 1);
+        n11.AddThrone(6, 4);
+        n11.AddThrone(10, 4);
+        n11.AddThrone(15, 3);
+        n11.AddThrone(4, 6);
+        n11.AddThrone(1, 11);
+        n11.AddThrone(6, 10);
+        n11.AddThrone(12, 8);
+        n11.AddThrone(10, 10);
+        n11.AddThrone(9, 13);
+        n11.AddThrone(14, 13);
 
         NodeLayout n12 = new NodeLayout(12, 12, 16, 12, 16);
-        n12.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(5, 9, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(9, 9, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(13, 1, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(13, 9, SpawnType.PLAYER));
-        n12.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(3, 11, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(11, 11, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(15, 7, SpawnType.THRONE));
-        n12.AddSpawn(new SpawnPoint(15, 11, SpawnType.THRONE));
+        n12.AddPlayer(1, 1, 0);
+        n12.AddPlayer(1, 5, 2);
+        n12.AddPlayer(1, 9, 4);
+        n12.AddPlayer(5, 1, 0);
+        n12.AddPlayer(5, 5, 2);
+        n12.AddPlayer(5, 9, 4);
+        n12.AddPlayer(9, 1, 1);
+        n12.AddPlayer(9, 5, 3);
+        n12.AddPlayer(9, 9, 5);
+        n12.AddPlayer(13, 1, 1);
+        n12.AddPlayer(13, 5, 3);
+        n12.AddPlayer(13, 9, 5);
+        n12.AddThrone(3, 3);
+        n12.AddThrone(3, 7);
+        n12.AddThrone(3, 11);
+        n12.AddThrone(7, 3);
+        n12.AddThrone(7, 7);
+        n12.AddThrone(7, 11);
+        n12.AddThrone(11, 3);
+        n12.AddThrone(11, 7);
+        n12.AddThrone(11, 11);
+        n12.AddThrone(15, 3);
+        n12.AddThrone(15, 7);
+        n12.AddThrone(15, 11);
 
         NodeLayout n13 = new NodeLayout(13, 12, 16, 16, 19);
-        n13.AddSpawn(new SpawnPoint(2, 1, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(3, 5, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(8, 7, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(10, 1, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(12, 5, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(13, 9, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(14, 13, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(10, 13, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(6, 13, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(2, 13, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(4, 9, SpawnType.PLAYER));
-        n13.AddSpawn(new SpawnPoint(4, 1, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(6, 4, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(9, 4, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(12, 1, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(15, 6, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(15, 4, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(10, 10, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(12, 13, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(7, 10, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(4, 13, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(1, 10, SpawnType.THRONE));
-        n13.AddSpawn(new SpawnPoint(1, 8, SpawnType.THRONE));
+        n13.AddPlayer(2, 1);
+        n13.AddPlayer(3, 5);
+        n13.AddPlayer(6, 1);
+        n13.AddPlayer(8, 7);
+        n13.AddPlayer(10, 1);
+        n13.AddPlayer(12, 5);
+        n13.AddPlayer(13, 9);
+        n13.AddPlayer(14, 13);
+        n13.AddPlayer(14, 1);
+        n13.AddPlayer(10, 13);
+        n13.AddPlayer(6, 13);
+        n13.AddPlayer(2, 13);
+        n13.AddPlayer(4, 9);
+        n13.AddThrone(4, 1);
+        n13.AddThrone(6, 4);
+        n13.AddThrone(9, 4);
+        n13.AddThrone(12, 1);
+        n13.AddThrone(15, 6);
+        n13.AddThrone(15, 4);
+        n13.AddThrone(10, 10);
+        n13.AddThrone(12, 13);
+        n13.AddThrone(7, 10);
+        n13.AddThrone(4, 13);
+        n13.AddThrone(1, 10);
+        n13.AddThrone(1, 8);
 
         NodeLayout n14 = new NodeLayout(14, 14, 18, 18, 23);
-        n14.AddSpawn(new SpawnPoint(4, 1, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(7, 6, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(8, 1, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(11, 9, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(12, 1, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(14, 5, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(16, 10, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(16, 1, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(14, 14, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(2, 5, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(4, 10, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(2, 14, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(6, 14, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(10, 14, SpawnType.PLAYER));
-        n14.AddSpawn(new SpawnPoint(1, 2, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(2, 7, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(1, 11, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(3, 17, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(8, 9, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(7, 16, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(11, 17, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(15, 16, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(10, 6, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(11, 4, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(16, 8, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(17, 13, SpawnType.THRONE));
-        n14.AddSpawn(new SpawnPoint(17, 4, SpawnType.THRONE));
+        n14.AddPlayer(4, 1, 0);
+        n14.AddPlayer(7, 6, 6);
+        n14.AddPlayer(8, 1, 4);
+        n14.AddPlayer(11, 9, 6);
+        n14.AddPlayer(12, 1, 4);
+        n14.AddPlayer(14, 5, 2);
+        n14.AddPlayer(16, 10, 1);
+        n14.AddPlayer(16, 1, 2);
+        n14.AddPlayer(14, 14, 1);
+        n14.AddPlayer(2, 5, 0);
+        n14.AddPlayer(4, 10, 3);
+        n14.AddPlayer(2, 14, 3);
+        n14.AddPlayer(6, 14, 5);
+        n14.AddPlayer(10, 14, 5);
+        n14.AddThrone(1, 2);
+        n14.AddThrone(2, 7);
+        n14.AddThrone(1, 11);
+        n14.AddThrone(3, 17);
+        n14.AddThrone(8, 9);
+        n14.AddThrone(7, 11);
+        n14.AddThrone(7, 16);
+        n14.AddThrone(11, 17);
+        n14.AddThrone(15, 16);
+        n14.AddThrone(10, 6);
+        n14.AddThrone(11, 4);
+        n14.AddThrone(16, 8);
+        n14.AddThrone(17, 13);
+        n14.AddThrone(17, 4);
 
         NodeLayout n15 = new NodeLayout(15, 15, 20, 12, 16);
-        n15.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(5, 9, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(9, 9, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(13, 1, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(13, 9, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(17, 1, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(17, 5, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(17, 9, SpawnType.PLAYER));
-        n15.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(3, 11, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(11, 11, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(15, 7, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(15, 11, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(19, 3, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(19, 7, SpawnType.THRONE));
-        n15.AddSpawn(new SpawnPoint(19, 11, SpawnType.THRONE));
+        n15.AddPlayer(1, 1);
+        n15.AddPlayer(1, 5);
+        n15.AddPlayer(1, 9);
+        n15.AddPlayer(5, 1);
+        n15.AddPlayer(5, 5);
+        n15.AddPlayer(5, 9);
+        n15.AddPlayer(9, 1);
+        n15.AddPlayer(9, 5);
+        n15.AddPlayer(9, 9);
+        n15.AddPlayer(13, 1);
+        n15.AddPlayer(13, 5);
+        n15.AddPlayer(13, 9);
+        n15.AddPlayer(17, 1);
+        n15.AddPlayer(17, 5);
+        n15.AddPlayer(17, 9);
+        n15.AddThrone(3, 3);
+        n15.AddThrone(3, 7);
+        n15.AddThrone(3, 11);
+        n15.AddThrone(7, 3);
+        n15.AddThrone(7, 7);
+        n15.AddThrone(7, 11);
+        n15.AddThrone(11, 3);
+        n15.AddThrone(11, 7);
+        n15.AddThrone(11, 11);
+        n15.AddThrone(15, 3);
+        n15.AddThrone(15, 7);
+        n15.AddThrone(15, 11);
+        n15.AddThrone(19, 3);
+        n15.AddThrone(19, 7);
+        n15.AddThrone(19, 11);
 
         NodeLayout n16 = new NodeLayout(16, 16, 16, 16, 16);
-        n16.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(1, 13, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(5, 9, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(5, 13, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(9, 9, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(9, 13, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(13, 1, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(13, 9, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(13, 13, SpawnType.PLAYER));
-        n16.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(3, 11, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(3, 15, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(7, 15, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(11, 11, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(11, 15, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(15, 7, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(15, 11, SpawnType.THRONE));
-        n16.AddSpawn(new SpawnPoint(15, 15, SpawnType.THRONE));
+        n16.AddPlayer(1, 1, 0);
+        n16.AddPlayer(1, 5, 2);
+        n16.AddPlayer(1, 9, 4);
+        n16.AddPlayer(1, 13, 6);
+        n16.AddPlayer(5, 1, 0);
+        n16.AddPlayer(5, 5, 2);
+        n16.AddPlayer(5, 9, 4);
+        n16.AddPlayer(5, 13, 6);
+        n16.AddPlayer(9, 1, 1);
+        n16.AddPlayer(9, 5, 3);
+        n16.AddPlayer(9, 9, 5);
+        n16.AddPlayer(9, 13, 7);
+        n16.AddPlayer(13, 1, 1);
+        n16.AddPlayer(13, 5, 3);
+        n16.AddPlayer(13, 9, 5);
+        n16.AddPlayer(13, 13, 7);
+        n16.AddThrone(3, 3);
+        n16.AddThrone(3, 7);
+        n16.AddThrone(3, 11);
+        n16.AddThrone(3, 15);
+        n16.AddThrone(7, 3);
+        n16.AddThrone(7, 7);
+        n16.AddThrone(7, 11);
+        n16.AddThrone(7, 15);
+        n16.AddThrone(11, 3);
+        n16.AddThrone(11, 7);
+        n16.AddThrone(11, 11);
+        n16.AddThrone(11, 15);
+        n16.AddThrone(15, 3);
+        n16.AddThrone(15, 7);
+        n16.AddThrone(15, 11);
+        n16.AddThrone(15, 15);
 
         NodeLayout n17 = new NodeLayout(17, 16, 20, 20, 23);
-        n17.AddSpawn(new SpawnPoint(2, 3, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(6, 5, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(10, 3, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(10, 9, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(14, 13, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(14, 6, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(18, 15, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(18, 8, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(18, 2, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(2, 10, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(6, 12, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(10, 15, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(14, 17, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(6, 17, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(2, 16, SpawnType.PLAYER));
-        n17.AddSpawn(new SpawnPoint(3, 0, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(9, 0, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(10, 6, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(14, 11, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(14, 8, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(14, 3, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(18, 11, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(19, 5, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(2, 7, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(6, 7, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(6, 10, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(6, 15, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(1, 13, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(10, 12, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(11, 18, SpawnType.THRONE));
-        n17.AddSpawn(new SpawnPoint(17, 17, SpawnType.THRONE));
+        n17.AddPlayer(2, 3);
+        n17.AddPlayer(6, 5);
+        n17.AddPlayer(6, 1);
+        n17.AddPlayer(10, 3);
+        n17.AddPlayer(10, 9);
+        n17.AddPlayer(14, 13);
+        n17.AddPlayer(14, 6);
+        n17.AddPlayer(14, 1);
+        n17.AddPlayer(18, 15);
+        n17.AddPlayer(18, 8);
+        n17.AddPlayer(18, 2);
+        n17.AddPlayer(2, 10);
+        n17.AddPlayer(6, 12);
+        n17.AddPlayer(10, 15);
+        n17.AddPlayer(14, 17);
+        n17.AddPlayer(6, 17);
+        n17.AddPlayer(2, 16);
+        n17.AddThrone(3, 0);
+        n17.AddThrone(9, 0);
+        n17.AddThrone(10, 6);
+        n17.AddThrone(14, 11);
+        n17.AddThrone(14, 8);
+        n17.AddThrone(14, 3);
+        n17.AddThrone(18, 11);
+        n17.AddThrone(19, 5);
+        n17.AddThrone(2, 7);
+        n17.AddThrone(6, 7);
+        n17.AddThrone(6, 10);
+        n17.AddThrone(6, 15);
+        n17.AddThrone(1, 13);
+        n17.AddThrone(10, 12);
+        n17.AddThrone(11, 18);
+        n17.AddThrone(17, 17);
 
         NodeLayout n18 = new NodeLayout(18, 18, 20, 20, 22);
-        n18.AddSpawn(new SpawnPoint(2, 1, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(6, 1, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(10, 2, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(14, 2, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(18, 1, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(7, 6, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(12, 7, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(13, 11, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(18, 6, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(18, 11, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(18, 16, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(2, 6, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(2, 11, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(2, 16, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(8, 10, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(6, 15, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(10, 15, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(14, 16, SpawnType.PLAYER));
-        n18.AddSpawn(new SpawnPoint(5, 4, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(10, 4, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(15, 13, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(15, 8, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(15, 5, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(19, 9, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(19, 18, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(18, 3, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(1, 8, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(5, 9, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(5, 12, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(10, 13, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(2, 14, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(1, 19, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(5, 18, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(8, 18, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(12, 19, SpawnType.THRONE));
-        n18.AddSpawn(new SpawnPoint(15, 19, SpawnType.THRONE));
+        n18.AddPlayer(2, 1, 0);
+        n18.AddPlayer(6, 1, 0);
+        n18.AddPlayer(10, 2, 1);
+        n18.AddPlayer(14, 2, 1);
+        n18.AddPlayer(18, 1, 2); 
+        n18.AddPlayer(7, 6, 3);
+        n18.AddPlayer(12, 7, 4);
+        n18.AddPlayer(13, 11, 5);
+        n18.AddPlayer(18, 6, 2);
+        n18.AddPlayer(18, 11, 5);
+        n18.AddPlayer(18, 16, 6);
+        n18.AddPlayer(2, 6, 3);
+        n18.AddPlayer(2, 11, 8);
+        n18.AddPlayer(2, 16, 8);
+        n18.AddPlayer(8, 10, 4);
+        n18.AddPlayer(6, 15, 7);
+        n18.AddPlayer(10, 15, 7);
+        n18.AddPlayer(14, 16, 6);
+        n18.AddThrone(5, 4);
+        n18.AddThrone(10, 4);
+        n18.AddThrone(15, 13);
+        n18.AddThrone(15, 8);
+        n18.AddThrone(15, 5);
+        n18.AddThrone(19, 9);
+        n18.AddThrone(19, 18);
+        n18.AddThrone(18, 3);
+        n18.AddThrone(1, 8);
+        n18.AddThrone(5, 9);
+        n18.AddThrone(5, 12);
+        n18.AddThrone(10, 13);
+        n18.AddThrone(2, 14);
+        n18.AddThrone(1, 19);
+        n18.AddThrone(5, 18);
+        n18.AddThrone(8, 18);
+        n18.AddThrone(12, 19);
+        n18.AddThrone(15, 19);
 
         NodeLayout n19 = new NodeLayout(19, 19, 20, 20, 21);
-        n19.AddSpawn(new SpawnPoint(2, 2, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(6, 2, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(10, 1, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(10, 9, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(12, 5, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(14, 11, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(14, 1, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(17, 6, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(18, 16, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(18, 11, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(18, 1, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(2, 7, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(6, 7, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(3, 12, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(8, 13, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(2, 17, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(6, 17, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(10, 17, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(14, 16, SpawnType.PLAYER));
-        n19.AddSpawn(new SpawnPoint(5, 4, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(9, 6, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(9, 3, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(14, 8, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(15, 14, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(15, 4, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(18, 9, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(19, 14, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(1, 4, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(2, 9, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(6, 10, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(5, 14, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(11, 12, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(11, 15, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(2, 19, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(7, 19, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(13, 19, SpawnType.THRONE));
-        n19.AddSpawn(new SpawnPoint(18, 19, SpawnType.THRONE));
+        n19.AddPlayer(2, 2);
+        n19.AddPlayer(6, 2);
+        n19.AddPlayer(10, 1);
+        n19.AddPlayer(10, 9);
+        n19.AddPlayer(12, 5);
+        n19.AddPlayer(14, 11);
+        n19.AddPlayer(14, 1);
+        n19.AddPlayer(17, 6);
+        n19.AddPlayer(18, 16);
+        n19.AddPlayer(18, 11);
+        n19.AddPlayer(18, 1);
+        n19.AddPlayer(2, 7);
+        n19.AddPlayer(6, 7);
+        n19.AddPlayer(3, 12);
+        n19.AddPlayer(8, 13);
+        n19.AddPlayer(2, 17);
+        n19.AddPlayer(6, 17);
+        n19.AddPlayer(10, 17);
+        n19.AddPlayer(14, 16);
+        n19.AddThrone(5, 4);
+        n19.AddThrone(9, 6);
+        n19.AddThrone(9, 3);
+        n19.AddThrone(14, 8);
+        n19.AddThrone(15, 14);
+        n19.AddThrone(15, 4);
+        n19.AddThrone(18, 9);
+        n19.AddThrone(19, 14);
+        n19.AddThrone(1, 4);
+        n19.AddThrone(2, 9);
+        n19.AddThrone(6, 10);
+        n19.AddThrone(5, 14);
+        n19.AddThrone(11, 12);
+        n19.AddThrone(11, 15);
+        n19.AddThrone(2, 19);
+        n19.AddThrone(7, 19);
+        n19.AddThrone(13, 19);
+        n19.AddThrone(18, 19);
 
         NodeLayout n20 = new NodeLayout(20, 20, 20, 16, 16);
-        n20.AddSpawn(new SpawnPoint(1, 1, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(1, 5, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(1, 9, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(1, 13, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(5, 1, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(5, 5, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(5, 9, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(5, 13, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(9, 1, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(9, 5, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(9, 9, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(9, 13, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(13, 1, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(13, 5, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(13, 9, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(13, 13, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(17, 1, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(17, 5, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(17, 9, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(17, 13, SpawnType.PLAYER));
-        n20.AddSpawn(new SpawnPoint(3, 3, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(3, 7, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(3, 11, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(3, 15, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(7, 3, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(7, 7, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(7, 11, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(7, 15, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(11, 3, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(11, 7, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(11, 11, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(11, 15, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(15, 3, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(15, 7, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(15, 11, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(15, 15, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(19, 3, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(19, 7, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(19, 11, SpawnType.THRONE));
-        n20.AddSpawn(new SpawnPoint(19, 15, SpawnType.THRONE));
+        n20.AddPlayer(1, 1, 0);
+        n20.AddPlayer(1, 5, 0);
+        n20.AddPlayer(1, 9, 1);
+        n20.AddPlayer(1, 13, 1);
+        n20.AddPlayer(5, 1, 2);
+        n20.AddPlayer(5, 5, 2);
+        n20.AddPlayer(5, 9, 3);
+        n20.AddPlayer(5, 13, 3);
+        n20.AddPlayer(9, 1, 4);
+        n20.AddPlayer(9, 5, 4);
+        n20.AddPlayer(9, 9, 5);
+        n20.AddPlayer(9, 13, 5);
+        n20.AddPlayer(13, 1, 6);
+        n20.AddPlayer(13, 5, 6);
+        n20.AddPlayer(13, 9, 7);
+        n20.AddPlayer(13, 13, 7);
+        n20.AddPlayer(17, 1, 8);
+        n20.AddPlayer(17, 5, 8);
+        n20.AddPlayer(17, 9, 9);
+        n20.AddPlayer(17, 13, 9);
+        n20.AddThrone(3, 3);
+        n20.AddThrone(3, 7);
+        n20.AddThrone(3, 11);
+        n20.AddThrone(3, 15);
+        n20.AddThrone(7, 3);
+        n20.AddThrone(7, 7);
+        n20.AddThrone(7, 11);
+        n20.AddThrone(7, 15);
+        n20.AddThrone(11, 3);
+        n20.AddThrone(11, 7);
+        n20.AddThrone(11, 11);
+        n20.AddThrone(11, 15);
+        n20.AddThrone(15, 3);
+        n20.AddThrone(15, 7);
+        n20.AddThrone(15, 11);
+        n20.AddThrone(15, 15);
+        n20.AddThrone(19, 3);
+        n20.AddThrone(19, 7);
+        n20.AddThrone(19, 11);
+        n20.AddThrone(19, 15);
 
         m_layouts.Add(n2);
         m_layouts.Add(n3);
@@ -1492,45 +1492,48 @@ static class WorldGenerator
         m_connections = new List<Connection>();
 
         List<NationData> scrambled = new List<NationData>();
-
+        
         if (m_teamplay)
         {
-            int i = 0;
-            int front = UnityEngine.Random.Range(0, 2);
+            List<NationData> all = new List<NationData>();
+            all.AddRange(m_nations);
 
-            foreach (NationData d in m_nations)
+            while (all.Any())
             {
-                if (i == 1)
-                {
-                    i = 0;
-                    front = UnityEngine.Random.Range(0, 2);
-                }
-                else
-                {
-                    i++;
-                }
+                int front = UnityEngine.Random.Range(0, 2);
+                int flip = UnityEngine.Random.Range(0, 2);
+
+                NationData d1 = all[0];
+                NationData d2 = all[1];
+                all.Remove(d1);
+                all.Remove(d2);
 
                 if (front == 0)
                 {
-                    scrambled.Add(d);
+                    if (flip == 0)
+                    {
+                        scrambled.Add(d1);
+                        scrambled.Add(d2);
+                    }
+                    else
+                    {
+                        scrambled.Add(d2);
+                        scrambled.Add(d1);
+                    }
                 }
                 else
                 {
-                    scrambled.Insert(0, d);
+                    if (flip == 0)
+                    {
+                        scrambled.Insert(0, d1);
+                        scrambled.Insert(0, d2);
+                    }
+                    else
+                    {
+                        scrambled.Insert(0, d2);
+                        scrambled.Insert(0, d1);
+                    }
                 }
-            }
-
-            if (m_num_players == 6)
-            {
-                NationData d = scrambled[3];
-                scrambled.RemoveAt(3);
-                scrambled.Add(d);
-            }
-            else if (m_num_players == 10)
-            {
-                NationData d = scrambled[5];
-                scrambled.RemoveAt(5);
-                scrambled.Add(d);
             }
         }
         else
@@ -1543,20 +1546,82 @@ static class WorldGenerator
 
         if (nl == null)
         {
-            Debug.Log("No map layout made for " + m_num_players);
+            Debug.LogError("No map layout made for " + m_num_players);
             return;
         }
 
         m_layout = nl;
 
+        if (m_teamplay)
+        {
+            create_team_nodes(nl, scrambled);
+        }
+        else
+        {
+            create_basic_nodes(nl, scrambled);
+        }
+    }
+
+    static void create_team_nodes(NodeLayout nl, List<NationData> nats)
+    {
+        for (int x = 0; x < nl.X; x++)
+        {
+            for (int y = 0; y < nl.Y; y++)
+            {
+                Node node = new Node(x, y, new ProvinceData());
+
+                if ((x == 0 && y == 0) || (x == nl.X - 1 && y == nl.Y - 1))
+                {
+                    node.SetWrapCorner(true);
+                }
+
+                m_nodes.Add(node);
+            }
+        }
+
+        int spawn_num = 0;
+
+        while (nats.Any())
+        {
+            NationData d1 = nats[0];
+            NationData d2 = nats[1];
+            nats.Remove(d1);
+            nats.Remove(d2);
+
+            List<SpawnPoint> valid = nl.Spawns.Where(x => x.TeamNum == spawn_num).ToList();
+
+            if (valid.Count != 2)
+            {
+                throw new UnityException("Invalid spawn point information for playercount: " + nl.NumPlayers);
+            }
+
+            Node n1 = m_nodes.FirstOrDefault(x => x.X == valid[0].X && x.Y == valid[0].Y);
+            Node n2 = m_nodes.FirstOrDefault(x => x.X == valid[1].X && x.Y == valid[1].Y);
+
+            if (n1 == null || n2 == null)
+            {
+                throw new UnityException("Invalid spawn point information for playercount: " + nl.NumPlayers);
+            }
+
+            n1.SetPlayerInfo(d1, new ProvinceData(d1.CapTerrain | Terrain.START));
+            n2.SetPlayerInfo(d2, new ProvinceData(d2.CapTerrain | Terrain.START));
+
+            m_starts.Add(n1);
+            m_starts.Add(n2);
+            spawn_num++;
+        }
+    }
+
+    static void create_basic_nodes(NodeLayout nl, List<NationData> nats)
+    {
         for (int x = 0; x < nl.X; x++)
         {
             for (int y = 0; y < nl.Y; y++)
             {
                 if (nl.HasSpawn(x, y, SpawnType.PLAYER))
                 {
-                    NationData d = scrambled[0];
-                    scrambled.RemoveAt(0);
+                    NationData d = nats[0];
+                    nats.RemoveAt(0);
 
                     Node node = new Node(x, y, new ProvinceData(d.CapTerrain | Terrain.START), d);
 

@@ -163,6 +163,12 @@ public class Node
         Nation = n;
     }
 
+    public void SetPlayerInfo(NationData n, ProvinceData pd)
+    {
+        Nation = n;
+        ProvinceData = pd;
+    }
+
     public float DistanceTo(Node n)
     {
         return Mathf.Sqrt(Mathf.Pow((n.X - this.X), 2) + Mathf.Pow(n.Y - this.Y, 2));

@@ -256,11 +256,11 @@ public static class MapFileWriter
         Texture2D t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
-        byte[] bytes = t.EncodeToPNG();
+        byte[] bytes = t.EncodeToTGA();
 
         string data_folder = Application.dataPath;
         string folder = data_folder + "/Export/";
-        string path = folder + mapname + ".png";
+        string path = folder + mapname + ".tga";
 
         if (!Directory.Exists(folder))
         {

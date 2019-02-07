@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Output\MapFileWriter.cs" />
     <Compile Include="Assets\Scripts\SeasonalMaterial.cs" />
     <Compile Include="Assets\Scripts\SortingLayerExposer.cs" />
+    <Compile Include="Assets\Scripts\TGAEncode.cs" />
     <Compile Include="Assets\Scripts\Triangulator.cs" />
     <Compile Include="Assets\Scripts\WorldGen\Connection.cs" />
     <Compile Include="Assets\Scripts\WorldGen\Node.cs" />
