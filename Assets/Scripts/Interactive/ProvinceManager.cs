@@ -85,7 +85,7 @@ public class ProvinceManager: MonoBehaviour
         }
         if (DeepSea.isOn)
         {
-            flags = flags | Terrain.DEEPSEA;
+            flags = flags | Terrain.DEEPSEA | Terrain.SEA;
         }
         if (Throne.isOn)
         {

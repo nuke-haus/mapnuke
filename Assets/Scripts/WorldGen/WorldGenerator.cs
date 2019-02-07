@@ -952,7 +952,7 @@ static class WorldGenerator
 
                             if (rand == 0)
                             {
-                                cur.ProvinceData.SetTerrainFlags(Terrain.DEEPSEA);
+                                cur.ProvinceData.AddTerrainFlag(Terrain.DEEPSEA);
                             }
                             else if (rand < 2)
                             {
