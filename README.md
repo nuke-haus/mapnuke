@@ -13,13 +13,11 @@ I started this side project because I wanted a robust map generator for Dominion
 4. Once the map is generated, you can move the camera around by clicking and dragging.
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
-7. Currently, this program does not support TGA output so you need to use image editing software (like Photoshop) to change the PNG files to TGA.
 
 ### The to-do list
 
 Shortcomings I've acknowledged but lazily ignored.
 
-- Support for TGA output. Currently all maps are output as PNG, which Dominions doesn't like.
 - Support for all valid playercounts. Currently missing support for the following player counts: 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
 - Improve poor FPS when many sprites are being rendered on large maps.... If possible.
