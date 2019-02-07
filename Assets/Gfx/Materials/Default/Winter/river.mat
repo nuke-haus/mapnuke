@@ -68,7 +68,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GridSize: 10
+    - _GridSize: 7
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -78,8 +78,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.3
-    - _Threshold2: 0.9
+    - _Threshold1: 0.25
+    - _Threshold2: 1
     - _UVSec: 0
     - _X: 1
     - _Y: 1

@@ -110,9 +110,13 @@ public class ProvinceManager: MonoBehaviour
             flags = flags | Terrain.WARMER;
         }
 
+        if (m_current.Node.HasNation)
+        {
+            flags = flags | Terrain.START;
+        }
+
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
         m_current.UpdateColor();
-        //m_current.UpdateConnections();
 
         List<ProvinceMarker> provs = new List<ProvinceMarker> { m_current };
         provs.AddRange(m_current.ConnectedProvinces);
