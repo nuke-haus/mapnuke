@@ -47,6 +47,12 @@ public class MapSpriteSet
         }
 
         List<ProvinceSprite> valid = MapSprites.Where(x => flag.IsFlagSet(x.ValidTerrain)).ToList();
+
+        if (!valid.Any())
+        {
+            return null;
+        }
+
         ProvinceSprite spr = valid.GetRandom();
         float rand = UnityEngine.Random.Range(0f, 1f);
         int ct = 0;
@@ -61,8 +67,8 @@ public class MapSpriteSet
         }
 
         if (ct == max)
-        { 
-            spr = MapSprites[0]; 
+        {
+            return null;
         }
 
         return spr;

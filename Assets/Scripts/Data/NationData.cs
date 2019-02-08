@@ -119,9 +119,9 @@ public static class AllNationData
         AddNation(new NationData("(EA) Berytos", 30, false, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.WASTE, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Xibalba", 31, false, Age.EARLY, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Mekone", 32, false, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.HIGHLAND, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS }));
-        AddNation(new NationData("(EA) Atlantis", 36, true, Age.EARLY, Terrain.DEEPSEA, new Terrain[] { Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.SEA }));
-        AddNation(new NationData("(EA) R'lyeh", 37, true, Age.EARLY, Terrain.DEEPSEA, new Terrain[] { Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.SEA }));
-        AddNation(new NationData("(EA) Pelagia", 38, true, Age.EARLY, Terrain.DEEPSEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.DEEPSEA }));
+        AddNation(new NationData("(EA) Atlantis", 36, true, Age.EARLY, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.SEA }));
+        AddNation(new NationData("(EA) R'lyeh", 37, true, Age.EARLY, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.SEA }));
+        AddNation(new NationData("(EA) Pelagia", 38, true, Age.EARLY, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA }));
         AddNation(new NationData("(EA) Oceania", 39, true, Age.EARLY, Terrain.SEA, new Terrain[] { Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.FOREST, Terrain.SEA, Terrain.SEA }));
         AddNation(new NationData("(EA) Therodos", 40, false, Age.EARLY, Terrain.HIGHLAND, new Terrain[] { Terrain.SEA | Terrain.HIGHLAND, Terrain.SEA | Terrain.HIGHLAND, Terrain.SEA | Terrain.SMALLPROV, Terrain.SEA, Terrain.SEA }));
 
@@ -154,9 +154,9 @@ public static class AllNationData
         AddNation(new NationData("(MA) Xibalba", 68, false, Age.MIDDLE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.SEA, Terrain.SWAMP, Terrain.SWAMP | Terrain.LARGEPROV, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(MA) Phlegra", 69, false, Age.MIDDLE, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS | Terrain.SMALLPROV }));
         AddNation(new NationData("(MA) Phaeacia", 70, false, Age.MIDDLE, Terrain.PLAINS | Terrain.SMALLPROV, new Terrain[] { Terrain.SEA | Terrain.HIGHLAND, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.SMALLPROV, Terrain.DEEPSEA }));
-        AddNation(new NationData("(MA) Atlantis", 73, true, Age.MIDDLE, Terrain.DEEPSEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.DEEPSEA }));
-        AddNation(new NationData("(MA) R'lyeh", 74, true, Age.MIDDLE, Terrain.DEEPSEA, new Terrain[] { Terrain.SEA, Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.DEEPSEA }));
-        AddNation(new NationData("(MA) Pelagia", 75, true, Age.MIDDLE, Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.FOREST, Terrain.DEEPSEA }));
+        AddNation(new NationData("(MA) Atlantis", 73, true, Age.MIDDLE, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA}));
+        AddNation(new NationData("(MA) R'lyeh", 74, true, Age.MIDDLE, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA }));
+        AddNation(new NationData("(MA) Pelagia", 75, true, Age.MIDDLE, Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.FOREST, Terrain.DEEPSEA | Terrain.SEA }));
         AddNation(new NationData("(MA) Oceania", 76, true, Age.MIDDLE, Terrain.SEA | Terrain.FOREST, new Terrain[] { Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.FOREST }));
         AddNation(new NationData("(MA) Ys", 77, true, Age.MIDDLE, Terrain.SEA | Terrain.CAVE, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA }));
 
@@ -184,7 +184,7 @@ public static class AllNationData
         AddNation(new NationData("(LA) Xibalba", 101, false, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.CAVE, Terrain.SWAMP, Terrain.SEA, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Phlegra", 102, false, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Atlantis", 106, true, Age.LATE, Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.PLAINS, Terrain.SWAMP }));
-        AddNation(new NationData("(LA) R'lyeh", 107, true, Age.LATE, Terrain.DEEPSEA, new Terrain[] { Terrain.DEEPSEA, Terrain.DEEPSEA, Terrain.SEA, Terrain.SEA }));
+        AddNation(new NationData("(LA) R'lyeh", 107, true, Age.LATE, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.SEA, Terrain.SEA }));
         AddNation(new NationData("(LA) Erytheia", 108, false, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.SWAMP, Terrain.PLAINS, Terrain.PLAINS, Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA }));
     }
 }

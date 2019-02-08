@@ -523,14 +523,45 @@ public class ProvinceWrapMarker: MonoBehaviour
     {
         ClearSprites();
 
+        MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+
+        if (!set.MapSprites.Any())
+        {
+            return m_sprites;
+        }
+
+        int valid_ct = set.MapSprites.Where(x => m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain)).Count();
+
+        if (valid_ct == 0)
+        {
+            return m_sprites;
+        }
+
         while (m_sprite_points.Any())
         {
             Vector3 pos = m_sprite_points[0];
             ProvinceSprite ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
 
+            if (ps == null)
+            {
+                m_sprite_points.Remove(pos);
+                continue;
+            }
+
             while (UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
             {
                 ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
+
+                if (ps == null)
+                {
+                    break;
+                }
+            }
+
+            if (ps == null)
+            {
+                m_sprite_points.Remove(pos);
+                continue;
             }
 
             List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();

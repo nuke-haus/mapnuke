@@ -462,12 +462,21 @@ public class ProvinceMarker: MonoBehaviour
 
         MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
+        if (!set.MapSprites.Any())
+        {
+            return m_sprites;
+        }
+
+        int valid_ct = 0;
+
         foreach (ProvinceSprite ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
             if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || !m_sprite_points.Any())
             {
                 continue;
             }
+
+            valid_ct++;
 
             Vector3 pos = m_sprite_points[0];
             List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
@@ -488,14 +497,36 @@ public class ProvinceMarker: MonoBehaviour
             m_sprites.AddRange(sm.CreateMirrorSprites());
         }
 
+        if (valid_ct == 0)
+        {
+            return m_sprites;
+        }
+
         while (m_sprite_points.Any()) // randomly sprinkle sprites
         {
             Vector3 pos = m_sprite_points[0];
             ProvinceSprite ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
 
+            if (ps == null)
+            {
+                m_sprite_points.Remove(pos);
+                continue;
+            }
+
             while (UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
             {
                 ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
+
+                if (ps == null)
+                {
+                    break;
+                }
+            }
+
+            if (ps == null)
+            {
+                m_sprite_points.Remove(pos);
+                continue;
             }
 
             List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();

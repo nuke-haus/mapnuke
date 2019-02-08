@@ -933,7 +933,7 @@ static class WorldGenerator
         {
             if (n.Nation.IsWater)
             {
-                int modifier = Mathf.RoundToInt(UnityEngine.Random.Range(0.0f, 0.15f) * m_layout.ProvsPerPlayer) + n.ConnectedNodes.Count;
+                int modifier = Mathf.RoundToInt(UnityEngine.Random.Range(0.0f, 0.10f) * m_layout.ProvsPerPlayer) + n.ConnectedNodes.Count + 1; // subtract their capring from the total count
                 int count = 0;
                 
                 while (count < m_layout.ProvsPerPlayer - modifier)
@@ -947,24 +947,41 @@ static class WorldGenerator
                         if (!cur.HasNation && !cur.IsCapRing && !cur.ProvinceData.IsWater)
                         {
                             int rand = UnityEngine.Random.Range(0, 10);
+                            int rand2 = UnityEngine.Random.Range(0, 10);
 
                             cur.ProvinceData.SetTerrainFlags(Terrain.SEA);
 
-                            if (rand == 0)
+                            if (rand < 4) // deep sea choices
                             {
                                 cur.ProvinceData.AddTerrainFlag(Terrain.DEEPSEA);
+
+                                if (rand2 < 2)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
+                                }
+                                else if (rand2 < 4)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.CAVE);
+                                }
                             }
-                            else if (rand < 2)
+                            else // normal sea choices
                             {
-                                cur.ProvinceData.AddTerrainFlag(Terrain.CAVE);
-                            }
-                            else if (rand < 3)
-                            {
-                                cur.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
-                            }
-                            else if (rand < 5)
-                            {
-                                cur.ProvinceData.AddTerrainFlag(Terrain.FOREST);
+                                if (rand2 < 2)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.FARM);
+                                }
+                                else if (rand2 < 4)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.FOREST);
+                                }
+                                else if (rand2 < 5)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
+                                }
+                                else if (rand2 < 6)
+                                {
+                                    cur.ProvinceData.AddTerrainFlag(Terrain.CAVE);
+                                }
                             }
 
                             i++;
@@ -1198,25 +1215,42 @@ static class WorldGenerator
             Node n = valid[0];
             valid.Remove(n);
 
+            int rand = UnityEngine.Random.Range(0, 10);
+            int rand2 = UnityEngine.Random.Range(0, 10);
+
             n.ProvinceData.SetTerrainFlags(Terrain.SEA);
 
-            int rand = UnityEngine.Random.Range(0, 10);
+            if (rand < 4) // deep sea choices
+            {
+                n.ProvinceData.AddTerrainFlag(Terrain.DEEPSEA);
 
-            if (rand == 0)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.CAVE);
+                if (rand2 < 2)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
+                }
+                else if (rand2 < 4)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.CAVE);
+                }
             }
-            else if (rand == 1)
+            else // normal sea choices
             {
-                n.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
-            }
-            else if (rand < 4)
-            {
-                n.ProvinceData.SetTerrainFlags(Terrain.DEEPSEA);
-            }
-            else if (rand < 6)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.FOREST);
+                if (rand2 < 2)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.FARM);
+                }
+                else if (rand2 < 4)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.FOREST);
+                }
+                else if (rand2 < 5)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.HIGHLAND);
+                }
+                else if (rand2 < 6)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.CAVE);
+                }
             }
 
             if (rand == 6) // small chance to create connected water province
