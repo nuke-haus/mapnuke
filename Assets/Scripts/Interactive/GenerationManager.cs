@@ -27,6 +27,7 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] HideableOptions;
     public GameObject[] HideableControls;
 
+    bool m_cluster_water = true;
     bool m_teamplay = false;
     int m_players = 9;
     Age m_age = Age.EARLY;
@@ -155,7 +156,7 @@ public class GenerationManager : MonoBehaviour
         m_season = Season.SUMMER;
 
         // create the conceptual nodes and connections first
-        WorldGenerator.GenerateWorld(m_teamplay, m_nations, NatStarts.isOn);
+        WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, NatStarts.isOn, m_nations);
         List<Connection> conns = WorldGenerator.GetConnections();
         List<Node> nodes = WorldGenerator.GetNodes();
         NodeLayout layout = WorldGenerator.GetLayout();
@@ -308,6 +309,11 @@ public class GenerationManager : MonoBehaviour
 
         LoadingScreen.SetActive(false);
         //LogScreen.SetActive(false);
+    }
+
+    public void OnCluster()
+    {
+        m_cluster_water = !m_cluster_water;
     }
 
     public void OnTeamplay()

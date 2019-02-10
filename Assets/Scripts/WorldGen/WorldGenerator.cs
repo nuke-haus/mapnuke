@@ -14,8 +14,9 @@ static class WorldGenerator
     const int PROVS_PER_PLAYER = 16;
 
     static int m_num_players;
-    static bool m_nat_starts = false;
+    static bool m_nat_starts = true;
     static bool m_teamplay = false;
+    static bool m_cluster_water = true;
     static NodeLayout m_layout;
     static List<Node> m_nodes;
     static List<Node> m_starts;
@@ -23,7 +24,7 @@ static class WorldGenerator
     static List<NodeLayout> m_layouts;
     static List<NationData> m_nations;
 
-    public static void GenerateWorld(bool teamplay, List<NationData> picks, bool nat_starts)
+    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<NationData> picks)
     {
         init();
 
@@ -31,6 +32,7 @@ static class WorldGenerator
         m_nations = picks;
         m_nat_starts = nat_starts;
         m_teamplay = teamplay;
+        m_cluster_water = cluster_water;
 
         generate_nodes();
         generate_connections();
@@ -1302,7 +1304,7 @@ static class WorldGenerator
         
         if (m_nations.Any(x => x.WaterPercentage > 0.3f))
         {
-            num_lakes = UnityEngine.Random.Range(0.03f, 0.06f); // if real water nations are playing then reduce the random water provinces slightly
+            num_lakes = UnityEngine.Random.Range(0.02f, 0.04f); // if real water nations are playing then reduce the random water provinces slightly
         }
 
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
@@ -1672,13 +1674,28 @@ static class WorldGenerator
         }
         else
         {
-            create_basic_nodes(nl, scrambled);
+            List<NationData> water = new List<NationData>();
+
+            foreach (NationData d in scrambled)
+            {
+                if (d.WaterPercentage > 0.3f)
+                {
+                    water.Add(d);
+                }
+            }
+
+            foreach (NationData d in water)
+            {
+                scrambled.Remove(d);
+            }
+
+            create_basic_nodes(nl, scrambled, water);
         }
     }
 
     static void create_team_nodes(NodeLayout nl, List<NationData> nats)
     {
-        for (int x = 0; x < nl.X; x++)
+        for (int x = 0; x < nl.X; x++) // create all nodes first
         {
             for (int y = 0; y < nl.Y; y++)
             {
@@ -1726,38 +1743,72 @@ static class WorldGenerator
         }
     }
 
-    static void create_basic_nodes(NodeLayout nl, List<NationData> nats)
+    static List<Node> get_closest_nodes(Node n)
     {
-        for (int x = 0; x < nl.X; x++)
+        Dictionary<Node, float> dict = new Dictionary<Node, float>();
+        List<Node> nodes = m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)).ToList();
+        return nodes.OrderBy(x => n.DistanceTo(x)).ToList();
+    }
+
+    static void create_basic_nodes(NodeLayout nl, List<NationData> nats, List<NationData> water)
+    {
+        for (int x = 0; x < nl.X; x++) // create all nodes first
         {
             for (int y = 0; y < nl.Y; y++)
             {
+                Node node = new Node(x, y, new ProvinceData());
+
+                if ((x == 0 && y == 0) || (x == nl.X - 1 && y == nl.Y - 1))
+                {
+                    node.SetWrapCorner(true);
+                }
+
+                m_nodes.Add(node);
+
                 if (nl.HasSpawn(x, y, SpawnType.PLAYER))
                 {
-                    NationData d = nats[0];
-                    nats.RemoveAt(0);
-
-                    Node node = new Node(x, y, new ProvinceData(d.CapTerrain | Terrain.START), d);
-
-                    if ((x == 0 && y == 0) || (x == nl.X - 1 && y == nl.Y - 1))
-                    {
-                        node.SetWrapCorner(true);
-                    }
-
-                    m_nodes.Add(node);
+                    node.ProvinceData.AddTerrainFlag(Terrain.START);
                     m_starts.Add(node);
                 }
-                else
-                {
-                    Node node = new Node(x, y, new ProvinceData());
+            }
+        }
 
-                    if ((x == 0 && y == 0) || (x == nl.X - 1 && y == nl.Y - 1))
-                    {
-                        node.SetWrapCorner(true);
-                    }
+        if (m_cluster_water) // put water nations close together
+        {
+            List<Node> starts = m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)).ToList();
+            starts.Shuffle();
 
-                    m_nodes.Add(node);
-                }
+            Node start = starts[0];
+            List<Node> nodes = get_closest_nodes(start);
+
+            foreach (NationData d in water)
+            {
+                Node n = nodes[0];
+                nodes.Remove(n);
+                starts.Remove(n);
+
+                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
+            }
+
+            foreach (NationData d in nats)
+            {
+                Node n = starts[0];
+                starts.Remove(n);
+
+                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
+            }
+        }
+        else
+        {
+            nats.AddRange(water);
+            nats.Shuffle();
+
+            foreach (Node n in m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)))
+            {
+                NationData d = nats[0];
+                nats.Remove(d);
+
+                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
             }
         }
     }

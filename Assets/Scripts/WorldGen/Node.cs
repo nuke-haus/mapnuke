@@ -65,6 +65,14 @@ public class Node
         private set;
     }
 
+    public Vector2 Vector
+    {
+        get
+        {
+            return new Vector2(X, Y);
+        }
+    }
+
     public List<Connection> Connections
     {
         get;
@@ -172,7 +180,7 @@ public class Node
 
     public float DistanceTo(Node n)
     {
-        return Mathf.Sqrt(Mathf.Pow((n.X - this.X), 2) + Mathf.Pow(n.Y - this.Y, 2));
+        return Vector2.Distance(n.Vector, Vector); // Mathf.Sqrt(Mathf.Pow((n.X - this.X), 2) + Mathf.Pow(n.Y - this.Y, 2));
     }
 
     public bool HasConnection(Node n)
