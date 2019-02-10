@@ -29,6 +29,12 @@ public class Node
         private set;
     }
 
+    public bool IsAssignedTerrain
+    {
+        get;
+        private set;
+    }
+
     public bool IsWrapCorner
     {
         get;
@@ -54,12 +60,6 @@ public class Node
     }
 
     public int Y
-    {
-        get;
-        private set;
-    }
-
-    public float FairnessScore
     {
         get;
         private set;
@@ -155,6 +155,7 @@ public class Node
         Y = y;
         ProvinceData = pd;
         IsCapRing = false;
+        IsAssignedTerrain = false;
         IsWrapCorner = false;
     }
 
@@ -209,20 +210,8 @@ public class Node
         IsCapRing = cap;
     }
 
-    public void AssignScore(List<Node> caps)
+    public void SetAssignedTerrain(bool b)
     {
-        Dictionary<float, Node> dict = new Dictionary<float, Node>();
-
-        foreach (Node n in caps)
-        {
-            dict.Add(n.DistanceTo(this), n);
-        }
-
-        var ordered = dict.OrderBy(x => x.Key).ToList();
-
-        float f1 = ordered[0].Key;
-        float f2 = ordered[3].Key;
-
-        FairnessScore = Mathf.Abs(f1 - f2);
+        IsAssignedTerrain = b;
     }
 }

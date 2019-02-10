@@ -27,11 +27,9 @@ Shortcomings I've acknowledged but lazily ignored.
 
 I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
-- Add some sort of sprite to signify large water provinces.
-- Add specific sprites for trench water provinces to make it visually obvious they have a trench.
 - More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 4 variants.
-- Improve province shaders. Sea shaders should have a nice shoreline but they don't. Mountain province shaders kind of suck.
-- Improve various sprites. Some sprites (like kelp forests) kind of suck. If anyone can come up with something better i'm all ears.
+- Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite.
+- Improve province shaders. Sea shaders should have a nice shoreline but they don't. Mountain/highland/cave province shaders kind of suck.
 
 ### The wish list
 

@@ -36,13 +36,17 @@ static class WorldGenerator
         generate_connections();
         generate_caprings();
         generate_seas();
-        generate_lakes_swamps();
+        generate_lakes();
+
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWater).ToList();
+
+        generate_swamps(valid);
         generate_rivers();
         generate_cliffs();
         generate_roads();
-        generate_misc();
-        generate_farms();
-        generate_sized();
+        generate_misc(valid);
+        generate_farms(valid);
+        generate_sized(valid);
         generate_thrones();
         cleanup_connections();
     }
@@ -609,7 +613,7 @@ static class WorldGenerator
         {
             if (n.IsWater)
             {
-                num_seas += m_layout.ProvsPerPlayer;
+                num_seas += Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.WaterPercentage);
             }
         }
 
@@ -680,7 +684,7 @@ static class WorldGenerator
         {
             if (n.IsWater)
             {
-                num_seas += m_layout.ProvsPerPlayer;
+                num_seas += Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.WaterPercentage);
             }
         }
 
@@ -799,7 +803,7 @@ static class WorldGenerator
         {
             if (n.IsWater)
             {
-                num_seas += m_layout.ProvsPerPlayer;
+                num_seas += Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.WaterPercentage);
             }
         }
 
@@ -933,16 +937,22 @@ static class WorldGenerator
         {
             if (n.Nation.IsWater)
             {
-                int modifier = Mathf.RoundToInt(UnityEngine.Random.Range(0.0f, 0.10f) * m_layout.ProvsPerPlayer) + n.ConnectedNodes.Count + 1; // subtract their capring from the total count
+                int modifier = n.ConnectedNodes.Count + 1; // subtract their capring from the total count
                 int count = 0;
+                int num_water = Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.Nation.WaterPercentage);
+
+                if (modifier >= num_water) // there should be at least 1 water province added
+                {
+                    modifier = num_water - 1;
+                }
                 
-                while (count < m_layout.ProvsPerPlayer - modifier)
+                while (count < num_water - modifier)
                 {
                     int iterations = UnityEngine.Random.Range(2, 7);
                     int i = 0;
                     Node cur = n.ConnectedNodes.GetRandom();
 
-                    while (i < iterations && count < m_layout.ProvsPerPlayer - modifier)
+                    while (i < iterations && count < num_water - modifier)
                     {
                         if (!cur.HasNation && !cur.IsCapRing && !cur.ProvinceData.IsWater)
                         {
@@ -995,20 +1005,14 @@ static class WorldGenerator
         }
     }
 
-    static void generate_farms()
+    static void generate_farms(List<Node> original)
     {
-        float num_farms = UnityEngine.Random.Range(0.06f, 0.10f); // 6-10% of the remaining provinces should be farmland - todo: expose this to the user
+        float num_farms = UnityEngine.Random.Range(0.12f, 0.15f); // 12-15% of the provinces should be farmland - todo: expose this to the user
 
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
         valid.Shuffle();
 
-        /*foreach (Node n in valid)
-        {
-            n.AssignScore(m_starts); // very crude province scoring
-        }*/
-        //var ordered = valid.OrderBy(x => x.FairnessScore).ToList();
-
-        int max = Mathf.RoundToInt(num_farms * m_layout.TotalProvinces);
+        int max = Mathf.RoundToInt(num_farms * original.Count);
         int i = 0;
         
         while (i < max && valid.Count > 0)
@@ -1029,19 +1033,36 @@ static class WorldGenerator
 
     static void generate_thrones()
     {
+        int num_water = m_starts.Where(x => x.Nation.WaterPercentage > 0.3f).Count();
+        int water_ct = 0;
+
         foreach (Node n in m_nodes)
         {
             if (m_layout.Spawns.Any(x => x.X == n.X && n.Y == x.Y && x.SpawnType == SpawnType.THRONE))
             {
+                if (n.ProvinceData.IsWater)
+                {
+                    water_ct++;
+
+                    if (water_ct > num_water)
+                    {
+                        Terrain cur = n.ProvinceData.Terrain;
+                        cur &= ~Terrain.SEA;
+                        cur &= ~Terrain.DEEPSEA;
+
+                        n.ProvinceData.SetTerrainFlags(cur);
+                    }
+                }
+
                 n.ProvinceData.AddTerrainFlag(Terrain.THRONE);
             }
         }
     }
 
-    static void generate_sized()
+    static void generate_sized(List<Node> original)
     {
-        float num_large = UnityEngine.Random.Range(0.20f, 0.24f); // 20-24% of the provinces should be large - todo: expose this to the user? maybe not
-        float num_small = UnityEngine.Random.Range(0.20f, 0.24f); // 20-24% of the provinces should be small 
+        float num_large = UnityEngine.Random.Range(0.24f, 0.28f); // 24-28% of the provinces should be large - todo: expose this to the user? maybe not
+        float num_small = UnityEngine.Random.Range(0.24f, 0.28f); // 24-28% of the provinces should be small 
 
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing).ToList();
         valid.Shuffle();
@@ -1063,7 +1084,7 @@ static class WorldGenerator
             dict.Add(n.Nation, nodes);
         }
 
-        int max = Mathf.RoundToInt(num_large * m_layout.TotalProvinces);
+        int max = Mathf.RoundToInt(num_large * original.Count);
         int i = 0;
 
         while (i < max) // fairly assign large provinces to each nation in turn
@@ -1120,13 +1141,13 @@ static class WorldGenerator
         }
     }
 
-    static void generate_misc()
+    static void generate_misc(List<Node> original)
     {
-        float num_highlands = UnityEngine.Random.Range(0.02f, 0.06f); // 2-6% of the provinces should be highlands - todo: expose these to the user
-        float num_mountains = UnityEngine.Random.Range(0.02f, 0.06f); // 2-6% of the provinces should be mountainous 
-        float num_forests = UnityEngine.Random.Range(0.08f, 0.12f); // 8-12% of the provinces should be forest 
-        float num_caves = UnityEngine.Random.Range(0.02f, 0.06f); // 2-6% of the provinces should be caves
-        float num_waste = UnityEngine.Random.Range(0.02f, 0.06f); // 2-6% of the provinces should be wastes
+        float num_highlands = UnityEngine.Random.Range(0.06f, 0.09f); // 6-9% of the provinces should be highlands - todo: expose these to the user
+        float num_mountains = UnityEngine.Random.Range(0.06f, 0.09f); 
+        float num_forests = UnityEngine.Random.Range(0.12f, 0.15f);  
+        float num_caves = UnityEngine.Random.Range(0.06f, 0.09f); 
+        float num_waste = UnityEngine.Random.Range(0.06f, 0.09f); 
 
         Dictionary<Terrain, float> dict = new Dictionary<Terrain, float>();
         dict.Add(Terrain.HIGHLAND, num_highlands);
@@ -1135,7 +1156,7 @@ static class WorldGenerator
         dict.Add(Terrain.CAVE, num_caves);
         dict.Add(Terrain.WASTE, num_waste);
 
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
 
         if (!m_nat_starts)
         {
@@ -1144,12 +1165,60 @@ static class WorldGenerator
 
         valid.Shuffle();
 
+        if (valid.Count <= dict.Count) // if there's less than 1 for each type then we randomly distribute what we have
+        {
+            List<Terrain> terrains = new List<Terrain> { Terrain.HIGHLAND, Terrain.MOUNTAINS, Terrain.FOREST, Terrain.CAVE, Terrain.WASTE };
+            terrains.Shuffle();
+
+            foreach (Terrain t in terrains)
+            {
+                if (!valid.Any())
+                {
+                    break;
+                }
+
+                if (UnityEngine.Random.Range(0, 10) == 0) // small chance to ignore some
+                {
+                    continue;
+                }
+
+                Node n = valid[0];
+                valid.Remove(n);
+
+                n.ProvinceData.SetTerrainFlags(t);
+
+                int rand = UnityEngine.Random.Range(0, 10);
+
+                if (t == Terrain.CAVE && rand < 2)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.FOREST);
+                }
+                if (t == Terrain.WASTE)
+                {
+                    if (rand == 0)
+                    {
+                        n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
+                    }
+                    else if (rand == 1)
+                    {
+                        n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
+                    }
+                }
+                if ((t == Terrain.HIGHLAND || t == Terrain.MOUNTAINS) && rand == 0)
+                {
+                    n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
+                }
+            }
+
+            return;
+        }
+
         foreach (KeyValuePair<Terrain, float> pair in dict)
         {
-            int max = Mathf.RoundToInt(pair.Value * m_layout.TotalProvinces);
+            int max = Mathf.Max(Mathf.RoundToInt(pair.Value * original.Count), 1);
             int i = 0;
 
-            while (i < max && valid.Count > 0)
+            while (i < max && valid.Any())
             {
                 Node n = valid[0];
                 valid.Remove(n);
@@ -1183,14 +1252,57 @@ static class WorldGenerator
         }
     }
 
-    static void generate_lakes_swamps()
+    static void generate_swamps(List<Node> original)
     {
-        float num_lakes = UnityEngine.Random.Range(0.04f, 0.08f); // 4-8% of the provinces should be watar - todo: expose these to the user
-        float num_swamps = UnityEngine.Random.Range(0.04f, 0.08f); // 4-8% of the provinces should be swamp
+        float num_swamps = UnityEngine.Random.Range(0.07f, 0.10f); // 7-10% of the provinces should be swamp
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWater).ToList();
 
-        if (m_nations.Any(x => x.IsWater))
+        valid.Shuffle();
+
+        if (!m_nat_starts)
         {
-            num_lakes = UnityEngine.Random.Range(0.01f, 0.05f); // if water nations are playing then reduce the random water provinces
+            valid = m_nodes.Where(x => !x.HasNation && !x.ProvinceData.IsWater).ToList();
+        }
+
+        int swamps = Mathf.Max(Mathf.RoundToInt(num_swamps * original.Count), 1);
+
+        for (int i = 0; i < swamps; i++)
+        {
+            if (!valid.Any())
+            {
+                break;
+            }
+
+            Node n = valid[0];
+            valid.Remove(n);
+
+            n.ProvinceData.SetTerrainFlags(Terrain.SWAMP);
+
+            int temp = UnityEngine.Random.Range(0, 10);
+
+            if (temp == 0)
+            {
+                n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
+            }
+            else if (temp == 1)
+            {
+                n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
+            }
+        }
+    }
+
+    static void generate_lakes() // random placement logic for small bodies of water
+    {
+        if (!m_nations.Any(x => !x.IsWater))
+        {
+            return;
+        }
+
+        float num_lakes = UnityEngine.Random.Range(0.06f, 0.09f); // 6-9% of the provinces should be watar - todo: expose these to the user
+        
+        if (m_nations.Any(x => x.WaterPercentage > 0.3f))
+        {
+            num_lakes = UnityEngine.Random.Range(0.03f, 0.06f); // if real water nations are playing then reduce the random water provinces slightly
         }
 
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
@@ -1202,9 +1314,8 @@ static class WorldGenerator
 
         valid.Shuffle();
 
-        int lakes = Mathf.RoundToInt(num_lakes * m_layout.TotalProvinces);
-        int swamps = Mathf.RoundToInt(num_swamps * m_layout.TotalProvinces);
-
+        int lakes = Mathf.Max(Mathf.RoundToInt(num_lakes * valid.Count), 1);
+        
         for (int i = 0; i < lakes; i++)
         {
             if (!valid.Any())
@@ -1269,31 +1380,7 @@ static class WorldGenerator
                     }
                 }
             }
-        }
-
-        for (int i = 0; i < swamps; i++)
-        {
-            if (!valid.Any())
-            {
-                break;
-            }
-
-            Node n = valid[0];
-            valid.Remove(n);
-
-            n.ProvinceData.SetTerrainFlags(Terrain.SWAMP);
-
-            int temp = UnityEngine.Random.Range(0, 10);
-
-            if (temp == 0)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
-            }
-            else if (temp == 1)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
-            }
-        }
+        }  
     }
 
     static void generate_caprings()
@@ -1316,10 +1403,12 @@ static class WorldGenerator
                     if (c.Node1 == n)
                     {
                         c.Node2.ProvinceData.SetTerrainFlags(n.Nation.TerrainData[i]);
+                        c.Node2.SetAssignedTerrain(true);
                     }
                     else
                     {
                         c.Node1.ProvinceData.SetTerrainFlags(n.Nation.TerrainData[i]);
+                        c.Node1.SetAssignedTerrain(true);
                     }
 
                     i++;
@@ -1338,15 +1427,6 @@ static class WorldGenerator
         m_connections.Add(con);
         basenode.AddConnection(con);
         corner.AddConnection(con);
-
-        /*//connect top left to bottom right all the time
-        Node topleft = m_nodes.FirstOrDefault(n => n.X == 0 && n.Y == m_layout.Y - 1);
-        Node botright = m_nodes.FirstOrDefault(n => n.X == m_layout.X - 1 && n.Y == 0);
-        Connection con2 = new Connection(topleft, botright, ConnectionType.STANDARD);
-
-        m_connections.Add(con2);
-        topleft.AddConnection(con2);
-        botright.AddConnection(con2);*/
 
         // basic connections
         foreach (Node n in m_nodes)
@@ -1390,7 +1470,7 @@ static class WorldGenerator
             }
         }
 
-        // capring connections
+        // capring connections - every player should have 5 provinces in their capring
         foreach (Node n in m_nodes.Where(x => x.HasNation))
         {
             List<Node> diag = new List<Node>();
@@ -1400,7 +1480,7 @@ static class WorldGenerator
             diag.Add(get_node_with_wrap(n.X - 1, n.Y + 1));
             diag.Shuffle();
 
-            while (n.Connections.Count < n.Nation.CapRing)
+            while (n.Connections.Count < 5) //(n.Connections.Count < n.Nation.CapRing)
             {
                 Node next = diag[0];
                 diag.Remove(next);
