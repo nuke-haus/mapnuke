@@ -739,8 +739,10 @@ static class WorldGenerator
                     con.SetConnection(ConnectionType.MOUNTAIN);
                 }
 
-                if (con.Node1.HasNation || con.Node2.HasNation)
+                if (con.Node1.HasNation || con.Node2.HasNation || (con.Node1.IsCapRing && con.Node2.IsCapRing))
                 {
+                    con.SetConnection(ConnectionType.STANDARD);
+
                     i = len;
                 }
                 else
@@ -760,10 +762,11 @@ static class WorldGenerator
                     {
                         i = len;
                     }
+
+                    count++;
                 }
 
                 i++;
-                count++;
             }
 
             Connection c1 = null;
@@ -820,7 +823,7 @@ static class WorldGenerator
 
         List<Connection> starts = new List<Connection>();
         List<Node> water = m_nodes.Where(x => x.ProvinceData.IsWaterSwamp).ToList();
-        List<Connection> invalid = m_connections.Where(x => x.Node1.HasNation || x.Node2.HasNation || x.Node1.ProvinceData.IsWater || x.Node2.ProvinceData.IsWater).ToList();
+        List<Connection> invalid = m_connections.Where(x => x.Node1.HasNation || x.Node2.HasNation || x.Node1.ProvinceData.IsWater || x.Node2.ProvinceData.IsWater || (x.Node1.IsCapRing && x.Node2.IsCapRing)).ToList();
 
         foreach (Node n in water)
         {
