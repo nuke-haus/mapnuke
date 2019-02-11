@@ -1736,6 +1736,8 @@ static class WorldGenerator
 
             n1.SetPlayerInfo(d1, new ProvinceData(d1.CapTerrain | Terrain.START));
             n2.SetPlayerInfo(d2, new ProvinceData(d2.CapTerrain | Terrain.START));
+            n1.SetAssignedTerrain(true);
+            n2.SetAssignedTerrain(true);
 
             m_starts.Add(n1);
             m_starts.Add(n2);
@@ -1788,6 +1790,7 @@ static class WorldGenerator
                 starts.Remove(n);
 
                 n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
+                n.SetAssignedTerrain(true);
             }
 
             foreach (NationData d in nats)
@@ -1796,6 +1799,7 @@ static class WorldGenerator
                 starts.Remove(n);
 
                 n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
+                n.SetAssignedTerrain(true);
             }
         }
         else
@@ -1809,6 +1813,7 @@ static class WorldGenerator
                 nats.Remove(d);
 
                 n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain | Terrain.START));
+                n.SetAssignedTerrain(true);
             }
         }
     }
