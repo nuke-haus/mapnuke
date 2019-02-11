@@ -143,7 +143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000044295073}
+  m_AnchoredPosition: {x: 0, y: 0.0000020357218}
   m_SizeDelta: {x: 0, y: 598.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &23284711
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 999444124}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15204,7 +15204,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 14e00de9645194c4baeb48bb09f97f9a, type: 3}
       WinterSprite: {fileID: 21300000, guid: b1d6fb4654b52df4793a7cff092c7f80, type: 3}
       SpawnChance: 1
-      Size: 0.06
+      Size: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       ValidColors: []
@@ -15212,7 +15212,23 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: e5779e96fb2e9c247b631dc55581c935, type: 3}
       WinterSprite: {fileID: 21300000, guid: 18d189e380409bd4980df6f0bcf66a38, type: 3}
       SpawnChance: 1
-      Size: 0.06
+      Size: 0.04
+      CanFlip: 0
+      CanFlipWinter: 0
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 15d0948990354ff4d829cb8eb57d418f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 474de5638c9f7c64fb76c0ccc5e20865, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CanFlip: 0
+      CanFlipWinter: 0
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 88cc1801f2784104b8e905a6d5c09502, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 50774529c020d8046983f94b81129b52, type: 3}
+      SpawnChance: 1
+      Size: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       ValidColors: []

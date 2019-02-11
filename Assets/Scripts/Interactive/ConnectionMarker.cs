@@ -207,7 +207,7 @@ public class ConnectionMarker: MonoBehaviour
                 Vector3 pos = pt;
                 last = pt;
                 pos.z = -3f;
-                pos.y -= 0.04f;
+                //pos.y -= 0.04f;
 
                 GameObject g = GameObject.Instantiate(MapSpritePrefab);
                 SpriteMarker sm = g.GetComponent<SpriteMarker>();
@@ -237,7 +237,7 @@ public class ConnectionMarker: MonoBehaviour
             m_sprites = new List<SpriteMarker>();
 
             Vector3 last = new Vector3(-900, -900, 0);
-            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             if (cs == null)
             {
@@ -246,13 +246,13 @@ public class ConnectionMarker: MonoBehaviour
 
             while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
             {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             }
 
             int ct = 0;
             int mid_ct = 0;
             int mid = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.35f);
-            int num_mid = UnityEngine.Random.Range(4, 9);//Mathf.RoundToInt(pb.OrderedPoints.Count * 0.20f);
+            int num_mid = UnityEngine.Random.Range(6, 10);//Mathf.RoundToInt(pb.OrderedPoints.Count * 0.20f);
 
             foreach (Vector3 pt in pb.OrderedPoints)
             {

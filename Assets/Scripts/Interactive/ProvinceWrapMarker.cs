@@ -391,13 +391,13 @@ public class ProvinceWrapMarker: MonoBehaviour
     {
         if (s == Season.SUMMER)
         {
-            if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
-            {
-                Mesh.material = MatSea;
-            }
-            else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
+            if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
             {
                 Mesh.material = MatDeepSea;
+            }
+            else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
+            {
+                Mesh.material = MatSea;
             }
             else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.FARM))
             {
@@ -434,13 +434,13 @@ public class ProvinceWrapMarker: MonoBehaviour
         }
         else
         {
-            if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
-            {
-                Mesh.material = MatWinterSea;
-            }
-            else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
+            if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
             {
                 Mesh.material = MatWinterDeepSea;
+            }
+            else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
+            {
+                Mesh.material = MatWinterSea;
             }
             else if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.FARM))
             {
