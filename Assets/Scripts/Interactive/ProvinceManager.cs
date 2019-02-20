@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,10 +88,6 @@ public class ProvinceManager: MonoBehaviour
         {
             flags = flags | Terrain.DEEPSEA | Terrain.SEA;
         }
-        if (Throne.isOn)
-        {
-            flags = flags | Terrain.THRONE;
-        }
 
         if (Large.isOn)
         {
@@ -114,21 +111,70 @@ public class ProvinceManager: MonoBehaviour
         {
             flags = flags | Terrain.START;
         }
+        if (Throne.isOn)
+        {
+            flags = flags | Terrain.THRONE;
+        }
 
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
         m_current.UpdateColor();
+        m_current.UpdateLinked();
 
         List<ProvinceMarker> provs = new List<ProvinceMarker> { m_current };
-        provs.AddRange(m_current.ConnectedProvinces);
+        List<ProvinceMarker> dummies = new List<ProvinceMarker>();
+
+        foreach (ProvinceMarker pm in m_current.ConnectedProvinces)
+        {
+            if (pm.IsDummy)
+            {
+                dummies.Add(pm);
+                provs.AddRange(pm.LinkedProvinces);
+                
+                if (pm.LinkedProvinces[0].LinkedProvinces.Count > 1)
+                {
+                    foreach (ProvinceMarker linked in pm.LinkedProvinces[0].LinkedProvinces) // 3 dummies
+                    {
+                        dummies.Add(linked);
+                        provs.AddRange(linked.ConnectedProvinces);
+                    }
+                }
+                else
+                {
+                    provs.AddRange(pm.LinkedProvinces[0].ConnectedProvinces);
+                }
+            }
+            else
+            {
+                provs.Add(pm);
+
+                if (pm.LinkedProvinces != null && pm.LinkedProvinces.Any())
+                {
+                    foreach (ProvinceMarker linked in pm.LinkedProvinces)
+                    {
+                        provs.AddRange(linked.ConnectedProvinces);
+                        dummies.Add(linked);
+                    }
+                }
+            }
+        }
+
+        if (m_current.LinkedProvinces != null && m_current.LinkedProvinces.Any())
+        {
+            foreach (ProvinceMarker linked in m_current.LinkedProvinces)
+            {
+                provs.AddRange(linked.ConnectedProvinces);
+                dummies.Add(linked);
+            }
+        }
 
         List<ConnectionMarker> conns = new List<ConnectionMarker>();
-        conns.AddRange(m_current.Connections);
+        List<ProvinceMarker> extra = new List<ProvinceMarker>();
 
         foreach (ProvinceMarker pm in provs)
         {
             foreach (ConnectionMarker m in pm.Connections)
             {
-                if (provs.Contains(m.Prov1) && provs.Contains(m.Prov2) && !conns.Contains(m))
+                if (!conns.Contains(m) && ((provs.Contains(m.Prov1) || dummies.Contains(m.Prov1)) && (provs.Contains(m.Prov2) || dummies.Contains(m.Prov2))))
                 {
                     conns.Add(m);
                 }
@@ -145,6 +191,8 @@ public class ProvinceManager: MonoBehaviour
 
     public void SetProvince(ProvinceMarker p)
     {
+        ConnectionManager.s_connection_manager.Deselect();
+
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
@@ -154,8 +202,6 @@ public class ProvinceManager: MonoBehaviour
         {
             m_current.SetSelected(false);
         }
-
-        ConnectionManager.s_connection_manager.Deselect();
 
         m_current = p;
 

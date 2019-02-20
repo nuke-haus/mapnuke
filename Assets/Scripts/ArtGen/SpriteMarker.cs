@@ -28,10 +28,27 @@ public class SpriteMarker: MonoBehaviour
         private set;
     }
 
+    public int SortingOrder
+    {
+        get
+        {
+            return GetComponent<SpriteRenderer>().sortingOrder;
+        }
+    }
+
     public void SetSeason(Season s)
     {
         if (s == Season.SUMMER)
         {
+            if (MapSprite.CanFlip && UnityEngine.Random.Range(0, 2) == 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+
             GetComponent<SpriteRenderer>().sprite = MapSprite.Sprite;
 
             if (MapSprite.ValidColors.Any())
@@ -45,6 +62,15 @@ public class SpriteMarker: MonoBehaviour
         }
         else
         {
+            if (MapSprite.CanFlipWinter && UnityEngine.Random.Range(0, 2) == 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+
             GetComponent<SpriteRenderer>().sprite = MapSprite.WinterSprite;
 
             if (MapSprite.ValidWinterColors.Any())
@@ -63,11 +89,6 @@ public class SpriteMarker: MonoBehaviour
         MapSprite = ms;
 
         SetSeason(GenerationManager.s_generation_manager.Season);
-
-        if (ms.CanFlip && UnityEngine.Random.Range(0, 2) == 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
     }
 
     public void CopyFrom(SpriteMarker m)

@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class ElementManager: MonoBehaviour
 {
+    public static ElementManager s_element_manager;
+
     public GameObject ProvinceMarker;
     public GameObject ConnectionMarker;
     public MapBorder MapBorder;
@@ -37,6 +39,14 @@ public class ElementManager: MonoBehaviour
         }
     }
 
+    public List<GameObject> GeneratedObjects
+    {
+        get
+        {
+            return m_generated;
+        }
+    }
+
     public List<ProvinceMarker> Provinces
     {
         get
@@ -53,6 +63,41 @@ public class ElementManager: MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        s_element_manager = this;
+
+        m_generated = new List<GameObject>();
+    }
+
+    public void ShowLabels(bool on)
+    {
+        foreach (ProvinceMarker pm in m_provinces)
+        {
+            pm.ShowLabel(on);
+        }
+    }
+
+    public void AddGeneratedObjects(List<GameObject> objs)
+    {
+        m_generated.AddRange(objs);
+    }
+
+    public void WipeGeneratedObjects()
+    {
+        if (m_generated != null)
+        {
+            foreach (GameObject o in m_generated)
+            {
+                GameObject.Destroy(o);
+            }
+
+            m_generated = new List<GameObject>();
+        }
+
+        MapBorder.SetBorders(new Vector3(9000, 9000), new Vector3(9001, 9001));
+    }
+
     public void GenerateElements(List<Node> nodes, List<Connection> conns, NodeLayout layout)
     {
         if (m_generated != null)
@@ -61,6 +106,8 @@ public class ElementManager: MonoBehaviour
             {
                 GameObject.Destroy(o);
             }
+
+            m_generated = new List<GameObject>();
         }
 
         m_generated = new List<GameObject>();
@@ -69,10 +116,14 @@ public class ElementManager: MonoBehaviour
 
         Vector3 min = Vector3.zero - new Vector3(m_size_x, m_size_y);
         Vector3 max = new Vector3(m_size_x * (layout.X - 1), m_size_y * (layout.Y - 1));
+        Vector3 min_top = new Vector3(min.x, max.y);
+        Vector3 max_bot = new Vector3(max.x, min.y);
+        float dist_up = Vector3.Distance(min, min_top);
+        float dist_horz = Vector3.Distance(min, max_bot);
 
         MapBorder.SetBorders(min, max);
 
-        foreach (Node n in nodes)
+        foreach (Node n in nodes) // create basic provinces
         {
             Vector3 pos = new Vector3(n.X * m_size_x, n.Y * m_size_y, 0);
             Vector3 randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
@@ -89,195 +140,180 @@ public class ElementManager: MonoBehaviour
 
         adjust_province_positions();
 
-        foreach (Connection c in conns)
+        List<ProvinceMarker> dummies = new List<ProvinceMarker>();
+
+        foreach (ProvinceMarker m in m_provinces) // create dummy provinces
         {
-            ProvinceMarker prov1 = m_provinces.FirstOrDefault(x => x.Node == c.Node1);
-            ProvinceMarker prov2 = m_provinces.FirstOrDefault(x => x.Node == c.Node2);
-            Vector3 p1 = prov1.transform.position;
-            Vector3 p2 = prov2.transform.position;
-
-            GameObject g = GameObject.Instantiate(ConnectionMarker);
-            ConnectionMarker m = g.GetComponent<ConnectionMarker>();
-
-            prov1.AddConnection(m);
-            prov2.AddConnection(m);
-
-            m_connections.Add(m);
-            m_generated.Add(g);
-
-            bool edge = false;
-
-            if (Vector3.Distance(p1, p2) > m_size_x * 3.0f) // wrap case
+            if (m.Node.X == 0 && m.Node.Y == 0)
             {
-                edge = true;
+                Vector3 pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
+                Vector3 pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
+                Vector3 pos_diag = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y + dist_up);
 
-                if (prov1.DistanceTo(new Vector2(layout.X - 1,0)) <= 0.01f && (prov2.DistanceTo(new Vector2(0, layout.Y - 1)) <= 0.01f))
-                {
-                    p2.x = max.x;
-                    p2.y = min.y;
-                }
-                else if (prov2.DistanceTo(new Vector2(layout.X - 1, 0)) <= 0.01f && (prov1.DistanceTo(new Vector2(0, layout.Y - 1)) <= 0.01f))
-                {
-                    p1.x = max.x;
-                    p1.y = min.y;
-                }
-                else if (prov1.DistanceTo(Vector2.zero) >= prov2.DistanceTo(Vector2.zero))
-                {
-                    bool vertical = prov2.Node.X == 0;
-                    bool horz = prov2.Node.Y == 0;
+                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                g1.transform.position = pos_up;
 
-                    if (vertical && horz)
+                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                m1.AddLinkedProvince(m);
+                m.AddLinkedProvince(m1);
+                m1.SetDummy(true, m);
+
+                GameObject g2 = GameObject.Instantiate(ProvinceMarker);
+                g2.transform.position = pos_right;
+
+                ProvinceMarker m2 = g2.GetComponent<ProvinceMarker>();
+                m2.AddLinkedProvince(m);
+                m.AddLinkedProvince(m2);
+                m2.SetDummy(true, m);
+
+                GameObject g3 = GameObject.Instantiate(ProvinceMarker);
+                g3.transform.position = pos_diag;
+
+                ProvinceMarker m3 = g3.GetComponent<ProvinceMarker>();
+                m3.AddLinkedProvince(m);
+                m.AddLinkedProvince(m3);
+                m3.SetDummy(true, m);
+
+                dummies.Add(m1);
+                dummies.Add(m2);
+                dummies.Add(m3);
+                m_generated.Add(g1);
+                m_generated.Add(g2);
+                m_generated.Add(g3);
+            }
+            else if (m.Node.X == 0)
+            {
+                Vector3 pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
+
+                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                g1.transform.position = pos_right;
+
+                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                m1.AddLinkedProvince(m);
+                m.AddLinkedProvince(m1);
+                m1.SetDummy(true, m);
+
+                dummies.Add(m1);
+                m_generated.Add(g1);
+            }
+            else if (m.Node.Y == 0)
+            {
+                Vector3 pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
+
+                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                g1.transform.position = pos_up;
+
+                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                m1.AddLinkedProvince(m);
+                m.AddLinkedProvince(m1);
+                m1.SetDummy(true, m);
+
+                dummies.Add(m1);
+                m_generated.Add(g1);
+            }
+        }
+
+        m_provinces.AddRange(dummies);
+
+        foreach (Connection c in conns) // create connection markers
+        {
+            ProvinceMarker prov1 = m_provinces.FirstOrDefault(x => x.Node == c.Node1 && !x.IsDummy);
+            ProvinceMarker prov2 = m_provinces.FirstOrDefault(x => x.Node == c.Node2 && !x.IsDummy);
+            List<ProvinceMarker> pd1 = m_provinces.Where(x => x.Node == c.Node1 && x.IsDummy).ToList();
+            List<ProvinceMarker> pd2 = m_provinces.Where(x => x.Node == c.Node2 && x.IsDummy).ToList();
+
+            if (pd1.Any() || pd2.Any()) // edge case
+            {
+                if (pd1.Any() && pd2.Any()) // both have an edge clone
+                {
+                    if (pd1.Any(x => x.Node.X == 0 && x.Node.Y == 0))
                     {
-                        if (prov1.Node.X > prov2.Node.X + 1)
-                        {
-                            p1.x = -1 * m_size_x;
-                        }
-                        if (prov1.Node.Y > prov2.Node.Y + 1)
-                        {
-                            p1.y = -1 * m_size_y;
-                        }
+                        pd1.Add(prov1);
+                        pd1 = pd1.OrderBy(x => Vector3.Distance(x.transform.position, prov2.transform.position)).ToList();
+                        prov1 = pd1[0];
                     }
-                    else
+                    else if (pd2.Any(x => x.Node.X == 0 && x.Node.Y == 0))
                     {
-                        if (vertical)
-                        {
-                            p1.x = -1 * m_size_x;
-                        }
-                        if (horz)
-                        {
-                            p1.y = -1 * m_size_y;
-                        }
-                    }                    
+                        pd2.Add(prov2);
+                        pd2 = pd2.OrderBy(x => Vector3.Distance(x.transform.position, prov1.transform.position)).ToList();
+                        prov2 = pd2[0];
+                    }
+                    else if (pd1.Any(x => x.Node.X == layout.X - 1 || x.Node.Y == layout.Y - 1))
+                    {
+                        pd2.Add(prov2);
+                        pd2 = pd2.OrderBy(x => Vector3.Distance(x.transform.position, prov1.transform.position)).ToList();
+                        prov2 = pd2[0];
+                    }
+                    else if (pd2.Any(x => x.Node.X == layout.X - 1 || x.Node.Y == layout.Y - 1))
+                    {
+                        pd1.Add(prov1);
+                        pd1 = pd1.OrderBy(x => Vector3.Distance(x.transform.position, prov2.transform.position)).ToList();
+                        prov1 = pd1[0];
+                    }
+                }
+                else if (pd1.Any())
+                {
+                    pd1.Add(prov1);
+                    pd1 = pd1.OrderBy(x => Vector3.Distance(x.transform.position, prov2.transform.position)).ToList();
+                    prov1 = pd1[0];
                 }
                 else
                 {
-                    bool vertical = prov1.Node.X == 0;
-                    bool horz = prov1.Node.Y == 0;
-
-                    if (vertical && horz)
-                    {
-                        if (prov2.Node.X > prov1.Node.X + 1)
-                        {
-                            p2.x = -1 * m_size_x;
-                        }
-                        if (prov2.Node.Y > prov1.Node.Y + 1)
-                        {
-                            p2.y = -1 * m_size_y;
-                        }
-                    }
-                    else
-                    {
-                        if (vertical)
-                        {
-                            p2.x = -1 * m_size_x;
-                        }
-                        if (horz)
-                        {
-                            p2.y = -1 * m_size_y;
-                        }
-                    }
+                    pd2.Add(prov2);
+                    pd2 = pd2.OrderBy(x => Vector3.Distance(x.transform.position, prov1.transform.position)).ToList();
+                    prov2 = pd2[0];
                 }
-
-                if (Mathf.Abs(p1.x - min.x) < 0.01f && Mathf.Abs(p1.y - min.y) > 0.01f)
-                {
-                    float diff = (p1.y - p2.y) * UnityEngine.Random.Range(0.40f, 0.60f);
-                    p1.y -= diff;
-                }
-
-                if (Mathf.Abs(p1.y - min.y) < 0.01f && Mathf.Abs(p1.x - min.x) > 0.01f && Mathf.Abs(p1.x - max.x) > 0.01f)
-                {
-                    float diff = (p1.x - p2.x) * UnityEngine.Random.Range(0.40f, 0.60f);
-                    p1.x -= diff;
-                }
-
-                if (Mathf.Abs(p2.x - min.x) < 0.01f && Mathf.Abs(p2.y - min.y) > 0.01f)
-                {
-                    float diff = (p2.y - p1.y) * UnityEngine.Random.Range(0.40f, 0.60f);
-                    p2.y -= diff;
-                }
-
-                if (Mathf.Abs(p2.y - min.y) < 0.01f && Mathf.Abs(p2.x - min.x) > 0.01f && Mathf.Abs(p2.x - max.x) > 0.01f)
-                {
-                    float diff = (p2.x - p1.x) * UnityEngine.Random.Range(0.40f, 0.60f);
-                    p2.x -= diff;
-                }
-            }
-
-            if (edge)
-            {
-                m.SetEdgeConnection(true);
-            }
-
-            m.SetProvinces(prov1, prov2);
-            m.SetEndPoints(p1, p2);
-            m.SetConnection(c);
-
-            Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
-            g.transform.position = center;
-        }
-
-        List<ConnectionMarker> new_dummies = new List<ConnectionMarker>();
-
-        // add dummy connections 
-        foreach (ConnectionMarker m in m_connections)
-        {
-            if (m.IsEdge)
-            {
-                Vector3 pos = m.Endpoint1;
-                ProvinceMarker target = m.Prov1;
-
-                if (Vector3.Distance(m.Endpoint1, m.Prov1.transform.position) < 0.10f) // grab the point that's not attached to any province
-                {
-                    pos = m.Endpoint2;
-                    target = m.Prov2;
-                }
-
-                Vector3 mirrored = get_mirrored_pos(min, max, pos);
 
                 GameObject g = GameObject.Instantiate(ConnectionMarker);
-                ConnectionMarker dummy = g.GetComponent<ConnectionMarker>();
-                dummy.SetDummy(true);
-                dummy.SetEdgeConnection(true);
-                dummy.SetLinkedConnection(m);
-                m.SetLinkedConnection(dummy);
+                ConnectionMarker m = g.GetComponent<ConnectionMarker>();
+                Vector3 p1 = prov1.transform.position;
+                Vector3 p2 = prov2.transform.position;
 
-                m.Prov1.AddConnection(dummy);
-                m.Prov2.AddConnection(dummy);
+                prov1.AddConnection(m);
+                prov2.AddConnection(m);
 
-                new_dummies.Add(dummy);
+                m_connections.Add(m);
                 m_generated.Add(g);
 
-                if (target == m.Prov1)
-                {
-                    dummy.SetProvinces(m.Prov1, m.Prov2);
-                    dummy.SetEndPoints(target.transform.position, mirrored);
+                m.SetEdgeConnection(true);
+                m.SetProvinces(prov1, prov2);
+                m.SetEndPoints(p1, p2);
+                m.SetConnection(c);
 
-                    Vector3 center = get_weighted_center(target.transform.position, mirrored, m.Prov1.Node, m.Prov2.Node);
-                    g.transform.position = center;
-                }
-                else
-                {
-                    dummy.SetProvinces(m.Prov2, m.Prov1);
-                    dummy.SetEndPoints(target.transform.position, mirrored);
+                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                g.transform.position = center;
+            }
+            else // base case
+            {
+                GameObject g = GameObject.Instantiate(ConnectionMarker);
+                ConnectionMarker m = g.GetComponent<ConnectionMarker>();
+                Vector3 p1 = prov1.transform.position;
+                Vector3 p2 = prov2.transform.position;
 
-                    Vector3 center = get_weighted_center(target.transform.position, mirrored, m.Prov2.Node, m.Prov1.Node);
-                    g.transform.position = center;
-                }   
+                prov1.AddConnection(m);
+                prov2.AddConnection(m);
+
+                m_connections.Add(m);
+                m_generated.Add(g);
+
+                m.SetProvinces(prov1, prov2);
+                m.SetEndPoints(p1, p2);
+                m.SetConnection(c);
+
+                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                g.transform.position = center;
             }
         }
-
-        m_connections.AddRange(new_dummies);
 
         number_provinces();
 
-        List<GameObject> objs = ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y);
-        m_generated.AddRange(objs);
+        ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y);
     }
 
     void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
     {
         int ypos = 0;
-        var row = m_provinces.Where(x => x.Node.Y == ypos).ToList();
+        var row = m_provinces.Where(x => x.Node.Y == ypos && !x.IsDummy).ToList();
 
         while (row.Any())
         {
@@ -306,11 +342,10 @@ public class ElementManager: MonoBehaviour
 
     void number_provinces() // assign province numbers based on X and Y position, this is how dominions does it
     {
-        m_provinces = m_provinces.OrderBy(x => x.gameObject.transform.position.y).ThenBy(x => x.gameObject.transform.position.x).ToList();
-
+        var valid = m_provinces.Where(x => !x.IsDummy).OrderBy(x => x.gameObject.transform.position.y).ThenBy(x => x.gameObject.transform.position.x);
         int num = 1;
 
-        foreach (ProvinceMarker pm in m_provinces)
+        foreach (ProvinceMarker pm in valid)
         {
             pm.Node.SetID(num);
             num++;

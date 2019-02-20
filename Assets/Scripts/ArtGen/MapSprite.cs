@@ -51,6 +51,7 @@ public class MapSprite
     public float Size;
     public bool CanFlip;
     public bool CanFlipWinter;
+    public bool IsCenterpiece;
 
     public List<Color> ValidColors;
     public List<Color> ValidWinterColors;

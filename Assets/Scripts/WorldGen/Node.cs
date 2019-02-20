@@ -156,6 +156,43 @@ public class Node
         }
     }
 
+    public int NumLandConnections
+    {
+        get
+        {
+            int num = 0;
+
+            foreach (Connection c in Connections)
+            {
+                if (c.ConnectionType == ConnectionType.STANDARD)
+                {
+                    if (c.Node1 == this)
+                    {
+                        if (c.Node2.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
+                        {
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (c.Node1.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
+                        {
+                            continue;
+                        }
+                    }
+
+                    num++;
+                }
+                else if (c.ConnectionType == ConnectionType.SHALLOWRIVER)
+                {
+                    num++;
+                }
+            }
+
+            return num;
+        }
+    }
+
     public Node(int x, int y, ProvinceData pd)
     {
         Connections = new List<Connection>();

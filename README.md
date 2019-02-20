@@ -21,15 +21,14 @@ Shortcomings I've acknowledged but lazily ignored.
 - Currently missing map layouts for the following player counts: 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
 - Improve poor FPS when many sprites are being rendered on large maps.... If possible.
-- Improve sprite placement. Currently some sprites will overlap in places where they shouldn't. 
 
 ### The art to-do list
 
 I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
-- More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 4 variants.
+- More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 5 variants.
 - Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite.
-- Improve province shaders. Sea shaders should have a nice shoreline but they don't. Mountain/highland/cave province shaders kind of suck.
+- Improve province shaders. Sea shaders should have a nice shoreline but they don't. 
 
 ### The wish list
 

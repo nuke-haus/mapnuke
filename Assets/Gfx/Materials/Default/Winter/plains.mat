@@ -79,7 +79,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Threshold1: 0.35
-    - _Threshold2: 0.75
+    - _Threshold2: 0.85
     - _UVSec: 0
     - _X: 1
     - _Y: 54

@@ -65,11 +65,11 @@ public class ArtManager: MonoBehaviour
         return SpriteSetCollection.GetConnectionSprite(flags);
     }
 
-    public List<GameObject> GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout, float x, float y)
+    public void GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout, float x, float y)
     {
         setup_cam(x, y);
 
-        return m_art.Generate(provs, conns, layout);// todo: allow the user to pick which art style?
+        m_art.Generate(provs, conns, layout);// todo: allow the user to pick which art style?
     }
 
     public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) // totally regen these provinces and their connections
@@ -94,8 +94,9 @@ public class ArtManager: MonoBehaviour
 
         float dist = Vector3.Distance(mins, maxs);
         float vert_dist = Vector3.Distance(mins, maxs2);
-
-        RenderPlane.transform.position = new Vector3(mins.x + 1f + (dist * 1.5f), mins.y + (vert_dist * 0.5f), 0);
+        float side_dist = 5f;
+        
+        RenderPlane.transform.position = new Vector3(mins.x + side_dist + (dist * 1.5f), mins.y + (vert_dist * 0.5f), 0);
         RenderPlane.transform.localScale = new Vector3(x * 0.1f, RenderPlane.transform.localScale.y, y * 0.1f);
 
         if (rend == null)

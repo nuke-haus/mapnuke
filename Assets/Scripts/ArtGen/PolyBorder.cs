@@ -45,6 +45,40 @@ public class PolyBorder
 
         return pts;
     }
+
+    public List<Vector3> GetFullLengthBorderMinusEnd(bool reversed = false)
+    {
+        List<Vector3> pts = new List<Vector3>();
+
+        if (reversed)
+        {
+            PolyBorder pb = Reversed();
+            pts.Add(pb.P1);
+            pts.AddRange(pb.OrderedPoints);
+        }
+        else
+        {
+            pts.Add(P1);
+            pts.AddRange(OrderedPoints);
+        }
+        
+        return pts;
+    }
+
+    public PolyBorder Offset(Vector3 offset)
+    {
+        List<Vector3> ordered = new List<Vector3>();
+
+        foreach (Vector3 v in OrderedPoints)
+        {
+            ordered.Add(v + offset);
+        }
+
+        PolyBorder pb = new PolyBorder(P1 + offset, P2 + offset, Connection);
+        pb.OrderedPoints = ordered;
+
+        return pb;
+    }
     
     public PolyBorder Reversed()
     {
@@ -76,7 +110,7 @@ public class PolyBorder
 
             Vector3 dir = (pt - prev).normalized;
             //Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
-            Vector3 shift = pt + normal * UnityEngine.Random.Range(0f, jitter);
+            Vector3 shift = pt + normal * UnityEngine.Random.Range(-jitter * 0.5f, jitter);
             pts.Add(shift);
 
             prev = pt;
@@ -152,8 +186,15 @@ public class PolyBorder
     { 
         float spacing = 0.04f;
         float dist = Vector3.Distance(P1, P2);
-        float latdist = dist * UnityEngine.Random.Range(0.08f, 0.22f);
+        float latdist = dist * UnityEngine.Random.Range(-0.08f, 0.35f);
         Vector3 mid = ((P1 + P2) / 2f) + norm * latdist;
+
+        if (mid.x > MapBorder.s_map_border.Maxs.x - 0.04f || mid.y > MapBorder.s_map_border.Maxs.y - 0.04f)
+        {
+            latdist = dist * UnityEngine.Random.Range(0.08f, 0.35f);
+            mid = ((P1 + P2) / 2f) + norm * latdist;
+        }
+
         Vector3 dir = (P2 - P1).normalized;
         Vector3 lat = Vector3.Cross(dir, Vector3.forward);
 

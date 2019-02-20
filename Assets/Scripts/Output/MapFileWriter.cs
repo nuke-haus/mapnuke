@@ -68,8 +68,9 @@ public static class MapFileWriter
         }
 
         int x = Mathf.RoundToInt(layout.X * mgr.X * 100);
-        int y = Mathf.RoundToInt(layout.Y * mgr.Y * 100);        
+        int y = Mathf.RoundToInt(layout.Y * mgr.Y * 100);
 
+        provs = provs.Where(p => !p.IsDummy).ToList();
         provs = provs.OrderBy(p => p.ProvinceNumber).ToList();
 
         using (FileStream fs = File.Create(path))
@@ -77,7 +78,7 @@ public static class MapFileWriter
             write(fs, "-- Basic Information");
             write(fs, "#dom2title " + mapname);
             write(fs, "#imagefile " + mapname + ".tga");
-            write(fs, "#winterimagefile " + mapname + "winter.tga");
+            write(fs, "#winterimagefile " + mapname + "_winter.tga");
             write(fs, "#mapsize " + x + " " + y);
             write(fs, "#wraparound");
             write(fs, "#maptextcol 0.2 0.0 0.0 1.0");
@@ -251,27 +252,47 @@ public static class MapFileWriter
         fs.Write(info, 0, info.Length);
     }
 
-    public static void GenerateImage(string mapname, RenderTexture tex)
+    public static void GenerateImage(string mapname, RenderTexture tex, bool is_targa = true)
     {
         Texture2D t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
-        byte[] bytes = t.EncodeToTGA();
-
         string data_folder = Application.dataPath;
         string folder = data_folder + "/Export/";
-        string path = folder + mapname + ".tga";
 
-        if (!Directory.Exists(folder))
+        if (is_targa)
         {
-            Directory.CreateDirectory(folder);
-        }
+            byte[] bytes = t.EncodeToTGA();
+            string path = folder + mapname + ".tga";
 
-        if (File.Exists(path))
-        {
-            File.Delete(path);
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+            File.WriteAllBytes(path, bytes);
         }
-        
-        File.WriteAllBytes(path, bytes);
+        else
+        {
+            byte[] bytes = t.EncodeToPNG();
+            string path = folder + mapname + ".png";
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+            File.WriteAllBytes(path, bytes);
+        }
     }
 }

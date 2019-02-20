@@ -23,9 +23,13 @@ public class ConnectionMarker: MonoBehaviour
     public GameObject SpriteObj;
     public LineRenderer BorderLine;
 
+    public GameObject WrapMarkerPrefab;
     public GameObject MapSpritePrefab;
 
+    List<ConnectionWrapMarker> m_wraps;
+    PolyBorder m_border;
     List<Vector3> m_poly;
+    List<Vector3> m_culling_points;
     Vector3 m_pos1;
     Vector3 m_pos2;
     Vector3 m_midpt;
@@ -55,6 +59,52 @@ public class ConnectionMarker: MonoBehaviour
         get
         {
             return m_is_dummy;
+        }
+    }
+
+    public PolyBorder PolyBorder
+    {
+        get
+        {
+            return m_border;
+        }
+    }
+
+    public List<Vector3> CullingPoints
+    {
+        get
+        {
+            return m_culling_points;
+        }
+    }
+
+    public Vector3 DummyOffset
+    {
+        get
+        {
+            if (Prov1.IsDummy)
+            {
+                return Prov1.DummyOffset;
+            }
+            else
+            {
+                return Prov2.DummyOffset;
+            }
+        }
+    }
+
+    public ProvinceMarker Dummy
+    {
+        get
+        {
+            if (Prov1.IsDummy)
+            {
+                return Prov1;
+            }
+            else
+            {
+                return Prov2;
+            }
         }
     }
 
@@ -159,7 +209,18 @@ public class ConnectionMarker: MonoBehaviour
         rend.SetPositions(new Vector3[] {p1, p2});
     }
 
-    public List<SpriteMarker> PlaceSprites(DefaultArtStyle def)
+    void make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
+    {
+        GameObject g = GameObject.Instantiate(MapSpritePrefab);
+        SpriteMarker sm = g.GetComponent<SpriteMarker>();
+        sm.SetSprite(cs);
+        sm.transform.position = pos + offset;
+
+        m_sprites.Add(sm);
+        m_sprites.AddRange(sm.CreateMirrorSprites());
+    }
+
+    public List<SpriteMarker> PlaceSprites()
     {
         if (m_sprites != null)
         {
@@ -171,9 +232,7 @@ public class ConnectionMarker: MonoBehaviour
 
         if (m_connection.ConnectionType == ConnectionType.MOUNTAIN)
         {
-            PolyBorder pb = def.GetPolyBorder(m_connection);
-
-            if (pb == null)
+            if (PolyBorder == null)
             {
                 return new List<SpriteMarker>();
             }
@@ -195,9 +254,14 @@ public class ConnectionMarker: MonoBehaviour
 
             int ct = 0;
 
-            foreach (Vector3 pt in pb.OrderedPoints)
+            make_sprite(PolyBorder.P1, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+            make_sprite(PolyBorder.P2, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+
+            foreach (Vector3 pt in PolyBorder.OrderedPoints)
             {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < pb.OrderedPoints.Count - 1)
+                if (Vector3.Distance(last, pt) < cs.Size && ct < PolyBorder.OrderedPoints.Count - 1)
                 {
                     ct++;
                     continue;
@@ -207,15 +271,8 @@ public class ConnectionMarker: MonoBehaviour
                 Vector3 pos = pt;
                 last = pt;
                 pos.z = -3f;
-                //pos.y -= 0.04f;
 
-                GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                sm.SetSprite(cs);
-                sm.transform.position = pos;
-
-                m_sprites.Add(sm);
-                m_sprites.AddRange(sm.CreateMirrorSprites());
+                make_sprite(pos, cs, Vector3.zero);
 
                 cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
 
@@ -227,9 +284,7 @@ public class ConnectionMarker: MonoBehaviour
         }
         else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
         {
-            PolyBorder pb = def.GetPolyBorder(m_connection);
-
-            if (pb == null)
+            if (PolyBorder == null)
             {
                 return new List<SpriteMarker>();
             }
@@ -238,62 +293,83 @@ public class ConnectionMarker: MonoBehaviour
 
             Vector3 last = new Vector3(-900, -900, 0);
             ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            PolyBorder other = PolyBorder.Reversed();
 
-            if (cs == null)
+            int right_ct = 0;
+            int right_pos = 0;
+
+            make_sprite(PolyBorder.P1, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            make_sprite(PolyBorder.P2, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+
+            foreach (Vector3 pt in other.OrderedPoints)
             {
-                return new List<SpriteMarker>();
-            }
-
-            while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-            {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            }
-
-            int ct = 0;
-            int mid_ct = 0;
-            int mid = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.35f);
-            int num_mid = UnityEngine.Random.Range(6, 10);//Mathf.RoundToInt(pb.OrderedPoints.Count * 0.20f);
-
-            foreach (Vector3 pt in pb.OrderedPoints)
-            {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < pb.OrderedPoints.Count - 1)
+                if (Vector3.Distance(last, pt) < cs.Size)
                 {
-                    ct++;
+                    right_pos++;
                     continue;
                 }
 
-                ct++;
                 Vector3 pos = pt;
                 last = pt;
                 pos.z = -3f;
 
-                GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                sm.SetSprite(cs);
-                sm.transform.position = pos;
+                make_sprite(pos, cs, Vector3.zero);
 
-                m_sprites.Add(sm);
-
-                if (ct > mid && mid_ct < num_mid)
+                if (right_ct > 1)
                 {
-                    mid_ct++;
+                    break;
+                }
 
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+
+                right_ct++;
+                right_pos++;
+            }
+
+            Vector3 endpt = other.OrderedPoints[right_pos];
+            right_ct = -1;
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bool is_mountain = true;
+
+            foreach (Vector3 pt in PolyBorder.OrderedPoints)
+            {
+                if (Vector3.Distance(pt, endpt) < 0.08f)
+                {
+                    break;
+                }
+
+                if (Vector3.Distance(last, pt) < cs.Size)
+                {
+                    continue;
+                }
+
+                Vector3 pos = pt;
+                last = pt;
+                pos.z = -3f;
+
+                if (!is_mountain)
+                {
+                    make_sprite(pos, cs, new Vector3(0, 0.01f));
+                }
+                else
+                {
+                    make_sprite(pos, cs, Vector3.zero);
+                }
+
+                if (Vector3.Distance(pt, endpt) < 0.6f)
+                {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
-
-                    while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                    {
-                        cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
-                    }
+                    is_mountain = false;
                 }
                 else
                 {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-
-                    while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                    {
-                        cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-                    }
+                    is_mountain = true;
                 }
+
+                right_ct--;
             }
         }
         else
@@ -301,7 +377,15 @@ public class ConnectionMarker: MonoBehaviour
             m_sprites = new List<SpriteMarker>();
         }
 
-        return m_sprites;
+        List<SpriteMarker> all = new List<SpriteMarker>();
+        all.AddRange(m_sprites);
+
+        foreach (ConnectionWrapMarker m in m_wraps)
+        {
+            all.AddRange(m.PlaceSprites());
+        }
+
+        return all;
     }
 
     public void ClearTriangles()
@@ -309,19 +393,29 @@ public class ConnectionMarker: MonoBehaviour
         m_tri_centers = new List<Vector3>();
     }
 
-    public void AddTriangleCenter(Vector3 pos)
+    public PolyBorder GetOffsetBorder(Vector3 offset)
     {
+        return m_border.Offset(offset);
+    }
+
+    public void CreatePolyBorder()
+    {
+        m_border = new PolyBorder(m_tri_centers[0] + transform.position, m_tri_centers[1] + transform.position, this.Connection);
+    }
+
+    public void AddTriangleCenter(Vector3 pos) // this is in worldspace relative to this marker's position so we have to subtract its position to get localspace
+    {
+        pos = pos - transform.position;
+
         if (m_tri_centers == null)
         {
             m_tri_centers = new List<Vector3>();
         }
 
-        if (m_tri_centers.Any(x => Vector3.Distance(x, pos) < 0.01f))
+        if (!m_tri_centers.Any(x => Vector3.Distance(x, pos) < 0.01f))
         {
-            return;
+            m_tri_centers.Add(pos);
         }
-
-        m_tri_centers.Add(pos);
     }
 
     public void SetLinkedConnection(ConnectionMarker m)
@@ -380,13 +474,54 @@ public class ConnectionMarker: MonoBehaviour
         }
     }
 
-    public void CreatePolygon(DefaultArtStyle def)
+    public GameObject CreateWrapMesh(PolyBorder pb, Vector3 offset)
+    {
+        if (m_wraps == null)
+        {
+            m_wraps = new List<ConnectionWrapMarker>();
+        }
+
+        GameObject obj = GameObject.Instantiate(WrapMarkerPrefab);
+        ConnectionWrapMarker wrap = obj.GetComponent<ConnectionWrapMarker>();
+
+        wrap.SetParent(this);
+        wrap.CreatePoly(m_poly, pb, offset);
+        obj.transform.position = obj.transform.position + offset;
+
+        m_wraps.Add(wrap);
+
+        return obj;
+    }
+
+    public void ClearWrapMeshes()
+    {
+        if (m_wraps == null)
+        {
+            m_wraps = new List<ConnectionWrapMarker>();
+        }
+        else
+        {
+            foreach (ConnectionWrapMarker m in m_wraps)
+            {
+                if (m != null)
+                {
+                    m.Delete();
+                }
+            }
+
+            m_wraps = new List<ConnectionWrapMarker>();
+        }
+    }
+
+    public void RecalculatePoly()
     {
         BorderLine.positionCount = 2;
         BorderLine.SetPositions(new Vector3[] { new Vector3(900, 900, 0), new Vector3(901, 900, 0) });
         MeshFilter.mesh.Clear();
 
-        PolyBorder pb = def.GetPolyBorder(m_connection);
+        PolyBorder pb = PolyBorder;// def.GetPolyBorder(m_connection);
+
+        m_culling_points = new List<Vector3>();
 
         if (pb == null)
         {
@@ -396,17 +531,9 @@ public class ConnectionMarker: MonoBehaviour
         if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
             m_poly = get_contour(pb, 0.02f, 0.08f);
+            //m_removal_points = pb.OrderedPoints;
+
             ConstructPoly();
-
-            /*if (m_connection.ConnectionType == ConnectionType.RIVER)
-            {
-                Mesh.material = MatDeepSea;
-            }
-            else
-            {
-                Mesh.material = MatSea;
-            }*/
-
             SetSeason(GenerationManager.s_generation_manager.Season);
 
             return;
@@ -414,8 +541,8 @@ public class ConnectionMarker: MonoBehaviour
         else if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
             Vector3 dir = (m_pos2 - m_pos1).normalized;
-            Vector3 p1 = m_pos1 + dir * 0.22f;
-            Vector3 p2 = m_pos2 - dir * 0.22f;
+            Vector3 p1 = m_pos1 + dir * 0.24f;
+            Vector3 p2 = m_pos2 - dir * 0.24f;
 
             if (IsEdge)
             {
@@ -430,29 +557,18 @@ public class ConnectionMarker: MonoBehaviour
             }
 
             PolyBorder fake = new PolyBorder(p1, p2, m_connection);
+            m_culling_points = fake.OrderedPoints;
 
             m_poly = get_contour(fake, 0.01f, 0.02f);
             ConstructPoly(true);
-
-            //Mesh.material = MatRoad;
         }
 
         List<Vector3> border = pb.GetFullLengthBorder();
         List<Vector3> fix = new List<Vector3>();
 
-        if (IsDummy)
+        foreach (Vector3 v in border)
         {
-            foreach (Vector3 v in border)
-            {
-                fix.Add(new Vector3(v.x, v.y, -1.9f));
-            }
-        }
-        else
-        {
-            foreach (Vector3 v in border)
-            {
-                fix.Add(new Vector3(v.x, v.y, -0.8f));
-            }
+            fix.Add(new Vector3(v.x, v.y, -0.8f));
         }
 
         Vector3[] arr = fix.ToArray();

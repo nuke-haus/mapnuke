@@ -118,20 +118,19 @@ public class GenerationManager : MonoBehaviour
             Logo.SetActive(false);
         }
 
+        if (ElementManager.s_element_manager.GeneratedObjects.Any())
+        {
+            ElementManager.s_element_manager.WipeGeneratedObjects();
+            GetComponent<AudioSource>().PlayOneShot(DenyAudio);
+            return;
+        }
+
         List<NationData> picks = new List<NationData>();
 
         foreach (GameObject obj in m_content)
         {
             Dropdown d = obj.GetComponent<Dropdown>();
             string str = d.options[d.value].text;
-/*#if DEBUG
-            // nvm
-#else
-            if (str == "CHOOSE NATION")
-            {
-                return;
-            }
-#endif*/
             NationData data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
 
             if (data == null || picks.Contains(data))
@@ -274,6 +273,14 @@ public class GenerationManager : MonoBehaviour
 
         MapFileWriter.GenerateImage(str, mgr.Texture); // summer
 
+        mgr.ShowLabels(true);
+
+        yield return null;
+
+        MapFileWriter.GenerateImage(str + "_with_labels", mgr.Texture, false); // labeled image
+
+        mgr.ShowLabels(false);
+
         if (m_season == Season.SUMMER)
         {
             m_season = Season.WINTER;
@@ -292,7 +299,7 @@ public class GenerationManager : MonoBehaviour
 
         yield return new WaitForEndOfFrame(); // possibly not needed
 
-        MapFileWriter.GenerateImage(str + "winter", mgr.Texture); // winter
+        MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter
 
         if (m_season == Season.SUMMER)
         {

@@ -37,6 +37,7 @@ public class SpriteSetEditor: Editor
 public class MapSpriteSet
 {
     public float CullChance;
+    public float ProvinceEdgeThreshold;
     public List<ProvinceSprite> MapSprites;
 
     public ProvinceSprite GetSprite(Terrain flag)
@@ -46,7 +47,7 @@ public class MapSpriteSet
             return null;
         }
 
-        List<ProvinceSprite> valid = MapSprites.Where(x => flag.IsFlagSet(x.ValidTerrain)).ToList();
+        List<ProvinceSprite> valid = MapSprites.Where(x => flag.IsFlagSet(x.ValidTerrain) && !x.IsCenterpiece).ToList();
 
         if (!valid.Any())
         {

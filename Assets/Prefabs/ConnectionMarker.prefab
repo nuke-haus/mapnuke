@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358744808691306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4871783, y: -2.999832, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878537508883216}
@@ -141,8 +141,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413024173514438}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -237,6 +237,8 @@ MonoBehaviour:
   MeshObj: {fileID: 1413024173514438}
   SpriteObj: {fileID: 1572748779056584}
   BorderLine: {fileID: 120965680422390280}
+  WrapMarkerPrefab: {fileID: 1940746244970446, guid: 7380bc0a08408dc4c984afc140b76c9d,
+    type: 2}
   MapSpritePrefab: {fileID: 1046635996423882, guid: ba1efdff4df0d574288077580a093a23,
     type: 2}
 --- !u!120 &120949504993684332

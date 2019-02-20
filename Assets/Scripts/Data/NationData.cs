@@ -108,7 +108,7 @@ public static class AllNationData
         AddNation(new NationData("(EA) Mictlan", 12, 0.0f, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Abysia", 13, 0.0f, Age.EARLY, Terrain.CAVE, new Terrain[] { Terrain.WASTE, Terrain.CAVE, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Caelum", 14, 0.0f, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS }));
-        AddNation(new NationData("(EA) C'tis", 15, 0.0f, Age.EARLY, Terrain.SWAMP, new Terrain[] { Terrain.WASTE, Terrain.SWAMP, Terrain.PLAINS }));
+        AddNation(new NationData("(EA) C'tis", 15, 0.0f, Age.EARLY, Terrain.SWAMP, new Terrain[] { Terrain.WASTE, Terrain.SWAMP | Terrain.LARGEPROV, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Pangaea", 16, 0.0f, Age.EARLY, Terrain.FOREST, new Terrain[] { Terrain.FOREST | Terrain.SMALLPROV, Terrain.FOREST | Terrain.SMALLPROV, Terrain.FOREST }));
         AddNation(new NationData("(EA) Agartha", 17, 0.0f, Age.EARLY, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.CAVE, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Tir Na N'og", 18, 0.0f, Age.EARLY, Terrain.HIGHLAND, new Terrain[] { Terrain.SWAMP, Terrain.HIGHLAND, Terrain.PLAINS }));
@@ -120,9 +120,9 @@ public static class AllNationData
         AddNation(new NationData("(EA) Kailasa", 25, 0.0f, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.HIGHLAND, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Lanka", 26, 0.0f, Age.EARLY, Terrain.HIGHLAND, new Terrain[] { Terrain.HIGHLAND, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Yomi", 27, 0.0f, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS }));
-        AddNation(new NationData("(EA) Hinnom", 28, 0.0f, Age.EARLY, Terrain.WASTE, new Terrain[] { Terrain.WASTE, Terrain.WASTE | Terrain.LARGEPROV, Terrain.PLAINS }));
+        AddNation(new NationData("(EA) Hinnom", 28, 0.0f, Age.EARLY, Terrain.WASTE, new Terrain[] { Terrain.WASTE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Ur", 29, 0.1f, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.SWAMP, Terrain.PLAINS, Terrain.PLAINS }));
-        AddNation(new NationData("(EA) Berytos", 30, 0.0f, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.WASTE, Terrain.WASTE | Terrain.LARGEPROV, Terrain.PLAINS }));
+        AddNation(new NationData("(EA) Berytos", 30, 0.0f, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.WASTE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Xibalba", 31, 0.0f, Age.EARLY, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Mekone", 32, 0.0f, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Atlantis", 36, 1.0f, Age.EARLY, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.DEEPSEA | Terrain.SEA, Terrain.DEEPSEA | Terrain.SEA, Terrain.FARM | Terrain.SEA, Terrain.SEA, Terrain.SEA }));
@@ -149,7 +149,7 @@ public static class AllNationData
         AddNation(new NationData("(MA) C'tis", 57, 0.0f, Age.MIDDLE, Terrain.SWAMP, new Terrain[] { Terrain.SWAMP | Terrain.LARGEPROV, Terrain.WASTE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(MA) Pangaea", 58, 0.0f, Age.MIDDLE, Terrain.FOREST, new Terrain[] { Terrain.FOREST | Terrain.SMALLPROV, Terrain.FOREST | Terrain.SMALLPROV, Terrain.FOREST}));
         AddNation(new NationData("(MA) Asphodel", 59, 0.0f, Age.MIDDLE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
-        AddNation(new NationData("(MA) Vanheim", 60, 0.0f, Age.MIDDLE, Terrain.CAVE, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.SEA }));
+        AddNation(new NationData("(MA) Vanheim", 60, 0.1f, Age.MIDDLE, Terrain.CAVE, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.HIGHLAND }));
         AddNation(new NationData("(MA) Jotunheim", 61, 0.0f, Age.MIDDLE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(MA) Vanarus", 62, 0.0f, Age.MIDDLE, Terrain.MOUNTAINS, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(MA) Bandar Log", 63, 0.0f, Age.MIDDLE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
@@ -179,13 +179,13 @@ public static class AllNationData
         AddNation(new NationData("(LA) Agartha", 90, 0.0f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.MOUNTAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Abysia", 91, 0.0f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.WASTE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Caelum", 92, 0.0f, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS }));
-        AddNation(new NationData("(LA) C'tis", 93, 0.0f, Age.LATE, Terrain.SWAMP, new Terrain[] { Terrain.WASTE | Terrain.LARGEPROV, Terrain.WASTE | Terrain.LARGEPROV, Terrain.PLAINS }));
+        AddNation(new NationData("(LA) C'tis", 93, 0.0f, Age.LATE, Terrain.SWAMP, new Terrain[] { Terrain.WASTE | Terrain.LARGEPROV, Terrain.SWAMP, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Pangaea", 94, 0.0f, Age.LATE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Midgard", 95, 0.0f, Age.LATE, Terrain.HIGHLAND, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.SEA }));
         AddNation(new NationData("(LA) Utgard", 96, 0.0f, Age.LATE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Bogarus", 97, 0.0f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Patala", 98, 0.0f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.FOREST, Terrain.CAVE, Terrain.PLAINS }));
-        AddNation(new NationData("(LA) Gath", 99, 0.0f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS }));
+        AddNation(new NationData("(LA) Gath", 99, 0.0f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.WASTE }));
         AddNation(new NationData("(LA) Ragha", 100, 0.0f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Xibalba", 101, 0.3f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.SWAMP | Terrain.LARGEPROV, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Phlegra", 102, 0.0f, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.MOUNTAINS, Terrain.PLAINS, Terrain.PLAINS }));

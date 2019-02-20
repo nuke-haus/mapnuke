@@ -32,11 +32,14 @@ public class MapBorder: MonoBehaviour
         Mins = mins;
         Maxs = maxs;
 
+        mins.z = -3.9f;
+        maxs.z = -3.9f;
+
         List<Vector3> pts = new List<Vector3>();
         pts.Add(mins);
-        pts.Add(new Vector3(mins.x, maxs.y));
+        pts.Add(new Vector3(mins.x, maxs.y, maxs.z));
         pts.Add(maxs);
-        pts.Add(new Vector3(maxs.x, mins.y));
+        pts.Add(new Vector3(maxs.x, mins.y, mins.z));
         //pts.Add(mins);
 
         LineRenderer rend = GetComponent<LineRenderer>();

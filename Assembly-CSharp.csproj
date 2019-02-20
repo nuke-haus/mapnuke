@@ -74,9 +74,9 @@
     <Compile Include="Assets\Scripts\Enum.cs" />
     <Compile Include="Assets\Scripts\EnumFlagAttribute.cs" />
     <Compile Include="Assets\Scripts\Interactive\CamControl.cs" />
-    <Compile Include="Assets\Scripts\Interactive\ConnectionEdgeMarker.cs" />
     <Compile Include="Assets\Scripts\Interactive\ConnectionManager.cs" />
     <Compile Include="Assets\Scripts\Interactive\ConnectionMarker.cs" />
+    <Compile Include="Assets\Scripts\Interactive\ConnectionWrapMarker.cs" />
     <Compile Include="Assets\Scripts\Interactive\ElementManager.cs" />
     <Compile Include="Assets\Scripts\Interactive\GenerationManager.cs" />
     <Compile Include="Assets\Scripts\Interactive\MapBorder.cs" />
@@ -95,6 +95,8 @@
     <Compile Include="Assets\Scripts\WorldGen\NodeLayout.cs" />
     <Compile Include="Assets\Scripts\WorldGen\WorldGenerator.cs" />
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
+    <None Include="Assets\Gfx\Shaders\Test.shader" />
+    <None Include="Assets\Gfx\Shaders\Test2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin3.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
     <Reference Include="UnityEditor.StandardEvents">

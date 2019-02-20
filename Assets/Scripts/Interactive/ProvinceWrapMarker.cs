@@ -35,12 +35,12 @@ public class ProvinceWrapMarker: MonoBehaviour
     public MeshFilter MeshFilter;
     public MeshCollider MeshCollider;
     public GameObject MeshObj;
-    public LineRenderer BorderLine;
 
     public GameObject MapSpritePrefab;
 
     Node m_node;
     ProvinceMarker m_parent;
+    Vector3 m_offset;
     List<Vector3> m_poly;
     List<Vector3> m_sprite_points;
     List<SpriteMarker> m_sprites;
@@ -98,218 +98,22 @@ public class ProvinceWrapMarker: MonoBehaviour
         }
     }
 
-    public void CreatePoly(List<ConnectionMarker> conns, ConnectionMarker ext, DefaultArtStyle art)
+    public void CreatePoly(List<Vector3> poly, Vector3 offset)
     {
-        m_connections = conns;
+        m_poly = poly; 
+        m_offset = offset;
+        
+        ConstructPoly();
 
-        RecalculatePoly(ext, art);
-        ConstructPoly(ext);
-    }
-
-    public void CreatePoly(List<ConnectionMarker> conns, DefaultArtStyle art, bool is_corner)
-    {
-        m_is_corner = is_corner;
-        m_connections = conns;
-
-        RecalculatePoly(null, art);
-        ConstructPoly(null);
-    }
-
-    public void RecalculatePoly(ConnectionMarker ext, DefaultArtStyle art)
-    {
         m_poly = new List<Vector3>();
 
-        foreach (ConnectionMarker cm in m_connections)
+        foreach (Vector3 p in poly)
         {
-            foreach (Vector3 p in cm.TriCenters)
-            {
-                if (!m_poly.Any(x => Vector3.Distance(x, p) < 0.01f))
-                {
-                    m_poly.Add(p);
-                }
-            }
-
-            if (cm.TriCenters.Count == 3) // corner case
-            {
-                m_poly = m_poly.OrderBy(x => x.y).ThenBy(x => 9000f - x.x).ToList();
-
-                List<Vector3> vecs = new List<Vector3>();
-
-                PolyBorder pb = art.AddPolyEdge(m_poly[2], m_poly[0], cm.Connection);
-                m_poly.AddRange(pb.OrderedPoints);
-
-                return;
-            }
-        }
-
-        List<Vector3> reversi = new List<Vector3>();
-        reversi.AddRange(m_poly);
-        reversi = reversi.OrderBy(x => x.y).ThenBy(x => x.x).ToList();
-        reversi.Reverse();
-
-        Vector3 farpt = Vector3.negativeInfinity;
-
-        if (ext != null)
-        {
-            Vector3 pos = ext.EdgePoint;
-            farpt = m_poly.FirstOrDefault(x => Mathf.Abs(x.y - pos.y) < 0.01f || Mathf.Abs(x.x - pos.x) < 0.01f);
-            Vector3 mid = (pos + farpt) / 2;
-
-            m_poly.Add(mid);
-        }
-
-        m_poly = m_poly.OrderBy(x => x.y).ThenBy(x => x.x).ToList();        
-
-        if (ext != null)
-        {
-            int ct = -1;
-            Vector3 last = Vector3.negativeInfinity;
-            Vector3 last_offset = Vector3.negativeInfinity;
-            List<Vector3> reverse = new List<Vector3>();
-            reverse.AddRange(m_poly.Where(x => Vector3.Distance(x, farpt) > 0.01f));
-            reverse.Reverse();
-
-            List<ConnectionMarker> used = new List<ConnectionMarker>();
-
-            foreach (Vector3 vec in reverse) 
-            {
-                ct++;
-
-                if (ct == 0)
-                {
-                    last = vec;
-                    last_offset = vec;
-                    continue;
-                }
-
-                ConnectionMarker m = m_connections.FirstOrDefault(x => x.TriCenters.Any(y => Vector3.Distance(vec, y) < 0.01f) && x.TriCenters.Any(y => Vector3.Distance(last, y) < 0.01f));
-
-                if (m == null && m_connections.Any())
-                {
-                    m = m_connections.FirstOrDefault(x => !used.Contains(x));
-                }
-
-                if (m != null)
-                {
-                    used.Add(m);
-                    Vector3 p1 = m.Endpoint1;
-
-                    if (Vector3.Distance(p1, m.EdgePoint) < 0.01f)
-                    {
-                        p1 = m.Endpoint2;
-                    }
-
-                    Vector3 dir = (p1 - m.EdgePoint).normalized;
-                    Vector3 offset = vec + dir * UnityEngine.Random.Range(0.05f, 0.25f);
-
-                    if (ct == reverse.Count - 1)
-                    {
-                        offset = vec;
-                    }
-
-                    PolyBorder pb = art.AddPolyEdge(last_offset, offset, dir, m.Connection);
-                    m_poly.AddRange(pb.OrderedPoints);
-
-                    last = vec;
-                    last_offset = offset;
-                }
-            }
-        }
-        else
-        {
-            int ct = -1;
-            Vector3 last = Vector3.negativeInfinity;
-            Vector3 last_offset = Vector3.negativeInfinity;
-            List<Vector3> reverse = new List<Vector3>();
-            reverse.AddRange(m_poly);
-            reverse.Reverse();
-
-            foreach (Vector3 vec in reverse)
-            {
-                ct++;
-
-                if (ct == 0)
-                {
-                    last = vec;
-                    last_offset = vec;
-                    continue;
-                }
-
-                ConnectionMarker m = m_connections.FirstOrDefault(x => x.TriCenters.Any(y => Vector3.Distance(vec, y) < 0.01f) && x.TriCenters.Any(y => Vector3.Distance(last, y) < 0.01f));
-
-                if (m != null)
-                {
-                    Vector3 p1 = m.Endpoint1;
-
-                    if (Vector3.Distance(p1, m.EdgePoint) < 0.01f)
-                    {
-                        p1 = m.Endpoint2;
-                    }
-
-                    Vector3 dir = (p1 - m.EdgePoint).normalized;
-                    Vector3 offset = vec + dir * UnityEngine.Random.Range(0.05f, 0.25f);
-
-                    if (ct == reverse.Count - 1)
-                    {
-                        offset = vec;
-                    }
-
-                    PolyBorder pb = art.AddPolyEdge(last_offset, offset, dir, m.Connection);
-                    m_poly.AddRange(pb.OrderedPoints);
-
-                    last = vec;
-                    last_offset = offset;
-                }
-            }
+            m_poly.Add(p + offset);
         }
     }
 
-    /*public void RandomizePoly(DefaultArtStyle def)
-    {
-        List<Vector3> result = new List<Vector3>();
-        Vector3 last = m_poly[m_poly.Count - 1];
-        Connection lastconn = null;
-
-        foreach (Vector3 v in m_poly)
-        {
-            bool found = false;
-
-            foreach (ConnectionMarker m in m_connections)
-            {
-                if (m.TriCenters.Any(x => Vector3.Distance(x, v) < 0.01f) && m.TriCenters.Any(x => Vector3.Distance(x, last) < 0.01f))
-                {
-                    found = true;
-                    lastconn = m.Connection;
-
-                    if (m.IsEdge)
-                    {
-                        result.Add(last);
-                    }
-                    else
-                    {
-                        PolyBorder pb = def.AddPolyEdge(last, v, m.Connection);
-                        result.Add(last);
-                        result.AddRange(pb.OrderedPoints);
-                    }
-
-                    break;
-                }
-            }
-
-            if (!found)
-            {
-                PolyBorder pb = def.AddPolyEdge(last, v, lastconn);
-                result.Add(last);
-                result.AddRange(pb.OrderedPoints);
-            }
-
-            last = v;
-        }
-
-        m_poly = result;
-    }*/
-
-    public void ConstructPoly(ConnectionMarker ext)
+    public void ConstructPoly()
     {
         if (m_poly == null || !m_poly.Any())
         {
@@ -323,7 +127,7 @@ public class ProvinceWrapMarker: MonoBehaviour
         m.vertices = m_poly.ToArray();
         m.triangles = indices;
 
-        calculate_uv(m, ext);
+        calculate_uv(m, Vector3.zero);
 
         m.RecalculateNormals();
         m.RecalculateBounds();
@@ -335,39 +139,9 @@ public class ProvinceWrapMarker: MonoBehaviour
         assign_mat();
     }
 
-    void calculate_uv(Mesh m, ConnectionMarker ext)
+    void calculate_uv(Mesh m, Vector3 offset)
     {
         Vector2[] uv = new Vector2[m_poly.Count];
-        Vector2 offset = Vector2.zero;
-        Vector3 max = MapBorder.s_map_border.Maxs;
-        Vector3 min = MapBorder.s_map_border.Mins;
-        max.x = max.x + Mathf.Abs(min.x);
-        max.y = max.y + Mathf.Abs(min.y);
-
-        if (IsCorner)
-        {
-            offset.x = -max.x;
-            offset.y = -max.y;
-        }
-        else if (m_node.X == 0 && m_node.Y == 0)
-        {
-            if (ext.Connection.Pos.x < 0)
-            {
-                offset.y = -max.y;
-            }
-            else
-            {
-                offset.x = -max.x;
-            }
-        }
-        else if (m_node.X == 0)
-        {
-            offset.x = -max.x;
-        }
-        else
-        {
-            offset.y = -max.y;
-        }
 
         for (int i = 0; i < m_poly.Count; i++)
         {
@@ -476,7 +250,7 @@ public class ProvinceWrapMarker: MonoBehaviour
             }
         }
 
-        Mesh.material.color = get_node_color(m_node);//SetColor("_Color", get_node_color(m_node));
+        //Mesh.material.color = get_node_color(m_node);//SetColor("_Color", get_node_color(m_node));
     }
 
     Vector2[] get_pts_array(List<Vector3> list)
@@ -506,6 +280,19 @@ public class ProvinceWrapMarker: MonoBehaviour
         return new Color(0.9f, 0.9f, 0.8f); //default is plains
     }
 
+    public void Delete()
+    {
+        if (m_sprites != null)
+        {
+            foreach (SpriteMarker sm in m_sprites)
+            {
+                GameObject.Destroy(sm.gameObject);
+            }
+        }
+
+        GameObject.Destroy(gameObject);
+    }
+
     public void ClearSprites()
     {
         if (m_sprites != null)
@@ -521,8 +308,6 @@ public class ProvinceWrapMarker: MonoBehaviour
 
     public List<SpriteMarker> PlaceSprites()
     {
-        ClearSprites();
-
         MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         if (!set.MapSprites.Any())
@@ -591,14 +376,16 @@ public class ProvinceWrapMarker: MonoBehaviour
         m_sprite_points = new List<Vector3>();
         Vector3 mins = get_mins();
         Vector3 maxs = get_maxs();
-
         Vector3 cur = new Vector3(mins.x, mins.y);
+        Vector3 cc = MeshCollider.bounds.center;
+        //List<ConnectionMarker> roads = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD).ToList();
+        MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         while (cur.x < maxs.x)
         {
             while (cur.y < maxs.y)
             {
-                do_ray_trace(cur);
+                do_ray_trace(cur, set);
 
                 cur.y += UnityEngine.Random.Range(0.04f, 0.06f);
             }
@@ -621,10 +408,9 @@ public class ProvinceWrapMarker: MonoBehaviour
         m_sprite_points = result;
     }
 
-    void do_ray_trace(Vector3 pt)
+    void do_ray_trace(Vector3 pt, MapSpriteSet set)
     {
         pt.z = -900;
-
         RaycastHit hit;
 
         if (Physics.Raycast(pt, Vector3.forward, out hit, 9000))
@@ -633,13 +419,12 @@ public class ProvinceWrapMarker: MonoBehaviour
             {
                 Vector3 hitpt = new Vector3(hit.point.x, hit.point.y, 0);
 
-                if (m_poly.Any(x => Vector3.Distance(x, hitpt) < 0.15f))
+                if (m_poly.Any(x => Vector3.Distance(x, hitpt) < set.ProvinceEdgeThreshold))
                 {
                     return;
                 }
 
                 hitpt.z = -10;
-
                 m_sprite_points.Add(hitpt);
             }
         }
@@ -647,18 +432,18 @@ public class ProvinceWrapMarker: MonoBehaviour
 
     Vector3 get_mins()
     {
-        Vector3 result = new Vector3(9000, 9000);
+        Vector3 result = MeshCollider.bounds.min;
+        result.z = 0f;
+        Vector3 mins = MapBorder.s_map_border.Mins;
 
-        foreach (Vector3 p in m_poly)
+        if (result.x < mins.x)
         {
-            if (result.x > p.x)
-            {
-                result.x = p.x;
-            }
-            if (result.y > p.y)
-            {
-                result.y = p.y;
-            }
+            result.x = mins.x;
+        }
+
+        if (result.y < mins.y)
+        {
+            result.y = mins.y;
         }
 
         return result;
@@ -666,18 +451,18 @@ public class ProvinceWrapMarker: MonoBehaviour
 
     Vector3 get_maxs()
     {
-        Vector3 result = new Vector3(-9000, -9000);
+        Vector3 result = MeshCollider.bounds.max;
+        result.z = 0f;
+        Vector3 maxs = MapBorder.s_map_border.Maxs;
 
-        foreach (Vector3 p in m_poly)
+        if (result.x > maxs.x)
         {
-            if (result.x < p.x)
-            {
-                result.x = p.x;
-            }
-            if (result.y < p.y)
-            {
-                result.y = p.y;
-            }
+            result.x = maxs.x;
+        }
+
+        if (result.y > maxs.y)
+        {
+            result.y = maxs.y;
         }
 
         return result;
