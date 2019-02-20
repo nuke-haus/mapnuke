@@ -1711,7 +1711,15 @@ static class WorldGenerator
     {
         Dictionary<Node, float> dict = new Dictionary<Node, float>();
         List<Node> nodes = m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)).ToList();
-        return nodes.OrderBy(x => n.DistanceTo(x)).ToList();
+
+        if (UnityEngine.Random.Range(0, 2) == 0)
+        {
+            return nodes.OrderBy(x => n.DistanceTo(x)).ThenBy(x => Mathf.Abs(x.X - n.X)).ToList();
+        }
+        else
+        {
+            return nodes.OrderBy(x => n.DistanceTo(x)).ThenBy(x => Mathf.Abs(x.Y - n.Y)).ToList();
+        }
     }
 
     static void create_basic_nodes(NodeLayout nl, List<NationData> nats, List<NationData> water)
