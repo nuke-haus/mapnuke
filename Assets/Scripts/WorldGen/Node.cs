@@ -107,7 +107,7 @@ public class Node
         }
     }
 
-    public bool Untouched
+    public bool HasOnlyStandardConnections
     {
         get
         {
@@ -128,7 +128,7 @@ public class Node
         }
     }
 
-    public bool SemiUntouched
+    public bool HasMostlyStandardConnections
     {
         get
         {
@@ -156,7 +156,7 @@ public class Node
         }
     }
 
-    public int NumLandConnections
+    public int NumStandardConnections
     {
         get
         {
@@ -181,10 +181,6 @@ public class Node
                         }
                     }
 
-                    num++;
-                }
-                else if (c.ConnectionType == ConnectionType.SHALLOWRIVER)
-                {
                     num++;
                 }
             }
@@ -213,6 +209,21 @@ public class Node
     {
         Nation = n;
         ProvinceData = pd;
+    }
+
+    public int GetConnectedProvinceCount(Terrain t)
+    {
+        int ct = 0;
+
+        foreach (Node n in ConnectedNodes)
+        {
+            if (n.ProvinceData.Terrain.IsFlagSet(t))
+            {
+                ct++;
+            }
+        }
+
+        return ct;
     }
 
     public float DistanceTo(Node n)

@@ -50,7 +50,7 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.DEEPSEA);
+            return Terrain.IsFlagSet(Terrain.SEA); // || Terrain.IsFlagSet(Terrain.DEEPSEA);
         }
     }
 
@@ -58,7 +58,21 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.DEEPSEA) || Terrain.IsFlagSet(Terrain.SWAMP);
+            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.SWAMP); // || Terrain.IsFlagSet(Terrain.DEEPSEA)
+        }
+    }
+
+    public bool IsPlains
+    {
+        get
+        {
+            return !IsWaterSwamp &&
+                !Terrain.IsFlagSet(Terrain.HIGHLAND) &&
+                !Terrain.IsFlagSet(Terrain.WASTE) &&
+                !Terrain.IsFlagSet(Terrain.FOREST) &&
+                !Terrain.IsFlagSet(Terrain.FARM) &&
+                !Terrain.IsFlagSet(Terrain.CAVE) &&
+                !Terrain.IsFlagSet(Terrain.MOUNTAINS);
         }
     }
 

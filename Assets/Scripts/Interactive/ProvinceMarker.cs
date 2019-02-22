@@ -859,14 +859,14 @@ public class ProvinceMarker: MonoBehaviour
         Vector3 mins = get_mins();
         Vector3 maxs = get_maxs();
         Vector3 cur = new Vector3(mins.x, mins.y);
-        List<ConnectionMarker> roads = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD).ToList();
+        List<ConnectionMarker> roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER).ToList();
         MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         while (cur.x < maxs.x)
         {
             while (cur.y < maxs.y)
             {
-                do_ray_trace(cur, roads, set);
+                do_ray_trace(cur, roads_rivers, set);
 
                 cur.y += UnityEngine.Random.Range(0.04f, 0.06f);
             }
@@ -889,7 +889,7 @@ public class ProvinceMarker: MonoBehaviour
         m_sprite_points = result;
     }
 
-    void do_ray_trace(Vector3 pt, List<ConnectionMarker> roads, MapSpriteSet set)
+    void do_ray_trace(Vector3 pt, List<ConnectionMarker> roads_rivers, MapSpriteSet set)
     {
         pt.z = -900;
         RaycastHit hit;
@@ -905,7 +905,7 @@ public class ProvinceMarker: MonoBehaviour
                     return;
                 }
 
-                foreach (ConnectionMarker m in roads)
+                foreach (ConnectionMarker m in roads_rivers)
                 {
                     foreach (Vector3 cp in m.CullingPoints)
                     {

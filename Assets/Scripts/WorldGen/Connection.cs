@@ -65,11 +65,47 @@ public class Connection
         }
     }
 
+    public bool IsTouchingSea
+    {
+        get
+        {
+            return Node1.ProvinceData.IsWater || Node2.ProvinceData.IsWater;
+        }
+    }
+
+    public bool IsTouchingSeaOrSwamp
+    {
+        get
+        {
+            return Node1.ProvinceData.IsWaterSwamp || Node2.ProvinceData.IsWaterSwamp;
+        }
+    }
+
     public bool IsCapRing
     {
         get
         {
             return Node1.IsCapRing || Node2.IsCapRing;
+        }
+    }
+
+    public int NumSeaSwamp
+    {
+        get
+        {
+            int ct = 0;
+
+            if (Node1.ProvinceData.IsWaterSwamp)
+            {
+                ct++;
+            }
+
+            if (Node2.ProvinceData.IsWaterSwamp)
+            {
+                ct++;
+            }
+
+            return ct;
         }
     }
 

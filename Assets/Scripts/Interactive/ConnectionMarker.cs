@@ -209,8 +209,9 @@ public class ConnectionMarker: MonoBehaviour
         rend.SetPositions(new Vector3[] {p1, p2});
     }
 
-    void make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
+    SpriteMarker make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
     {
+        pos.z = -3f;
         GameObject g = GameObject.Instantiate(MapSpritePrefab);
         SpriteMarker sm = g.GetComponent<SpriteMarker>();
         sm.SetSprite(cs);
@@ -218,6 +219,8 @@ public class ConnectionMarker: MonoBehaviour
 
         m_sprites.Add(sm);
         m_sprites.AddRange(sm.CreateMirrorSprites());
+
+        return sm;
     }
 
     public List<SpriteMarker> PlaceSprites()
@@ -230,17 +233,17 @@ public class ConnectionMarker: MonoBehaviour
             }
         }
 
+        m_sprites = new List<SpriteMarker>();
+
         if (m_connection.ConnectionType == ConnectionType.MOUNTAIN)
         {
             if (PolyBorder == null)
             {
-                return new List<SpriteMarker>();
+                return m_sprites;
             }
 
-            m_sprites = new List<SpriteMarker>();
-
             Vector3 last = new Vector3(-900, -900, 0);
-            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             if (cs == null)
             {
@@ -249,15 +252,15 @@ public class ConnectionMarker: MonoBehaviour
 
             while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
             {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             }
 
             int ct = 0;
 
             make_sprite(PolyBorder.P1, cs, Vector3.zero);
-            cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
-            cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             foreach (Vector3 pt in PolyBorder.OrderedPoints)
             {
@@ -268,28 +271,19 @@ public class ConnectionMarker: MonoBehaviour
                 }
 
                 ct++;
-                Vector3 pos = pt;
                 last = pt;
-                pos.z = -3f;
 
-                make_sprite(pos, cs, Vector3.zero);
+                make_sprite(pt, cs, Vector3.zero);
 
-                cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-
-                while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                {
-                    cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-                }
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             }
         }
         else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
         {
             if (PolyBorder == null)
             {
-                return new List<SpriteMarker>();
+                return m_sprites;
             }
-
-            m_sprites = new List<SpriteMarker>();
 
             Vector3 last = new Vector3(-900, -900, 0);
             ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
@@ -311,11 +305,9 @@ public class ConnectionMarker: MonoBehaviour
                     continue;
                 }
 
-                Vector3 pos = pt;
                 last = pt;
-                pos.z = -3f;
 
-                make_sprite(pos, cs, Vector3.zero);
+                make_sprite(pt, cs, Vector3.zero);
 
                 if (right_ct > 1)
                 {
@@ -345,17 +337,15 @@ public class ConnectionMarker: MonoBehaviour
                     continue;
                 }
 
-                Vector3 pos = pt;
                 last = pt;
-                pos.z = -3f;
 
                 if (!is_mountain)
                 {
-                    make_sprite(pos, cs, new Vector3(0, 0.01f));
+                    make_sprite(pt, cs, new Vector3(0, 0.01f));
                 }
                 else
                 {
-                    make_sprite(pos, cs, Vector3.zero);
+                    make_sprite(pt, cs, Vector3.zero);
                 }
 
                 if (Vector3.Distance(pt, endpt) < 0.6f)
@@ -372,9 +362,55 @@ public class ConnectionMarker: MonoBehaviour
                 right_ct--;
             }
         }
-        else
+        else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
-            m_sprites = new List<SpriteMarker>();
+            int mid = Mathf.RoundToInt(PolyBorder.OrderedPoints.Count * 0.25f);
+
+            if (UnityEngine.Random.Range(0, 2) == 0)
+            {
+                mid = Mathf.RoundToInt(PolyBorder.OrderedPoints.Count * 0.75f);
+            }
+
+            Vector3 pos = PolyBorder.OrderedPoints[mid];
+            Vector3 pos2 = PolyBorder.OrderedPoints[mid + 1];
+            Vector3 actual = (pos - pos2).normalized;//(PolyBorder.P2 - PolyBorder.P1).normalized;
+
+            Vector3 dir = new Vector3(-0.05f, 1f);
+
+            if (Mathf.Abs(actual.y) < 0.3f)
+            {
+                ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
+                SpriteMarker s = make_sprite(pos, cs, Vector3.zero);
+            }
+            else
+            {
+                ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.SHALLOWRIVER);
+                SpriteMarker s = make_sprite(pos, cs, Vector3.zero);
+                
+                if ((actual.y < 0 && actual.x > 0) || (actual.y > 0 && actual.x < 0))
+                {
+                    s.SetFlip(true, true);
+                    dir = new Vector3(1f, 0.3f);
+                }
+                else
+                {
+                    s.SetFlip(true, false);
+                    dir = new Vector3(1f, -0.3f);
+                }
+            }
+
+            float cull = 0.05f;
+            List<Vector3> positions = new List<Vector3>();
+
+            while (cull < 0.35f)
+            {
+                positions.Add(pos + (dir * cull));
+                positions.Add(pos + (dir * -cull));
+
+                cull += 0.05f;
+            }
+
+            m_culling_points = positions;
         }
 
         List<SpriteMarker> all = new List<SpriteMarker>();
@@ -510,7 +546,8 @@ public class ConnectionMarker: MonoBehaviour
             }
 
             m_wraps = new List<ConnectionWrapMarker>();
-        }
+            m_culling_points = null;
+        } 
     }
 
     public void RecalculatePoly()
@@ -519,19 +556,19 @@ public class ConnectionMarker: MonoBehaviour
         BorderLine.SetPositions(new Vector3[] { new Vector3(900, 900, 0), new Vector3(901, 900, 0) });
         MeshFilter.mesh.Clear();
 
-        PolyBorder pb = PolyBorder;// def.GetPolyBorder(m_connection);
+        if (m_culling_points == null)
+        {
+            m_culling_points = new List<Vector3>();
+        }
 
-        m_culling_points = new List<Vector3>();
-
-        if (pb == null)
+        if (PolyBorder == null)
         {
             return;
         }
 
         if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
-            m_poly = get_contour(pb, 0.02f, 0.08f);
-            //m_removal_points = pb.OrderedPoints;
+            m_poly = get_contour(PolyBorder, 0.02f, 0.08f);
 
             ConstructPoly();
             SetSeason(GenerationManager.s_generation_manager.Season);
@@ -563,7 +600,7 @@ public class ConnectionMarker: MonoBehaviour
             ConstructPoly(true);
         }
 
-        List<Vector3> border = pb.GetFullLengthBorder();
+        List<Vector3> border = PolyBorder.GetFullLengthBorder();
         List<Vector3> fix = new List<Vector3>();
 
         foreach (Vector3 v in border)

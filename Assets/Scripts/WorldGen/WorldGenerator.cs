@@ -43,10 +43,10 @@ static class WorldGenerator
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWater).ToList();
 
         generate_swamps(valid);
-        generate_rivers();
-        generate_cliffs();
-        generate_roads();
         generate_misc(valid);
+        generate_cliffs();
+        generate_rivers();
+        generate_roads();
         generate_farms(valid);
         generate_sized(valid);
         generate_thrones();
@@ -567,13 +567,9 @@ static class WorldGenerator
             {
                 foreach (Connection c in n.Connections)
                 {
-                    if (c.ConnectionType == ConnectionType.MOUNTAIN)
+                    if (c.ConnectionType != ConnectionType.STANDARD)
                     {
-                        c.SetConnection(ConnectionType.MOUNTAINPASS);
-                    }
-                    else if (c.ConnectionType == ConnectionType.RIVER)
-                    {
-                        c.SetConnection(ConnectionType.SHALLOWRIVER);
+                        c.SetConnection(ConnectionType.STANDARD);
                     }
                 }
             }
@@ -592,15 +588,15 @@ static class WorldGenerator
             }
         }
 
-        List<Node> starts = m_nodes.Where(x => x.Untouched && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
+        List<Node> starts = m_nodes.Where(x => x.HasOnlyStandardConnections && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
         
         if (starts.Count < 10)
         {
-            starts.AddRange(m_nodes.Where(x => x.SemiUntouched && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater));
+            starts.AddRange(m_nodes.Where(x => x.HasMostlyStandardConnections && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater));
         }
 
         int total_provs = m_layout.TotalProvinces - num_seas;
-        int max_roads = (int)(total_provs * 0.10f) - UnityEngine.Random.Range(0, 3); // todo: expose to user
+        int max_roads = (int)(total_provs * (0.08f + UnityEngine.Random.Range(-0.03f, 0.03f))); // todo: expose to user?
         int count = 0;
 
         while (count < max_roads && starts.Any())
@@ -651,36 +647,19 @@ static class WorldGenerator
 
     static void generate_cliffs()
     {
-        int num_seas = 0;
+        List<Node> starts = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWaterSwamp).ToList();
 
-        foreach (NationData n in m_nations)
-        {
-            if (n.IsWater)
-            {
-                num_seas += Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.WaterPercentage);
-            }
-        }
-
-        List<Node> starts = m_nodes.Where(x => x.Untouched && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
-
-        if (starts.Count < 10)
-        {
-            starts.AddRange(m_nodes.Where(x => x.SemiUntouched && !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater));
-        }
-
-        int total_provs = m_layout.TotalProvinces - num_seas;
-        int max_cliffs = (int)(total_provs * 0.24f) + UnityEngine.Random.Range(-4, 5); // todo: expose to user
+        int max_passes = (int)(starts.Count * (0.24f + UnityEngine.Random.Range(0f, 0.02f))); // todo: expose to user?
+        int max_cliffs = (int)(starts.Count * (0.20f + UnityEngine.Random.Range(-0.02f, 0.02f))); 
         int count = 0;
 
         while (count < max_cliffs && starts.Any())
         {
             Node cur = starts.GetRandom();
-            starts.Remove(cur);
-
             Connection con = cur.Connections.GetRandom();
             int limit = 0;
 
-            while ((con.ConnectionType != ConnectionType.STANDARD || con.Node1.ProvinceData.IsWater || con.Node2.ProvinceData.IsWater) && limit < 10)
+            while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 10)
             {
                 con = cur.Connections.GetRandom();
                 limit++;
@@ -691,114 +670,141 @@ static class WorldGenerator
                 continue;
             }
 
-            int len = UnityEngine.Random.Range(1, 4);
+            if (!cur.HasMostlyStandardConnections)
+            {
+                starts.Remove(cur);
+            }
+
+            int len = UnityEngine.Random.Range(1, 3);
             int i = 0;
-            List<Connection> done = new List<Connection>();
 
             while (i < len)
             {
-                if (con.Node1.NumLandConnections <= 2 || con.Node2.NumLandConnections <= 2)
+                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD)
                 {
-                    cur = null;
                     break;
                 }
 
-                int rand = UnityEngine.Random.Range(0, 10);
+                con.SetConnection(ConnectionType.MOUNTAIN);
 
-                if (rand < 3)
+                limit = 0;
+                con = con.Adjacent.GetRandom();
+
+                while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 10)
                 {
-                    con.SetConnection(ConnectionType.MOUNTAINPASS);
+                    con = cur.Connections.GetRandom();
+                    limit++;
                 }
-                else
-                {
-                    con.SetConnection(ConnectionType.MOUNTAIN);
-                }
 
-                if (con.Node1.HasNation || con.Node2.HasNation || (con.Node1.IsCapRing && con.Node2.IsCapRing))
+                if (limit == 6)
                 {
-                    con.SetConnection(ConnectionType.STANDARD);
-
                     i = len;
-                }
-                else
-                {
-                    done.Add(con);
-
-                    limit = 0;
-                    con = con.Adjacent.GetRandom();
-
-                    while ((con.ConnectionType != ConnectionType.STANDARD || con.Node1.ProvinceData.IsWater || con.Node2.ProvinceData.IsWater) && limit < 10)
-                    {
-                        con = con.Adjacent.GetRandom();
-                        limit++;
-                    }
-
-                    if (limit == 10)
-                    {
-                        i = len;
-                    }
-
-                    count++;
                 }
 
                 i++;
-            }
-
-            Connection c1 = null;
-            Connection c2 = null;
-
-            foreach (Connection c in done) // chance to remove unnecessary forks
-            {
-                if (c1 == null)
-                {
-                    c1 = c;
-                    continue;
-                }
-                if (c2 == null)
-                {
-                    c2 = c1;
-                    c1 = c;
-                    continue;
-                }
-
-                List<Node> shared = c.GetUniqueNodes(c1, c2);
-
-                if (shared.Count == 3 && UnityEngine.Random.Range(0, 10) < 4)
-                {
-                    c1.SetConnection(ConnectionType.STANDARD);
-                    count--;
-                }
-
-                c2 = c1;
-                c1 = c;
+                count++;
             }
         }
+
+        count = 0;
+
+        while (count < max_passes && starts.Any())
+        {
+            Node cur = starts.GetRandom();
+            Connection con = cur.Connections.GetRandom();
+            int limit = 0;
+
+            while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 10)
+            {
+                con = cur.Connections.GetRandom();
+                limit++;
+            }
+
+            if (limit == 10 || con == null)
+            {
+                continue;
+            }
+
+            if (!cur.HasMostlyStandardConnections)
+            {
+                starts.Remove(cur);
+            }
+
+            int len = UnityEngine.Random.Range(1, 3);
+            int i = 0;
+
+            while (i < len)
+            {
+                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD)
+                {
+                    break;
+                }
+
+                con.SetConnection(ConnectionType.MOUNTAINPASS);
+
+                limit = 0;
+                con = con.Adjacent.GetRandom();
+
+                while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 10)
+                {
+                    con = cur.Connections.GetRandom();
+                    limit++;
+                }
+
+                if (limit == 6)
+                {
+                    i = len;
+                }
+
+                i++;
+                count++;
+            }
+        }
+
+        int num_flips = UnityEngine.Random.Range(0, max_passes - 2);
+
+        List<Connection> mounts = m_connections.Where(x => x.ConnectionType == ConnectionType.MOUNTAIN).ToList();
+        List<Connection> passes = m_connections.Where(x => x.ConnectionType == ConnectionType.MOUNTAINPASS).ToList();
+
+        for (int i = 0; i < num_flips; i++)
+        {
+            Connection c1 = mounts.GetRandom();
+            Connection c2 = passes.GetRandom();
+            mounts.Remove(c1);
+            passes.Remove(c2);
+
+            c1.SetConnection(ConnectionType.MOUNTAINPASS);
+            c2.SetConnection(ConnectionType.MOUNTAIN);
+        }
+    }
+
+    static Connection get_connection_weighted(List<Connection> conns)
+    {
+        if (conns.Count < 5)
+        {
+            return conns.GetRandom();
+        }
+
+        conns.Shuffle();
+        conns = conns.OrderBy(x => x.NumSeaSwamp).ToList();
+
+        int pos = UnityEngine.Random.Range(0, Mathf.RoundToInt(conns.Count * 0.5f));
+
+        return conns[pos];
     }
 
     static void generate_rivers()
     {
-        int num_seas = 0;
+        List<Node> lands = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
 
-        foreach (NationData n in m_nations)
-        {
-            if (n.IsWater)
-            {
-                num_seas += Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.WaterPercentage);
-            }
-        }
-
-        int total_provs = m_layout.TotalProvinces - num_seas;
-        int max_rivers = (int) (total_provs * 0.5f) - UnityEngine.Random.Range(0, 9); // todo: expose to user?
+        int max_rivers = (int)(lands.Count * (0.24f + UnityEngine.Random.Range(0f, 0.02f))); // todo: expose to user?
+        int max_shallow = (int)(lands.Count * (0.20f + UnityEngine.Random.Range(-0.02f, 0.02f)));
         int count = 0;
 
-        if (max_rivers <= 0)
-        {
-            return;
-        }
-
+        List<Connection> tertiary = new List<Connection>();
         List<Connection> starts = new List<Connection>();
         List<Node> water = m_nodes.Where(x => x.ProvinceData.IsWaterSwamp).ToList();
-        List<Connection> invalid = m_connections.Where(x => x.Node1.HasNation || x.Node2.HasNation || x.Node1.ProvinceData.IsWater || x.Node2.ProvinceData.IsWater || (x.Node1.IsCapRing && x.Node2.IsCapRing)).ToList();
+        List<Connection> invalid = m_connections.Where(x => x.ConnectionType != ConnectionType.STANDARD || x.Node1.HasNation || x.Node2.HasNation || x.IsTouchingSea || (x.Node1.IsCapRing && x.Node2.IsCapRing)).ToList();
 
         foreach (Node n in water)
         {
@@ -811,106 +817,103 @@ static class WorldGenerator
                         continue;
                     }
 
-                    if (n1.HasConnection(n2) && !n1.IsCapRing && !n2.IsCapRing && !n1.ProvinceData.IsWater && !n2.ProvinceData.IsWater)
+                    Connection c = n1.GetConnectionTo(n2);
+
+                    if (c != null && !c.IsTouchingSea && !n1.IsCapRing && !n2.IsCapRing)
                     {
-                        Connection c = n1.GetConnectionTo(n2);
-                        starts.Add(c);
+                        if (!invalid.Contains(c))
+                        {
+                            starts.Add(c);
+                        }
                     }
                 }
             }
         }
 
-        Connection cur = null;
+        Connection cur = get_connection_weighted(starts);
 
-        while (count < max_rivers)
+        while (count < max_shallow && starts.Any())
         {
-            if (starts.Count == 0)
+            starts.Remove(cur);
+
+            if (!starts.Any())
             {
-                break;
+                starts.AddRange(tertiary);
+                tertiary = new List<Connection>();
             }
 
-            if (cur == null)
+            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS))
             {
-                cur = starts.GetRandom();
-                starts.RemoveAt(0);
+                cur = get_connection_weighted(starts);
+                continue;
             }
 
-            int len = UnityEngine.Random.Range(1, 5);
-            int i = 0;
-            List<Connection> done = new List<Connection>();
+            cur.SetConnection(ConnectionType.SHALLOWRIVER);
 
-            while (i < len)
+            var adj = cur.Adjacent.Where(x => !invalid.Contains(x) && !tertiary.Contains(x) && !starts.Contains(x) && x.ConnectionType == ConnectionType.STANDARD && x.SharesNode(cur));
+
+            if (UnityEngine.Random.Range(0, 10) < 4)
             {
-                if (cur.Node1.NumLandConnections <= 2 || cur.Node2.NumLandConnections <= 2)
-                {
-                    cur = null;
-                    break;
-                }
-
-                if (UnityEngine.Random.Range(0, 10) < 6)
-                {
-                    cur.SetConnection(ConnectionType.SHALLOWRIVER);
-                }
-                else
-                {
-                    cur.SetConnection(ConnectionType.RIVER);
-                }
-
-                i++;
-                count++;
-                done.Add(cur);
-                starts.Add(cur);
-
-                Connection adj = cur.Adjacent.GetRandom();
-                int limit = 0;
-
-                while ((invalid.Contains(adj) || done.Contains(adj) || adj.ConnectionType == ConnectionType.RIVER || adj.ConnectionType == ConnectionType.SHALLOWRIVER) && limit < 10)
-                {
-                    adj = cur.Adjacent.GetRandom();
-                    limit++;
-                }
-
-                if (limit == 10)
-                {
-                    cur = null;
-                    break;
-                }
-                else
-                {
-                    cur = adj;
-                }
+                tertiary.AddRange(adj);
+            }
+            else
+            {
+                starts.AddRange(adj);
             }
 
-            Connection c1 = null;
-            Connection c2 = null;
+            cur = get_connection_weighted(starts);
+            count++;
+        }
 
-            foreach (Connection c in done) // chance to remove unnecessary forks
+        count = 0;
+
+        while (count < max_rivers && starts.Any())
+        {
+            starts.Remove(cur);
+
+            if (!starts.Any())
             {
-                if (c1 == null)
-                {
-                    c1 = c;
-                    continue;
-                }
-                if (c2 == null)
-                {
-                    c2 = c1;
-                    c1 = c;
-                    continue;
-                }
-
-                List<Node> shared = c.GetUniqueNodes(c1, c2);
-
-                if (shared.Count == 3 && UnityEngine.Random.Range(0,10) < 4)
-                {
-                    c1.SetConnection(ConnectionType.STANDARD);
-                    count--;
-                }
-
-                c2 = c1;
-                c1 = c;
+                starts.AddRange(tertiary);
+                tertiary = new List<Connection>();
             }
 
-            cur = null;
+            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS))
+            {
+                cur = get_connection_weighted(starts);
+                continue;
+            }
+
+            cur.SetConnection(ConnectionType.RIVER);
+
+            var adj = cur.Adjacent.Where(x => !invalid.Contains(x) && !tertiary.Contains(x) && !starts.Contains(x) && x.ConnectionType == ConnectionType.STANDARD && x.SharesNode(cur));
+
+            if (UnityEngine.Random.Range(0, 10) < 4)
+            {
+                tertiary.AddRange(adj);
+            }
+            else
+            {
+                starts.AddRange(adj);
+            }
+
+            cur = get_connection_weighted(starts);
+            count++;
+        }
+
+        int num_flips = UnityEngine.Random.Range(0, max_rivers - 2);
+
+        List<Connection> rivers = m_connections.Where(x => x.ConnectionType == ConnectionType.RIVER).ToList();
+        List<Connection> shallows = m_connections.Where(x => x.ConnectionType == ConnectionType.SHALLOWRIVER).ToList();
+
+        for (int i = 0; i < num_flips; i++)
+        {
+            Connection c1 = rivers.GetRandom();
+            Connection c2 = shallows.GetRandom();
+            rivers.Remove(c1);
+            shallows.Remove(c2);
+
+            c1.SetConnection(ConnectionType.SHALLOWRIVER);
+            c2.SetConnection(ConnectionType.RIVER);
         }
     }
 
@@ -992,7 +995,7 @@ static class WorldGenerator
     {
         float num_farms = UnityEngine.Random.Range(0.12f, 0.15f); // 12-15% of the provinces should be farmland - todo: expose this to the user
 
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.IsPlains).ToList();
 
         int max = Mathf.RoundToInt(num_farms * original.Count);
         int i = 0;
@@ -1002,12 +1005,12 @@ static class WorldGenerator
             Node n = valid.GetRandom();
             valid.Remove(n);
 
-            n.ProvinceData.SetTerrainFlags(Terrain.FARM);
-
-            /*if (UnityEngine.Random.Range(0, 12) == 0)
+            if (n.GetConnectedProvinceCount(Terrain.FARM) > 1)
             {
-                n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
-            }*/
+                continue;
+            }
+
+            n.ProvinceData.SetTerrainFlags(Terrain.FARM);
 
             i++;
         }
@@ -1016,7 +1019,7 @@ static class WorldGenerator
     static void generate_thrones()
     {
         int num_water = m_starts.Where(x => x.Nation.WaterPercentage > 0.3f).Count();
-        int water_ct = 0;
+        int water_ct = UnityEngine.Random.Range(-2, 1);
 
         foreach (Node n in m_nodes)
         {
@@ -1028,11 +1031,7 @@ static class WorldGenerator
 
                     if (water_ct > num_water)
                     {
-                        Terrain cur = n.ProvinceData.Terrain;
-                        cur &= ~Terrain.SEA;
-                        cur &= ~Terrain.DEEPSEA;
-
-                        n.ProvinceData.SetTerrainFlags(cur);
+                        n.ProvinceData.SetTerrainFlags(Terrain.SWAMP);
                     }
                 }
 
@@ -1127,7 +1126,7 @@ static class WorldGenerator
         dict.Add(Terrain.CAVE, num_caves);
         dict.Add(Terrain.WASTE, num_waste);
 
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.Terrain == Terrain.PLAINS).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWaterSwamp).ToList();
 
         if (!m_nat_starts)
         {
@@ -1232,8 +1231,9 @@ static class WorldGenerator
         }
 
         int swamps = Mathf.Max(Mathf.RoundToInt(num_swamps * original.Count), 1);
+        int i = 0;
 
-        for (int i = 0; i < swamps; i++)
+        while (i < swamps)
         {
             if (!valid.Any())
             {
@@ -1243,18 +1243,14 @@ static class WorldGenerator
             Node n = valid.GetRandom();
             valid.Remove(n);
 
+            if (n.GetConnectedProvinceCount(Terrain.SWAMP) > 1)
+            {
+                continue;
+            }
+
             n.ProvinceData.SetTerrainFlags(Terrain.SWAMP);
 
-            /*int temp = UnityEngine.Random.Range(0, 10);  need sprites for this
-
-            if (temp == 0)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
-            }
-            else if (temp == 1)
-            {
-                n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
-            }*/
+            i++;
         }
     }
 

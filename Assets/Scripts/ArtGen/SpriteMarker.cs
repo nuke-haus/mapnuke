@@ -16,6 +16,9 @@ public class SpriteMarker: MonoBehaviour
 {
     public GameObject MapSpritePrefab;
 
+    bool m_force_flip = false;
+    bool m_flip_x = false;
+
     public MapSprite MapSprite
     {
         get;
@@ -26,6 +29,14 @@ public class SpriteMarker: MonoBehaviour
     {
         get;
         private set;
+    }
+
+    public bool ForceFlip
+    {
+        get
+        {
+            return m_force_flip;
+        }
     }
 
     public int SortingOrder
@@ -81,6 +92,22 @@ public class SpriteMarker: MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             }
+        }
+
+        if (m_force_flip)
+        {
+            GetComponent<SpriteRenderer>().flipX = m_flip_x;
+        }
+    }
+
+    public void SetFlip(bool on, bool flip_x)
+    {
+        m_force_flip = on;
+        m_flip_x = flip_x;
+
+        if (m_force_flip)
+        {
+            GetComponent<SpriteRenderer>().flipX = m_flip_x;
         }
     }
 
