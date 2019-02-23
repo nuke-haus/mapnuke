@@ -33,6 +33,8 @@ public class ConnectionMarker: MonoBehaviour
     Vector3 m_pos1;
     Vector3 m_pos2;
     Vector3 m_midpt;
+    Vector3 m_forced_max;
+    Vector3 m_forced_min;
     List<Vector3> m_tri_centers;
     List<SpriteMarker> m_sprites;
     ConnectionMarker m_linked;
@@ -42,6 +44,7 @@ public class ConnectionMarker: MonoBehaviour
     bool m_edge = false;
     bool m_is_dummy = false;
     bool m_selected = false;
+    bool m_force_mirror = false;
     float m_scale = 1.0f;
 
     static Dictionary<ConnectionType, Color> m_colors;
@@ -218,7 +221,22 @@ public class ConnectionMarker: MonoBehaviour
         sm.transform.position = pos + offset;
 
         m_sprites.Add(sm);
-        m_sprites.AddRange(sm.CreateMirrorSprites());
+        m_sprites.AddRange(sm.CreateMirrorSprites(m_forced_max, m_forced_min, m_force_mirror));
+
+        return sm;
+    }
+
+    SpriteMarker make_bridge_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset, bool force, bool flip_x)
+    {
+        pos.z = -3f;
+        GameObject g = GameObject.Instantiate(MapSpritePrefab);
+        SpriteMarker sm = g.GetComponent<SpriteMarker>();
+        sm.SetSprite(cs);
+        sm.SetFlip(force, flip_x);
+        sm.transform.position = pos + offset;
+
+        m_sprites.Add(sm);
+        m_sprites.AddRange(sm.CreateMirrorSprites(m_forced_max, m_forced_min, m_force_mirror));
 
         return sm;
     }
@@ -234,6 +252,47 @@ public class ConnectionMarker: MonoBehaviour
         }
 
         m_sprites = new List<SpriteMarker>();
+        List<SpriteMarker> all = new List<SpriteMarker>();
+
+        foreach (ConnectionWrapMarker m in m_wraps)
+        {
+            //all.AddRange(m.PlaceSprites());
+        }
+
+        if (PolyBorder != null)
+        {
+            Vector3 max = MapBorder.s_map_border.Maxs;
+            Vector3 min = MapBorder.s_map_border.Mins;
+            bool p1 = false;
+            bool p2 = false;
+
+            if (PolyBorder.P1.x < min.x || 
+                    PolyBorder.P1.y < min.y || 
+                    PolyBorder.P1.x > max.x ||
+                    PolyBorder.P1.y > max.y)
+            {
+                m_force_mirror = true;
+                m_forced_min = PolyBorder.P1;
+                m_forced_max = PolyBorder.P1;
+                p1 = true;
+            }
+            if (PolyBorder.P2.x < min.x ||
+                    PolyBorder.P2.y < min.y ||
+                    PolyBorder.P2.x > max.x ||
+                    PolyBorder.P2.y > max.y)
+            {
+                m_force_mirror = true;
+                m_forced_min = PolyBorder.P2;
+                m_forced_max = PolyBorder.P2;
+                p2 = true;
+            }
+
+            if (p1 && p2)
+            {
+                m_forced_max = max + new Vector3(0.02f, 0.02f);
+                m_forced_min = max - new Vector3(0.02f, 0.02f);
+            }
+        }
 
         if (m_connection.ConnectionType == ConnectionType.MOUNTAIN)
         {
@@ -247,12 +306,7 @@ public class ConnectionMarker: MonoBehaviour
 
             if (cs == null)
             {
-                return new List<SpriteMarker>();
-            }
-
-            while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-            {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+                return m_sprites;
             }
 
             int ct = 0;
@@ -385,16 +439,15 @@ public class ConnectionMarker: MonoBehaviour
             else
             {
                 ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.SHALLOWRIVER);
-                SpriteMarker s = make_sprite(pos, cs, Vector3.zero);
-                
+      
                 if ((actual.y < 0 && actual.x > 0) || (actual.y > 0 && actual.x < 0))
                 {
-                    s.SetFlip(true, true);
+                    make_bridge_sprite(pos, cs, Vector3.zero, true, true);
                     dir = new Vector3(1f, 0.3f);
                 }
                 else
                 {
-                    s.SetFlip(true, false);
+                    make_bridge_sprite(pos, cs, Vector3.zero, true, false);
                     dir = new Vector3(1f, -0.3f);
                 }
             }
@@ -413,14 +466,7 @@ public class ConnectionMarker: MonoBehaviour
             m_culling_points = positions;
         }
 
-        List<SpriteMarker> all = new List<SpriteMarker>();
         all.AddRange(m_sprites);
-
-        foreach (ConnectionWrapMarker m in m_wraps)
-        {
-            all.AddRange(m.PlaceSprites());
-        }
-
         return all;
     }
 
@@ -510,7 +556,7 @@ public class ConnectionMarker: MonoBehaviour
         }
     }
 
-    public GameObject CreateWrapMesh(PolyBorder pb, Vector3 offset)
+    public GameObject CreateWrapMesh(PolyBorder pb, Vector3 offset) // create a connection wrap marker and its polygon
     {
         if (m_wraps == null)
         {

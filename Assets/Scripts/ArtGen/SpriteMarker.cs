@@ -47,6 +47,15 @@ public class SpriteMarker: MonoBehaviour
         }
     }
 
+    public bool FlipX
+    {
+        get
+        {
+            return GetComponent<SpriteRenderer>().flipX;
+        }
+    }
+
+
     public void SetSeason(Season s)
     {
         if (s == Season.SUMMER)
@@ -136,51 +145,56 @@ public class SpriteMarker: MonoBehaviour
         return Vector3.Distance(transform.position, pos) <= MapSprite.Size;
     }
 
-    public List<SpriteMarker> CreateMirrorSprites()
+    public List<SpriteMarker> CreateMirrorSprites(Vector3 forced_max, Vector3 forced_min, bool force = false)
     {
         List<SpriteMarker> result = new List<SpriteMarker>();
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
         Bounds b = rend.bounds;
         Vector3 max = b.max;
         Vector3 min = b.min;
-        //min.y = max.y;
+        
+        if (force)
+        {
+            max = forced_max;
+            min = forced_min;
+        }
 
         Vector3 map_max = MapBorder.s_map_border.Maxs;
         Vector3 map_min = MapBorder.s_map_border.Mins;
-
         Vector3 size = map_max - map_min;
+        bool flip = FlipX;
 
         if (max.x > map_max.x)
         {
-            result.Add(create_sprite(transform.position - new Vector3(size.x, 0, 0)));
+            result.Add(create_sprite(transform.position - new Vector3(size.x, 0, 0), flip));
         }
         else if (min.x < map_min.x)
         {
-            result.Add(create_sprite(transform.position + new Vector3(size.x, 0, 0)));
+            result.Add(create_sprite(transform.position + new Vector3(size.x, 0, 0), flip));
         }
 
         if (max.y > map_max.y)
         {
-            result.Add(create_sprite(transform.position - new Vector3(0, size.y, 0)));
+            result.Add(create_sprite(transform.position - new Vector3(0, size.y, 0), flip));
         }
         else if (min.y < map_min.y)
         {
-            result.Add(create_sprite(transform.position + new Vector3(0, size.y, 0)));
+            result.Add(create_sprite(transform.position + new Vector3(0, size.y, 0), flip));
         }
 
         if (max.y > map_max.y && max.x > map_max.x)
         {
-            result.Add(create_sprite(transform.position - new Vector3(size.x, size.y, 0)));
+            result.Add(create_sprite(transform.position - new Vector3(size.x, size.y, 0), flip));
         }
         else if (min.y < map_min.y && min.x < map_min.x)
         {
-            result.Add(create_sprite(transform.position + new Vector3(size.x, size.y, 0)));
+            result.Add(create_sprite(transform.position + new Vector3(size.x, size.y, 0), flip));
         }
 
         return result;
     }
 
-    SpriteMarker create_sprite(Vector3 pos)
+    SpriteMarker create_sprite(Vector3 pos, bool flip)
     {
         GameObject g = GameObject.Instantiate(MapSpritePrefab);
         SpriteMarker sm = g.GetComponent<SpriteMarker>();
@@ -191,6 +205,7 @@ public class SpriteMarker: MonoBehaviour
         int y = max_y - Mathf.RoundToInt(pos.y * 100f);
 
         sm.SetOrder(y);
+        sm.SetFlip(true, flip);
 
         return sm;
     }

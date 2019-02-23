@@ -211,19 +211,29 @@ public class Node
         ProvinceData = pd;
     }
 
-    public int GetConnectedProvinceCount(Terrain t)
+    public List<Node> GetConnectedProvincesOfType(Terrain t, bool recursive = false)
     {
-        int ct = 0;
+        List<Node> nodes = new List<Node>();
 
         foreach (Node n in ConnectedNodes)
         {
             if (n.ProvinceData.Terrain.IsFlagSet(t))
             {
-                ct++;
+                if (recursive)
+                {
+                    var connected = n.GetConnectedProvincesOfType(t).Where(x => !nodes.Contains(x));
+
+                    nodes.Add(n);
+                    nodes.AddRange(connected);
+                }
+                else
+                {
+                    nodes.Add(n);
+                }
             }
         }
 
-        return ct;
+        return nodes;
     }
 
     public float DistanceTo(Node n)

@@ -912,6 +912,11 @@ static class WorldGenerator
             rivers.Remove(c1);
             shallows.Remove(c2);
 
+            if (c1 == null || c2 == null)
+            {
+                break;
+            }
+
             c1.SetConnection(ConnectionType.SHALLOWRIVER);
             c2.SetConnection(ConnectionType.RIVER);
         }
@@ -993,7 +998,7 @@ static class WorldGenerator
 
     static void generate_farms(List<Node> original)
     {
-        float num_farms = UnityEngine.Random.Range(0.12f, 0.15f); // 12-15% of the provinces should be farmland - todo: expose this to the user
+        float num_farms = UnityEngine.Random.Range(0.12f, 0.14f); // 12-14% of the provinces should be farmland - todo: expose this to the user
 
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.IsPlains).ToList();
 
@@ -1005,7 +1010,7 @@ static class WorldGenerator
             Node n = valid.GetRandom();
             valid.Remove(n);
 
-            if (n.GetConnectedProvinceCount(Terrain.FARM) > 1)
+            if (n.GetConnectedProvincesOfType(Terrain.FARM, true).Count > 1)
             {
                 continue;
             }
@@ -1113,19 +1118,19 @@ static class WorldGenerator
 
     static void generate_misc(List<Node> original)
     {
-        float num_highlands = UnityEngine.Random.Range(0.06f, 0.09f); // 6-9% of the provinces should be highlands - todo: expose these to the user
-        float num_mountains = UnityEngine.Random.Range(0.06f, 0.09f); 
-        float num_forests = UnityEngine.Random.Range(0.12f, 0.15f);  
-        float num_caves = UnityEngine.Random.Range(0.06f, 0.09f); 
-        float num_waste = UnityEngine.Random.Range(0.06f, 0.09f); 
+        float num_highlands = UnityEngine.Random.Range(0.08f, 0.10f); // 8-10% of the provinces should be highlands - todo: expose these to the user
+        float num_mountains = UnityEngine.Random.Range(0.08f, 0.10f); 
+        float num_forests = UnityEngine.Random.Range(0.12f, 0.14f);  
+        float num_caves = UnityEngine.Random.Range(0.08f, 0.10f); 
+        float num_waste = UnityEngine.Random.Range(0.07f, 0.09f); 
 
         Dictionary<Terrain, float> dict = new Dictionary<Terrain, float>();
+        dict.Add(Terrain.WASTE, num_waste);
         dict.Add(Terrain.HIGHLAND, num_highlands);
         dict.Add(Terrain.MOUNTAINS, num_mountains);
         dict.Add(Terrain.FOREST, num_forests);
         dict.Add(Terrain.CAVE, num_caves);
-        dict.Add(Terrain.WASTE, num_waste);
-
+        
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWaterSwamp).ToList();
 
         if (!m_nat_starts)
@@ -1201,6 +1206,12 @@ static class WorldGenerator
                 }
                 if (pair.Key == Terrain.WASTE)
                 {
+                    if (n.GetConnectedProvincesOfType(Terrain.WASTE, true).Count > 1)
+                    {
+                        valid.Add(n);
+                        continue;
+                    }
+
                     if (rand == 0)
                     {
                         n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
@@ -1222,7 +1233,7 @@ static class WorldGenerator
 
     static void generate_swamps(List<Node> original)
     {
-        float num_swamps = UnityEngine.Random.Range(0.07f, 0.10f); // 7-10% of the provinces should be swamp
+        float num_swamps = UnityEngine.Random.Range(0.07f, 0.09f); // 7-9% of the provinces should be swamp
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWater).ToList();
 
         if (!m_nat_starts)
@@ -1243,7 +1254,7 @@ static class WorldGenerator
             Node n = valid.GetRandom();
             valid.Remove(n);
 
-            if (n.GetConnectedProvinceCount(Terrain.SWAMP) > 1)
+            if (n.GetConnectedProvincesOfType(Terrain.SWAMP, true).Count > 1)
             {
                 continue;
             }

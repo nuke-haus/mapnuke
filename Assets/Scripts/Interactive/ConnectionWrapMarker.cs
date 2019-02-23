@@ -30,6 +30,14 @@ public class ConnectionWrapMarker: MonoBehaviour
     Connection m_connection;
     List<SpriteMarker> m_sprites;
 
+    public PolyBorder PolyBorder
+    {
+        get
+        {
+            return m_border;
+        }
+    }
+
     public void SetParent(ConnectionMarker parent)
     {
         m_parent = parent;
@@ -183,6 +191,20 @@ public class ConnectionWrapMarker: MonoBehaviour
         return vecs.ToArray();
     }
 
+    SpriteMarker make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
+    {
+        pos.z = -3f;
+        GameObject g = GameObject.Instantiate(MapSpritePrefab);
+        SpriteMarker sm = g.GetComponent<SpriteMarker>();
+        sm.SetSprite(cs);
+        sm.transform.position = pos + offset;
+
+        m_sprites.Add(sm);
+        //m_sprites.AddRange(sm.CreateMirrorSprites());
+
+        return sm;
+    }
+
     public List<SpriteMarker> PlaceSprites()
     {
         if (m_sprites != null)
@@ -193,69 +215,13 @@ public class ConnectionWrapMarker: MonoBehaviour
             }
         }
 
+        m_sprites = new List<SpriteMarker>();
+
         if (m_connection.ConnectionType == ConnectionType.MOUNTAIN)
         {
-            PolyBorder pb = m_border;//def.GetPolyBorder(m_connection);
-
-            if (pb == null)
+            if (PolyBorder == null)
             {
-                return new List<SpriteMarker>();
-            }
-
-            m_sprites = new List<SpriteMarker>();
-
-            Vector3 last = new Vector3(-900, -900, 0);
-            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-
-            if (cs == null)
-            {
-                return new List<SpriteMarker>();
-            }
-
-            while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-            {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-            }
-
-            int ct = 0;
-
-            foreach (Vector3 pt in pb.OrderedPoints)
-            {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < pb.OrderedPoints.Count - 1)
-                {
-                    ct++;
-                    continue;
-                }
-
-                ct++;
-                Vector3 pos = pt;
-                last = pt;
-                pos.z = -3f;
-                //pos.y -= 0.04f;
-
-                GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                sm.SetSprite(cs);
-                sm.transform.position = pos;
-
-                m_sprites.Add(sm);
-                m_sprites.AddRange(sm.CreateMirrorSprites());
-
-                cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-
-                while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                {
-                    cs = ArtManager.s_art_manager.GetConnectionSprite(m_connection.ConnectionType);
-                }
-            }
-        }
-        else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
-        {
-            PolyBorder pb = m_border;//def.GetPolyBorder(m_connection);
-
-            if (pb == null)
-            {
-                return new List<SpriteMarker>();
+                return m_sprites;
             }
 
             m_sprites = new List<SpriteMarker>();
@@ -265,64 +231,112 @@ public class ConnectionWrapMarker: MonoBehaviour
 
             if (cs == null)
             {
-                return new List<SpriteMarker>();
-            }
-
-            while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-            {
-                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+                return m_sprites;
             }
 
             int ct = 0;
-            int mid_ct = 0;
-            int mid = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.35f);
-            int num_mid = UnityEngine.Random.Range(6, 10);//Mathf.RoundToInt(pb.OrderedPoints.Count * 0.20f);
 
-            foreach (Vector3 pt in pb.OrderedPoints)
+            make_sprite(PolyBorder.P1, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            make_sprite(PolyBorder.P2, cs, Vector3.zero);
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+
+            foreach (Vector3 pt in PolyBorder.OrderedPoints)
             {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < pb.OrderedPoints.Count - 1)
+                if (Vector3.Distance(last, pt) < cs.Size && ct < m_border.OrderedPoints.Count - 1)
                 {
                     ct++;
                     continue;
                 }
 
                 ct++;
-                Vector3 pos = pt;
                 last = pt;
-                pos.z = -3f;
 
-                GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                sm.SetSprite(cs);
-                sm.transform.position = pos;
+                make_sprite(pt, cs, Vector3.zero);
 
-                m_sprites.Add(sm);
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            }
+        }
+        else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
+        {
+            if (PolyBorder == null)
+            {
+                return m_sprites;
+            }
 
-                if (ct > mid && mid_ct < num_mid)
+            m_sprites = new List<SpriteMarker>();
+
+            Vector3 last = new Vector3(-900, -900, 0);
+            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            PolyBorder other = PolyBorder.Reversed();
+
+            int right_ct = 0;
+            int right_pos = 0;
+
+            foreach (Vector3 pt in other.OrderedPoints)
+            {
+                if (Vector3.Distance(last, pt) < cs.Size)
                 {
-                    mid_ct++;
+                    right_pos++;
+                    continue;
+                }
 
+                last = pt;
+
+                make_sprite(pt, cs, Vector3.zero);
+
+                if (right_ct > 1)
+                {
+                    break;
+                }
+
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+
+                right_ct++;
+                right_pos++;
+            }
+
+            Vector3 endpt = other.OrderedPoints[right_pos];
+            right_ct = -1;
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bool is_mountain = true;
+
+            foreach (Vector3 pt in PolyBorder.OrderedPoints)
+            {
+                if (Vector3.Distance(pt, endpt) < 0.08f)
+                {
+                    break;
+                }
+
+                if (Vector3.Distance(last, pt) < cs.Size)
+                {
+                    continue;
+                }
+
+                last = pt;
+
+                if (!is_mountain)
+                {
+                    make_sprite(pt, cs, new Vector3(0, 0.01f));
+                }
+                else
+                {
+                    make_sprite(pt, cs, Vector3.zero);
+                }
+
+                if (Vector3.Distance(pt, endpt) < 2.0f)
+                {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
-
-                    while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                    {
-                        cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
-                    }
+                    is_mountain = false;
                 }
                 else
                 {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-
-                    while (UnityEngine.Random.Range(0f, 1f) > cs.SpawnChance)
-                    {
-                        cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-                    }
+                    is_mountain = true;
                 }
+
+                right_ct--;
             }
-        }
-        else
-        {
-            m_sprites = new List<SpriteMarker>();
         }
 
         return m_sprites;

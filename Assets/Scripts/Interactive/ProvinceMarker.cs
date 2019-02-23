@@ -746,7 +746,7 @@ public class ProvinceMarker: MonoBehaviour
                     sm.transform.position = pos;
 
                     m_sprites.Add(sm);
-                    m_sprites.AddRange(sm.CreateMirrorSprites());
+                    m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
 
                     break;
                 }
@@ -781,7 +781,7 @@ public class ProvinceMarker: MonoBehaviour
             sm.transform.position = pos;
 
             m_sprites.Add(sm);
-            m_sprites.AddRange(sm.CreateMirrorSprites());
+            m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
         }
 
         if (valid_ct == 0)
@@ -831,7 +831,7 @@ public class ProvinceMarker: MonoBehaviour
             sm.transform.position = pos;
 
             m_sprites.Add(sm);
-            m_sprites.AddRange(sm.CreateMirrorSprites());
+            m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
         }
 
         List<SpriteMarker> all = new List<SpriteMarker>();
