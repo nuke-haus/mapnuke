@@ -1718,6 +1718,7 @@ static class WorldGenerator
     {
         Dictionary<Node, float> dict = new Dictionary<Node, float>();
         List<Node> nodes = m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)).ToList();
+        nodes.Shuffle();
 
         if (UnityEngine.Random.Range(0, 2) == 0)
         {
@@ -1761,7 +1762,7 @@ static class WorldGenerator
 
             foreach (NationData d in water)
             {
-                Node n = nodes.GetRandom();
+                Node n = nodes[0];
                 nodes.Remove(n);
                 starts.Remove(n);
 
