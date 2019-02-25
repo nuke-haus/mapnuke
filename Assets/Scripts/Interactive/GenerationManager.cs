@@ -192,12 +192,12 @@ public class GenerationManager : MonoBehaviour
 
         if (show_log)
         {
-            //LogScreen.SetActive(true); // commented out cuz it doesn't work well
+            //LogScreen.SetActive(true); 
             //ClearLog();
         }
 
-        yield return null; 
-        yield return null; 
+        yield return null;
+        yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
 
         if (function != null)
         {
@@ -222,6 +222,11 @@ public class GenerationManager : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
 
         StartCoroutine(perform_async(() => do_season_change()));
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
     }
 
     void do_season_change()
@@ -258,11 +263,12 @@ public class GenerationManager : MonoBehaviour
 
         if (show_log)
         {
-            //LogScreen.SetActive(true); // commented out cuz it doesn't work well
+            //LogScreen.SetActive(true); 
             //ClearLog();
         }
 
         yield return null;
+        yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
 
         ElementManager mgr = GetComponent<ElementManager>();
         NodeLayout layout = WorldGenerator.GetLayout();
@@ -454,15 +460,15 @@ public class GenerationManager : MonoBehaviour
                     if (counter < 3)
                     {
                         ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.9f, 0.7f, 0.7f);
-                        block.highlightedColor = new Color(0.9f, 0.7f, 0.8f);
+                        block.normalColor = new Color(0.5f, 0.7f, 0.9f);
+                        block.highlightedColor = new Color(0.5f, 0.9f, 1.0f);
                         d.colors = block;
                     }
                     else if (counter < 5)
                     {
                         ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.7f, 0.7f, 0.9f);
-                        block.highlightedColor = new Color(0.7f, 0.8f, 0.9f);
+                        block.normalColor = new Color(0.4f, 0.8f, 0.5f);
+                        block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
                         d.colors = block;
                     }
 
@@ -476,8 +482,8 @@ public class GenerationManager : MonoBehaviour
                 else
                 {
                     ColorBlock block = d.colors;
-                    block.normalColor = new Color(0.7f, 0.7f, 0.9f);
-                    block.highlightedColor = new Color(0.7f, 0.8f, 0.9f);
+                    block.normalColor = new Color(0.4f, 0.8f, 0.5f);
+                    block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
                     d.colors = block;
                 }
             }
@@ -499,15 +505,15 @@ public class GenerationManager : MonoBehaviour
                     if (counter < 3)
                     {
                         ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.9f, 0.7f, 0.7f);
-                        block.highlightedColor = new Color(0.9f, 0.7f, 0.8f);
+                        block.normalColor = new Color(0.5f, 0.7f, 0.9f);
+                        block.highlightedColor = new Color(0.5f, 0.9f, 1.0f);
                         d.colors = block;
                     }
                     else if (counter < 5)
                     {
                         ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.7f, 0.7f, 0.9f);
-                        block.highlightedColor = new Color(0.7f, 0.8f, 0.9f);
+                        block.normalColor = new Color(0.4f, 0.8f, 0.5f);
+                        block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
                         d.colors = block;
                     }
 
@@ -521,8 +527,8 @@ public class GenerationManager : MonoBehaviour
                 else
                 {
                     ColorBlock block = d.colors;
-                    block.normalColor = new Color(0.7f, 0.7f, 0.9f);
-                    block.highlightedColor = new Color(0.7f, 0.8f, 0.9f);
+                    block.normalColor = new Color(0.4f, 0.8f, 0.5f);
+                    block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
                     d.colors = block;
                 }
 

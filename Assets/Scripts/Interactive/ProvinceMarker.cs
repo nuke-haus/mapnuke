@@ -297,6 +297,20 @@ public class ProvinceMarker: MonoBehaviour
         }
     }
 
+    public void ValidateConnections()
+    {
+        if (Node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
+        {
+            foreach (ConnectionMarker c in m_connections)
+            {
+                if (c.Connection.ConnectionType != ConnectionType.STANDARD)
+                {
+                    c.UpdateConnection(ConnectionType.STANDARD);
+                }
+            }
+        }
+    }
+
     public void UpdateColor()
     {
         Renderer.color = get_node_color(m_node);

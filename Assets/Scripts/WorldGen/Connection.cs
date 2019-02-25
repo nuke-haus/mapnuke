@@ -89,6 +89,14 @@ public class Connection
         }
     }
 
+    public bool IsCap
+    {
+        get
+        {
+            return Node1.HasNation || Node2.HasNation;
+        }
+    }
+
     public int NumSeaSwamp
     {
         get

@@ -680,7 +680,7 @@ static class WorldGenerator
 
             while (i < len)
             {
-                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD)
+                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap)
                 {
                     break;
                 }
@@ -735,7 +735,7 @@ static class WorldGenerator
 
             while (i < len)
             {
-                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD)
+                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap)
                 {
                     break;
                 }
@@ -772,6 +772,11 @@ static class WorldGenerator
             Connection c2 = passes.GetRandom();
             mounts.Remove(c1);
             passes.Remove(c2);
+
+            if (c1 == null || c2 == null)
+            {
+                break;
+            }
 
             c1.SetConnection(ConnectionType.MOUNTAINPASS);
             c2.SetConnection(ConnectionType.MOUNTAIN);
@@ -842,7 +847,7 @@ static class WorldGenerator
                 tertiary = new List<Connection>();
             }
 
-            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS))
+            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS) || cur.IsCap)
             {
                 cur = get_connection_weighted(starts);
                 continue;
@@ -877,7 +882,7 @@ static class WorldGenerator
                 tertiary = new List<Connection>();
             }
 
-            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS))
+            if (cur.Node1.NumStandardConnections < 3 || cur.Node2.NumStandardConnections < 3 || cur.ConnectionType != ConnectionType.STANDARD || cur.Adjacent.Any(x => x.ConnectionType == ConnectionType.MOUNTAIN || x.ConnectionType == ConnectionType.MOUNTAINPASS) || cur.IsCap)
             {
                 cur = get_connection_weighted(starts);
                 continue;

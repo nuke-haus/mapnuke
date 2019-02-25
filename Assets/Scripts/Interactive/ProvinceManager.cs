@@ -119,6 +119,7 @@ public class ProvinceManager: MonoBehaviour
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
         m_current.UpdateColor();
         m_current.UpdateLinked();
+        m_current.ValidateConnections();
 
         List<ProvinceMarker> provs = new List<ProvinceMarker> { m_current };
         List<ProvinceMarker> dummies = new List<ProvinceMarker>();
