@@ -5,9 +5,10 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: river
-  m_Shader: {fileID: 4800000, guid: 9bd74e076bcf5ef46a5b19dd02125e58, type: 3}
+  m_Shader: {fileID: 4800000, guid: 652683d5ae121f34e938d8eaeb0aa1d6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -68,7 +69,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GridSize: 7
+    - _GridSize: 12
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -78,17 +79,22 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.25
-    - _Threshold2: 1
+    - _StencilRef: 2
+    - _Threshold1: 0.08
+    - _Threshold2: 0.1
+    - _Threshold3: 0.9
+    - _Threshold4: 0.92
     - _UVSec: 0
     - _X: 1
     - _Y: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
-    - _Color2: {r: 0.5647059, g: 0.72156864, b: 0.8, a: 1}
-    - _Color3: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
+    - _Color1: {r: 0.8745098, g: 0.9529412, b: 1, a: 1}
+    - _Color2: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
+    - _Color3: {r: 0.5647059, g: 0.72156864, b: 0.8, a: 1}
+    - _Color4: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
+    - _Color5: {r: 0.8745098, g: 0.9529412, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

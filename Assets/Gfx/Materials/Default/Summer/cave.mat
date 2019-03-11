@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: cave
   m_Shader: {fileID: 4800000, guid: 429c6bbd127b8ad43b0cf3274c3c7e3c, type: 3}
   m_ShaderKeywords: 
@@ -80,7 +81,7 @@ Material:
     - _SrcBlend: 1
     - _Threshold1: 0.3
     - _Threshold2: 0.35
-    - _Threshold3: 0.65
+    - _Threshold3: 0.6
     - _Threshold4: 0.7
     - _UVSec: 0
     - _X: 1

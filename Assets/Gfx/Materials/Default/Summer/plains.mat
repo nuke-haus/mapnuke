@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: plains
   m_Shader: {fileID: 4800000, guid: 9bd74e076bcf5ef46a5b19dd02125e58, type: 3}
   m_ShaderKeywords: 
@@ -74,15 +75,15 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.3
+    - _ScaleY: 0.35
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Threshold1: 0.35
     - _Threshold2: 0.75
     - _UVSec: 0
-    - _X: 1
-    - _Y: 54
+    - _X: 10
+    - _Y: 10
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

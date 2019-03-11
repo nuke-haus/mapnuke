@@ -46,6 +46,24 @@ public class PolyBorder
         return pts;
     }
 
+    /*public List<Vector3> GetShorelineBorder()
+    {
+        Vector3 second = OrderedPoints[0];
+        Vector3 sec_last = OrderedPoints[OrderedPoints.Count - 2];
+        Vector3 first_dir = (second - P1).normalized;
+        Vector3 last_dir = (sec_last - P2).normalized;
+
+        Vector3 ep1 = P1 + first_dir * 0.01f;
+        Vector3 ep2 = P2 + last_dir * 0.01f;
+
+        List<Vector3> pts = new List<Vector3>();
+        pts.Add(ep1);
+        pts.AddRange(OrderedPoints);
+        pts.Add(ep2);
+
+        return pts;
+    }*/
+
     public List<Vector3> GetFullLengthBorderMinusEnd(bool reversed = false)
     {
         List<Vector3> pts = new List<Vector3>();

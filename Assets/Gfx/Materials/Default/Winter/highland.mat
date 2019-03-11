@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: highland
   m_Shader: {fileID: 4800000, guid: 429c6bbd127b8ad43b0cf3274c3c7e3c, type: 3}
   m_ShaderKeywords: 
@@ -80,7 +81,7 @@ Material:
     - _SrcBlend: 1
     - _Threshold1: 0.3
     - _Threshold2: 0.35
-    - _Threshold3: 0.65
+    - _Threshold3: 0.6
     - _Threshold4: 0.7
     - _UVSec: 0
     - _X: 1
@@ -88,11 +89,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.47843137, g: 0.5294118, b: 0.4, a: 1}
+    - _Color1: {r: 0.5176471, g: 0.5764706, b: 0.42745098, a: 1}
     - _Color2: {r: 0.6156863, g: 0.6901961, b: 0.5019608, a: 1}
     - _Color3: {r: 0.7176471, g: 0.70980394, b: 0.64705884, a: 1}
     - _Color4: {r: 0.6156863, g: 0.6901961, b: 0.5019608, a: 1}
-    - _Color5: {r: 0.47799483, g: 0.5283019, b: 0.4012104, a: 1}
+    - _Color5: {r: 0.51665777, g: 0.5754717, b: 0.4261748, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

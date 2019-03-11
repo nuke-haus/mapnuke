@@ -25,8 +25,10 @@ public class ConnectionMarker: MonoBehaviour
 
     public GameObject WrapMarkerPrefab;
     public GameObject MapSpritePrefab;
+    public GameObject InnerStrokePrefab;
 
     List<ConnectionWrapMarker> m_wraps;
+    InnerStroke m_stroke;
     PolyBorder m_border;
     List<Vector3> m_poly;
     List<Vector3> m_culling_points;
@@ -524,6 +526,11 @@ public class ConnectionMarker: MonoBehaviour
 
     public void SetSeason(Season s)
     {
+        if (m_stroke != null)
+        {
+            m_stroke.SetSeason(s);
+        }
+
         if (s == Season.SUMMER)
         {
             if (m_connection.ConnectionType == ConnectionType.RIVER)
@@ -612,11 +619,15 @@ public class ConnectionMarker: MonoBehaviour
             return;
         }
 
+        draw_shore();
+
         if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
             m_poly = get_contour(PolyBorder, 0.02f, 0.08f);
 
             ConstructPoly();
+            draw_river_shore();
+
             SetSeason(GenerationManager.s_generation_manager.Season);
 
             return;
@@ -624,8 +635,8 @@ public class ConnectionMarker: MonoBehaviour
         else if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
             Vector3 dir = (m_pos2 - m_pos1).normalized;
-            Vector3 p1 = m_pos1 + dir * 0.24f;
-            Vector3 p2 = m_pos2 - dir * 0.24f;
+            Vector3 p1 = m_pos1 + dir * 0.26f;
+            Vector3 p2 = m_pos2 - dir * 0.26f;
 
             if (IsEdge)
             {
@@ -662,6 +673,33 @@ public class ConnectionMarker: MonoBehaviour
         SetSeason(GenerationManager.s_generation_manager.Season);
     }
 
+    void draw_river_shore()
+    {
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
+
+        GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+        m_stroke = g.GetComponent<InnerStroke>();
+        m_stroke.DrawStroke(m_poly, new Vector3(0, 0, -0.9f), false, 0.03f, 0.06f);
+    }
+
+    void draw_shore()
+    {
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
+
+        if ((Prov1.Node.ProvinceData.IsWater && !Prov2.Node.ProvinceData.IsWater) || (Prov2.Node.ProvinceData.IsWater && !Prov1.Node.ProvinceData.IsWater))
+        {
+            GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+            m_stroke = g.GetComponent<InnerStroke>();
+            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), Vector3.zero);
+        }
+    }
+
     List<Vector3> get_contour(PolyBorder pb, float min_lat, float max_lat)
     {
         float dist = 0.08f;
@@ -686,8 +724,10 @@ public class ConnectionMarker: MonoBehaviour
             prev = pt;
         }
 
-        pts.Add(pb.P2 + norm * 0.02f);
-        prev = pb.P2 + norm * 0.02f;
+        Vector3 endpt = pb.P2 + norm * 0.05f;
+
+        pts.Add(endpt);
+        prev = endpt;
         dist = 0.08f;
 
         foreach (Vector3 pt in pb.Reversed().OrderedPoints)

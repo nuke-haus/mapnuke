@@ -249,12 +249,12 @@ public class ProvinceMarker: MonoBehaviour
         if (m_node.HasNation)
         {
             Text.text = m_node.Nation.Name;
-            Text.color = Color.magenta;
+            Text.color = new Color(0.8f, 0f, 0.8f); // Color.magenta;
         }
         else if (m_node.ProvinceData.IsThrone)
         {
             Text.text = "Throne";
-            Text.color = Color.red;
+            Text.color = new Color(0.8f, 0f, 0f); // Color.red;
         }
         else
         {

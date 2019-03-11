@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: farm
   m_Shader: {fileID: 4800000, guid: 9bd74e076bcf5ef46a5b19dd02125e58, type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
@@ -118,7 +119,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.3
+    - _ScaleY: 0.35
     - _Smoothness0: 1
     - _Smoothness1: 1
     - _Smoothness2: 1
@@ -129,7 +130,7 @@ Material:
     - _Threshold1: 0
     - _Threshold2: 0.6
     - _UVSec: 0
-    - _X: 1
+    - _X: 5
     - _Y: 1
     - _ZWrite: 1
     m_Colors:

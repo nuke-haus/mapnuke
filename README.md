@@ -27,8 +27,7 @@ Shortcomings I've acknowledged but lazily ignored.
 I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
 - More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 5 variants.
-- Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite.
-- Improve province shaders. Sea shaders should have a nice shoreline but they don't. 
+- Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite. Right now only wastelands are given hot/cold modifiers.
 
 ### The wish list
 

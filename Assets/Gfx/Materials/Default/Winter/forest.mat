@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: forest
   m_Shader: {fileID: 4800000, guid: 9bd74e076bcf5ef46a5b19dd02125e58, type: 3}
   m_ShaderKeywords: 
@@ -74,7 +75,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.4
+    - _ScaleY: 0.35
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -82,13 +83,13 @@ Material:
     - _Threshold2: 0.65
     - _UVSec: 0
     - _X: 5
-    - _Y: 1
+    - _Y: 2
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.8020821, g: 0.8773585, b: 0.79045033, a: 1}
     - _Color2: {r: 0.6479231, g: 0.764151, b: 0.637994, a: 1}
-    - _Color3: {r: 0.499644, g: 0.6037736, b: 0.49270204, a: 1}
+    - _Color3: {r: 0.5473144, g: 0.6509434, b: 0.54347634, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

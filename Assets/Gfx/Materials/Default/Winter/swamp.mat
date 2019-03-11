@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: swamp
   m_Shader: {fileID: 4800000, guid: 429c6bbd127b8ad43b0cf3274c3c7e3c, type: 3}
   m_ShaderKeywords: 
@@ -74,25 +75,25 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.4
+    - _ScaleY: 0.35
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.25
-    - _Threshold2: 0.45
+    - _Threshold1: 0.3
+    - _Threshold2: 0.5
     - _Threshold3: 0.7
-    - _Threshold4: 0.85
+    - _Threshold4: 0.88
     - _UVSec: 0
-    - _X: 5
-    - _Y: 33
+    - _X: 12
+    - _Y: 7
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.8113208, g: 0.7163966, b: 0.60083663, a: 1}
+    - _Color1: {r: 0.6226415, g: 0.6183992, b: 0.43173727, a: 1}
     - _Color2: {r: 0.721295, g: 0.754717, b: 0.5517978, a: 1}
     - _Color3: {r: 0.80122113, g: 0.8301887, b: 0.7244571, a: 1}
-    - _Color4: {r: 0.6745728, g: 0.8030038, b: 0.8773585, a: 1}
-    - _Color5: {r: 0.5635902, g: 0.71971554, b: 0.8018868, a: 1}
+    - _Color4: {r: 0.663218, g: 0.7735849, b: 0.6239765, a: 1}
+    - _Color5: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

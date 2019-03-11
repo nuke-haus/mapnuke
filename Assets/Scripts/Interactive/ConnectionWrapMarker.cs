@@ -23,12 +23,14 @@ public class ConnectionWrapMarker: MonoBehaviour
     public LineRenderer BorderLine;
 
     public GameObject MapSpritePrefab;
+    public GameObject InnerStrokePrefab;
 
     PolyBorder m_border;
     List<Vector3> m_poly;
     ConnectionMarker m_parent;
     Connection m_connection;
     List<SpriteMarker> m_sprites;
+    InnerStroke m_stroke;
 
     public PolyBorder PolyBorder
     {
@@ -49,14 +51,48 @@ public class ConnectionWrapMarker: MonoBehaviour
         m_poly = poly;
 
         draw_border(pb, offset);
+        draw_shore(offset);
 
         if (m_connection.ConnectionType == ConnectionType.ROAD || m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
             ConstructPoly(pb, offset);
+            draw_river_shore(offset);
         }
         else
         {
             MeshFilter.mesh.Clear();
+        }
+    }
+
+    void draw_river_shore(Vector3 offset)
+    {
+        if (m_connection.ConnectionType == ConnectionType.ROAD)
+        {
+            return;
+        }
+
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
+
+        GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+        m_stroke = g.GetComponent<InnerStroke>();
+        m_stroke.DrawStroke(m_poly, offset + new Vector3(0f, 0f, -0.9f), false, 0.03f, 0.06f);
+    }
+
+    void draw_shore(Vector3 offset)
+    {
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
+
+        if ((m_parent.Prov1.Node.ProvinceData.IsWater && !m_parent.Prov2.Node.ProvinceData.IsWater) || (m_parent.Prov2.Node.ProvinceData.IsWater && !m_parent.Prov1.Node.ProvinceData.IsWater))
+        {
+            GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+            m_stroke = g.GetComponent<InnerStroke>();
+            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), offset);
         }
     }
 
@@ -78,6 +114,11 @@ public class ConnectionWrapMarker: MonoBehaviour
 
     public void SetSeason(Season s)
     {
+        if (m_stroke != null)
+        {
+            m_stroke.SetSeason(s);
+        }
+
         if (s == Season.SUMMER)
         {
             if (m_connection.ConnectionType == ConnectionType.RIVER)
