@@ -678,6 +678,7 @@ public class ConnectionMarker: MonoBehaviour
         if (m_stroke != null)
         {
             GameObject.Destroy(m_stroke.gameObject);
+            m_stroke = null;
         }
 
         GameObject g = GameObject.Instantiate(InnerStrokePrefab);
@@ -690,6 +691,7 @@ public class ConnectionMarker: MonoBehaviour
         if (m_stroke != null)
         {
             GameObject.Destroy(m_stroke.gameObject);
+            m_stroke = null;
         }
 
         if ((Prov1.Node.ProvinceData.IsWater && !Prov2.Node.ProvinceData.IsWater) || (Prov2.Node.ProvinceData.IsWater && !Prov1.Node.ProvinceData.IsWater))
@@ -863,6 +865,14 @@ public class ConnectionMarker: MonoBehaviour
         rend2.color = col;
 
         m_connection.SetConnection(t);
+    }
+
+    void OnDestroy()
+    {
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
     }
 
     void Update()

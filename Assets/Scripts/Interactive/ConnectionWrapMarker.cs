@@ -74,6 +74,7 @@ public class ConnectionWrapMarker: MonoBehaviour
         if (m_stroke != null)
         {
             GameObject.Destroy(m_stroke.gameObject);
+            m_stroke = null;
         }
 
         GameObject g = GameObject.Instantiate(InnerStrokePrefab);
@@ -86,6 +87,7 @@ public class ConnectionWrapMarker: MonoBehaviour
         if (m_stroke != null)
         {
             GameObject.Destroy(m_stroke.gameObject);
+            m_stroke = null;
         }
 
         if ((m_parent.Prov1.Node.ProvinceData.IsWater && !m_parent.Prov2.Node.ProvinceData.IsWater) || (m_parent.Prov2.Node.ProvinceData.IsWater && !m_parent.Prov1.Node.ProvinceData.IsWater))
@@ -110,6 +112,14 @@ public class ConnectionWrapMarker: MonoBehaviour
 
         GameObject.Destroy(MeshObj);
         GameObject.Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (m_stroke != null)
+        {
+            GameObject.Destroy(m_stroke.gameObject);
+        }
     }
 
     public void SetSeason(Season s)
