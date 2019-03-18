@@ -15,6 +15,7 @@ public class GenerationManager : MonoBehaviour
     public Camera CaptureCam;
     public Toggle NatStarts;
     public AudioClip AcceptAudio;
+    public AudioClip ClickAudio;
     public AudioClip DenyAudio;
     public GameObject OutputWindow;
     public GameObject LoadingScreen;
@@ -55,6 +56,7 @@ public class GenerationManager : MonoBehaviour
     void Start()
     {
         AllNationData.Init();
+        GeneratorSettings.Initialize();
 
         s_generation_manager = this;
         m_content = new List<GameObject>();
@@ -93,6 +95,11 @@ public class GenerationManager : MonoBehaviour
         m_log_content.Add(obj);
 
         yield return null;
+    }
+
+    public void Click()
+    {
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
     }
 
     public void ClearLog()
@@ -219,7 +226,7 @@ public class GenerationManager : MonoBehaviour
             m_season = Season.SUMMER;
         }
 
-        GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         StartCoroutine(perform_async(() => do_season_change()));
     }
@@ -236,6 +243,8 @@ public class GenerationManager : MonoBehaviour
 
     public void ShowOutputWindow()
     {
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
+
         if (!OutputWindow.activeSelf)
         {
             OutputWindow.SetActive(true);
@@ -252,7 +261,7 @@ public class GenerationManager : MonoBehaviour
         }
 
         OutputWindow.SetActive(false);
-        GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         StartCoroutine(output_async(str));
     }
@@ -354,6 +363,8 @@ public class GenerationManager : MonoBehaviour
                 obj.SetActive(true);
             }
         }
+
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
     }
 
     void hide_controls()

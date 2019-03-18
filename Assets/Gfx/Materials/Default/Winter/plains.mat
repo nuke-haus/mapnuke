@@ -79,8 +79,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.4
-    - _Threshold2: 0.82
+    - _Threshold1: 0.35
+    - _Threshold2: 0.75
     - _UVSec: 0
     - _X: 10
     - _Y: 10

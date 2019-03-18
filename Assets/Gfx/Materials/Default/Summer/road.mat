@@ -63,25 +63,25 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GridSize: 10
+    - _GridSize: 28
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ScaleX: 1
-    - _ScaleY: 0.35
+    - _ScaleY: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.65
-    - _Threshold2: 1
+    - _Threshold1: 0.4
+    - _Threshold2: 0.75
     - _UVSec: 0
     - _X: 1
     - _Y: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.6226415, g: 0.4020646, b: 0.16740832, a: 1}
-    - _Color2: {r: 0.6981132, g: 0.5152957, b: 0.31941974, a: 1}
-    - _Color3: {r: 1, g: 0.74515784, b: 0.4764151, a: 1}
+    - _Color1: {r: 0.5283019, g: 0.4108416, b: 0.256675, a: 1}
+    - _Color2: {r: 0.6320754, g: 0.4892557, b: 0.2951673, a: 1}
+    - _Color3: {r: 0.735849, g: 0.60970724, b: 0.43387324, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

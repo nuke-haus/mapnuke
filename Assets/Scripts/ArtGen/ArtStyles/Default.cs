@@ -153,6 +153,11 @@ public class DefaultArtStyle: ArtStyle
 
     public override void ChangeSeason(Season s)
     {
+        if (m_all_sprites == null)
+        {
+            return;
+        }
+
         JustChangedSeason = false;
 
         foreach (SpriteMarker m in m_all_sprites)
@@ -427,56 +432,6 @@ public class DefaultArtStyle: ArtStyle
             }
         }
     }
-
-    /*public PolyBorder AddPolyEdge(Vector3 p1, Vector3 p2, Connection c)
-    {
-        PolyBorder ex1 = m_entries.FirstOrDefault(x => Vector3.Distance(x.P1, p1) < 0.1f && Vector3.Distance(x.P2, p2) < 0.1f);
-        PolyBorder ex2 = m_entries.FirstOrDefault(x => Vector3.Distance(x.P2, p1) < 0.1f && Vector3.Distance(x.P1, p2) < 0.1f);
-
-        if (ex1 != null)
-        {
-            return ex1;
-        }
-        else if (ex2 != null)
-        {
-            return ex2.Reversed();
-        }
-
-        PolyBorder e = new PolyBorder(p1, p2, c);
-        m_entries.Add(e);
-
-        return e;
-    }
-
-    public PolyBorder AddPolyEdge(Vector3 p1, Vector3 p2, Vector3 dir, Connection c)
-    {
-        PolyBorder ex1 = m_entries.FirstOrDefault(x => Vector3.Distance(x.P1, p1) < 0.1f && Vector3.Distance(x.P2, p2) < 0.1f);
-        PolyBorder ex2 = m_entries.FirstOrDefault(x => Vector3.Distance(x.P2, p1) < 0.1f && Vector3.Distance(x.P1, p2) < 0.1f);
-
-        if (ex1 != null)
-        {
-            return ex1;
-        }
-        else if (ex2 != null)
-        {
-            return ex2.Reversed();
-        }
-
-        PolyBorder e = new PolyBorder(p1, p2, dir, c);
-        m_entries.Add(e);
-
-        return e;
-    }
-
-    public PolyBorder GetPolyBorder(Vector3 p1, Vector3 p2)
-    {
-        return m_entries.FirstOrDefault(x => (Vector3.Distance(x.P1, p1) < 0.01f && Vector3.Distance(x.P2, p2) < 0.01f) || (Vector3.Distance(x.P1, p2) < 0.01f && Vector3.Distance(x.P2, p1) < 0.01f));
-    }
-
-    public PolyBorder GetPolyBorder(Connection c)
-    {
-        return m_entries.FirstOrDefault(x => x.Connection == c);
-    }*/
 
     List<ConnectionMarker> get_adjacent(List<ConnectionMarker> conns, ConnectionMarker c)
     {

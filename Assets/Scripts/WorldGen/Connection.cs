@@ -57,6 +57,12 @@ public class Connection
         private set;
     }
 
+    public List<Connection> TriangleLinked
+    {
+        get;
+        private set;
+    }
+
     public bool IsSeaConnection
     {
         get
@@ -86,6 +92,14 @@ public class Connection
         get
         {
             return Node1.IsCapRing || Node2.IsCapRing;
+        }
+    }
+
+    public bool IsInsideCapRing
+    {
+        get
+        {
+            return Node1.IsCapRing && Node2.IsCapRing;
         }
     }
 
@@ -191,6 +205,19 @@ public class Connection
         }
 
         return result;
+    }
+
+    public void AddTriangleLink(Connection c)
+    {
+        if (TriangleLinked == null)
+        {
+            TriangleLinked = new List<Connection>();
+        }
+
+        if (!TriangleLinked.Contains(c))
+        {
+            TriangleLinked.Add(c);
+        }
     }
 
     public void CalcAdjacent(List<Connection> conns, NodeLayout nl) 

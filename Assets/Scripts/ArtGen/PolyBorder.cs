@@ -14,6 +14,17 @@ public class PolyBorder
     public Connection Connection;
     public List<Vector3> OrderedPoints;
 
+    public Vector3 MidPoint
+    {
+        get
+        {
+            int num = OrderedPoints.Count;
+            num = Mathf.RoundToInt(num * 0.5f);
+
+            return OrderedPoints[num];
+        }
+    }
+
     public PolyBorder(Vector3 p1, Vector3 p2, Connection c)
     {
         P1 = p1;
@@ -182,8 +193,8 @@ public class PolyBorder
         OrderedPoints = new List<Vector3>();
         CubicBezierPath path = new CubicBezierPath(pts.ToArray());
 
-        float max = (float)(pts.Count - 1) - 0.04f;
-        float i = 0.04f;
+        float max = (float)(pts.Count - 1) - 0.06f;
+        float i = 0.06f;
         float spacing = 0.04f;
         Vector3 last = P1;
 

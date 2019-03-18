@@ -62,6 +62,8 @@ public class ConnectionWrapMarker: MonoBehaviour
         {
             MeshFilter.mesh.Clear();
         }
+
+        SetSeason(GenerationManager.s_generation_manager.Season);
     }
 
     void draw_river_shore(Vector3 offset)
@@ -187,6 +189,15 @@ public class ConnectionWrapMarker: MonoBehaviour
 
         m.RecalculateNormals();
         m.RecalculateBounds();
+
+        Vector3[] norms = m.normals;
+
+        for (int i = 0; i < norms.Length - 1; i++)
+        {
+            norms[i] = Vector3.back;
+        }
+
+        m.normals = norms;
 
         MeshFilter.mesh = m;
 

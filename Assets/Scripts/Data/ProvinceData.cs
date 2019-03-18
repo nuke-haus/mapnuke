@@ -50,7 +50,7 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA); // || Terrain.IsFlagSet(Terrain.DEEPSEA);
+            return Terrain.IsFlagSet(Terrain.SEA); 
         }
     }
 
@@ -58,7 +58,7 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.SWAMP); // || Terrain.IsFlagSet(Terrain.DEEPSEA)
+            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.SWAMP); 
         }
     }
 

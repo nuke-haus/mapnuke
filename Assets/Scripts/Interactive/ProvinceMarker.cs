@@ -595,6 +595,7 @@ public class ProvinceMarker: MonoBehaviour
 
                 if (b == null) // this probably should never happen 
                 {
+                    Debug.LogError("Unable to fetch polyborder for province marker: " + ProvinceNumber);
                     break;
                 }
 
@@ -685,6 +686,15 @@ public class ProvinceMarker: MonoBehaviour
 
         m.RecalculateNormals();
         m.RecalculateBounds();
+
+        Vector3[] norms = m.normals;
+
+        for (int i = 0; i < norms.Length - 1; i++)
+        {
+            norms[i] = Vector3.back;
+        }
+
+        m.normals = norms;
 
         MeshFilter.mesh = m;
         MeshCollider.sharedMesh = m;

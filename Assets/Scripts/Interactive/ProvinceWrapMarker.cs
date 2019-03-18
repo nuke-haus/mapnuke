@@ -132,6 +132,15 @@ public class ProvinceWrapMarker: MonoBehaviour
         m.RecalculateNormals();
         m.RecalculateBounds();
 
+        Vector3[] norms = m.normals;
+
+        for (int i = 0; i < norms.Length - 1; i++)
+        {
+            norms[i] = Vector3.back;
+        }
+
+        m.normals = norms;
+
         MeshFilter.mesh = m;
         MeshCollider.sharedMesh = m;
         MeshObj.transform.localPosition = transform.position * -1f;

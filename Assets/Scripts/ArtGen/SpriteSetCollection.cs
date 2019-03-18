@@ -25,6 +25,7 @@ public class SpriteSetCollection : MonoBehaviour
     public ConnectionSpriteSet Mountain;
     public ConnectionSpriteSet MountainPass;
     public ConnectionSpriteSet ShallowRiver;
+    public ConnectionSpriteSet DeepRiver;
 
     [Obsolete]
     public float GetMaxSize(Terrain flags)
@@ -220,6 +221,10 @@ public class SpriteSetCollection : MonoBehaviour
         else if (t == ConnectionType.SHALLOWRIVER)
         {
             return ShallowRiver.GetSprite();
+        }
+        else if (t == ConnectionType.RIVER)
+        {
+            return DeepRiver.GetSprite();
         }
 
         return null;

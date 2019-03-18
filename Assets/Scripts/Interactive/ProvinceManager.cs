@@ -13,6 +13,7 @@ public class ProvinceManager: MonoBehaviour
     public static ProvinceManager s_province_manager;
 
     public AudioClip AudioApply;
+    public AudioClip AudioClick;
     public AudioClip Audio;
     public Toggle Plains;
     public Toggle Highland;
@@ -107,10 +108,6 @@ public class ProvinceManager: MonoBehaviour
             flags = flags | Terrain.WARMER;
         }
 
-        if (m_current.Node.HasNation)
-        {
-            flags = flags | Terrain.START;
-        }
         if (Throne.isOn)
         {
             flags = flags | Terrain.THRONE;
@@ -188,6 +185,11 @@ public class ProvinceManager: MonoBehaviour
     public void PlaySound()
     {
         GetComponent<AudioSource>().PlayOneShot(AudioApply);
+    }
+
+    public void Click()
+    {
+        GetComponent<AudioSource>().PlayOneShot(AudioClick);
     }
 
     public void SetProvince(ProvinceMarker p)

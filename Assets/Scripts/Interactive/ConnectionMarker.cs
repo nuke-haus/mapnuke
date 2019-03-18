@@ -435,7 +435,7 @@ public class ConnectionMarker: MonoBehaviour
 
             if (Mathf.Abs(actual.y) < 0.3f)
             {
-                ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
+                ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.RIVER);
                 SpriteMarker s = make_sprite(pos, cs, Vector3.zero);
             }
             else
@@ -466,6 +466,36 @@ public class ConnectionMarker: MonoBehaviour
             }
 
             m_culling_points = positions;
+        }
+        else if (m_connection.ConnectionType == ConnectionType.ROAD)
+        {
+            if (PolyBorder == null)
+            {
+                return m_sprites;
+            }
+
+            Vector3 last = new Vector3(-900, -900, 0);
+            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
+            float size = UnityEngine.Random.Range(cs.Size, cs.Size + 0.08f);
+
+            if (cs == null)
+            {
+                return m_sprites;
+            }
+
+            foreach (Vector3 pt in m_poly)
+            {
+                if (Vector3.Distance(last, pt) < size)
+                {
+                    continue;
+                }
+
+                make_sprite(pt, cs, Vector3.zero);
+
+                last = pt;
+                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
+                size = UnityEngine.Random.Range(cs.Size, cs.Size + 0.08f);
+            }
         }
 
         all.AddRange(m_sprites);
@@ -529,6 +559,14 @@ public class ConnectionMarker: MonoBehaviour
         if (m_stroke != null)
         {
             m_stroke.SetSeason(s);
+        }
+
+        if (m_wraps != null)
+        {
+            foreach (ConnectionWrapMarker m in m_wraps)
+            {
+                m.SetSeason(s);
+            }
         }
 
         if (s == Season.SUMMER)
@@ -635,25 +673,25 @@ public class ConnectionMarker: MonoBehaviour
         else if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
             Vector3 dir = (m_pos2 - m_pos1).normalized;
-            Vector3 p1 = m_pos1 + dir * 0.26f;
-            Vector3 p2 = m_pos2 - dir * 0.26f;
+            Vector3 p1 = m_pos1 + dir * 0.4f;
+            Vector3 p2 = m_pos2 - dir * 0.4f;
 
-            if (IsEdge)
+            if (Vector3.Distance(m_pos1, m_pos2) > 3f)
             {
-                if (Vector3.Distance(EdgePoint, m_pos1) < 0.1f)
-                {
-                    p1 = EdgePoint;
-                }
-                else
-                {
-                    p2 = EdgePoint;
-                }
+                p1 = m_pos1 + dir * 0.6f;
+                p2 = m_pos2 - dir * 0.6f;
+            }
+
+            if (Vector3.Distance(p1, p2) < 0.5f)
+            {
+                p1 = m_pos1 + dir * 0.3f;
+                p2 = m_pos2 - dir * 0.3f;
             }
 
             PolyBorder fake = new PolyBorder(p1, p2, m_connection);
             m_culling_points = fake.OrderedPoints;
 
-            m_poly = get_contour(fake, 0.01f, 0.02f);
+            m_poly = get_contour(fake, 0.012f, 0.016f);//get_contour(fake, 0.01f, 0.02f);
             ConstructPoly(true);
         }
 
@@ -708,68 +746,116 @@ public class ConnectionMarker: MonoBehaviour
         List<Vector3> pts = new List<Vector3>();
         Vector3 norm = (pb.P2 - pb.P1).normalized;
         Vector3 prev = pb.P1;
-        
-        foreach (Vector3 pt in pb.OrderedPoints)
+        Vector3 lateral = Vector3.zero;
+
+        for (int i = 0; i < pb.OrderedPoints.Count - 1; i++)
         {
+            Vector3 pt = pb.OrderedPoints[i];
+            
             if (Vector3.Distance(prev, pt) < dist)
             {
                 continue;
             }
 
+            Vector3 behind = pb.OrderedPoints[Mathf.Max(i - 1, 0)];
+            Vector3 forward = pb.OrderedPoints[Mathf.Min(i + 1, pb.OrderedPoints.Count - 1)];
+
             dist = UnityEngine.Random.Range(0.04f, 0.16f);
 
-            Vector3 dir = (pt - prev).normalized;
-            Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
-            Vector3 shift = pt + lateral * UnityEngine.Random.Range(min_lat, max_lat);
+            Vector3 dir = (pt - behind).normalized;
+            Vector3 lateral1 = Vector3.Cross(dir, Vector3.forward);
+            dir = (forward - pt).normalized;
+            Vector3 lateral2 = Vector3.Cross(dir, Vector3.forward);
+            Vector3 true_lat = (lateral1 + lateral2) * 0.5f;
+
+            if (i == 0)
+            {
+                true_lat = lateral2;
+            }
+            else if (i == pb.OrderedPoints.Count - 1)
+            {
+                true_lat = lateral1;
+            }
+
+            Vector3 shift = pt + true_lat * UnityEngine.Random.Range(min_lat, max_lat);
             pts.Add(shift);
 
+            lateral = true_lat;
             prev = pt;
         }
 
-        Vector3 endpt = pb.P2 + norm * 0.05f;
+        Vector3 endpt = pb.P2 + norm * 0.05f + lateral * min_lat;
+        Vector3 endpt2 = pb.P2 + norm * 0.05f - lateral * min_lat;
 
         pts.Add(endpt);
+        pts.Add(endpt2);
         prev = endpt;
         dist = 0.08f;
 
-        foreach (Vector3 pt in pb.Reversed().OrderedPoints)
+        List<Vector3> ordered = pb.Reversed().OrderedPoints;
+
+        for (int i = 0; i < ordered.Count - 1; i++)
         {
+            Vector3 pt = ordered[i];
+
             if (Vector3.Distance(prev, pt) < dist)
             {
                 continue;
             }
 
+            Vector3 behind = ordered[Mathf.Max(i - 1, 0)];
+            Vector3 forward = ordered[Mathf.Min(i + 1, ordered.Count - 1)];
+
             dist = UnityEngine.Random.Range(0.04f, 0.16f);
 
-            Vector3 dir = (pt - prev).normalized;
-            Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
-            Vector3 shift = pt + lateral * UnityEngine.Random.Range(min_lat, max_lat);
+            Vector3 dir = (pt - behind).normalized;
+            Vector3 lateral1 = Vector3.Cross(dir, Vector3.forward);
+            dir = (forward - pt).normalized;
+            Vector3 lateral2 = Vector3.Cross(dir, Vector3.forward);
+            Vector3 true_lat = (lateral1 + lateral2) * 0.5f;
+
+            if (i == 0)
+            {
+                true_lat = lateral2;
+            }
+            else if (i == ordered.Count - 1)
+            {
+                true_lat = lateral1;
+            }
+
+            Vector3 shift = pt + true_lat * UnityEngine.Random.Range(min_lat, max_lat);
             pts.Add(shift);
 
+            lateral = true_lat;
             prev = pt;
         }
 
-        pts.Add(pb.P1 - norm * 0.05f);
-        pts.Add(pts[0]);
+        endpt = pb.P1 - norm * 0.05f + lateral * min_lat;
+        endpt2 = pb.P1 - norm * 0.05f - lateral * min_lat;
+
+        pts.Add(endpt);
+        pts.Add(endpt2);
+        pts.Add(pts[0]); // - norm * 0.004f 
 
         CubicBezierPath path = new CubicBezierPath(pts.ToArray());
 
         float max = (float)(pts.Count - 1) - 0.04f;
-        float i = 0.04f;
+        float j = 0.04f;
         float spacing = 0.04f;
         Vector3 last = pb.P1;
-        List<Vector3> ordered = new List<Vector3>();
+        ordered = new List<Vector3>();
 
-        while (i < max)
+        while (j < max)
         {
-            Vector3 pt = path.GetPoint(i);
+            Vector3 pt = path.GetPoint(j);
 
             if (Vector3.Distance(pt, last) >= spacing)
             {
                 ordered.Add(pt);
+                last = pt;
             }
 
-            i += 0.04f;
+            j += 0.04f;
         }
 
         return ordered;
@@ -800,9 +886,18 @@ public class ConnectionMarker: MonoBehaviour
         m.RecalculateNormals();
         m.RecalculateBounds();
 
-        MeshFilter.mesh = m;
+        Vector3[] norms = m.normals;
 
+        for (int i = 0; i < norms.Length - 1; i++)
+        {
+            norms[i] = Vector3.back;
+        }
+
+        m.normals = norms;
+
+        MeshFilter.mesh = m;
         Vector3 pos = transform.position * -1f;
+
         if (IsDummy || is_road)
         {
             pos.z = -2.0f;

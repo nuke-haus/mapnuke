@@ -14,6 +14,7 @@ public class ConnectionManager: MonoBehaviour
     public static ConnectionManager s_connection_manager;
 
     public AudioClip Audio;
+    public AudioClip AudioClick;
     public AudioClip AudioApply;
     public Toggle Standard;
     public Toggle Road;
