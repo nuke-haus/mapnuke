@@ -33,7 +33,6 @@ I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
 Some features I'd have liked to have that were ultimately too much work.
 
-- Expose all relevant map generation parameters in a nice little UI dialog box so the user can tweak more parameters.
 - Add a dialog box somewhere that lets players give provinces custom names if they want.
 - Support for non-wrapping maps.
 
