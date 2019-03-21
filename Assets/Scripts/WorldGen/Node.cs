@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class Node
 { 
-    public NationData Nation
+    public PlayerData Nation
     {
         get;
         private set;
@@ -200,12 +200,12 @@ public class Node
         IsWrapCorner = false;
     }
 
-    public Node(int x, int y, ProvinceData pd, NationData n) : this(x, y, pd)
+    public Node(int x, int y, ProvinceData pd, PlayerData n) : this(x, y, pd)
     {
         Nation = n;
     }
 
-    public void SetPlayerInfo(NationData n, ProvinceData pd)
+    public void SetPlayerInfo(PlayerData n, ProvinceData pd)
     {
         Nation = n;
         ProvinceData = pd;

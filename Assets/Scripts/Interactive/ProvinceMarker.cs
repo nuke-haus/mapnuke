@@ -41,6 +41,8 @@ public class ProvinceMarker: MonoBehaviour
     public MeshCollider MeshCollider;
     public GameObject MeshObj;
 
+    public List<TextMesh> TextOutlines;
+
     List<ProvinceWrapMarker> m_wraps;
     Node m_node;
     List<ProvinceMarker> m_linked;
@@ -200,11 +202,32 @@ public class ProvinceMarker: MonoBehaviour
             if (on)
             {
                 Vector3 pos = Text.gameObject.transform.localPosition;
-                pos.y = 0.04f;
+                pos.y = 0f;
 
                 Text.gameObject.transform.localPosition = pos;
-                Text.fontSize = 40;
+                Text.fontSize = 44;
                 Text.gameObject.layer = 9;
+
+                float add_x = -0.01f;
+                float add_y = -0.01f;
+
+                foreach (TextMesh m in TextOutlines)
+                {
+                    pos = m.gameObject.transform.localPosition;
+                    pos.y = add_y;
+                    pos.x = add_x;
+
+                    if (add_y > 0)
+                    {
+                        add_x = 0.01f;
+                    }
+
+                    add_y = -add_y;
+
+                    m.gameObject.transform.localPosition = pos;
+                    m.fontSize = 44;
+                    m.gameObject.layer = 9;
+                }
             }
             else
             {
@@ -214,6 +237,27 @@ public class ProvinceMarker: MonoBehaviour
                 Text.gameObject.transform.localPosition = pos;
                 Text.fontSize = 34;
                 Text.gameObject.layer = 8;
+
+                float add_x = -0.01f;
+                float add_y = -0.01f;
+
+                foreach (TextMesh m in TextOutlines)
+                {
+                    pos = m.gameObject.transform.localPosition;
+                    pos.y = 0.16f + add_y;
+                    pos.x = add_x;
+
+                    if (add_y > 0)
+                    {
+                        add_x = 0.01f;
+                    }
+
+                    add_y = -add_y;
+
+                    m.gameObject.transform.localPosition = pos;
+                    m.fontSize = 34;
+                    m.gameObject.layer = 8;
+                }
             }
         }
     }
@@ -248,17 +292,22 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (m_node.HasNation)
         {
-            Text.text = m_node.Nation.Name;
-            Text.color = new Color(0.8f, 0f, 0.8f); // Color.magenta;
+            Text.text = m_node.Nation.NationData.Name;
+            Text.color = new Color(1.0f, 0.5f, 1.0f); 
         }
         else if (m_node.ProvinceData.IsThrone)
         {
             Text.text = "Throne";
-            Text.color = new Color(0.8f, 0f, 0f); // Color.red;
+            Text.color = new Color(1.0f, 0.4f, 0.4f); 
         }
         else
         {
             Text.text = string.Empty;
+        }
+
+        foreach (TextMesh m in TextOutlines)
+        {
+            m.text = Text.text;
         }
     }
 
@@ -688,10 +737,18 @@ public class ProvinceMarker: MonoBehaviour
         m.RecalculateBounds();
 
         Vector3[] norms = m.normals;
+        bool valid = validate_solid(transform.position);
 
         for (int i = 0; i < norms.Length - 1; i++)
         {
-            norms[i] = Vector3.back;
+            if (valid)
+            {
+                norms[i] = Vector3.back;
+            }
+            else
+            {
+                norms[i] = Vector3.forward;
+            }
         }
 
         m.normals = norms;
@@ -944,6 +1001,22 @@ public class ProvinceMarker: MonoBehaviour
                 m_sprite_points.Add(hitpt);
             }
         }
+    }
+
+    bool validate_solid(Vector3 pt)
+    {
+        RaycastHit hit;
+        pt.z = -900f;
+
+        if (Physics.Raycast(pt, Vector3.forward, out hit, 9000))
+        {
+            if (hit.collider == MeshCollider)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     Vector3 get_mins()

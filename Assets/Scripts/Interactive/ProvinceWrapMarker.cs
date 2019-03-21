@@ -133,10 +133,18 @@ public class ProvinceWrapMarker: MonoBehaviour
         m.RecalculateBounds();
 
         Vector3[] norms = m.normals;
+        bool valid = validate_solid(transform.position);
 
         for (int i = 0; i < norms.Length - 1; i++)
         {
-            norms[i] = Vector3.back;
+            if (valid)
+            {
+                norms[i] = Vector3.back;
+            }
+            else
+            {
+                norms[i] = Vector3.forward;
+            }
         }
 
         m.normals = norms;
@@ -146,6 +154,22 @@ public class ProvinceWrapMarker: MonoBehaviour
         MeshObj.transform.localPosition = transform.position * -1f;
 
         assign_mat();
+    }
+
+    bool validate_solid(Vector3 pt)
+    {
+        RaycastHit hit;
+        pt.z = -900f;
+
+        if (Physics.Raycast(pt, Vector3.forward, out hit, 9000))
+        {
+            if (hit.collider == MeshCollider)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void calculate_uv(Mesh m, Vector3 offset)

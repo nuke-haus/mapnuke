@@ -37,6 +37,14 @@ public class SpawnPoint
         TeamNum = team_num;
         SpawnType = SpawnType.PLAYER;
     }
+
+    public float DistanceTo(SpawnPoint s)
+    {
+        Vector2 v1 = new Vector2(X, Y);
+        Vector2 v2 = new Vector2(s.X, s.Y);
+
+        return Vector2.Distance(v1, v2);
+    }
 }
 
 /// <summary>

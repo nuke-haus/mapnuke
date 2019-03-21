@@ -22,9 +22,9 @@ static class WorldGenerator
     static List<Node> m_starts;
     static List<Connection> m_connections;
     static List<NodeLayout> m_layouts;
-    static List<NationData> m_nations;
+    static List<PlayerData> m_nations;
 
-    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<NationData> picks)
+    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<PlayerData> picks)
     {
         init();
 
@@ -964,11 +964,11 @@ static class WorldGenerator
     {
         foreach (Node n in m_starts)
         {
-            if (n.Nation.IsWater)
+            if (n.Nation.NationData.IsWater)
             {
                 int modifier = n.ConnectedNodes.Count + 1; // subtract their capring from the total count
                 int count = 0;
-                int num_water = Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.Nation.WaterPercentage);
+                int num_water = Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.Nation.NationData.WaterPercentage);
 
                 if (modifier >= num_water) // there should be at least 1 water province added
                 {
@@ -1104,7 +1104,7 @@ static class WorldGenerator
 
     static void generate_thrones()
     {
-        int num_water = m_starts.Where(x => x.Nation.WaterPercentage > 0.3f).Count();
+        int num_water = m_starts.Where(x => x.Nation.NationData.WaterPercentage > 0.3f).Count();
         int water_ct = UnityEngine.Random.Range(-2, 1);
 
         foreach (Node n in m_nodes)
@@ -1138,7 +1138,7 @@ static class WorldGenerator
             valid = m_nodes.Where(x => !x.HasNation).ToList();
         }
 
-        Dictionary<NationData, List<Node>> dict = new Dictionary<NationData, List<Node>>();
+        Dictionary<Node, List<Node>> dict = new Dictionary<Node, List<Node>>();
 
         foreach (Node n in m_starts)
         {
@@ -1152,7 +1152,7 @@ static class WorldGenerator
                 }
             }
 
-            dict.Add(n.Nation, nodes);
+            dict.Add(n, nodes);
         }
 
         int max = Mathf.Max(Mathf.RoundToInt((num_large * original.Count) / m_starts.Count), 2);
@@ -1160,7 +1160,7 @@ static class WorldGenerator
 
         while (i < max) // fairly assign large provinces to each nation 
         {
-            foreach (KeyValuePair<NationData, List<Node>> pair in dict)
+            foreach (KeyValuePair<Node, List<Node>> pair in dict)
             {
                 if (pair.Value.Any())
                 {
@@ -1237,11 +1237,6 @@ static class WorldGenerator
                     break;
                 }
 
-                if (UnityEngine.Random.Range(0, 10) == 0) // small chance to ignore some
-                {
-                    continue;
-                }
-
                 Node n = valid.GetRandom();
                 valid.Remove(n);
 
@@ -1264,10 +1259,6 @@ static class WorldGenerator
                         n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
                     }
                 }
-                /*if ((t == Terrain.HIGHLAND || t == Terrain.MOUNTAINS) && rand == 0)
-                {
-                    n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
-                }*/
             }
 
             return;
@@ -1297,6 +1288,12 @@ static class WorldGenerator
                 Node n = valid.GetRandom();
                 valid.Remove(n);
 
+                if (n.GetConnectedProvincesOfType(pair.Key, true).Count > 1 && pair.Value < 0.3f)
+                {
+                    skipped.Add(n);
+                    continue;
+                }
+
                 n.ProvinceData.SetTerrainFlags(pair.Key);
 
                 int rand = UnityEngine.Random.Range(0, 10);
@@ -1307,12 +1304,6 @@ static class WorldGenerator
                 }
                 if (pair.Key == Terrain.WASTE)
                 {
-                    if (n.GetConnectedProvincesOfType(Terrain.WASTE, true).Count > 1 && num_waste < 0.3f)
-                    {
-                        skipped.Add(n);
-                        continue;
-                    }
-
                     if (rand == 0)
                     {
                         n.ProvinceData.AddTerrainFlag(Terrain.WARMER);
@@ -1322,10 +1313,6 @@ static class WorldGenerator
                         n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
                     }
                 }
-                /*if ((pair.Key == Terrain.HIGHLAND || pair.Key == Terrain.MOUNTAINS) && rand == 0)
-                {
-                    n.ProvinceData.AddTerrainFlag(Terrain.COLDER);
-                }*/
 
                 i++;
             }
@@ -1352,7 +1339,6 @@ static class WorldGenerator
 
             if (n.GetConnectedProvincesOfType(Terrain.SWAMP, true).Count > 1 && num_swamps < 0.3f)
             {
-                valid.Remove(n);
                 continue;
             }
 
@@ -1364,14 +1350,14 @@ static class WorldGenerator
 
     static void generate_lakes() // random placement logic for small bodies of water
     {
-        if (!m_nations.Any(x => !x.IsWater))
+        if (!m_nations.Any(x => !x.NationData.IsWater))
         {
             return;
         }
 
         float num_lakes = GeneratorSettings.s_generator_settings.LakeFreq.GetRandom();
 
-        if (m_nations.Any(x => x.WaterPercentage > 0.3f))
+        if (m_nations.Any(x => x.NationData.WaterPercentage > 0.3f))
         {
             num_lakes *= 0.5f; // if real water nations are playing then reduce the random water provinces 
         }
@@ -1389,6 +1375,8 @@ static class WorldGenerator
         {
             return;
         }
+
+        valid.Shuffle();
         
         for (int i = 0; i < lakes; i++)
         {
@@ -1397,27 +1385,21 @@ static class WorldGenerator
                 break;
             }
 
-            Node n = valid.GetRandom();
+            Node n = valid[0];
             valid.Remove(n);
 
             n.ProvinceData.SetTerrainFlags(Terrain.SEA);
 
             int rand = UnityEngine.Random.Range(0, 10);
 
-            if (rand == 0) // small chance to create connected water province
+            if (rand < 1) // small chance to create connected water province
             {
-                Connection c = n.Connections.FirstOrDefault(x => !x.Node1.IsCapRing && !x.Node2.IsCapRing);
+                Node adj = n.ConnectedNodes.Where(x => !x.IsCapRing && valid.Contains(x)).ToList().GetRandom();
 
-                if (c != null)
+                if (adj != null)
                 {
-                    if (c.Node1 == n)
-                    {
-                        valid.Insert(0, c.Node2);
-                    }
-                    else
-                    {
-                        valid.Insert(0, c.Node1);
-                    }
+                    valid.Remove(adj);
+                    valid.Insert(0, adj);
                 }
             }
         }  
@@ -1440,19 +1422,19 @@ static class WorldGenerator
 
                 foreach (Connection c in n.Connections)
                 {
-                    if (i >= n.Nation.TerrainData.Length)
+                    if (i >= n.Nation.NationData.TerrainData.Length)
                     {
                         break;
                     }
 
                     if (c.Node1 == n)
                     {
-                        c.Node2.ProvinceData.SetTerrainFlags(n.Nation.TerrainData[i]);
+                        c.Node2.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node2.SetAssignedTerrain(true);
                     }
                     else
                     {
-                        c.Node1.ProvinceData.SetTerrainFlags(n.Nation.TerrainData[i]);
+                        c.Node1.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node1.SetAssignedTerrain(true);
                     }
 
@@ -1643,54 +1625,61 @@ static class WorldGenerator
         return n;
     }
 
+    static List<PlayerData> fix_team_numbers(List<PlayerData> data)
+    {
+        int i = 0;
+        List<PlayerData> res = new List<PlayerData>();
+
+        while (data.Any())
+        {
+            PlayerData p = data[0];
+            var all_data = data.Where(x => x.TeamNum == p.TeamNum);
+
+            foreach (PlayerData d in all_data)
+            {
+                res.Add(new PlayerData(d.NationData, i));
+            }
+
+            data.RemoveAll(x => x.TeamNum == p.TeamNum);
+            i++;
+        }
+
+        return res;
+    }
+
     static void generate_nodes()
     {
         m_nodes = new List<Node>();
         m_starts = new List<Node>();
         m_connections = new List<Connection>();
 
-        List<NationData> scrambled = new List<NationData>();
-        
+        List<PlayerData> scrambled = new List<PlayerData>();
+
         if (m_teamplay)
         {
-            List<NationData> all = new List<NationData>();
-            all.AddRange(m_nations);
+            List<PlayerData> temp = new List<PlayerData>();
+            temp.AddRange(m_nations);
+            temp = fix_team_numbers(temp);
+            temp.Shuffle();
 
-            while (all.Any())
+            while (temp.Any())
             {
-                int front = UnityEngine.Random.Range(0, 2);
-                int flip = UnityEngine.Random.Range(0, 2);
+                PlayerData pd = temp[0];
 
-                NationData d1 = all[0];
-                NationData d2 = all[1];
-                all.Remove(d1);
-                all.Remove(d2);
+                temp.Remove(pd);
+                scrambled.Add(pd);
 
-                if (front == 0)
+                while (temp.Any(x => x.TeamNum == pd.TeamNum))
                 {
-                    if (flip == 0)
+                    PlayerData next = temp.FirstOrDefault(x => x.TeamNum == pd.TeamNum);
+
+                    if (next == null)
                     {
-                        scrambled.Add(d1);
-                        scrambled.Add(d2);
+                        break;
                     }
-                    else
-                    {
-                        scrambled.Add(d2);
-                        scrambled.Add(d1);
-                    }
-                }
-                else
-                {
-                    if (flip == 0)
-                    {
-                        scrambled.Insert(0, d1);
-                        scrambled.Insert(0, d2);
-                    }
-                    else
-                    {
-                        scrambled.Insert(0, d2);
-                        scrambled.Insert(0, d1);
-                    }
+
+                    temp.Remove(next);
+                    scrambled.Add(next);
                 }
             }
         }
@@ -1716,17 +1705,17 @@ static class WorldGenerator
         }
         else
         {
-            List<NationData> water = new List<NationData>();
+            List<PlayerData> water = new List<PlayerData>();
 
-            foreach (NationData d in scrambled)
+            foreach (PlayerData d in scrambled)
             {
-                if (d.WaterPercentage > 0.3f)
+                if (d.NationData.WaterPercentage > 0.3f)
                 {
                     water.Add(d);
                 }
             }
 
-            foreach (NationData d in water)
+            foreach (PlayerData d in water)
             {
                 scrambled.Remove(d);
             }
@@ -1735,7 +1724,7 @@ static class WorldGenerator
         }
     }
 
-    static void create_team_nodes(NodeLayout nl, List<NationData> nats)
+    static void create_team_nodes(NodeLayout nl, List<PlayerData> nats)
     {
         for (int x = 0; x < nl.X; x++) // create all nodes first
         {
@@ -1752,38 +1741,37 @@ static class WorldGenerator
             }
         }
 
-        int spawn_num = 0;
+        List<SpawnPoint> spawns = new List<SpawnPoint>();
+        spawns.AddRange(nl.Spawns.Where(x => x.SpawnType == SpawnType.PLAYER));
+        spawns = spawns.OrderBy(x => x.Y).ThenBy(x => x.X).ToList();
 
         while (nats.Any())
         {
-            NationData d1 = nats[0];
-            NationData d2 = nats[1];
-            nats.Remove(d1);
-            nats.Remove(d2);
+            PlayerData pd = nats[0];
 
-            List<SpawnPoint> valid = nl.Spawns.Where(x => x.TeamNum == spawn_num).ToList();
+            List<PlayerData> all = new List<PlayerData>();
+            all.AddRange(nats.Where(x => x.TeamNum == pd.TeamNum));
 
-            if (valid.Count != 2)
+            nats.RemoveAll(x => x.TeamNum == pd.TeamNum);
+
+            SpawnPoint anchor = spawns[0];
+            List<SpawnPoint> ordered = spawns.OrderBy(x => x.DistanceTo(anchor)).ToList();
+
+            int i = 0;
+
+            foreach (PlayerData p in all)
             {
-                throw new UnityException("Invalid spawn point information for playercount: " + nl.NumPlayers);
-            }
+                SpawnPoint s = ordered[i];
+                spawns.Remove(s);
 
-            Node n1 = m_nodes.FirstOrDefault(x => x.X == valid[0].X && x.Y == valid[0].Y);
-            Node n2 = m_nodes.FirstOrDefault(x => x.X == valid[1].X && x.Y == valid[1].Y);
+                Node n = m_nodes.FirstOrDefault(x => x.X == s.X && x.Y == s.Y);
+                n.SetPlayerInfo(p, new ProvinceData(p.NationData.CapTerrain));
+                n.SetAssignedTerrain(true);
 
-            if (n1 == null || n2 == null)
-            {
-                throw new UnityException("Invalid spawn point information for playercount: " + nl.NumPlayers);
-            }
+                m_starts.Add(n);
 
-            n1.SetPlayerInfo(d1, new ProvinceData(d1.CapTerrain));
-            n2.SetPlayerInfo(d2, new ProvinceData(d2.CapTerrain));
-            n1.SetAssignedTerrain(true);
-            n2.SetAssignedTerrain(true);
-
-            m_starts.Add(n1);
-            m_starts.Add(n2);
-            spawn_num++;
+                i++;
+            } 
         }
     }
 
@@ -1803,7 +1791,7 @@ static class WorldGenerator
         }
     }
 
-    static void create_basic_nodes(NodeLayout nl, List<NationData> nats, List<NationData> water)
+    static void create_basic_nodes(NodeLayout nl, List<PlayerData> nats, List<PlayerData> water)
     {
         for (int x = 0; x < nl.X; x++) // create all nodes first
         {
@@ -1833,22 +1821,22 @@ static class WorldGenerator
             Node start = starts.GetRandom();
             List<Node> nodes = get_closest_nodes(start);
 
-            foreach (NationData d in water)
+            foreach (PlayerData d in water)
             {
                 Node n = nodes[0];
                 nodes.Remove(n);
                 starts.Remove(n);
 
-                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain));
+                n.SetPlayerInfo(d, new ProvinceData(d.NationData.CapTerrain));
                 n.SetAssignedTerrain(true);
             }
 
-            foreach (NationData d in nats)
+            foreach (PlayerData d in nats)
             {
                 Node n = starts.GetRandom();
                 starts.Remove(n);
 
-                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain));
+                n.SetPlayerInfo(d, new ProvinceData(d.NationData.CapTerrain));
                 n.SetAssignedTerrain(true);
             }
         }
@@ -1858,10 +1846,10 @@ static class WorldGenerator
 
             foreach (Node n in m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)))
             {
-                NationData d = nats.GetRandom();
+                PlayerData d = nats.GetRandom();
                 nats.Remove(d);
 
-                n.SetPlayerInfo(d, new ProvinceData(d.CapTerrain));
+                n.SetPlayerInfo(d, new ProvinceData(d.NationData.CapTerrain));
                 n.SetAssignedTerrain(true);
             }
         }

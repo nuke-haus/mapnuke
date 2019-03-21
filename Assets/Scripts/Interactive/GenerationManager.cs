@@ -22,20 +22,22 @@ public class GenerationManager : MonoBehaviour
     public InputField MapName;
     public GameObject NationPicker;
     public GameObject ScrollContent;
+    public GameObject ScrollPanel;
     public GameObject Logo;
     public GameObject LogScreen;
     public GameObject LogContent;
     public GameObject[] HideableOptions;
     public GameObject[] HideableControls;
 
+    bool m_generic_starts = false;
     bool m_cluster_water = true;
     bool m_teamplay = false;
-    int m_players = 9;
+    int m_player_count = 9;
     Age m_age = Age.EARLY;
     Season m_season = Season.SUMMER;
     List<GameObject> m_log_content;
     List<GameObject> m_content;
-    List<NationData> m_nations;
+    List<PlayerData> m_nations;
 
     public Season Season
     {
@@ -45,7 +47,7 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    public List<NationData> NationData
+    public List<PlayerData> NationData
     {
         get
         {
@@ -114,16 +116,10 @@ public class GenerationManager : MonoBehaviour
 
     public void OnGenerate()
     {
-        if (m_teamplay && m_content.Count % 2 == 1)
-        {
-            GetComponent<AudioSource>().PlayOneShot(DenyAudio);
-            return;
-        }
-
-        if (Logo != null && Logo.activeSelf)
+        /*if (Logo != null && Logo.activeSelf)
         {
             Logo.SetActive(false);
-        }
+        }*/
 
         if (ElementManager.s_element_manager.GeneratedObjects.Any())
         {
@@ -132,22 +128,23 @@ public class GenerationManager : MonoBehaviour
             return;
         }
 
-        List<NationData> picks = new List<NationData>();
+        List<PlayerData> picks = new List<PlayerData>();
 
         foreach (GameObject obj in m_content)
         {
-            Dropdown d = obj.GetComponent<Dropdown>();
-            string str = d.options[d.value].text;
-            NationData data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
+            NationPicker np = obj.GetComponent<NationPicker>();
+            string str = np.NationName;
 
-            if (data == null || picks.Contains(data))
+            NationData data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
+            PlayerData pd = new PlayerData(data, np.TeamNum);
+
+            if (data == null || (picks.Any(x => x.NationData.Name == data.Name) && !m_generic_starts))
             {
-                Debug.Log("Bad nation name: " + str);
                 GetComponent<AudioSource>().PlayOneShot(DenyAudio);
                 return;
             }
 
-            picks.Add(data);
+            picks.Add(pd);
         }
 
         m_nations = picks;
@@ -282,7 +279,7 @@ public class GenerationManager : MonoBehaviour
         ElementManager mgr = GetComponent<ElementManager>();
         NodeLayout layout = WorldGenerator.GetLayout();
 
-        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces);
+        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay);
 
         yield return null;
 
@@ -336,6 +333,13 @@ public class GenerationManager : MonoBehaviour
     public void OnCluster()
     {
         m_cluster_water = !m_cluster_water;
+    }
+
+    public void OnGeneric()
+    {
+        m_generic_starts = !m_generic_starts;
+
+        update_nations();
     }
 
     public void OnTeamplay()
@@ -394,7 +398,7 @@ public class GenerationManager : MonoBehaviour
         int players = 2;
         int.TryParse(trim, out players);
 
-        m_players = players;
+        m_player_count = players;
 
         update_nations();
     }
@@ -432,19 +436,28 @@ public class GenerationManager : MonoBehaviour
 
     void populate_nations(Dropdown d, int i)
     {
-        var list = AllNationData.AllNations.Where(x => x.Age == m_age || m_age == Age.ALL || x.ID == -1);
+        var list = AllNationData.AllNations.Where(x => (x.Age == m_age || m_age == Age.ALL) && x.ID != -1);
+
+        if (m_generic_starts)
+        {
+            list = AllNationData.AllNations.Where(x => x.ID == -1);
+            i = 0;
+        }
+
+        d.options.Clear();
 
         foreach (NationData nd in list)
         {
             d.options.Add(new Dropdown.OptionData(nd.Name));
         }
 
+        d.value = -1; // hard reset the value with this trick
         d.value = i;
     }
 
     void update_nations()
     {
-        while (m_content.Count > m_players)
+        while (m_content.Count > m_player_count)
         {
             GameObject obj = m_content[m_content.Count - 1];
             m_content.RemoveAt(m_content.Count - 1);
@@ -452,96 +465,39 @@ public class GenerationManager : MonoBehaviour
             GameObject.Destroy(obj);
         }
 
-        int counter = 1;
+        RectTransform tf = ScrollPanel.GetComponent<RectTransform>();
+        tf.sizeDelta = new Vector2(247f, 2f + m_player_count * 34f);
 
-        for (int i = 0; i < m_players; i++)
+        for (int i = 0; i < m_player_count; i++)
         {
             if (m_content.Count > i)
             {
                 GameObject obj = m_content[i];
                 RectTransform rt = obj.GetComponent<RectTransform>();
-                Dropdown d = obj.GetComponent<Dropdown>();
+                NationPicker np = obj.GetComponent<NationPicker>();
+                np.Initialize();
+                np.SetTeamplay(m_teamplay);
 
-                rt.localPosition = new Vector3(0, -15 - (i * 30), 0);
-                rt.sizeDelta = new Vector2(0, 30);
-                rt.anchoredPosition = new Vector2(0, -15 - (i * 30));
+                populate_nations(np.NationDropdown, i);
 
-                if (m_teamplay)
-                {
-                    if (counter < 3)
-                    {
-                        ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.5f, 0.7f, 0.9f);
-                        block.highlightedColor = new Color(0.5f, 0.9f, 1.0f);
-                        d.colors = block;
-                    }
-                    else if (counter < 5)
-                    {
-                        ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.4f, 0.8f, 0.5f);
-                        block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
-                        d.colors = block;
-                    }
-
-                    counter++;
-
-                    if (counter >= 5)
-                    {
-                        counter = 1;
-                    }
-                }
-                else
-                {
-                    ColorBlock block = d.colors;
-                    block.normalColor = new Color(0.4f, 0.8f, 0.5f);
-                    block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
-                    d.colors = block;
-                }
+                rt.localPosition = new Vector3(0, -17 - (i * 34), 0);
+                rt.sizeDelta = new Vector2(0, 34);
+                rt.anchoredPosition = new Vector2(0, -17 - (i * 34));
             }
             else
             {
                 GameObject cnt = GameObject.Instantiate(NationPicker);
                 RectTransform rt = cnt.GetComponent<RectTransform>();
-                Dropdown d = cnt.GetComponent<Dropdown>();
+                NationPicker np = cnt.GetComponent<NationPicker>();
+                np.Initialize();
+                np.SetTeamplay(m_teamplay);
 
-                populate_nations(d, i);
+                populate_nations(np.NationDropdown, i);
 
-                rt.SetParent(ScrollContent.GetComponent<RectTransform>());
-                rt.localPosition = new Vector3(0, -15 - (i * 30), 0);
-                rt.sizeDelta = new Vector2(0, 30);
-                rt.anchoredPosition = new Vector2(0, -15 - (i * 30));
-
-                if (m_teamplay)
-                {
-                    if (counter < 3)
-                    {
-                        ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.5f, 0.7f, 0.9f);
-                        block.highlightedColor = new Color(0.5f, 0.9f, 1.0f);
-                        d.colors = block;
-                    }
-                    else if (counter < 5)
-                    {
-                        ColorBlock block = d.colors;
-                        block.normalColor = new Color(0.4f, 0.8f, 0.5f);
-                        block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
-                        d.colors = block;
-                    }
-
-                    counter++;
-
-                    if (counter >= 5)
-                    {
-                        counter = 1;
-                    }
-                }
-                else
-                {
-                    ColorBlock block = d.colors;
-                    block.normalColor = new Color(0.4f, 0.8f, 0.5f);
-                    block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
-                    d.colors = block;
-                }
+                rt.SetParent(tf);
+                rt.localPosition = new Vector3(0, -17 - (i * 34), 0);
+                rt.sizeDelta = new Vector2(0, 34);
+                rt.anchoredPosition = new Vector2(0, -17 - (i * 34));
 
                 m_content.Add(cnt);
             }

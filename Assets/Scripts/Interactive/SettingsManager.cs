@@ -50,52 +50,42 @@ public class SettingsManager: MonoBehaviour
 
     public void Initialize()
     {
+        update_textboxes();
+        update_labels();
+    }
+
+    void update_textboxes()
+    {
         SwampMin.text = GeneratorSettings.s_generator_settings.SwampFreq.MinInt.ToString();
         SwampMax.text = GeneratorSettings.s_generator_settings.SwampFreq.MaxInt.ToString();
-
         WasteMin.text = GeneratorSettings.s_generator_settings.WasteFreq.MinInt.ToString();
         WasteMax.text = GeneratorSettings.s_generator_settings.WasteFreq.MaxInt.ToString();
-
         MountainMin.text = GeneratorSettings.s_generator_settings.MountainFreq.MinInt.ToString();
         MountainMax.text = GeneratorSettings.s_generator_settings.MountainFreq.MaxInt.ToString();
-
         HighlandMin.text = GeneratorSettings.s_generator_settings.HighlandFreq.MinInt.ToString();
         HighlandMax.text = GeneratorSettings.s_generator_settings.HighlandFreq.MaxInt.ToString();
-
         CaveMin.text = GeneratorSettings.s_generator_settings.CaveFreq.MinInt.ToString();
         CaveMax.text = GeneratorSettings.s_generator_settings.CaveFreq.MaxInt.ToString();
-
         FarmMin.text = GeneratorSettings.s_generator_settings.FarmFreq.MinInt.ToString();
         FarmMax.text = GeneratorSettings.s_generator_settings.FarmFreq.MaxInt.ToString();
-
         ForestMin.text = GeneratorSettings.s_generator_settings.ForestFreq.MinInt.ToString();
         ForestMax.text = GeneratorSettings.s_generator_settings.ForestFreq.MaxInt.ToString();
-
         LakeMin.text = GeneratorSettings.s_generator_settings.LakeFreq.MinInt.ToString();
         LakeMax.text = GeneratorSettings.s_generator_settings.LakeFreq.MaxInt.ToString();
-
         LargeMin.text = GeneratorSettings.s_generator_settings.LargeFreq.MinInt.ToString();
         LargeMax.text = GeneratorSettings.s_generator_settings.LargeFreq.MaxInt.ToString();
-
         SmallMin.text = GeneratorSettings.s_generator_settings.SmallFreq.MinInt.ToString();
         SmallMax.text = GeneratorSettings.s_generator_settings.SmallFreq.MaxInt.ToString();
-
         RoadMin.text = GeneratorSettings.s_generator_settings.RoadFreq.MinInt.ToString();
         RoadMax.text = GeneratorSettings.s_generator_settings.RoadFreq.MaxInt.ToString();
-
         RiverMin.text = GeneratorSettings.s_generator_settings.RiverFreq.MinInt.ToString();
         RiverMax.text = GeneratorSettings.s_generator_settings.RiverFreq.MaxInt.ToString();
-
         DeepRiverMin.text = GeneratorSettings.s_generator_settings.DeepRiverFreq.MinInt.ToString();
         DeepRiverMax.text = GeneratorSettings.s_generator_settings.DeepRiverFreq.MaxInt.ToString();
-
         CliffMin.text = GeneratorSettings.s_generator_settings.CliffFreq.MinInt.ToString();
         CliffMax.text = GeneratorSettings.s_generator_settings.CliffFreq.MaxInt.ToString();
-
         CliffPassMin.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MinInt.ToString();
         CliffPassMax.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MaxInt.ToString();
-
-        update_labels();
     }
 
     public void ResetSettings()
@@ -116,6 +106,7 @@ public class SettingsManager: MonoBehaviour
         GeneratorSettings.s_generator_settings.SwampFreq.Reset();
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
 
+        update_textboxes();
         update_labels();
     }
 

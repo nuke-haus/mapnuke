@@ -27,6 +27,13 @@ public class SpriteSetCollection : MonoBehaviour
     public ConnectionSpriteSet ShallowRiver;
     public ConnectionSpriteSet DeepRiver;
 
+    public ConnectionSpriteSet MountainSpecial;
+
+    public ConnectionSprite GetMountainSpecSprite()
+    {
+        return MountainSpecial.GetSprite();
+    }
+
     [Obsolete]
     public float GetMaxSize(Terrain flags)
     {
@@ -118,13 +125,14 @@ public class SpriteSetCollection : MonoBehaviour
 
     public MapSpriteSet GetMapSpriteSet(Terrain flags)
     {
+        /*if (flags.IsFlagSet(Terrain.DEEPSEA)) // removing this for now
+        {
+            return DeepSea;
+        }
+        else */
         if (flags.IsFlagSet(Terrain.SEA))
         {
             return Sea;
-        }
-        else if (flags.IsFlagSet(Terrain.DEEPSEA))
-        {
-            return DeepSea;
         }
         else if (flags.IsFlagSet(Terrain.FARM))
         {

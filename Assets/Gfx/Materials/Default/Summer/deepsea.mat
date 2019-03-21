@@ -76,7 +76,7 @@ Material:
     - _StencilRef: 1
     - _Threshold1: 0.1
     - _Threshold2: 0.42
-    - _Threshold3: 0.7
+    - _Threshold3: 0.68
     - _Threshold4: 0.95
     - _Threshold5: 0.9
     - _UVSec: 0

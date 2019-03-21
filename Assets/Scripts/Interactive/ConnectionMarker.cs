@@ -305,6 +305,7 @@ public class ConnectionMarker: MonoBehaviour
 
             Vector3 last = new Vector3(-900, -900, 0);
             ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            ConnectionSprite bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
             if (cs == null)
             {
@@ -314,8 +315,10 @@ public class ConnectionMarker: MonoBehaviour
             int ct = 0;
 
             make_sprite(PolyBorder.P1, cs, Vector3.zero);
+            make_sprite(PolyBorder.P1, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
+            make_sprite(PolyBorder.P2, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             foreach (Vector3 pt in PolyBorder.OrderedPoints)
@@ -330,8 +333,10 @@ public class ConnectionMarker: MonoBehaviour
                 last = pt;
 
                 make_sprite(pt, cs, Vector3.zero);
+                make_sprite(pt, bottom, new Vector3(0, 0.01f));
 
                 cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             }
         }
         else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
@@ -343,14 +348,17 @@ public class ConnectionMarker: MonoBehaviour
 
             Vector3 last = new Vector3(-900, -900, 0);
             ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            ConnectionSprite bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             PolyBorder other = PolyBorder.Reversed();
 
             int right_ct = 0;
             int right_pos = 0;
 
             make_sprite(PolyBorder.P1, cs, Vector3.zero);
+            make_sprite(PolyBorder.P1, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
+            make_sprite(PolyBorder.P2, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             foreach (Vector3 pt in other.OrderedPoints)
@@ -364,6 +372,7 @@ public class ConnectionMarker: MonoBehaviour
                 last = pt;
 
                 make_sprite(pt, cs, Vector3.zero);
+                make_sprite(pt, bottom, new Vector3(0, 0.01f));
 
                 if (right_ct > 1)
                 {
@@ -371,6 +380,7 @@ public class ConnectionMarker: MonoBehaviour
                 }
 
                 cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
                 right_ct++;
                 right_pos++;
@@ -383,7 +393,7 @@ public class ConnectionMarker: MonoBehaviour
 
             foreach (Vector3 pt in PolyBorder.OrderedPoints)
             {
-                if (Vector3.Distance(pt, endpt) < 0.08f)
+                if (Vector3.Distance(pt, endpt) < 0.05f)
                 {
                     break;
                 }
@@ -402,7 +412,10 @@ public class ConnectionMarker: MonoBehaviour
                 else
                 {
                     make_sprite(pt, cs, Vector3.zero);
+                    make_sprite(pt, bottom, new Vector3(0, 0.01f));
                 }
+
+                //make_sprite(pt, bottom, new Vector3(0, 0.01f));
 
                 if (Vector3.Distance(pt, endpt) < 0.6f)
                 {
@@ -414,6 +427,8 @@ public class ConnectionMarker: MonoBehaviour
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
                     is_mountain = true;
                 }
+
+                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
                 right_ct--;
             }
@@ -691,7 +706,7 @@ public class ConnectionMarker: MonoBehaviour
             PolyBorder fake = new PolyBorder(p1, p2, m_connection);
             m_culling_points = fake.OrderedPoints;
 
-            m_poly = get_contour(fake, 0.012f, 0.016f);//get_contour(fake, 0.01f, 0.02f);
+            m_poly = get_contour(fake, 0.012f, 0.014f);//get_contour(fake, 0.01f, 0.02f);
             ConstructPoly(true);
         }
 

@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 222367264264952984}
   - component: {fileID: 114839662376455288}
   - component: {fileID: 114058415399559292}
+  - component: {fileID: 5287079477506265119}
   m_Layer: 5
   m_Name: NationPicker
   m_TagString: Untagged
@@ -552,6 +553,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &5287079477506265119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233644115448252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d00463f7c05b84da904e31ae632b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NationDropdown: {fileID: 0}
+  TeamDropdown: {fileID: 0}
 --- !u!1 &1252436755526424
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +690,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 800}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &222675601855860840
 CanvasRenderer:
@@ -733,7 +748,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 25
   m_Viewport: {fileID: 224297249868500308}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 114892717128110344}

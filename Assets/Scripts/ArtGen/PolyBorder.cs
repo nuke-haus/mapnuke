@@ -25,26 +25,23 @@ public class PolyBorder
         }
     }
 
-    public PolyBorder(Vector3 p1, Vector3 p2, Connection c)
+    public PolyBorder(Vector3 p1, Vector3 p2, Connection c, bool is_road = false)
     {
         P1 = p1;
         P2 = p2;
         Connection = c;
         OrderedPoints = new List<Vector3>();
 
-        calc_points();
-        apply_jitter(0.02f);
-    }
-
-    public PolyBorder(Vector3 p1, Vector3 p2, Vector3 norm, Connection c)
-    {
-        P1 = p1;
-        P2 = p2;
-        Connection = c;
-        OrderedPoints = new List<Vector3>();
-
-        calc_points(norm);
-        apply_jitter(0.02f, norm);
+        if (is_road)
+        {
+            calc_points(true);
+            apply_jitter(0.04f);
+        }
+        else
+        {
+            calc_points();
+            apply_jitter(0.02f);
+        }
     }
 
     public List<Vector3> GetFullLengthBorder()
@@ -56,24 +53,6 @@ public class PolyBorder
 
         return pts;
     }
-
-    /*public List<Vector3> GetShorelineBorder()
-    {
-        Vector3 second = OrderedPoints[0];
-        Vector3 sec_last = OrderedPoints[OrderedPoints.Count - 2];
-        Vector3 first_dir = (second - P1).normalized;
-        Vector3 last_dir = (sec_last - P2).normalized;
-
-        Vector3 ep1 = P1 + first_dir * 0.01f;
-        Vector3 ep2 = P2 + last_dir * 0.01f;
-
-        List<Vector3> pts = new List<Vector3>();
-        pts.Add(ep1);
-        pts.AddRange(OrderedPoints);
-        pts.Add(ep2);
-
-        return pts;
-    }*/
 
     public List<Vector3> GetFullLengthBorderMinusEnd(bool reversed = false)
     {
@@ -211,52 +190,17 @@ public class PolyBorder
         }
     }
 
-    void calc_points(Vector3 norm) // simple case: 3 knots for a basic lump shape
-    { 
-        float spacing = 0.04f;
-        float dist = Vector3.Distance(P1, P2);
-        float latdist = dist * UnityEngine.Random.Range(-0.08f, 0.35f);
-        Vector3 mid = ((P1 + P2) / 2f) + norm * latdist;
-
-        if (mid.x > MapBorder.s_map_border.Maxs.x - 0.04f || mid.y > MapBorder.s_map_border.Maxs.y - 0.04f)
-        {
-            latdist = dist * UnityEngine.Random.Range(0.08f, 0.35f);
-            mid = ((P1 + P2) / 2f) + norm * latdist;
-        }
-
-        Vector3 dir = (P2 - P1).normalized;
-        Vector3 lat = Vector3.Cross(dir, Vector3.forward);
-
-        List<Vector3> knots = new List<Vector3>();
-        knots.Add(P1);
-        knots.Add(mid);
-        knots.Add(P2);
-
-        CubicBezierPath path = new CubicBezierPath(knots.ToArray());
-
-        float max = (float)(knots.Count - 1) - 0.04f;
-        float i = 0.04f;
-        Vector3 last = P1;
-
-        while (i < max)
-        {
-            Vector3 pt = path.GetPoint(i);
-
-            if (Vector3.Distance(pt, last) >= spacing)
-            {
-                OrderedPoints.Add(pt);
-            }
-
-            i += 0.04f;
-        }
-    }
-
-    void calc_points() // complex case: several knots randomly shifted between p1 and p2
+    void calc_points(bool is_road = false) // create several knots randomly shifted between p1 and p2
     {
-        float spacing = 0.04f;
         float dist = Vector3.Distance(P1, P2);
         float latdist = dist * 0.16f;
         int maxknots = Mathf.Max(Mathf.FloorToInt(dist / 0.30f), 2);
+
+        if (is_road)
+        {
+            latdist = dist * 0.08f;
+            maxknots++;
+        }
 
         Vector3 dir = (P2 - P1).normalized;
         Vector3 lat = Vector3.Cross(dir, Vector3.forward);
@@ -304,8 +248,9 @@ public class PolyBorder
 
         CubicBezierPath path = new CubicBezierPath(knots.ToArray());
 
-        float max = (float) (knots.Count - 1) - 0.04f;
-        float i = 0.04f;
+        float spacing = 0.04f;
+        float max = (float) (knots.Count - 1) - 0.08f;
+        float i = 0.08f;
         Vector3 last = P1;
 
         while (i < max)
@@ -465,6 +410,11 @@ public class PolyBorder
 
     float dist_proj(Vector3 pos, Vector3 anchor, Vector3 dir)
     {
+        if (Vector3.Distance(pos, anchor) < 0.01f)
+        {
+            return Vector3.Distance(pos, anchor);
+        }
+
         return Vector3.Distance(project(anchor, pos, dir), anchor);
     }
 

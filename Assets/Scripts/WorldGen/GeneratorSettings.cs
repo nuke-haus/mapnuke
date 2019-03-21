@@ -17,38 +17,23 @@ public class GeneratorSettings
         s_generator_settings = new GeneratorSettings();
     }
 
-    public FloatRange SwampFreq = new FloatRange(0.05f, 0.07f);
-    public FloatRange WasteFreq = new FloatRange(0.05f, 0.07f);
-    public FloatRange MountainFreq = new FloatRange(0.06f, 0.08f);
-    public FloatRange HighlandFreq = new FloatRange(0.06f, 0.08f);
-    public FloatRange CaveFreq = new FloatRange(0.06f, 0.08f);
-    public FloatRange FarmFreq = new FloatRange(0.14f, 0.16f);
-    public FloatRange ForestFreq = new FloatRange(0.14f, 0.16f);
+    public FloatRange SwampFreq = new FloatRange(0.04f, 0.06f);
+    public FloatRange WasteFreq = new FloatRange(0.04f, 0.06f);
+    public FloatRange MountainFreq = new FloatRange(0.05f, 0.07f);
+    public FloatRange HighlandFreq = new FloatRange(0.04f, 0.06f);
+    public FloatRange CaveFreq = new FloatRange(0.05f, 0.07f);
+    public FloatRange FarmFreq = new FloatRange(0.16f, 0.18f);
+    public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
     public FloatRange LakeFreq = new FloatRange(0.08f, 0.10f);
 
     public FloatRange LargeFreq = new FloatRange(0.34f, 0.38f);
     public FloatRange SmallFreq = new FloatRange(0.22f, 0.26f);
 
-    public FloatRange CliffFreq = new FloatRange(0.07f, 0.09f);
+    public FloatRange CliffFreq = new FloatRange(0.08f, 0.10f);
     public FloatRange CliffPassFreq = new FloatRange(0.08f, 0.10f);
-    public FloatRange RiverFreq = new FloatRange(0.07f, 0.09f);
+    public FloatRange RiverFreq = new FloatRange(0.08f, 0.10f);
     public FloatRange DeepRiverFreq = new FloatRange(0.08f, 0.10f);
     public FloatRange RoadFreq = new FloatRange(0.02f, 0.04f);
-
-    /*public FloatRange CliffFreq = new FloatRange(0.20f, 0.22f); // old values from previous logic - divide these by 3 to get proper values?
-    public FloatRange CliffPassFreq = new FloatRange(0.24f, 0.26f);
-    public FloatRange RiverFreq = new FloatRange(0.20f, 0.22f);
-    public FloatRange DeepRiverFreq = new FloatRange(0.24f, 0.26f);
-    public FloatRange RoadFreq = new FloatRange(0.08f, 0.10f);
-    
-    public FloatRange SwampFreq = new FloatRange(0.06f, 0.08f); // old values
-    public FloatRange WasteFreq = new FloatRange(0.06f, 0.08f);
-    public FloatRange MountainFreq = new FloatRange(0.08f, 0.10f);
-    public FloatRange HighlandFreq = new FloatRange(0.08f, 0.10f);
-    public FloatRange CaveFreq = new FloatRange(0.08f, 0.10f);
-    public FloatRange FarmFreq = new FloatRange(0.12f, 0.14f);
-    public FloatRange ForestFreq = new FloatRange(0.12f, 0.14f);
-    public FloatRange LakeFreq = new FloatRange(0.08f, 0.10f);*/
 }
 
 public class FloatRange // simple class for managing float random ranges

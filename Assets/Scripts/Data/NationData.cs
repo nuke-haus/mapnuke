@@ -97,6 +97,11 @@ public static class AllNationData
         // dummy 
         //AddNation(new NationData("CHOOSE NATION", -1, Age.ALL, new Terrain[] { }));
 
+        // generic starts
+        AddNation(new NationData("Land Nation", -1, 0.0f, Age.ALL, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.FOREST }));
+        AddNation(new NationData("Amphibious Nation", -1, 0.6f, Age.ALL, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.FOREST, Terrain.SEA }));
+        AddNation(new NationData("Water Nation", -1, 1.0f, Age.ALL, Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.DEEPSEA }));
+
         // early age
         AddNation(new NationData("(EA) Arcoscephale", 5, 0.0f, Age.EARLY, Terrain.MOUNTAINS, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(EA) Ermor", 6, 0.0f, Age.EARLY, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.FOREST }));
