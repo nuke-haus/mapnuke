@@ -1075,7 +1075,7 @@ static class WorldGenerator
     {
         float num_farms = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom();
 
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.IsPlains).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && x.ProvinceData.IsPlains).ToList();
 
         if (!m_nat_starts)
         {
@@ -1155,7 +1155,7 @@ static class WorldGenerator
             dict.Add(n, nodes);
         }
 
-        int max = Mathf.Max(Mathf.RoundToInt((num_large * original.Count) / m_starts.Count), 2);
+        int max = Mathf.RoundToInt((num_large * original.Count) / m_starts.Count);
         int i = 0;
 
         while (i < max) // fairly assign large provinces to each nation 
@@ -1178,10 +1178,10 @@ static class WorldGenerator
 
                         alt.ProvinceData.AddTerrainFlag(Terrain.LARGEPROV);
                     }
-                    else
+                    /*else
                     {
-                        //Debug.LogError("No provinces left to tag as large");
-                    }
+                        Debug.LogError("No provinces left to tag as large");
+                    }*/
                 }
             }
 
@@ -1196,6 +1196,11 @@ static class WorldGenerator
         {
             Node n = valid.GetRandom();
             valid.Remove(n);
+
+            if (n.GetConnectedProvincesOfType(Terrain.SMALLPROV, true).Count > 1 && num_small < 0.3f)
+            {
+                continue;
+            }
 
             n.ProvinceData.AddTerrainFlag(Terrain.SMALLPROV);
 

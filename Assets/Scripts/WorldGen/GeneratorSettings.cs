@@ -26,8 +26,8 @@ public class GeneratorSettings
     public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
     public FloatRange LakeFreq = new FloatRange(0.08f, 0.10f);
 
-    public FloatRange LargeFreq = new FloatRange(0.34f, 0.38f);
-    public FloatRange SmallFreq = new FloatRange(0.22f, 0.26f);
+    public FloatRange LargeFreq = new FloatRange(0.28f, 0.32f);
+    public FloatRange SmallFreq = new FloatRange(0.10f, 0.14f);
 
     public FloatRange CliffFreq = new FloatRange(0.08f, 0.10f);
     public FloatRange CliffPassFreq = new FloatRange(0.08f, 0.10f);

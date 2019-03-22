@@ -43,6 +43,8 @@ public class SettingsManager: MonoBehaviour
     public Text ConnPercent;
     public Text ProvSizePercent;
     public Text PlainsPercent;
+    public Text ConnNormalPercent;
+    public Text NormSizePercent;
 
     public Button AcceptButton;
 
@@ -158,11 +160,15 @@ public class SettingsManager: MonoBehaviour
             get_int(DeepRiverMax);
 
         int total_plains = 100 - total;
+        int total_normal_conn = 100 - total_conn;
+        int total_normal_size = 100 - total_size;
 
         ProvSizePercent.text = "Total: " + total_size + "%";
         ProvPercent.text = "Total: " + total + "%";
         ConnPercent.text = "Total: " + total_conn + "%";
         PlainsPercent.text = "Plains: " + total_plains + "%";
+        NormSizePercent.text = "Normal: " + total_normal_size + "%";
+        ConnNormalPercent.text = "Normal: " + total_normal_conn + "%";
 
         m_invalid = false;
 
@@ -255,11 +261,15 @@ public class SettingsManager: MonoBehaviour
             GeneratorSettings.s_generator_settings.DeepRiverFreq.MaxInt;
 
         int total_plains = 100 - total;
+        int total_normal_conn = 100 - total_conn;
+        int total_normal_size = 100 - total_size;
 
         ProvSizePercent.text = "Total: " + total_size + "%";
         ProvPercent.text = "Total: " + total + "%";
         ConnPercent.text = "Total: " + total_conn + "%";
         PlainsPercent.text = "Plains: " + total_plains + "%";
+        NormSizePercent.text = "Normal: " + total_normal_size + "%";
+        ConnNormalPercent.text = "Normal: " + total_normal_conn + "%";
 
         m_invalid = false;
 
