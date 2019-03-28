@@ -101,6 +101,7 @@ public class DefaultArtStyle: ArtStyle
         sort_sprites();
 
         ElementManager.s_element_manager.AddGeneratedObjects(result);
+        CaptureCam.s_capture_cam.Render();
     }
 
     public override void Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
@@ -149,6 +150,7 @@ public class DefaultArtStyle: ArtStyle
         }
 
         ElementManager.s_element_manager.AddGeneratedObjects(result);
+        CaptureCam.s_capture_cam.Render();
     }
 
     public override void ChangeSeason(Season s)
@@ -179,6 +181,7 @@ public class DefaultArtStyle: ArtStyle
         }
 
         JustChangedSeason = true;
+        CaptureCam.s_capture_cam.Render();
     }
 
     void sort_sprites()
@@ -194,6 +197,7 @@ public class DefaultArtStyle: ArtStyle
         }
 
         m_all_sprites = fix;
+
         int max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
 
         foreach (SpriteMarker m in m_all_sprites) //.OrderBy(x => 9000f - x.transform.position.y))

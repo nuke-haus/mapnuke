@@ -303,9 +303,9 @@ public class ConnectionWrapMarker: MonoBehaviour
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
-            foreach (Vector3 pt in PolyBorder.OrderedPoints)
+            foreach (Vector3 pt in PolyBorder.OrderedFinePoints)
             {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < m_border.OrderedPoints.Count - 1)
+                if (Vector3.Distance(last, pt) < cs.Size && ct < m_border.OrderedFinePoints.Count - 1)
                 {
                     ct++;
                     continue;
@@ -335,7 +335,7 @@ public class ConnectionWrapMarker: MonoBehaviour
             int right_ct = 0;
             int right_pos = 0;
 
-            foreach (Vector3 pt in other.OrderedPoints)
+            foreach (Vector3 pt in other.OrderedFinePoints)
             {
                 if (Vector3.Distance(last, pt) < cs.Size)
                 {
@@ -358,12 +358,12 @@ public class ConnectionWrapMarker: MonoBehaviour
                 right_pos++;
             }
 
-            Vector3 endpt = other.OrderedPoints[right_pos];
+            Vector3 endpt = other.OrderedFinePoints[right_pos];
             right_ct = -1;
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             bool is_mountain = true;
 
-            foreach (Vector3 pt in PolyBorder.OrderedPoints)
+            foreach (Vector3 pt in PolyBorder.OrderedFinePoints)
             {
                 if (Vector3.Distance(pt, endpt) < 0.08f)
                 {

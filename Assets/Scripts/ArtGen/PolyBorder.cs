@@ -13,6 +13,7 @@ public class PolyBorder
     public Vector3 P2;
     public Connection Connection;
     public List<Vector3> OrderedPoints;
+    public List<Vector3> OrderedFinePoints;
 
     public Vector3 MidPoint
     {
@@ -31,6 +32,7 @@ public class PolyBorder
         P2 = p2;
         Connection = c;
         OrderedPoints = new List<Vector3>();
+        OrderedFinePoints = new List<Vector3>();
 
         if (is_road)
         {
@@ -94,100 +96,42 @@ public class PolyBorder
         ordered.AddRange(OrderedPoints);
         ordered.Reverse();
 
+        List<Vector3> ordered_fine = new List<Vector3>();
+        ordered_fine.AddRange(OrderedFinePoints);
+        ordered_fine.Reverse();
+
         PolyBorder pb = new PolyBorder(P2, P1, Connection);
         pb.OrderedPoints = ordered;
+        pb.OrderedFinePoints = ordered_fine;
 
         return pb;
-    }
-
-    void apply_jitter(float jitter, Vector3 normal)
-    {
-        float dist = 0.08f;
-        List<Vector3> pts = new List<Vector3>();
-        Vector3 norm = (P2 - P1).normalized;
-        Vector3 prev = P1;
-
-        foreach (Vector3 pt in OrderedPoints)
-        {
-            if (Vector3.Distance(prev, pt) < dist)
-            {
-                continue;
-            }
-
-            dist = UnityEngine.Random.Range(0.04f, 0.16f);
-
-            Vector3 dir = (pt - prev).normalized;
-            //Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
-            Vector3 shift = pt + normal * UnityEngine.Random.Range(-jitter * 0.5f, jitter);
-            pts.Add(shift);
-
-            prev = pt;
-        }
-
-        OrderedPoints = new List<Vector3>();
-        CubicBezierPath path = new CubicBezierPath(pts.ToArray());
-
-        float max = (float)(pts.Count - 1) - 0.04f;
-        float i = 0.04f;
-        float spacing = 0.04f;
-        Vector3 last = P1;
-
-        while (i < max)
-        {
-            Vector3 pt = path.GetPoint(i);
-
-            if (Vector3.Distance(pt, last) >= spacing)
-            {
-                OrderedPoints.Add(pt);
-            }
-
-            i += 0.04f;
-        }
     }
 
     void apply_jitter(float jitter)
     {
         float dist = 0.08f;
-        List<Vector3> pts = new List<Vector3>();
+        List<Vector3> knots = new List<Vector3>();
         Vector3 norm = (P2 - P1).normalized;
         Vector3 prev = P1;
 
         foreach (Vector3 pt in OrderedPoints)
         {
-            if (Vector3.Distance(prev, pt) < dist)
+            /*if (Vector3.Distance(prev, pt) < dist)
             {
                 continue;
-            }
+            }*/
 
             dist = UnityEngine.Random.Range(0.04f, 0.16f);
 
             Vector3 dir = (pt - prev).normalized;
             Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
             Vector3 shift = pt + lateral * UnityEngine.Random.Range(-jitter, jitter);
-            pts.Add(shift);
+            knots.Add(shift);
 
             prev = pt;
         }
 
-        OrderedPoints = new List<Vector3>();
-        CubicBezierPath path = new CubicBezierPath(pts.ToArray());
-
-        float max = (float)(pts.Count - 1) - 0.06f;
-        float i = 0.06f;
-        float spacing = 0.04f;
-        Vector3 last = P1;
-
-        while (i < max)
-        {
-            Vector3 pt = path.GetPoint(i);
-
-            if (Vector3.Distance(pt, last) >= spacing)
-            {
-                OrderedPoints.Add(pt);
-            }
-
-            i += 0.04f;
-        }
+        generate_ordered(knots, true);
     }
 
     void calc_points(bool is_road = false) // create several knots randomly shifted between p1 and p2
@@ -198,7 +142,7 @@ public class PolyBorder
 
         if (is_road)
         {
-            latdist = dist * 0.08f;
+            latdist = dist * 0.06f;
             maxknots++;
         }
 
@@ -246,27 +190,61 @@ public class PolyBorder
 
         knots = knots.OrderBy(x => dist_proj(x, P1, lat)).ToList();
 
+        generate_ordered(knots);
+    }
+
+    void generate_ordered(List<Vector3> knots, bool generate_fine = false)
+    {
+        OrderedPoints = new List<Vector3>();
         CubicBezierPath path = new CubicBezierPath(knots.ToArray());
 
-        float spacing = 0.04f;
-        float max = (float) (knots.Count - 1) - 0.08f;
-        float i = 0.08f;
+        float mindist = 0.06f;
+        float spacing = 0.08f;
+        float max = (float)(knots.Count - 1) - 0.12f;
+        float i = 0.12f;
         Vector3 last = P1;
 
         while (i < max)
         {
             Vector3 pt = path.GetPoint(i);
 
-            if (Vector3.Distance(pt, last) >= spacing)
+            if (Vector3.Distance(pt, last) >= mindist)
             {
                 OrderedPoints.Add(pt);
+                last = pt;
             }
 
-            i += 0.04f;
+            i += spacing;
+        }
+
+        if (!generate_fine)
+        {
+            return;
+        }
+
+        OrderedFinePoints = new List<Vector3>();
+
+        mindist = 0.04f;
+        spacing = 0.04f;
+        max = (float)(knots.Count - 1) - 0.06f;
+        i = 0.06f;
+        last = P1;
+
+        while (i < max)
+        {
+            Vector3 pt = path.GetPoint(i);
+
+            if (Vector3.Distance(pt, last) >= mindist)
+            {
+                OrderedFinePoints.Add(pt);
+                last = pt;
+            }
+
+            i += spacing;
         }
     }
 
-    void calc_points_test() // test with static shapes.
+    /*void calc_points_test() // test with static shapes.
     {
         Vector3 cur = P1;
         Vector3 dir = (P2 - P1).normalized;
@@ -406,7 +384,7 @@ public class PolyBorder
         }
 
         OrderedPoints = vecs.OrderBy(x => dist_proj(x, P1, lat)).ToList();
-    }
+    }*/
 
     float dist_proj(Vector3 pos, Vector3 anchor, Vector3 dir)
     {

@@ -292,21 +292,33 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (m_node.HasNation)
         {
+            Text.gameObject.SetActive(true);
             Text.text = m_node.Nation.NationData.Name;
             Text.color = new Color(1.0f, 0.5f, 1.0f); 
         }
         else if (m_node.ProvinceData.IsThrone)
         {
+            Text.gameObject.SetActive(true);
             Text.text = "Throne";
-            Text.color = new Color(1.0f, 0.4f, 0.4f); 
+            Text.color = new Color(1.0f, 0.3f, 0.3f); 
         }
         else
         {
+            Text.gameObject.SetActive(false);
             Text.text = string.Empty;
         }
 
         foreach (TextMesh m in TextOutlines)
         {
+            if (Text.text == string.Empty)
+            {
+                m.gameObject.SetActive(false);
+            }
+            else
+            {
+                m.gameObject.SetActive(true);
+            }
+
             m.text = Text.text;
         }
     }

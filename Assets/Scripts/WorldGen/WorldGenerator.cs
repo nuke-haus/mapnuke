@@ -996,10 +996,10 @@ static class WorldGenerator
                         {
                             cur.ProvinceData.SetTerrainFlags(Terrain.SEA);
 
-                            i++;
                             count++;
                         }
 
+                        i++;
                         cur = cur.ConnectedNodes.GetRandom();
                     }
                 }
@@ -1362,10 +1362,10 @@ static class WorldGenerator
 
         float num_lakes = GeneratorSettings.s_generator_settings.LakeFreq.GetRandom();
 
-        if (m_nations.Any(x => x.NationData.WaterPercentage > 0.3f))
+        /*if (m_nations.Any(x => x.NationData.WaterPercentage > 0.3f))
         {
             num_lakes *= 0.5f; // if real water nations are playing then reduce the random water provinces 
-        }
+        }*/
 
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
 

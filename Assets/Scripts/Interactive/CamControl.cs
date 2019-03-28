@@ -16,6 +16,7 @@ public class CamControl: MonoBehaviour
     const float INTERPOLATE_DRAG = 0.03f;
     const float SENSITIVITY = 0.20f;
 
+    bool m_toggle_sprites = false;
     float m_target = 5.0f;
     Camera m_cam;
     Vector2 m_lastpos;
@@ -55,9 +56,23 @@ public class CamControl: MonoBehaviour
         }
     }
 
+    public void ToggleSprites()
+    {
+        if (m_toggle_sprites)
+        {
+            m_cam.cullingMask = -1;
+        }
+        else
+        {
+            m_cam.cullingMask = 823;
+        }
+
+        m_toggle_sprites = !m_toggle_sprites;
+    }
+
     void mouse_drag(Vector2 delta)
     {
-        m_lastpos = Camera.main.transform.position;//ScreenToWorldPoint(Input.mousePosition);
+        m_lastpos = Camera.main.transform.position;
 
         Vector3 pos = m_cam.transform.position;
         Vector3 newpos = pos + new Vector3(delta.x * -INTERPOLATE_DRAG, delta.y * INTERPOLATE_DRAG, 0);

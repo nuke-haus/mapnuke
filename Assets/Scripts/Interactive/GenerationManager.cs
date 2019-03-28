@@ -12,7 +12,7 @@ public class GenerationManager : MonoBehaviour
 {
     public static GenerationManager s_generation_manager;
 
-    public Camera CaptureCam;
+    public Camera CaptureCamera;
     public Toggle NatStarts;
     public AudioClip AcceptAudio;
     public AudioClip ClickAudio;
@@ -124,8 +124,6 @@ public class GenerationManager : MonoBehaviour
         if (ElementManager.s_element_manager.GeneratedObjects.Any())
         {
             ElementManager.s_element_manager.WipeGeneratedObjects();
-            GetComponent<AudioSource>().PlayOneShot(DenyAudio);
-            return;
         }
 
         List<PlayerData> picks = new List<PlayerData>();
@@ -174,10 +172,10 @@ public class GenerationManager : MonoBehaviour
         // position and resize the cameras
         Vector3 campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
         Camera.main.transform.position = campos;
-        CaptureCam.transform.position = campos;
+        CaptureCamera.transform.position = campos;
 
         float ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;
-        CaptureCam.orthographicSize = ortho;
+        CaptureCamera.orthographicSize = ortho;
     }
 
     void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 

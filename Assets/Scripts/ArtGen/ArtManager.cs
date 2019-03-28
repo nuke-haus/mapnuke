@@ -11,7 +11,7 @@ public class ArtManager: MonoBehaviour
 {
     public static ArtManager s_art_manager;
 
-    public Camera CaptureCam;
+    public CaptureCam CaptureCam;
     public List<RenderTexture> RenderTextures;
     public GameObject RenderPlane;
     public Material RenderMat;
@@ -110,7 +110,7 @@ public class ArtManager: MonoBehaviour
         }
 
         RenderMat.mainTexture = rend;
-        CaptureCam.targetTexture = rend;
+        CaptureCam.Camera.targetTexture = rend;
         m_current = rend;
     }
 }
