@@ -19,8 +19,8 @@ I started this side project because I wanted a robust map generator for Dominion
 Shortcomings I've acknowledged but lazily ignored.
 
 - Currently missing map layouts for the following player counts: 21, 22.
-- Improve performance. Map generation process is kind of sluggish right now. The sprite placement code needs optimizing.
-- Improve poor FPS when many sprites are being rendered on large maps.... If possible.
+- Improve performance. Map generation process is kind of sluggish right now. 
+- Improve poor FPS when many sprites are being rendered on large maps.
 
 ### The art to-do list
 
