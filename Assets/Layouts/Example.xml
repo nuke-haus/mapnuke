@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NodeLayoutCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Layout>
+     
+		<!-- The name that appears in the dropdown menu -->
+		<Name>Throne Hoard</Name>
+	
+		<!-- X and Y size of the map, in terms of provinces. So in this example the map is 8 provinces wide, 8 provinces tall and therefore there are 64 provinces in total -->
+		<XSize>8</XSize>
+		<YSize>8</YSize>
+		
+		<Spawn>
+		  <!-- X and Y position of the spawn point. Note that these start at 0 instead of 1, so if your map X size is 8 then the spawn X value can be 0 to 7 -->
+		  <X>2</X>
+		  <Y>1</Y>
+		  <!-- PLAYER and THRONE are the only valid spawn types -->
+		  <SpawnType>PLAYER</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>6</X>
+		  <Y>2</Y>
+		  <SpawnType>PLAYER</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>1</X>
+		  <Y>5</Y>
+		  <SpawnType>PLAYER</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>5</X>
+		  <Y>6</Y>
+		  <SpawnType>PLAYER</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>3</X>
+		  <Y>3</Y>
+		  <SpawnType>THRONE</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>3</X>
+		  <Y>4</Y>
+		  <SpawnType>THRONE</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>4</X>
+		  <Y>3</Y>
+		  <SpawnType>THRONE</SpawnType>
+		</Spawn>
+		
+		<Spawn>
+		  <X>4</X>
+		  <Y>4</Y>
+		  <SpawnType>THRONE</SpawnType>
+		</Spawn>
+	
+	</Layout>
+</NodeLayoutCollection>

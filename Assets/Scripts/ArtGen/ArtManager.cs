@@ -12,22 +12,21 @@ public class ArtManager: MonoBehaviour
     public static ArtManager s_art_manager;
 
     public CaptureCam CaptureCam;
-    public List<RenderTexture> RenderTextures;
     public GameObject RenderPlane;
     public Material RenderMat;
     public SpriteSetCollection SpriteSetCollection;
 
-    RenderTexture m_current;
     ArtStyle m_art;
+    RenderTexture m_render_texture;
 
     public RenderTexture Texture
     {
         get
         {
             CaptureCam.Render();
-            RenderTexture.active = m_current;
+            RenderTexture.active = m_render_texture;
 
-            return m_current;
+            return m_render_texture;
         }
     }
 
@@ -86,9 +85,8 @@ public class ArtManager: MonoBehaviour
     {
         int tx = Mathf.RoundToInt(x * 100);
         int ty = Mathf.RoundToInt(y * 100);
-        RenderTexture rend = RenderTextures.FirstOrDefault(rt => rt.width == tx && rt.height == ty && rt.name.Contains(GenerationManager.s_generation_manager.NationData.Count.ToString()));
 
-        //RenderPlane.transform.localScale.Set(x, RenderPlane.transform.localScale.y, y);
+        m_render_texture = new RenderTexture(tx, ty, 24);
       
         Vector3 mins = MapBorder.s_map_border.Mins;
         Vector3 maxs = MapBorder.s_map_border.Maxs;
@@ -104,13 +102,7 @@ public class ArtManager: MonoBehaviour
         RenderPlane.transform.position = new Vector3(mins.x + side_dist + (dist * 1.5f), mins.y + (vert_dist * 0.5f), 0);
         RenderPlane.transform.localScale = new Vector3(x * 0.1f, RenderPlane.transform.localScale.y, y * 0.1f);
 
-        if (rend == null)
-        {
-            rend = RenderTextures[0];
-        }
-
-        RenderMat.mainTexture = rend;
-        CaptureCam.Camera.targetTexture = rend;
-        m_current = rend;
+        RenderMat.mainTexture = m_render_texture;
+        CaptureCam.Camera.targetTexture = m_render_texture;
     }
 }

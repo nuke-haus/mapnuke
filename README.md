@@ -1,10 +1,6 @@
 # Automated Improved Dominions Starts
 ## An open-source map generator for Dominions 5
 
-### Foreword
-
-I started this side project because I wanted a robust map generator for Dominions 5 that also allowed the user to manually tweak the results to their liking. I'm really happy with how it turned out but there is still polishing to be done.
-
 ### How to use
 
 1. Run the program.
@@ -16,7 +12,7 @@ I started this side project because I wanted a robust map generator for Dominion
 
 ### The to-do list
 
-Shortcomings I've acknowledged but lazily ignored.
+Missing features and other issues.
 
 - Currently missing map layouts for the following player counts: 21, 22.
 - Improve performance. Map generation process is kind of sluggish right now. 
@@ -31,7 +27,7 @@ I'm a programmer first and foremost, so my sprite art is kind of lacking.
 
 ### The wish list
 
-Some features I'd have liked to have that were ultimately too much work.
+Some features that would be nice to have.
 
 - Add a dialog box somewhere that lets players give provinces custom names if they want.
 - Support for non-wrapping maps.

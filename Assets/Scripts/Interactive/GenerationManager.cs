@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +22,7 @@ public class GenerationManager : MonoBehaviour
     public GameObject OutputWindow;
     public GameObject LoadingScreen;
     public InputField MapName;
+    public Dropdown LayoutDropdown;
     public GameObject NationPicker;
     public GameObject ScrollContent;
     public GameObject ScrollPanel;
@@ -38,6 +41,7 @@ public class GenerationManager : MonoBehaviour
     List<GameObject> m_log_content;
     List<GameObject> m_content;
     List<PlayerData> m_nations;
+    NodeLayoutCollection m_layouts;
 
     public Season Season
     {
@@ -64,6 +68,7 @@ public class GenerationManager : MonoBehaviour
         m_content = new List<GameObject>();
         m_log_content = new List<GameObject>();
 
+        load_layouts();
         update_nations();
         hide_controls();
     }
@@ -154,13 +159,19 @@ public class GenerationManager : MonoBehaviour
 
     void do_generate() // pipeline for initial generation of all nodes and stuff
     {
+        NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
+
+        if (layout == null)
+        {
+            layout = m_layouts.Layouts.FirstOrDefault(x => x.NumPlayers == m_player_count);
+        }
+
         m_season = Season.SUMMER;
 
         // create the conceptual nodes and connections first
-        WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, NatStarts.isOn, m_nations);
+        WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, NatStarts.isOn, m_nations, layout);
         List<Connection> conns = WorldGenerator.GetConnections();
         List<Node> nodes = WorldGenerator.GetNodes();
-        NodeLayout layout = WorldGenerator.GetLayout();
 
         // generate the unity objects using the conceptual nodes
         ElementManager mgr = GetComponent<ElementManager>();
@@ -455,6 +466,18 @@ public class GenerationManager : MonoBehaviour
 
     void update_nations()
     {
+        List<Dropdown.OptionData> list = new List<Dropdown.OptionData>();
+
+        foreach (NodeLayout layout in m_layouts.Layouts.Where(x => x.NumPlayers == m_player_count))
+        {
+            Dropdown.OptionData od = new Dropdown.OptionData(layout.Name);
+            list.Add(od);
+        }
+
+        LayoutDropdown.ClearOptions();
+        LayoutDropdown.AddOptions(list);
+        LayoutDropdown.value = 0;
+
         while (m_content.Count > m_player_count)
         {
             GameObject obj = m_content[m_content.Count - 1];
@@ -499,6 +522,33 @@ public class GenerationManager : MonoBehaviour
 
                 m_content.Add(cnt);
             }
+        }
+    }
+
+    void load_layouts()
+    {
+        m_layouts = new NodeLayoutCollection();
+
+        string data_folder = Application.dataPath;
+        string folder = data_folder + "/Layouts/";
+
+        foreach (string file in Directory.GetFiles(folder))
+        {
+            if (file.Contains(".meta"))
+            {
+                continue;
+            }
+
+            string contents = File.ReadAllText(file);
+            var serializer = new XmlSerializer(typeof(NodeLayoutCollection));
+            NodeLayoutCollection result;
+
+            using (TextReader reader = new StringReader(contents))
+            {
+                result = (NodeLayoutCollection) serializer.Deserialize(reader);
+            }
+
+            m_layouts.Add(result);
         }
     }
 }

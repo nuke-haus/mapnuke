@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public enum SpawnType
@@ -12,29 +13,26 @@ public enum SpawnType
 
 public class SpawnPoint
 {
-    public readonly int TeamNum = -1;
-    public readonly int X;
-    public readonly int Y;
-    public readonly SpawnType SpawnType;
+    [XmlElement("X")]
+    public int X;
 
-    /// <summary>
-    /// Throne constructor
-    /// </summary>
-    public SpawnPoint(int x, int y)
+    [XmlElement("Y")]
+    public int Y;
+
+    [XmlElement("SpawnType")]
+    public SpawnType SpawnType;
+
+    public SpawnPoint(int x, int y, SpawnType s = SpawnType.PLAYER)
     {
         X = x;
         Y = y;
-        SpawnType = SpawnType.THRONE;
+        SpawnType = s;
     }
 
-    /// <summary>
-    /// Player constructor
-    /// </summary>
-    public SpawnPoint(int x, int y, int team_num)
+    public SpawnPoint()
     {
-        X = x;
-        Y = y;
-        TeamNum = team_num;
+        X = 0;
+        Y = 0;
         SpawnType = SpawnType.PLAYER;
     }
 
@@ -47,36 +45,49 @@ public class SpawnPoint
     }
 }
 
+[XmlRoot]
+public class NodeLayoutCollection
+{
+    [XmlElement("Layout")]
+    public List<NodeLayout> Layouts;
+
+    public NodeLayoutCollection()
+    {
+        Layouts = new List<NodeLayout>();
+    }
+
+    public NodeLayoutCollection(List<NodeLayout> list)
+    {
+        Layouts = list;
+    }
+
+    public void Add(NodeLayoutCollection c)
+    {
+        Layouts.AddRange(c.Layouts);
+    }
+}
+
 /// <summary>
 /// Represents a map layout that determines which coordinates contain player and throne spawns.
 /// </summary>
 public class NodeLayout
 {
-    public int NumPlayers
+    [XmlElement("Name")]
+    public string Name
     {
         get;
         private set;
     }
 
-    public int NumThrones
-    {
-        get;
-        private set;
-    }
-
+    [XmlElement("XSize")]
     public int X
     {
         get;
         private set;
     }
 
+    [XmlElement("YSize")]
     public int Y
-    {
-        get;
-        private set;
-    }
-
-    public int WaterNations
     {
         get;
         private set;
@@ -84,8 +95,26 @@ public class NodeLayout
 
     public int ProvsPerPlayer
     {
-        get;
-        private set;
+        get
+        {
+            return Mathf.RoundToInt((float)TotalProvinces / NumPlayers);
+        }
+    }
+
+    public int NumPlayers
+    {
+        get
+        {
+            return Spawns.Where(x => x.SpawnType == SpawnType.PLAYER).Count();
+        }
+    }
+
+    public int NumThrones
+    {
+        get
+        {
+            return Spawns.Where(x => x.SpawnType == SpawnType.THRONE).Count();
+        }
     }
 
     public int TotalProvinces
@@ -96,37 +125,36 @@ public class NodeLayout
         }
     }
 
-    public int TotalWaterProvinces
-    {
-        get;
-        private set;
-    }
-
+    [XmlElement("Spawn")]
     public List<SpawnPoint> Spawns
     {
         get;
         private set;
     }
 
-    public NodeLayout(int num_players, int num_thrones, int x, int y, int provs_per_player)
+    public NodeLayout()
     {
-        NumPlayers = num_players;
-        NumThrones = num_thrones;
+        X = 8;
+        Y = 8;
+        Spawns = new List<SpawnPoint>();
+    }
+
+    public NodeLayout(int x, int y)
+    {
         X = x;
         Y = y;
-        ProvsPerPlayer = 16;
         Spawns = new List<SpawnPoint>();
     }
 
     public void AddThrone(int x, int y)
     {
-        SpawnPoint p = new SpawnPoint(x, y);
+        SpawnPoint p = new SpawnPoint(x, y, SpawnType.THRONE);
         Spawns.Add(p);
     }
 
     public void AddPlayer(int x, int y, int team_num = 0)
     {
-        SpawnPoint p = new SpawnPoint(x, y, team_num);
+        SpawnPoint p = new SpawnPoint(x, y, SpawnType.PLAYER);
         Spawns.Add(p);
     }
 
