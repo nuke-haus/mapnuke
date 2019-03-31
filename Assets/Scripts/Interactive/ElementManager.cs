@@ -14,6 +14,8 @@ public class ElementManager: MonoBehaviour
 
     public GameObject ProvinceMarker;
     public GameObject ConnectionMarker;
+    public GameObject ProvinceWidget;
+    public GameObject ConnectionWidget;
     public MapBorder MapBorder;
 
     List<GameObject> m_generated;
@@ -129,16 +131,29 @@ public class ElementManager: MonoBehaviour
             Vector3 randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
 
             GameObject g = GameObject.Instantiate(ProvinceMarker);
-            g.transform.position = randpos;//new Vector3(n.X, n.Y, 0);
+            g.transform.position = randpos;
 
             ProvinceMarker m = g.GetComponent<ProvinceMarker>();
+
+            GameObject w = GameObject.Instantiate(ProvinceWidget);
+            //w.transform.position = randpos + new Vector3(500f, 0f, 0f);
+
+            ProvinceWidget widget = w.GetComponent<ProvinceWidget>();
+            widget.SetParent(m);
+            m.SetWidget(widget);
             m.SetNode(n);
 
             m_provinces.Add(m);
             m_generated.Add(g);
+            m_generated.Add(w);
         }
 
         adjust_province_positions();
+
+        foreach (ProvinceMarker m in m_provinces)
+        {
+            m.OffsetWidget(); // properly position widget
+        }
 
         List<ProvinceMarker> dummies = new List<ProvinceMarker>();
 
@@ -272,16 +287,25 @@ public class ElementManager: MonoBehaviour
                 prov1.AddConnection(m);
                 prov2.AddConnection(m);
 
-                m_connections.Add(m);
-                m_generated.Add(g);
+                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                g.transform.position = center;
+
+                GameObject w = GameObject.Instantiate(ConnectionWidget);
+                w.transform.position = center + new Vector3(500f, 0f, 0f);
 
                 m.SetEdgeConnection(true);
                 m.SetProvinces(prov1, prov2);
                 m.SetEndPoints(p1, p2);
+
+                ConnectionWidget widget = w.GetComponent<ConnectionWidget>();
+                widget.SetParent(m);
+                m.SetWidget(widget);
+
                 m.SetConnection(c);
 
-                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
-                g.transform.position = center;
+                m_connections.Add(m);
+                m_generated.Add(g);
+                m_generated.Add(w);
             }
             else // base case
             {
@@ -292,16 +316,25 @@ public class ElementManager: MonoBehaviour
 
                 prov1.AddConnection(m);
                 prov2.AddConnection(m);
+                
+                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                g.transform.position = center;
 
-                m_connections.Add(m);
-                m_generated.Add(g);
+                GameObject w = GameObject.Instantiate(ConnectionWidget);
+                w.transform.position = center + new Vector3(500f, 0f, 0f);
 
                 m.SetProvinces(prov1, prov2);
                 m.SetEndPoints(p1, p2);
+
+                ConnectionWidget widget = w.GetComponent<ConnectionWidget>();
+                widget.SetParent(m);
+                m.SetWidget(widget);
+
                 m.SetConnection(c);
 
-                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
-                g.transform.position = center;
+                m_connections.Add(m);
+                m_generated.Add(g);
+                m_generated.Add(w);
             }
         }
 

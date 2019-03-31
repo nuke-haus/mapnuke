@@ -27,6 +27,7 @@ public class ConnectionMarker: MonoBehaviour
     public GameObject MapSpritePrefab;
     public GameObject InnerStrokePrefab;
 
+    ConnectionWidget m_widget;
     List<ConnectionWrapMarker> m_wraps;
     InnerStroke m_stroke;
     PolyBorder m_border;
@@ -205,8 +206,7 @@ public class ConnectionMarker: MonoBehaviour
         m_pos1 = p1;
         m_pos2 = p2;
         m_midpt = (p1 + p2) / 2;
-        Vector3 dir = (p1 - p2).normalized;
-
+        
         p1.z = -4.0f;
         p2.z = -4.0f;
 
@@ -323,7 +323,7 @@ public class ConnectionMarker: MonoBehaviour
 
             foreach (Vector3 pt in PolyBorder.OrderedFinePoints)
             {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < PolyBorder.OrderedFinePoints.Count - 1)
+                if (Vector3.Distance(last, pt) < cs.Size && ct < PolyBorder.OrderedFinePoints.Count - 3)
                 {
                     ct++;
                     continue;
@@ -351,43 +351,29 @@ public class ConnectionMarker: MonoBehaviour
             ConnectionSprite bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             PolyBorder other = PolyBorder.Reversed();
 
-            int right_ct = 0;
-            int right_pos = 0;
-
             make_sprite(PolyBorder.P1, cs, Vector3.zero);
             make_sprite(PolyBorder.P1, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
             make_sprite(PolyBorder.P2, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
-            foreach (Vector3 pt in other.OrderedFinePoints)
-            {
-                if (Vector3.Distance(last, pt) < cs.Size)
-                {
-                    right_pos++;
-                    continue;
-                }
+            make_sprite(other.OrderedFinePoints[0], cs, Vector3.zero);
+            make_sprite(other.OrderedFinePoints[0], bottom, new Vector3(0, 0.01f));
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
+            make_sprite(other.OrderedFinePoints[1], cs, Vector3.zero);
+            make_sprite(other.OrderedFinePoints[1], bottom, new Vector3(0, 0.01f));
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
+            make_sprite(other.OrderedFinePoints[2], cs, Vector3.zero);
+            make_sprite(other.OrderedFinePoints[2], bottom, new Vector3(0, 0.01f));
+            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
-                last = pt;
-
-                make_sprite(pt, cs, Vector3.zero);
-                make_sprite(pt, bottom, new Vector3(0, 0.01f));
-
-                if (right_ct > 1)
-                {
-                    break;
-                }
-
-                cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
-
-                right_ct++;
-                right_pos++;
-            }
-
-            Vector3 endpt = other.OrderedFinePoints[right_pos];
-            right_ct = -1;
+            Vector3 endpt = other.OrderedFinePoints[2];
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             bool is_mountain = true;
 
@@ -415,8 +401,6 @@ public class ConnectionMarker: MonoBehaviour
                     make_sprite(pt, bottom, new Vector3(0, 0.01f));
                 }
 
-                //make_sprite(pt, bottom, new Vector3(0, 0.01f));
-
                 if (Vector3.Distance(pt, endpt) < 0.6f)
                 {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
@@ -429,8 +413,6 @@ public class ConnectionMarker: MonoBehaviour
                 }
 
                 bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
-
-                right_ct--;
             }
         }
         else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
@@ -961,6 +943,13 @@ public class ConnectionMarker: MonoBehaviour
 
         SpriteRenderer rend2 = SpriteObj.GetComponent<SpriteRenderer>();
         rend2.color = col;
+
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.SetConnection(c);
     }
 
     public void UpdateConnection(ConnectionType t)
@@ -975,6 +964,18 @@ public class ConnectionMarker: MonoBehaviour
         rend2.color = col;
 
         m_connection.SetConnection(t);
+
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.SetConnection(m_connection);
+    }
+
+    public void SetWidget(ConnectionWidget w)
+    {
+        m_widget = w;
     }
 
     void OnDestroy()
@@ -1007,6 +1008,7 @@ public class ConnectionMarker: MonoBehaviour
 
     public void SetSelected(bool b)
     {
+        m_widget.SetSelected(b);
         m_selected = b;
         m_scale = 1.0f;
         SpriteObj.transform.localScale = new Vector3(m_scale, m_scale, 1.0f);

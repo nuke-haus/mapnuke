@@ -225,9 +225,9 @@ public class PolyBorder
         OrderedFinePoints = new List<Vector3>();
 
         mindist = 0.04f;
-        spacing = 0.04f;
-        max = (float)(knots.Count - 1) - 0.06f;
-        i = 0.06f;
+        spacing = 0.03f;
+        max = (float)(knots.Count - 1) - 0.04f;
+        i = 0.04f;
         last = P1;
 
         while (i < max)
@@ -242,6 +242,12 @@ public class PolyBorder
 
             i += spacing;
         }
+
+        Vector3 mid_start = (P1 + OrderedFinePoints[0]) * 0.5f;
+        Vector3 mid_end = (P2 + OrderedFinePoints[OrderedFinePoints.Count - 1]) * 0.5f;
+
+        OrderedFinePoints.Insert(0, mid_start);
+        OrderedFinePoints.Add(mid_end);
     }
 
     /*void calc_points_test() // test with static shapes.

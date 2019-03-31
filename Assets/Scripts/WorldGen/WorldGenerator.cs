@@ -222,39 +222,17 @@ static class WorldGenerator
         while (count < max_cliffs && starts.Any())
         {
             Connection con = starts.GetRandom();
+            starts.Remove(con);
 
-            int len = UnityEngine.Random.Range(1, 3);
-            int i = 0;
-
-            while (i < len)
-            {
-                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap || bad.Contains(con) ||
+            if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap || bad.Contains(con) ||
                     con.TriangleLinked.Any(x => x.ConnectionType == ConnectionType.RIVER || x.ConnectionType == ConnectionType.SHALLOWRIVER))
-                {
-                    starts.Remove(con);
-                    break;
-                }
-
-                starts.Remove(con);
-                con.SetConnection(ConnectionType.MOUNTAIN);
-
-                int limit = 0;
-                con = con.Adjacent.GetRandom();
-
-                while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 6)
-                {
-                    con = con.Adjacent.GetRandom();
-                    limit++;
-                }
-
-                if (limit == 6)
-                {
-                    i = len;
-                }
-
-                i++;
-                count++;
+            {
+                continue;
             }
+
+            con.SetConnection(ConnectionType.MOUNTAIN);
+
+            count++;
         }
 
         count = 0;
@@ -262,39 +240,17 @@ static class WorldGenerator
         while (count < max_passes && starts.Any())
         {
             Connection con = starts.GetRandom();
+            starts.Remove(con);
 
-            int len = UnityEngine.Random.Range(1, 3);
-            int i = 0;
-
-            while (i < len)
-            {
-                if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap || bad.Contains(con) ||
+            if (con.Node1.NumStandardConnections < 3 || con.Node2.NumStandardConnections < 3 || con.ConnectionType != ConnectionType.STANDARD || con.IsCap || bad.Contains(con) ||
                     con.TriangleLinked.Any(x => x.ConnectionType == ConnectionType.RIVER || x.ConnectionType == ConnectionType.SHALLOWRIVER))
-                {
-                    starts.Remove(con);
-                    break;
-                }
-
-                starts.Remove(con);
-                con.SetConnection(ConnectionType.MOUNTAINPASS);
-
-                int limit = 0;
-                con = con.Adjacent.GetRandom();
-
-                while ((con.ConnectionType != ConnectionType.STANDARD || con.IsTouchingSea || con.Adjacent.Any(x => x.IsTouchingSea)) && limit < 6)
-                {
-                    con = con.Adjacent.GetRandom();
-                    limit++;
-                }
-
-                if (limit == 6)
-                {
-                    i = len;
-                }
-
-                i++;
-                count++;
+            {
+                continue;
             }
+
+            con.SetConnection(ConnectionType.MOUNTAINPASS);
+
+            count++;
         }
 
         int num_flips = Mathf.Max(max_passes, max_cliffs);
@@ -521,8 +477,8 @@ static class WorldGenerator
 
     static void assign_water_terrain()
     {
-        float num_farm = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom();
-        float num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom();
+        float num_farm = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * 0.5f;
+        float num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * 2f;
         float num_trench = GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom();
         float num_deeps = GeneratorSettings.s_generator_settings.MountainFreq.GetRandom();
         float num_cave = GeneratorSettings.s_generator_settings.CaveFreq.GetRandom();

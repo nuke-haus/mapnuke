@@ -15,8 +15,7 @@
 Missing features and other issues.
 
 - Currently missing map layouts for the following player counts: 21, 22.
-- Improve performance. Map generation process is kind of sluggish right now. 
-- Improve poor FPS when many sprites are being rendered on large maps.
+- Improve map generation speed. Large maps tend to take a while to generate.
 
 ### The art to-do list
 

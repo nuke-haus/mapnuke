@@ -182,7 +182,7 @@ public class GenerationManager : MonoBehaviour
 
         // position and resize the cameras
         Vector3 campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
-        Camera.main.transform.position = campos;
+        Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
         CaptureCamera.transform.position = campos;
 
         float ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;

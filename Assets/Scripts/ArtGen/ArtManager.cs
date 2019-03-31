@@ -13,6 +13,7 @@ public class ArtManager: MonoBehaviour
 
     public CaptureCam CaptureCam;
     public GameObject RenderPlane;
+    public GameObject EditorPlane;
     public Material RenderMat;
     public SpriteSetCollection SpriteSetCollection;
 
@@ -97,9 +98,13 @@ public class ArtManager: MonoBehaviour
 
         float dist = Vector3.Distance(mins, maxs);
         float vert_dist = Vector3.Distance(mins, maxs2);
-        float side_dist = 5f;
-        
-        RenderPlane.transform.position = new Vector3(mins.x + side_dist + (dist * 1.5f), mins.y + (vert_dist * 0.5f), 0);
+        float side_dist = 500f;
+        float sep_dist = 5f;
+
+        EditorPlane.transform.position = new Vector3(mins.x + side_dist + (dist * 0.5f), mins.y + (vert_dist * 0.5f), 0);
+        EditorPlane.transform.localScale = new Vector3(x * 0.1f, RenderPlane.transform.localScale.y, y * 0.1f);
+
+        RenderPlane.transform.position = EditorPlane.transform.position + new Vector3(dist + sep_dist, 0f, 0f);
         RenderPlane.transform.localScale = new Vector3(x * 0.1f, RenderPlane.transform.localScale.y, y * 0.1f);
 
         RenderMat.mainTexture = m_render_texture;

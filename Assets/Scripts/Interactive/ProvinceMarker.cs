@@ -43,6 +43,7 @@ public class ProvinceMarker: MonoBehaviour
 
     public List<TextMesh> TextOutlines;
 
+    ProvinceWidget m_widget;
     List<ProvinceWrapMarker> m_wraps;
     Node m_node;
     List<ProvinceMarker> m_linked;
@@ -286,6 +287,13 @@ public class ProvinceMarker: MonoBehaviour
         UpdateLabel();
         UpdateColor();
         UpdateLinked();
+
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.SetNode(n);
     }
 
     public void UpdateLabel()
@@ -372,11 +380,28 @@ public class ProvinceMarker: MonoBehaviour
         }
     }
 
+    public void OffsetWidget()
+    {
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.transform.position = transform.position + new Vector3(500f, 0f, 0f);
+    }
+
     public void UpdateColor()
     {
         Renderer.color = get_node_color(m_node);
 
         assign_mat(GenerationManager.s_generation_manager.Season);
+
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.SetNode(m_node);
     }
 
     Vector3 get_weighted_center(Vector3 p1, Vector3 p2, Node n1, Node n2)
@@ -422,6 +447,11 @@ public class ProvinceMarker: MonoBehaviour
         return new Color(0.9f, 0.9f, 0.8f); //default is plains
     }
 
+    public void SetWidget(ProvinceWidget w)
+    {
+        m_widget = w;
+    }
+
     void Update()
     {
         if (m_selected)
@@ -449,6 +479,7 @@ public class ProvinceMarker: MonoBehaviour
 
     public void SetSelected(bool b)
     {
+        m_widget.SetSelected(b);
         m_selected = b;
         m_scale = 1.0f;
         Renderer.transform.localScale = new Vector3(m_scale, m_scale, 1.0f);
@@ -857,8 +888,13 @@ public class ProvinceMarker: MonoBehaviour
             }
 
             valid_ct++;
-
             Vector3 pos = m_sprite_points[0];
+
+            if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
+            {
+                pos = m_sprite_points.FirstOrDefault(x => !m_poly.Any(y => Vector3.Distance(new Vector3(x.x, x.y, 0f), y) < 0.5f));
+            }
+            
             List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
 
             foreach (Vector3 p in nearby)
@@ -887,13 +923,7 @@ public class ProvinceMarker: MonoBehaviour
             Vector3 pos = m_sprite_points[0];
             ProvinceSprite ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
 
-            if (ps == null)
-            {
-                m_sprite_points.Remove(pos);
-                continue;
-            }
-
-            while (UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
+            while (ps == null || UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
             {
                 ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
 
@@ -903,7 +933,18 @@ public class ProvinceMarker: MonoBehaviour
                 }
             }
 
-            if (ps == null || m_sprites.Any(x => Vector3.Distance(x.transform.position, pos) < ps.Size))
+            if (ps == null)
+            {
+                m_sprite_points.Remove(pos);
+                continue;
+            }
+
+            if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
+            {
+                pos = m_sprite_points.FirstOrDefault(x => !m_poly.Any(y => Vector3.Distance(new Vector3(x.x, x.y, 0f), y) < 0.5f));
+            }
+
+            if (m_sprites.Any(x => Vector3.Distance(x.transform.position, pos) < ps.Size))
             {
                 m_sprite_points.Remove(pos);
                 continue;
