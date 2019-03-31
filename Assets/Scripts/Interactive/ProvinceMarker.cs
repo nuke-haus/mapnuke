@@ -892,7 +892,7 @@ public class ProvinceMarker: MonoBehaviour
 
             if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
             {
-                pos = m_sprite_points.FirstOrDefault(x => !m_poly.Any(y => Vector3.Distance(new Vector3(x.x, x.y, 0f), y) < 0.5f));
+                pos = get_valid_position();
             }
             
             List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
@@ -941,7 +941,7 @@ public class ProvinceMarker: MonoBehaviour
 
             if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
             {
-                pos = m_sprite_points.FirstOrDefault(x => !m_poly.Any(y => Vector3.Distance(new Vector3(x.x, x.y, 0f), y) < 0.5f));
+                pos = get_valid_position();
             }
 
             if (m_sprites.Any(x => Vector3.Distance(x.transform.position, pos) < ps.Size))
@@ -977,6 +977,19 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         return all;
+    }
+
+    Vector3 get_valid_position()
+    {
+        foreach (Vector3 v in m_sprite_points)
+        {
+            if (!m_poly.Any(y => Vector3.Distance(new Vector3(v.x, v.y, 0f), y) < 0.5f))
+            {
+                return v;
+            }
+        }
+
+        return new Vector3(-9000, -9000, 0);
     }
 
     public void CalculateSpritePoints()
