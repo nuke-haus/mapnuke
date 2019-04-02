@@ -21,6 +21,7 @@ public class ConnectionWrapMarker: MonoBehaviour
     public MeshFilter MeshFilter;
     public GameObject MeshObj;
     public LineRenderer BorderLine;
+    public LineRenderer RoadLine;
 
     public GameObject MapSpritePrefab;
     public GameObject InnerStrokePrefab;
@@ -31,12 +32,21 @@ public class ConnectionWrapMarker: MonoBehaviour
     Connection m_connection;
     List<SpriteMarker> m_sprites;
     InnerStroke m_stroke;
+    Vector3 m_offset;
 
     public PolyBorder PolyBorder
     {
         get
         {
             return m_border;
+        }
+    }
+
+    public Vector3 Offset
+    {
+        get
+        {
+            return m_offset;
         }
     }
 
@@ -49,11 +59,16 @@ public class ConnectionWrapMarker: MonoBehaviour
     public void CreatePoly(List<Vector3> poly, PolyBorder pb, Vector3 offset)
     {
         m_poly = poly;
+        m_offset = offset;
 
         draw_border(pb, offset);
         draw_shore(offset);
 
-        if (m_connection.ConnectionType == ConnectionType.ROAD || m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
+        if (m_connection.ConnectionType == ConnectionType.ROAD)
+        {
+            draw_road(offset);
+        }
+        if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
             ConstructPoly(pb, offset);
             draw_river_shore(offset);
@@ -64,6 +79,44 @@ public class ConnectionWrapMarker: MonoBehaviour
         }
 
         SetSeason(GenerationManager.s_generation_manager.Season);
+    }
+
+    void draw_road(Vector3 offset)
+    {
+        List<Vector3> pts = new List<Vector3>();
+
+        foreach (Vector3 pos in m_poly)
+        {
+            pts.Add(pos + offset);
+        }
+
+        RoadLine.positionCount = pts.Count;
+        RoadLine.SetPositions(pts.ToArray());
+
+        AnimationCurve jitter = new AnimationCurve();
+        int num_keys = UnityEngine.Random.Range(2, 8);
+        List<float> floats = new List<float>();
+
+        for (int i = 0; i < num_keys; i++)
+        {
+            float rand = UnityEngine.Random.Range(0f, 1f);
+            int ct = 0;
+
+            while (floats.Any(x => Mathf.Abs(rand - x) < 0.1f) && ct < 10)
+            {
+                rand = UnityEngine.Random.Range(0f, 1f);
+                ct++;
+            }
+
+            if (ct < 10)
+            {
+                floats.Add(rand);
+
+                jitter.AddKey(rand, UnityEngine.Random.Range(0.12f, 0.24f));
+            }
+        }
+
+        RoadLine.widthCurve = jitter;
     }
 
     void draw_river_shore(Vector3 offset)
@@ -144,6 +197,7 @@ public class ConnectionWrapMarker: MonoBehaviour
             else
             {
                 Mesh.material = MatRoad;
+                RoadLine.material = MatRoad;
             }
         }
         else
@@ -159,6 +213,7 @@ public class ConnectionWrapMarker: MonoBehaviour
             else
             {
                 Mesh.material = MatWinterRoad;
+                RoadLine.material = MatWinterRoad;
             }
         }
     }
@@ -166,6 +221,8 @@ public class ConnectionWrapMarker: MonoBehaviour
     public void ConstructPoly(PolyBorder pb, Vector3 offset)
     {
         MeshFilter.mesh.Clear();
+        RoadLine.positionCount = 2;
+        RoadLine.SetPositions(new Vector3[] { new Vector3(900, 900, 0), new Vector3(901, 900, 0) });
 
         if (m_poly == null || !m_poly.Any())
         {
@@ -239,6 +296,10 @@ public class ConnectionWrapMarker: MonoBehaviour
 
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
+
+        Color c = new Color(0f, 0f, 0f, ArtManager.s_art_manager.BorderOpacity);
+        BorderLine.startColor = c;
+        BorderLine.endColor = c;
     }
 
     Vector2[] get_pts_array(List<Vector3> list)

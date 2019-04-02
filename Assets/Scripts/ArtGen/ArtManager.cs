@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manager class that handles all things art-related.
@@ -15,6 +17,7 @@ public class ArtManager: MonoBehaviour
     public GameObject RenderPlane;
     public GameObject EditorPlane;
     public Material RenderMat;
+    public Slider OpacitySlider;
     public SpriteSetCollection SpriteSetCollection;
 
     ArtStyle m_art;
@@ -28,6 +31,14 @@ public class ArtManager: MonoBehaviour
             RenderTexture.active = m_render_texture;
 
             return m_render_texture;
+        }
+    }
+
+    public float BorderOpacity
+    {
+        get
+        {
+            return OpacitySlider.value;
         }
     }
 

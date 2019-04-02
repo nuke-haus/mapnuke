@@ -22,6 +22,7 @@ public class ConnectionMarker: MonoBehaviour
     public GameObject MeshObj;
     public GameObject SpriteObj;
     public LineRenderer BorderLine;
+    public LineRenderer RoadLine;
 
     public GameObject WrapMarkerPrefab;
     public GameObject MapSpritePrefab;
@@ -471,9 +472,7 @@ public class ConnectionMarker: MonoBehaviour
                 return m_sprites;
             }
 
-            Vector3 last = new Vector3(-900, -900, 0);
             ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
-            float size = UnityEngine.Random.Range(cs.Size, cs.Size + 0.08f);
 
             if (cs == null)
             {
@@ -482,16 +481,9 @@ public class ConnectionMarker: MonoBehaviour
 
             foreach (Vector3 pt in m_poly)
             {
-                if (Vector3.Distance(last, pt) < size)
-                {
-                    continue;
-                }
+                make_sprite(pt, cs, new Vector3(UnityEngine.Random.Range(-0.01f, 0.01f), UnityEngine.Random.Range(-0.01f, 0.01f)));
 
-                make_sprite(pt, cs, Vector3.zero);
-
-                last = pt;
                 cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.ROAD);
-                size = UnityEngine.Random.Range(cs.Size, cs.Size + 0.08f);
             }
         }
 
@@ -579,6 +571,7 @@ public class ConnectionMarker: MonoBehaviour
             else
             {
                 Mesh.material = MatRoad;
+                RoadLine.material = MatRoad;
             }
         }
         else
@@ -594,6 +587,7 @@ public class ConnectionMarker: MonoBehaviour
             else
             {
                 Mesh.material = MatWinterRoad;
+                RoadLine.material = MatWinterRoad;
             }
         }
     }
@@ -603,6 +597,11 @@ public class ConnectionMarker: MonoBehaviour
         if (m_wraps == null)
         {
             m_wraps = new List<ConnectionWrapMarker>();
+        }
+
+        if (m_wraps.Any(x => Vector3.Distance(x.Offset, offset) < 0.1f))
+        {
+            return null;
         }
 
         GameObject obj = GameObject.Instantiate(WrapMarkerPrefab);
@@ -642,6 +641,8 @@ public class ConnectionMarker: MonoBehaviour
     {
         BorderLine.positionCount = 2;
         BorderLine.SetPositions(new Vector3[] { new Vector3(900, 900, 0), new Vector3(901, 900, 0) });
+        RoadLine.positionCount = 2;
+        RoadLine.SetPositions(new Vector3[] { new Vector3(900, 900, 0), new Vector3(901, 900, 0) });
         MeshFilter.mesh.Clear();
 
         if (m_culling_points == null)
@@ -687,9 +688,9 @@ public class ConnectionMarker: MonoBehaviour
 
             PolyBorder fake = new PolyBorder(p1, p2, m_connection);
             m_culling_points = fake.OrderedPoints;
+            m_poly = fake.OrderedFinePoints;
 
-            m_poly = get_contour(fake, 0.012f, 0.014f);//get_contour(fake, 0.01f, 0.02f);
-            ConstructPoly(true);
+            draw_road(fake);
         }
 
         List<Vector3> border = PolyBorder.GetFullLengthBorder();
@@ -705,7 +706,52 @@ public class ConnectionMarker: MonoBehaviour
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
 
+        Color c = new Color(0f, 0f, 0f, ArtManager.s_art_manager.BorderOpacity);
+        BorderLine.startColor = c;
+        BorderLine.endColor = c;
+
         SetSeason(GenerationManager.s_generation_manager.Season);
+    }
+
+    void draw_road(PolyBorder path)
+    {
+        List<Vector3> pts = new List<Vector3>();
+
+        foreach (Vector3 pt in path.OrderedFinePoints)
+        {
+            pts.Add(pt + new Vector3(0, 0, -0.9f));
+        }
+
+        pts.RemoveAt(0);
+        pts.RemoveAt(pts.Count - 1);
+
+        RoadLine.positionCount = pts.Count;
+        RoadLine.SetPositions(pts.ToArray());
+
+        AnimationCurve jitter = new AnimationCurve();
+        int num_keys = UnityEngine.Random.Range(2, 8);
+        List<float> floats = new List<float>();
+
+        for (int i = 0; i < num_keys; i++)
+        {
+            float rand = UnityEngine.Random.Range(0f, 1f);
+            int ct = 0;
+
+            while (floats.Any(x => Mathf.Abs(rand - x) < 0.1f) && ct < 10)
+            {
+                rand = UnityEngine.Random.Range(0f, 1f);
+                ct++;
+            }
+
+            if (ct < 10)
+            {
+                floats.Add(rand);
+
+                jitter.AddKey(rand, UnityEngine.Random.Range(0.12f, 0.24f));
+            }
+        }
+      
+        RoadLine.widthCurve = jitter;
     }
 
     void draw_river_shore()

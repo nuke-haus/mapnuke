@@ -516,7 +516,12 @@ public class ProvinceMarker: MonoBehaviour
 
         foreach (ConnectionMarker m in pm.Connections)
         {
-            objs.Add(m.CreateWrapMesh(m.PolyBorder, offset));
+            GameObject obj = m.CreateWrapMesh(m.PolyBorder, offset);
+
+            if (obj != null)
+            {
+                objs.Add(obj);
+            } 
         }
 
         return objs;
