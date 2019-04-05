@@ -411,11 +411,11 @@ public class ProvinceMarker: MonoBehaviour
         Vector3 center = (p1 + p2) / 2;
         float dist = Vector3.Distance(center, p1);
 
-        if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV))
+        if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n1.Connections.Count == 4)
         {
             center += (dir2 * (dist * 0.16f));
         }
-        if (n2.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV))
+        if (n2.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n2.Connections.Count == 4)
         {
             center += (dir1 * (dist * 0.16f));
         }
@@ -849,8 +849,13 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         List<ProvinceSprite> shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain)).ToList();
-        shuffled.Shuffle();
 
+        if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) && !m_node.ProvinceData.IsWater)
+        {
+            shuffled = set.MapSprites.Where(x => x.IsCenterpiece && x.ValidTerrain == Terrain.LARGEPROV).ToList();
+        }
+
+        shuffled.Shuffle();
         List<ProvinceSprite> centers = shuffled.OrderBy(x => 9000f - x.Size).ToList();
 
         if (centers.Any() && !IsDummy) // certain provinces have a centerpiece so place that first
@@ -988,7 +993,7 @@ public class ProvinceMarker: MonoBehaviour
     {
         foreach (Vector3 v in m_sprite_points)
         {
-            if (!m_poly.Any(y => Vector3.Distance(new Vector3(v.x, v.y, 0f), y) < 0.5f))
+            if (!m_poly.Any(y => Vector3.Distance(new Vector3(v.x, v.y, 0f), y) < 0.38f))
             {
                 return v;
             }

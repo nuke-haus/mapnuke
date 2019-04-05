@@ -14,13 +14,7 @@
 
 Missing features and other issues.
 
-- Currently missing map layouts for the following player counts: 21, 22.
-- Improve map generation speed. Large maps tend to take a while to generate.
-
-### The art to-do list
-
-I'm a programmer first and foremost, so my sprite art is kind of lacking.
-
+- Improve map generation speed.
 - More sprite variety. Every type of sprite (ie. trees, mountains) should have, at the very least, 5 variants.
 - Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite. Right now only wastelands are given hot/cold modifiers.
 

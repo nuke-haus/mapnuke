@@ -845,13 +845,13 @@
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
-      <X>3</X>
+      <X>2</X>
       <Y>5</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
       <X>6</X>
-      <Y>1</Y>
+      <Y>3</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
@@ -861,7 +861,7 @@
     </Spawn>
     <Spawn>
       <X>10</X>
-      <Y>1</Y>
+      <Y>0</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
@@ -870,7 +870,7 @@
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
-      <X>13</X>
+      <X>14</X>
       <Y>9</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
@@ -886,12 +886,12 @@
     </Spawn>
     <Spawn>
       <X>10</X>
-      <Y>13</Y>
+      <Y>11</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
       <X>6</X>
-      <Y>13</Y>
+      <Y>14</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
@@ -905,63 +905,58 @@
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
-      <X>4</X>
-      <Y>1</Y>
+      <X>12</X>
+      <Y>0</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
       <X>6</X>
-      <Y>4</Y>
-      <SpawnType>THRONE</SpawnType>
-    </Spawn>
-    <Spawn>
-      <X>9</X>
-      <Y>4</Y>
-      <SpawnType>THRONE</SpawnType>
-    </Spawn>
-    <Spawn>
-      <X>12</X>
       <Y>1</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
+      <X>9</X>
+      <Y>3</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
       <X>15</X>
+      <Y>5</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
       <Y>6</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
-      <X>15</X>
-      <Y>4</Y>
+      <X>11</X>
+      <Y>8</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
-      <X>10</X>
-      <Y>10</Y>
-      <SpawnType>THRONE</SpawnType>
-    </Spawn>
-    <Spawn>
-      <X>12</X>
-      <Y>13</Y>
+      <X>1</X>
+      <Y>9</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
       <X>7</X>
-      <Y>10</Y>
+      <Y>11</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
-      <X>4</X>
+      <X>10</X>
       <Y>13</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
-      <X>1</X>
-      <Y>10</Y>
+      <X>4</X>
+      <Y>14</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
-      <X>1</X>
-      <Y>8</Y>
+      <X>0</X>
+      <Y>14</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
   </Layout>
@@ -981,7 +976,7 @@
     </Spawn>
     <Spawn>
       <X>8</X>
-      <Y>1</Y>
+      <Y>2</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
@@ -1036,7 +1031,7 @@
     </Spawn>
     <Spawn>
       <X>10</X>
-      <Y>14</Y>
+      <Y>13</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
@@ -1071,12 +1066,12 @@
     </Spawn>
     <Spawn>
       <X>7</X>
-      <Y>16</Y>
+      <Y>17</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
       <X>11</X>
-      <Y>17</Y>
+      <Y>16</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
     <Spawn>
@@ -2177,6 +2172,446 @@
     <Spawn>
       <X>19</X>
       <Y>15</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+  </Layout>
+  <Layout>
+    <Name>Default Layout</Name>
+    <XSize>20</XSize>
+    <YSize>20</YSize>
+    <Spawn>
+      <X>1</X>
+      <Y>1</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>1</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>9</X>
+      <Y>1</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>13</X>
+      <Y>3</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>17</X>
+      <Y>1</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>3</X>
+      <Y>5</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>8</X>
+      <Y>5</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>13</X>
+      <Y>8</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>17</X>
+      <Y>5</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>1</X>
+      <Y>9</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>10</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>9</X>
+      <Y>9</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>10</X>
+      <Y>13</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>15</X>
+      <Y>13</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>17</X>
+      <Y>17</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>1</X>
+      <Y>13</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>1</X>
+      <Y>17</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>15</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>9</X>
+      <Y>17</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>17</X>
+      <Y>9</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>13</X>
+      <Y>17</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>1</X>
+      <Y>5</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>6</X>
+      <Y>4</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>13</X>
+      <Y>1</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>19</X>
+      <Y>3</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>7</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>10</X>
+      <Y>6</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>13</X>
+      <Y>6</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>19</X>
+      <Y>7</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>19</X>
+      <Y>11</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>13</X>
+      <Y>11</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>8</X>
+      <Y>12</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>12</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>12</X>
+      <Y>14</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>17</X>
+      <Y>13</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>19</X>
+      <Y>15</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>5</X>
+      <Y>17</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>3</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>7</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>11</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+    <Spawn>
+      <X>15</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>19</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+  </Layout>
+  <Layout>
+    <Name>Default Layout</Name>
+    <XSize>22</XSize>
+    <YSize>22</YSize>
+	<Spawn>
+      <X>1</X>
+      <Y>1</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>7</X>
+      <Y>2</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>13</X>
+      <Y>2</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>18</X>
+      <Y>2</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>10</X>
+      <Y>7</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>6</X>
+      <Y>6</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>15</X>
+      <Y>7</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>19</X>
+      <Y>6</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>11</X>
+      <Y>11</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>20</X>
+      <Y>10</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>16</X>
+      <Y>12</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>20</X>
+      <Y>15</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>15</X>
+      <Y>16</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>2</X>
+      <Y>6</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>3</X>
+      <Y>11</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>7</X>
+      <Y>12</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>9</X>
+      <Y>16</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>3</X>
+      <Y>15</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>1</X>
+      <Y>19</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>6</X>
+      <Y>20</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>12</X>
+      <Y>20</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>18</X>
+      <Y>20</Y>
+      <SpawnType>PLAYER</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>4</X>
+      <Y>0</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>10</X>
+      <Y>1</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>15</X>
+      <Y>0</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>4</X>
+      <Y>3</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>10</X>
+      <Y>4</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>13</X>
+      <Y>5</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>16</X>
+      <Y>4</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>0</X>
+      <Y>4</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>8</X>
+      <Y>9</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>17</X>
+      <Y>9</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>14</X>
+      <Y>10</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>5</X>
+      <Y>9</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>1</X>
+      <Y>9</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>0</X>
+      <Y>13</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>12</X>
+      <Y>14</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>6</X>
+      <Y>15</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>12</X>
+      <Y>17</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>18</X>
+      <Y>17</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>15</X>
+      <Y>19</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>4</X>
+      <Y>18</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>9</X>
+      <Y>20</Y>
+      <SpawnType>THRONE</SpawnType>
+    </Spawn>
+	<Spawn>
+      <X>21</X>
+      <Y>21</Y>
       <SpawnType>THRONE</SpawnType>
     </Spawn>
   </Layout>

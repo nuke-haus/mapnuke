@@ -761,7 +761,7 @@ static class WorldGenerator
                 Node n = valid.GetRandom();
                 valid.Remove(n);
 
-                if (n.GetConnectedProvincesOfType(pair.Key, true).Count > 1 && pair.Value < 0.3f)
+                if ((n.GetConnectedProvincesOfType(pair.Key, true).Count > 1 && pair.Value < 0.3f) || (n.IsCapRing && pair.Key == Terrain.WASTE))
                 {
                     skipped.Add(n);
                     continue;
@@ -795,7 +795,7 @@ static class WorldGenerator
     static void generate_swamps(List<Node> original)
     {
         float num_swamps = GeneratorSettings.s_generator_settings.SwampFreq.GetRandom();
-        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.ProvinceData.IsWater).ToList();
+        List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
 
         if (!m_nat_starts)
         {
