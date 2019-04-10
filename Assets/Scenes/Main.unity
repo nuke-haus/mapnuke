@@ -1111,8 +1111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45.09999, y: -165.04999}
-  m_SizeDelta: {x: 70.79, y: 37.914}
+  m_AnchoredPosition: {x: 49.902, y: -165.04999}
+  m_SizeDelta: {x: 80.395, y: 37.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48245293
 MonoBehaviour:
@@ -1147,7 +1147,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wasteland
+  m_Text: Wastelands
 --- !u!222 &48245294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1267,7 +1267,7 @@ RectTransform:
   m_Children:
   - {fileID: 1193763033}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 19
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1775,7 +1775,7 @@ RectTransform:
   m_Children:
   - {fileID: 778375797}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 24
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3575,8 +3575,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.7, y: -278.8}
-  m_SizeDelta: {x: 54, y: 37.918}
+  m_AnchoredPosition: {x: 46.25, y: -278.8}
+  m_SizeDelta: {x: 73.11, y: 37.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186155242
 MonoBehaviour:
@@ -3611,7 +3611,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cave
+  m_Text: Caves
 --- !u!222 &186155243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6081,8 +6081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62.629974, y: -778.85004}
-  m_SizeDelta: {x: 103.65, y: 37.91}
+  m_AnchoredPosition: {x: 66.88, y: -778.85004}
+  m_SizeDelta: {x: 112.15, y: 37.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359412298
 MonoBehaviour:
@@ -6117,7 +6117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mountain Pass
+  m_Text: Mountain Passes
 --- !u!222 &359412299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6196,7 +6196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: River
+  m_Text: Rivers
 --- !u!222 &374389938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7026,7 +7026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Forest
+  m_Text: Forests
 --- !u!222 &474088106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7860,7 +7860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Swamp
+  m_Text: Swamps
 --- !u!222 &511663526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8920,7 +8920,7 @@ RectTransform:
   m_Children:
   - {fileID: 1060950417}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 13
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9817,7 +9817,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bridged River
+  m_Text: Bridged Rivers
 --- !u!222 &612287031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10098,7 +10098,7 @@ RectTransform:
   - {fileID: 1333221234}
   - {fileID: 1299960147}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 22
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10426,7 +10426,7 @@ RectTransform:
   - {fileID: 558019768}
   - {fileID: 1057917455}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 25
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -12194,7 +12194,7 @@ RectTransform:
   - {fileID: 775280201}
   - {fileID: 816853979}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 14
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14250,7 +14250,7 @@ RectTransform:
   - {fileID: 1253421970}
   - {fileID: 838555681}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -15665,7 +15665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mountain
+  m_Text: 'Mountains
 
 '
 --- !u!222 &1042105325
@@ -16563,7 +16563,7 @@ RectTransform:
   m_Children:
   - {fileID: 1243753731}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 18
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -18326,8 +18326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.7, y: -392.56}
-  m_SizeDelta: {x: 54, y: 37.919}
+  m_AnchoredPosition: {x: 62.078, y: -392.56}
+  m_SizeDelta: {x: 104.75, y: 37.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198927978
 MonoBehaviour:
@@ -18362,7 +18362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lake
+  m_Text: Extra Lakes
 --- !u!222 &1198927979
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21775,7 +21775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Farm
+  m_Text: Farms
 --- !u!222 &1400599384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22860,7 +22860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Road
+  m_Text: Roads
 --- !u!222 &1459342714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23451,8 +23451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 42.69998, y: -202.95999}
-  m_SizeDelta: {x: 65.99, y: 37.913}
+  m_AnchoredPosition: {x: 49.902, y: -202.95999}
+  m_SizeDelta: {x: 80.395, y: 37.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502508298
 MonoBehaviour:
@@ -23487,7 +23487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mountain
+  m_Text: Mountains
 --- !u!222 &1502508299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24488,7 +24488,7 @@ RectTransform:
   m_Children:
   - {fileID: 1676387791}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 21
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -25143,7 +25143,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 26
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -27501,21 +27501,21 @@ RectTransform:
   - {fileID: 515187734}
   - {fileID: 737684029}
   - {fileID: 891474919}
-  - {fileID: 1828134023}
-  - {fileID: 541892323}
-  - {fileID: 770065739}
   - {fileID: 2016740696}
   - {fileID: 894229991}
   - {fileID: 1760185303}
   - {fileID: 1086625258}
   - {fileID: 61125602}
-  - {fileID: 2122145807}
   - {fileID: 1561544636}
   - {fileID: 633166108}
   - {fileID: 1824401308}
   - {fileID: 97770343}
   - {fileID: 656671975}
   - {fileID: 1588911228}
+  - {fileID: 2122145807}
+  - {fileID: 1828134023}
+  - {fileID: 541892323}
+  - {fileID: 770065739}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28029,7 +28029,7 @@ RectTransform:
   - {fileID: 940396817}
   - {fileID: 154519483}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -28806,7 +28806,7 @@ RectTransform:
   - {fileID: 238228633}
   - {fileID: 782065570}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -28936,7 +28936,7 @@ RectTransform:
   - {fileID: 925934605}
   - {fileID: 2081900693}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 12
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29088,8 +29088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 42.694992, y: -240.87997}
-  m_SizeDelta: {x: 65.99, y: 37.917}
+  m_AnchoredPosition: {x: 49.9, y: -240.87997}
+  m_SizeDelta: {x: 80.399, y: 37.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833652781
 MonoBehaviour:
@@ -29124,7 +29124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Highland
+  m_Text: Highlands
 --- !u!222 &1833652782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34534,7 +34534,7 @@ RectTransform:
   m_Children:
   - {fileID: 1338333543}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -36355,7 +36355,7 @@ RectTransform:
   - {fileID: 1819890507}
   - {fileID: 2020206965}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 20
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

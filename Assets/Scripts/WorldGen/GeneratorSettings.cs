@@ -22,7 +22,7 @@ public class GeneratorSettings
     public FloatRange MountainFreq = new FloatRange(0.05f, 0.07f);
     public FloatRange HighlandFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange CaveFreq = new FloatRange(0.05f, 0.07f);
-    public FloatRange FarmFreq = new FloatRange(0.16f, 0.18f);
+    public FloatRange FarmFreq = new FloatRange(0.14f, 0.16f);
     public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
     public FloatRange LakeFreq = new FloatRange(0.08f, 0.10f);
 
