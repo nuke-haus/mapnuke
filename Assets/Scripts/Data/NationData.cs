@@ -184,7 +184,7 @@ public static class AllNationData
         AddNation(new NationData("(LA) Agartha", 90, 0.0f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Abysia", 91, 0.0f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.MOUNTAINS }));
         AddNation(new NationData("(LA) Caelum", 92, 0.0f, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.PLAINS | Terrain.LARGEPROV }));
-        AddNation(new NationData("(LA) C'tis", 93, 0.0f, Age.LATE, Terrain.SWAMP, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
+        AddNation(new NationData("(LA) C'tis", 93, 0.0f, Age.LATE, Terrain.WASTE, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Pangaea", 94, 0.0f, Age.LATE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Midgard", 95, 0.3f, Age.LATE, Terrain.HIGHLAND, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.HIGHLAND }));
         AddNation(new NationData("(LA) Utgard", 96, 0.0f, Age.LATE, Terrain.FOREST, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.PLAINS }));

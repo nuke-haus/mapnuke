@@ -829,12 +829,6 @@ static class WorldGenerator
         }
 
         float num_lakes = GeneratorSettings.s_generator_settings.LakeFreq.GetRandom();
-
-        /*if (m_nations.Any(x => x.NationData.WaterPercentage > 0.3f))
-        {
-            num_lakes *= 0.5f; // if real water nations are playing then reduce the random water provinces 
-        }*/
-
         List<Node> valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsWater).ToList();
 
         if (!m_nat_starts)
@@ -843,6 +837,7 @@ static class WorldGenerator
         }
 
         int lakes = Mathf.RoundToInt(num_lakes * valid.Count);
+        List<Node> preferred = valid.Where(x => !x.ConnectedNodes.Any(y => y.ProvinceData.IsWater)).ToList();
 
         if (lakes == 0)
         {
@@ -850,31 +845,27 @@ static class WorldGenerator
         }
 
         valid.Shuffle();
+        preferred.Shuffle();
         
         for (int i = 0; i < lakes; i++)
         {
-            if (!valid.Any())
+            if (!preferred.Any())
             {
-                break;
-            }
-
-            Node n = valid[0];
-            valid.Remove(n);
-
-            n.ProvinceData.SetTerrainFlags(Terrain.SEA);
-
-            int rand = UnityEngine.Random.Range(0, 10);
-
-            if (rand < 1) // small chance to create connected water province
-            {
-                Node adj = n.ConnectedNodes.Where(x => !x.IsCapRing && valid.Contains(x)).ToList().GetRandom();
-
-                if (adj != null)
+                if (valid.Any())
                 {
-                    valid.Remove(adj);
-                    valid.Insert(0, adj);
+                    preferred = valid.Where(x => !x.ProvinceData.IsWater).ToList();
+                    valid = new List<Node>();
+                }
+                else
+                {
+                    break;
                 }
             }
+
+            Node n = preferred[0];
+            preferred.Remove(n);
+
+            n.ProvinceData.SetTerrainFlags(Terrain.SEA);
         }  
     }
 
