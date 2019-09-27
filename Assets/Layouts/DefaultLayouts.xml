@@ -600,8 +600,8 @@
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
-      <X>5</X>
-      <Y>2</Y>
+      <X>2</X>
+      <Y>5</Y>
       <SpawnType>PLAYER</SpawnType>
     </Spawn>
     <Spawn>
