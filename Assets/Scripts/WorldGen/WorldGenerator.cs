@@ -477,8 +477,8 @@ static class WorldGenerator
 
     static void assign_water_terrain()
     {
-        float num_farm = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * 0.5f;
-        float num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * 2f;
+        //float num_farm = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * 0.5f; 
+        float num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() + GeneratorSettings.s_generator_settings.FarmFreq.GetRandom();
         float num_trench = GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom();
         float num_deeps = GeneratorSettings.s_generator_settings.MountainFreq.GetRandom();
         float num_cave = GeneratorSettings.s_generator_settings.CaveFreq.GetRandom();
@@ -486,7 +486,7 @@ static class WorldGenerator
         List<Node> water = m_nodes.Where(x => x.ProvinceData.IsWater && !x.HasNation && !x.IsAssignedTerrain).ToList();
 
         Dictionary<Terrain, float> dict = new Dictionary<Terrain, float>();
-        dict.Add(Terrain.FARM, num_farm);
+        //dict.Add(Terrain.FARM, num_farm);
         dict.Add(Terrain.HIGHLAND, num_trench);
         dict.Add(Terrain.FOREST, num_forest);
         dict.Add(Terrain.CAVE, num_cave);
@@ -501,6 +501,11 @@ static class WorldGenerator
         foreach (KeyValuePair<Terrain, float> pair in dict)
         {
             int num = Mathf.RoundToInt(pair.Value * ct);
+
+            if (pair.Value > 0.01f && num == 0)
+            {
+                num = 1;
+            }
 
             if (num == 0 || !water.Any())
             {
@@ -524,6 +529,11 @@ static class WorldGenerator
         }
 
         int total_deep = Mathf.RoundToInt(num_deeps * ct);
+
+        if (num_deeps > 0.01f && total_deep == 0)
+        {
+            total_deep = 1;
+        }
 
         for (int i = 0; i < total_deep; i++)
         {

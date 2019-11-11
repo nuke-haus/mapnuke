@@ -73,25 +73,13 @@ public class NodeLayoutCollection
 public class NodeLayout
 {
     [XmlElement("Name")]
-    public string Name
-    {
-        get;
-        private set;
-    }
+    public string Name;
 
     [XmlElement("XSize")]
-    public int X
-    {
-        get;
-        private set;
-    }
+    public int X;
 
     [XmlElement("YSize")]
-    public int Y
-    {
-        get;
-        private set;
-    }
+    public int Y;
 
     public int ProvsPerPlayer
     {
@@ -126,11 +114,7 @@ public class NodeLayout
     }
 
     [XmlElement("Spawn")]
-    public List<SpawnPoint> Spawns
-    {
-        get;
-        private set;
-    }
+    public List<SpawnPoint> Spawns;
 
     public NodeLayout()
     {
