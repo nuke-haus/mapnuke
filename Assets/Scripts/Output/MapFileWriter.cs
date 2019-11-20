@@ -124,14 +124,19 @@ public static class MapFileWriter
             {
                 Terrain terr = m.Node.ProvinceData.Terrain;
 
+                if (GeneratorSettings.s_generator_settings.UseClassicMountains && m.Node.Connections.Any(c => c.ConnectionType == ConnectionType.MOUNTAIN) && !terr.IsFlagSet(Terrain.MOUNTAINS))
+                {
+                    terr |= Terrain.MOUNTAINS;
+                }
+
                 if (m.Node.Connections.Any(c => c.ConnectionType == ConnectionType.RIVER || c.ConnectionType == ConnectionType.SHALLOWRIVER))
                 {
-                    terr = terr | Terrain.FRESHWATER;
+                    terr |= Terrain.FRESHWATER;
                 }
 
                 if (m.Node.HasNation)
                 {
-                    terr = terr | Terrain.START;
+                    terr |= Terrain.START;
                 }
 
                 write(fs, "#terrain " + m.ProvinceNumber + " " + (int) terr);

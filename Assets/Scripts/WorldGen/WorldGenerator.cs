@@ -694,6 +694,11 @@ static class WorldGenerator
         float num_caves = GeneratorSettings.s_generator_settings.CaveFreq.GetRandom(); 
         float num_waste = GeneratorSettings.s_generator_settings.WasteFreq.GetRandom(); 
 
+        if (GeneratorSettings.s_generator_settings.UseClassicMountains)
+        {
+            num_mountains = 0f;
+        }
+
         Dictionary<Terrain, float> dict = new Dictionary<Terrain, float>();
         dict.Add(Terrain.WASTE, num_waste);
         dict.Add(Terrain.HIGHLAND, num_highlands);

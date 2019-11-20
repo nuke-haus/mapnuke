@@ -39,6 +39,8 @@ public class SettingsManager: MonoBehaviour
     public InputField CliffPassMin;
     public InputField CliffPassMax;
 
+    public Toggle ClassicMountains;
+
     public Text ProvPercent;
     public Text ConnPercent;
     public Text ProvSizePercent;
@@ -131,6 +133,7 @@ public class SettingsManager: MonoBehaviour
         GeneratorSettings.s_generator_settings.SmallFreq.Update(get_float(SmallMin), get_float(SmallMax));
         GeneratorSettings.s_generator_settings.SwampFreq.Update(get_float(SwampMin), get_float(SwampMax));
         GeneratorSettings.s_generator_settings.WasteFreq.Update(get_float(WasteMin), get_float(WasteMax));
+        GeneratorSettings.s_generator_settings.UseClassicMountains = ClassicMountains.isOn;
 
         gameObject.SetActive(false);
     }

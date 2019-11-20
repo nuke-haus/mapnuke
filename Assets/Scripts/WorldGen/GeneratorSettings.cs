@@ -33,7 +33,9 @@ public class GeneratorSettings
     public FloatRange CliffPassFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange RiverFreq = new FloatRange(0.06f, 0.08f);
     public FloatRange DeepRiverFreq = new FloatRange(0.04f, 0.06f);
-    public FloatRange RoadFreq = new FloatRange(0.02f, 0.04f);
+    public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
+
+    public bool UseClassicMountains = true;
 }
 
 public class FloatRange // simple class for managing float random ranges
