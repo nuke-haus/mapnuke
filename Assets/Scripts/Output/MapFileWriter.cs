@@ -124,7 +124,7 @@ public static class MapFileWriter
             {
                 Terrain terr = m.Node.ProvinceData.Terrain;
 
-                if (GeneratorSettings.s_generator_settings.UseClassicMountains && m.Node.Connections.Any(c => c.ConnectionType == ConnectionType.MOUNTAIN) && !terr.IsFlagSet(Terrain.MOUNTAINS))
+                if (GeneratorSettings.s_generator_settings.UseClassicMountains && !terr.IsFlagSet(Terrain.MOUNTAINS) && mountain_count(m) >= 1f)
                 {
                     terr |= Terrain.MOUNTAINS;
                 }
@@ -168,6 +168,25 @@ public static class MapFileWriter
 
             fs.Close();
         }
+    }
+
+    static float mountain_count(ProvinceMarker m)
+    {
+        float res = 0f;
+
+        foreach (Connection c in m.Node.Connections)
+        {
+            if (c.ConnectionType == ConnectionType.MOUNTAIN)
+            {
+                res += 1f;
+            }
+            else if (c.ConnectionType == ConnectionType.MOUNTAINPASS)
+            {
+                res += 0.5f;
+            }
+        }
+
+        return res;
     }
 
     static RaycastHit do_ray_trace(Vector3 pt)

@@ -100,6 +100,7 @@ public static class AllNationData
         // generic starts
         AddNation(new NationData("Land Nation", -1, 0.0f, Age.ALL, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.FOREST }));
         AddNation(new NationData("Coastal Nation", -1, 0.4f, Age.ALL, Terrain.PLAINS, new Terrain[] { Terrain.PLAINS, Terrain.FOREST, Terrain.SEA }));
+        AddNation(new NationData("Island Nation", -1, 0.7f, Age.ALL, Terrain.PLAINS, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.DEEPSEA }));
         AddNation(new NationData("Water Nation", -1, 0.7f, Age.ALL, Terrain.SEA, new Terrain[] { Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA | Terrain.FOREST, Terrain.SEA | Terrain.DEEPSEA }));
 
         // early age
