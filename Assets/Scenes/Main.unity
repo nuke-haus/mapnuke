@@ -30790,7 +30790,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Potential Throne Spawn
+  m_Text: Throne Spawn
 --- !u!222 &1955786326
 CanvasRenderer:
   m_ObjectHideFlags: 0

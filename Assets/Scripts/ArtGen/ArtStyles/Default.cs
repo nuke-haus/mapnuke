@@ -74,6 +74,103 @@ public class DefaultArtStyle: ArtStyle
             result.AddRange(pm.CreateWrapMeshes()); // also create connection wrap meshes
         }
 
+        List<ProvinceMarker> bad = provs.Where(x => x.NeedsRegen).ToList();
+        List<ProvinceMarker> add = new List<ProvinceMarker>();
+
+        if (bad.Any())
+        {
+            Debug.LogError(bad.Count + " provinces have invalid PolyBorders. Regenerating additional provinces.");
+
+            foreach (ProvinceMarker b in bad)
+            {
+                foreach (ProvinceMarker adj in b.ConnectedProvinces)
+                {
+                    if (provs.Contains(adj))
+                    {
+                        continue;
+                    }
+
+                    if (adj.IsDummy)
+                    {
+                        add.AddRange(adj.LinkedProvinces);
+
+                        if (adj.LinkedProvinces[0].LinkedProvinces.Count > 1)
+                        {
+                            foreach (ProvinceMarker link in adj.LinkedProvinces[0].LinkedProvinces) // 3 dummies
+                            {
+                                add.AddRange(adj.ConnectedProvinces);
+                            }
+                        }
+                        else
+                        {
+                            add.AddRange(adj.LinkedProvinces[0].ConnectedProvinces);
+                        }
+                    }
+                    else
+                    {
+                        add.Add(adj);
+
+                        if (adj.LinkedProvinces != null && adj.LinkedProvinces.Any())
+                        {
+                            foreach (ProvinceMarker link in adj.LinkedProvinces)
+                            {
+                                add.AddRange(link.ConnectedProvinces);
+                            }
+                        }
+                    }
+
+                    if (!add.Contains(adj))
+                    {
+                        add.Add(adj);
+                    }
+                }
+
+                if (b.LinkedProvinces != null && b.LinkedProvinces.Any())
+                {
+                    foreach (ProvinceMarker link in b.LinkedProvinces)
+                    {
+                        add.AddRange(link.ConnectedProvinces);
+                    }
+                }
+            }
+
+            foreach (ProvinceMarker pm in add)
+            {
+                foreach (ConnectionMarker m in pm.Connections)
+                {
+                    if (!conns.Contains(m) && ((provs.Contains(m.Prov1) || add.Contains(m.Prov1)) && (provs.Contains(m.Prov2) || add.Contains(m.Prov2))))
+                    {
+                        conns.Add(m);
+                    }
+                }
+            }
+
+            foreach (ConnectionMarker cm in conns)
+            {
+                cm.CreatePolyBorder();
+                cm.ClearWrapMeshes();
+                cm.RecalculatePoly();
+            }
+
+            foreach (ProvinceMarker pm in add)
+            {
+                pm.UpdateLabel();
+                pm.RecalculatePoly();
+                pm.ConstructPoly();
+                pm.ClearWrapMeshes();
+                result.AddRange(pm.CreateWrapMeshes()); // also create connection wrap meshes
+            }
+
+            foreach (ProvinceMarker pm in provs)
+            {
+                pm.UpdateLabel();
+                pm.RecalculatePoly();
+                pm.ConstructPoly();
+                pm.ClearWrapMeshes();
+                result.AddRange(pm.CreateWrapMeshes()); // also create connection wrap meshes
+            }
+        }
+
         foreach (ConnectionMarker cm in conns)
         {
             m_all_sprites.AddRange(cm.PlaceSprites());

@@ -118,7 +118,7 @@ public class ProvinceManager: MonoBehaviour
         m_current.UpdateLinked();
         m_current.ValidateConnections();
 
-        List<ProvinceMarker> provs = new List<ProvinceMarker> { m_current };
+        List<ProvinceMarker> provs = new List<ProvinceMarker>();
         List<ProvinceMarker> dummies = new List<ProvinceMarker>();
 
         foreach (ProvinceMarker pm in m_current.ConnectedProvinces)
@@ -155,6 +155,8 @@ public class ProvinceManager: MonoBehaviour
                 }
             }
         }
+
+        provs.Add(m_current);
 
         if (m_current.LinkedProvinces != null && m_current.LinkedProvinces.Any())
         {

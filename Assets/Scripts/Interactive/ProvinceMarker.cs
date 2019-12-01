@@ -58,6 +58,15 @@ public class ProvinceMarker: MonoBehaviour
     bool m_is_dummy = false;
     float m_scale = 1.0f;
     float m_center_size = 9000f;
+    bool m_needs_regen = false;
+
+    public bool NeedsRegen
+    {
+        get
+        {
+            return m_needs_regen;
+        }
+    }
 
     public bool IsDummy
     {
@@ -628,7 +637,7 @@ public class ProvinceMarker: MonoBehaviour
     public void RecalculatePoly()
     {
         m_poly = new List<Vector3>();
-
+ 
         if (IsDummy)
         {
             return;
@@ -677,9 +686,9 @@ public class ProvinceMarker: MonoBehaviour
             }
         }
 
+        m_needs_regen = false;
         Vector3 cur = borders[0].P2;
         PolyBorder b = null;
-
         List<PolyBorder> result = new List<PolyBorder>();
 
         while (borders.Any())
@@ -692,7 +701,8 @@ public class ProvinceMarker: MonoBehaviour
 
                 if (b == null) // this probably should never happen 
                 {
-                    Debug.LogError("Unable to fetch polyborder for province marker: " + ProvinceNumber);
+                    m_needs_regen = true;
+                    Debug.LogError("Unable to find PolyBorder for province marker: " + ProvinceNumber);
                     break;
                 }
 
