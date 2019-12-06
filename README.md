@@ -16,7 +16,6 @@ Missing features and other known issues.
 
 - Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite. Right now only wastelands are given hot/cold modifiers.
 - Compact map layouts for 15, 17, 18, 19, 20 and 21 players.
-- Option to change how mountain province modifiers are applied so it behaves like default maps.
 
 ### The wish list
 
