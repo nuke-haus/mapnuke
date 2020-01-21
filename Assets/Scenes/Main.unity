@@ -8079,6 +8079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSize: 20
   MinSize: 1
+  eventSystem: {fileID: 181575569}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
