@@ -36,4 +36,17 @@ public static class List
 
         return list[k];
     }
+
+    public static bool Any<T>(this List<T> l)
+    {
+        foreach (T t in l) if (t != null) return true;
+        return false;
+    }
+
+    public static List<T> Where<T>(this List<T> l, System.Predicate<T> p)
+    {
+        List<T> res = new List<T>();
+        foreach (T t in l) if (p(t)) res.Add(t);
+        return res;
+    }
 }

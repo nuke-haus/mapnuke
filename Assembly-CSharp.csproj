@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{A3A8B109-5A00-F89A-E79C-1F60868EF4FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -117,7 +116,6 @@
     <None Include="Assets\Layouts\Compact.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
     <None Include="Assets\Layouts\Example.xml" />
-    <None Include="Assets\Scripts\Data\.editorconfig" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Johan/source/repos/mapnuke/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
