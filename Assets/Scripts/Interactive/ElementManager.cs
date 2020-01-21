@@ -8,7 +8,7 @@ using UnityEngine;
 /// Might be too many manager classes. Perhaps this will be redundant after a refactor. Idk.
 /// Has a global singleton.
 /// </summary>
-public class ElementManager: MonoBehaviour
+public class ElementManager : MonoBehaviour
 {
     public static ElementManager s_element_manager;
 
@@ -100,7 +100,7 @@ public class ElementManager: MonoBehaviour
         MapBorder.SetBorders(new Vector3(9000, 9000), new Vector3(9001, 9001));
     }
 
-    public void GenerateElements(List<Node> nodes, List<Connection> conns, NodeLayout layout)
+    public IEnumerator GenerateElements(List<Node> nodes, List<Connection> conns, NodeLayout layout)
     {
         if (m_generated != null)
         {
@@ -146,6 +146,7 @@ public class ElementManager: MonoBehaviour
             m_provinces.Add(m);
             m_generated.Add(g);
             m_generated.Add(w);
+            if (Util.ShouldYield()) yield return null;
         }
 
         adjust_province_positions();
@@ -153,6 +154,7 @@ public class ElementManager: MonoBehaviour
         foreach (ProvinceMarker m in m_provinces)
         {
             m.OffsetWidget(); // properly position widget
+            if (Util.ShouldYield()) yield return null;
         }
 
         List<ProvinceMarker> dummies = new List<ProvinceMarker>();
@@ -226,6 +228,7 @@ public class ElementManager: MonoBehaviour
                 dummies.Add(m1);
                 m_generated.Add(g1);
             }
+            if (Util.ShouldYield()) yield return null;
         }
 
         m_provinces.AddRange(dummies);
@@ -316,7 +319,7 @@ public class ElementManager: MonoBehaviour
 
                 prov1.AddConnection(m);
                 prov2.AddConnection(m);
-                
+
                 Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
                 g.transform.position = center;
 
@@ -336,11 +339,12 @@ public class ElementManager: MonoBehaviour
                 m_generated.Add(g);
                 m_generated.Add(w);
             }
+            if (Util.ShouldYield()) yield return null;
         }
 
         number_provinces();
 
-        ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y);
+        yield return StartCoroutine(ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y));
     }
 
     void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
@@ -355,7 +359,7 @@ public class ElementManager: MonoBehaviour
                 Vector3 pos = m.transform.position;
                 float add = 0.02f;
 
-                if (UnityEngine.Random.Range(0,2) == 0)
+                if (UnityEngine.Random.Range(0, 2) == 0)
                 {
                     add = -0.02f;
                 }
@@ -384,7 +388,7 @@ public class ElementManager: MonoBehaviour
             num++;
         }
     }
-    
+
     Vector3 get_mirrored_pos(Vector3 min, Vector3 max, Vector3 vec)
     {
         Vector3 diff = vec - min;
@@ -425,7 +429,7 @@ public class ElementManager: MonoBehaviour
         {
             center += (dir1 * (dist * 0.16f));
         }
-        
+
         if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.SMALLPROV))
         {
             center += (dir1 * (dist * 0.20f));

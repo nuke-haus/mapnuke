@@ -81,11 +81,11 @@ public class ArtManager: MonoBehaviour
         return SpriteSetCollection.GetMountainSpecSprite();
     }
 
-    public void GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout, float x, float y)
+    public IEnumerator GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout, float x, float y)
     {
         setup_cam(x, y);
 
-        m_art.Generate(provs, conns, layout);// todo: allow the user to pick which art style?
+        return m_art.Generate(provs, conns, layout);// todo: allow the user to pick which art style?
     }
 
     public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) // totally regen these provinces and their connections

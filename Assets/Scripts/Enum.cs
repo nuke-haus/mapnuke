@@ -17,7 +17,7 @@ public static class EnumExtensions
             throw new ArgumentException(string.Format("Type '{0}' doesn't have the 'Flags' attribute", typeof(T).FullName));
     }
 
-    public static bool IsFlagSet<T>(this T value, T flag) where T : struct
+    public static bool IsFlagSet<T>(this T value, T flag) where T : System.Enum
     {
         CheckIsEnum<T>(true);
         long val_long = Convert.ToInt64(value);
@@ -25,7 +25,7 @@ public static class EnumExtensions
         return ((val_long & flag_long) != 0) || (flag_long == 0); // The original implementation for this would return the wrong value when supplied 0.
     }
 
-    public static IEnumerable<T> GetFlags<T>(this T value) where T : struct
+    public static IEnumerable<T> GetFlags<T>(this T value) where T : System.Enum
     {
         CheckIsEnum<T>(true);
         foreach (T flag in Enum.GetValues(typeof(T)).Cast<T>())
@@ -35,7 +35,7 @@ public static class EnumExtensions
         }
     }
 
-    public static T SetFlags<T>(this T value, T flags, bool on) where T : struct
+    public static T SetFlags<T>(this T value, T flags, bool on) where T : System.Enum
     {
         CheckIsEnum<T>(true);
         long lValue = Convert.ToInt64(value);
@@ -51,17 +51,17 @@ public static class EnumExtensions
         return (T)Enum.ToObject(typeof(T), lValue);
     }
 
-    public static T SetFlags<T>(this T value, T flags) where T : struct
+    public static T SetFlags<T>(this T value, T flags) where T : System.Enum
     {
         return value.SetFlags(flags, true);
     }
 
-    public static T ClearFlags<T>(this T value, T flags) where T : struct
+    public static T ClearFlags<T>(this T value, T flags) where T : System.Enum
     {
         return value.SetFlags(flags, false);
     }
 
-    public static T CombineFlags<T>(this IEnumerable<T> flags) where T : struct
+    public static T CombineFlags<T>(this IEnumerable<T> flags) where T : System.Enum
     {
         CheckIsEnum<T>(true);
         long lValue = 0;
@@ -73,7 +73,7 @@ public static class EnumExtensions
         return (T)Enum.ToObject(typeof(T), lValue);
     }
 
-    public static string GetDescription<T>(this T value) where T : struct
+    public static string GetDescription<T>(this T value) where T : System.Enum
     {
         CheckIsEnum<T>(false);
         string name = Enum.GetName(typeof(T), value);

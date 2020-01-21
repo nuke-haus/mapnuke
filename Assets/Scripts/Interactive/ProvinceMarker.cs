@@ -1012,13 +1012,14 @@ public class ProvinceMarker: MonoBehaviour
         return new Vector3(-9000, -9000, 0);
     }
 
-    public void CalculateSpritePoints()
+    public IEnumerable CalculateSpritePoints()
     {
         if (m_wraps != null)
         {
             foreach (ProvinceWrapMarker m in m_wraps)
             {
                 m.CalculateSpritePoints();
+                if (Util.ShouldYield()) yield return null;
             }
         }
 
@@ -1040,6 +1041,7 @@ public class ProvinceMarker: MonoBehaviour
 
             cur.y = mins.y + UnityEngine.Random.Range(0.04f, 0.06f);
             cur.x += 0.04f;
+            if (Util.ShouldYield()) yield return null;
         }
 
         m_sprite_points.Shuffle();

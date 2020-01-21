@@ -75,7 +75,7 @@ public class GenerationManager : MonoBehaviour
 
     void Update()
     {
-
+      Util.ResetFrameTime();
     }
 
     public void LogText(string text)
@@ -157,7 +157,7 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(perform_async(() => do_generate(), true));
     }
 
-    void do_generate() // pipeline for initial generation of all nodes and stuff
+   IEnumerator do_generate() // pipeline for initial generation of all nodes and stuff
     {
         NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
 
@@ -175,7 +175,7 @@ public class GenerationManager : MonoBehaviour
 
         // generate the unity objects using the conceptual nodes
         ElementManager mgr = GetComponent<ElementManager>();
-        mgr.GenerateElements(nodes, conns, layout);
+        yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
 
         ProvinceManager.s_province_manager.SetLayout(layout);
         ConnectionManager.s_connection_manager.SetLayout(layout);
@@ -197,9 +197,30 @@ public class GenerationManager : MonoBehaviour
     public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
         StartCoroutine(perform_async(() => do_regen(provs, conns, layout)));
-    }
+   }
 
-    IEnumerator perform_async(System.Action function, bool show_log = false)
+   IEnumerator perform_async(System.Func<IEnumerator> function, bool show_log = false) {
+      LoadingScreen.SetActive(true);
+
+      if (show_log) {
+         //LogScreen.SetActive(true); 
+         //ClearLog();
+      }
+
+      yield return null;
+      yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
+      float start_time = Time.realtimeSinceStartup;
+      if (function != null) {
+         yield return StartCoroutine(function());
+      }
+      float total_time = Time.realtimeSinceStartup - start_time;
+      Debug.LogFormat("Generation time: {0}", total_time);
+
+      LoadingScreen.SetActive(false);
+      //LogScreen.SetActive(false);
+   }
+
+   IEnumerator perform_async(System.Action function, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
 

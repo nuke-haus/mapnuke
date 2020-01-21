@@ -47,7 +47,12 @@ public class MapSpriteSet
             return null;
         }
 
-        List<ProvinceSprite> valid = MapSprites.Where(x => flag.IsFlagSet(x.ValidTerrain) && !x.IsCenterpiece).ToList();
+        List<ProvinceSprite> valid = new List<ProvinceSprite>();
+
+        foreach (var x in MapSprites)
+        {
+            if (flag.IsFlagSet(x.ValidTerrain) && !x.IsCenterpiece) valid.Add(x);
+        }
 
         if (!valid.Any())
         {
