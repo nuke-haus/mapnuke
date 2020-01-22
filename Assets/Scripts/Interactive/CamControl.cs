@@ -25,6 +25,7 @@ public class CamControl: MonoBehaviour
     Vector2 m_lastpos;
     bool is_dragging;
     Vector2 drag_world_pos;
+    Vector2 prev_camera_pos;
 
     void Start()
     {
@@ -58,7 +59,8 @@ public class CamControl: MonoBehaviour
         {
             // Don't drag if we are over a UI element like a button.
             is_dragging = !eventSystem.IsPointerOverGameObject();
-            drag_world_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            drag_world_pos = m_cam.ScreenToWorldPoint(Input.mousePosition);
+            prev_camera_pos = m_cam.transform.position;
         }
 
         if (Event.current.type == EventType.MouseDrag)
@@ -84,14 +86,19 @@ public class CamControl: MonoBehaviour
     void mouse_drag()
     {
         m_lastpos = Camera.main.transform.position;
+        if (prev_camera_pos != m_lastpos)
+        {
+            drag_world_pos += m_lastpos - prev_camera_pos;
+        }
 
-        Vector2 next_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 next_pos = m_cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = drag_world_pos - next_pos;
 
         Vector3 pos = m_cam.transform.position;
         Vector3 newpos = pos + new Vector3(delta.x, delta.y, 0);
 
         m_cam.transform.position = newpos;
+        prev_camera_pos = m_cam.transform.position;
     }
 
     void scroll(float delta)
