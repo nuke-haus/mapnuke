@@ -153,13 +153,22 @@ public class GenerationManager : MonoBehaviour
         m_nations = picks;
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
-
-        StartCoroutine(perform_async(() => do_generate(), true));
+        NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
+        MoveCameraForGeneration(layout);
+        StartCoroutine(perform_async(() => do_generate(layout), true));
     }
 
-   IEnumerator do_generate() // pipeline for initial generation of all nodes and stuff
+    void MoveCameraForGeneration(NodeLayout layout)
     {
-        NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
+        var main_cam = Camera.main;
+        var p = main_cam.transform.position;
+        p.x = layout.X;
+        p.y = layout.Y * 0.5f;
+        main_cam.transform.position = p;
+    }
+
+   IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
+    {
 
         if (layout == null)
         {
