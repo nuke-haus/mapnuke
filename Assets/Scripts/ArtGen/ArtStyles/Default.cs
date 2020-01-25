@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class ArtStyle
 {
     public abstract string GetName();
-    public abstract void Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
+    public abstract IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
     public abstract void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
     public abstract void ChangeSeason(Season s);
 
@@ -20,7 +20,7 @@ public abstract class ArtStyle
 /// <summary>
 /// This is the default art style, you can derive from ArtStyle to make your own art logic.
 /// </summary>
-public class DefaultArtStyle: ArtStyle
+public class DefaultArtStyle : ArtStyle
 {
     List<ProvinceMarker> m_all_provs;
     List<ConnectionMarker> m_all_conns;
@@ -178,7 +178,7 @@ public class DefaultArtStyle: ArtStyle
 
         foreach (ProvinceMarker pm in provs)
         {
-            pm.CalculateSpritePoints();
+            foreach (var unused in pm.CalculateSpritePoints()) { }
             m_all_sprites.AddRange(pm.PlaceSprites());
         }
 
@@ -201,7 +201,7 @@ public class DefaultArtStyle: ArtStyle
         CaptureCam.s_capture_cam.Render();
     }
 
-    public override void Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
+    public override IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
         List<GameObject> result = new List<GameObject>();
 
@@ -215,6 +215,7 @@ public class DefaultArtStyle: ArtStyle
             cm.CreatePolyBorder();
             cm.ClearWrapMeshes();
             cm.RecalculatePoly();
+            if (Util.ShouldYield()) yield return null;
         }
 
         foreach (ProvinceMarker pm in provs)
@@ -224,6 +225,7 @@ public class DefaultArtStyle: ArtStyle
             pm.ConstructPoly();
             pm.ClearWrapMeshes();
             result.AddRange(pm.CreateWrapMeshes());
+            if (Util.ShouldYield()) yield return null;
         }
 
         m_all_sprites = new List<SpriteMarker>();
@@ -231,12 +233,17 @@ public class DefaultArtStyle: ArtStyle
         foreach (ConnectionMarker cm in conns)
         {
             m_all_sprites.AddRange(cm.PlaceSprites());
+            if (Util.ShouldYield()) yield return null;
         }
 
         foreach (ProvinceMarker pm in provs)
         {
-            pm.CalculateSpritePoints();
+            foreach (var x in pm.CalculateSpritePoints())
+            {
+                yield return x;
+            }
             m_all_sprites.AddRange(pm.PlaceSprites());
+            if (Util.ShouldYield()) yield return null;
         }
 
         sort_sprites();
@@ -244,6 +251,7 @@ public class DefaultArtStyle: ArtStyle
         foreach (SpriteMarker m in m_all_sprites)
         {
             result.Add(m.gameObject);
+            if (Util.ShouldYield()) yield return null;
         }
 
         ElementManager.s_element_manager.AddGeneratedObjects(result);

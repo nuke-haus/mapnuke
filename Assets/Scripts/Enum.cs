@@ -9,37 +9,27 @@ using System.Reflection;
 /// </summary>
 public static class EnumExtensions
 {
-    private static void CheckIsEnum<T>(bool withFlags)
-    {
-        if (!typeof(T).IsEnum)
-            throw new ArgumentException(string.Format("Type '{0}' is not an enum", typeof(T).FullName));
-        if (withFlags && !Attribute.IsDefined(typeof(T), typeof(FlagsAttribute)))
-            throw new ArgumentException(string.Format("Type '{0}' doesn't have the 'Flags' attribute", typeof(T).FullName));
-    }
 
-    public static bool IsFlagSet<T>(this T value, T flag) where T : struct
+    public static bool IsFlagSet(this Terrain value, Terrain flag)
     {
-        CheckIsEnum<T>(true);
-        long val_long = Convert.ToInt64(value);
-        long flag_long = Convert.ToInt64(flag);
+        long val_long = (long)value;
+        long flag_long = (long)flag;
         return ((val_long & flag_long) != 0) || (flag_long == 0); // The original implementation for this would return the wrong value when supplied 0.
     }
 
-    public static IEnumerable<T> GetFlags<T>(this T value) where T : struct
+    public static IEnumerable<Terrain> GetFlags(this Terrain value)
     {
-        CheckIsEnum<T>(true);
-        foreach (T flag in Enum.GetValues(typeof(T)).Cast<T>())
+        foreach (Terrain flag in Enum.GetValues(typeof(Terrain)).Cast<Terrain>())
         {
             if (value.IsFlagSet(flag))
                 yield return flag;
         }
     }
 
-    public static T SetFlags<T>(this T value, T flags, bool on) where T : struct
+    public static Terrain SetFlags(this Terrain value, Terrain flags, bool on)
     {
-        CheckIsEnum<T>(true);
-        long lValue = Convert.ToInt64(value);
-        long lFlag = Convert.ToInt64(flags);
+        long lValue = (long)value;
+        long lFlag = (long)(flags);
         if (on)
         {
             lValue |= lFlag;
@@ -48,38 +38,36 @@ public static class EnumExtensions
         {
             lValue &= (~lFlag);
         }
-        return (T)Enum.ToObject(typeof(T), lValue);
+        return (Terrain)Enum.ToObject(typeof(Terrain), lValue);
     }
 
-    public static T SetFlags<T>(this T value, T flags) where T : struct
+    public static Terrain SetFlags(this Terrain value, Terrain flags)
     {
         return value.SetFlags(flags, true);
     }
 
-    public static T ClearFlags<T>(this T value, T flags) where T : struct
+    public static Terrain ClearFlags(this Terrain value, Terrain flags)
     {
         return value.SetFlags(flags, false);
     }
 
-    public static T CombineFlags<T>(this IEnumerable<T> flags) where T : struct
+    public static Terrain CombineFlags(this IEnumerable<Terrain> flags)
     {
-        CheckIsEnum<T>(true);
         long lValue = 0;
-        foreach (T flag in flags)
+        foreach (Terrain flag in flags)
         {
-            long lFlag = Convert.ToInt64(flag);
+            long lFlag = (long)(flag);
             lValue |= lFlag;
         }
-        return (T)Enum.ToObject(typeof(T), lValue);
+        return (Terrain)Enum.ToObject(typeof(Terrain), lValue);
     }
 
-    public static string GetDescription<T>(this T value) where T : struct
+    public static string GetDescription(this Terrain value)
     {
-        CheckIsEnum<T>(false);
-        string name = Enum.GetName(typeof(T), value);
+        string name = Enum.GetName(typeof(Terrain), value);
         if (name != null)
         {
-            FieldInfo field = typeof(T).GetField(name);
+            FieldInfo field = typeof(Terrain).GetField(name);
             if (field != null)
             {
                 DescriptionAttribute attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;

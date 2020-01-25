@@ -554,7 +554,7 @@ public class ProvinceMarker: MonoBehaviour
         {
             if (ConnectedProvinces.Any(x => x.IsDummy))
             {
-                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy).ToList();
+                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy);
                 List<Vector3> offsets = new List<Vector3>();
 
                 foreach (ProvinceMarker pm in mars)
@@ -607,7 +607,7 @@ public class ProvinceMarker: MonoBehaviour
 
             if (ConnectedProvinces.Any(x => x.IsDummy && !ignore.Contains(x)))
             {
-                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy && !ignore.Contains(x)).ToList();
+                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy && !ignore.Contains(x));
 
                 foreach (ProvinceMarker pm in mars)
                 {
@@ -858,11 +858,11 @@ public class ProvinceMarker: MonoBehaviour
             return m_sprites;
         }
 
-        List<ProvinceSprite> shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain)).ToList();
+        List<ProvinceSprite> shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain));
 
         if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) && !m_node.ProvinceData.IsWater)
         {
-            shuffled = set.MapSprites.Where(x => x.IsCenterpiece && x.ValidTerrain == Terrain.LARGEPROV).ToList();
+            shuffled = set.MapSprites.Where(x => x.IsCenterpiece && x.ValidTerrain == Terrain.LARGEPROV);
         }
 
         shuffled.Shuffle();
@@ -875,12 +875,7 @@ public class ProvinceMarker: MonoBehaviour
                 if (ps.Size < m_center_size)
                 {
                     Vector3 pos = m_poly_center;
-                    List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f).ToList();
-
-                    foreach (Vector3 p in nearby)
-                    {
-                        m_sprite_points.Remove(p);
-                    }
+                    m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f));
 
                     pos.z = -3f;
 
@@ -915,7 +910,7 @@ public class ProvinceMarker: MonoBehaviour
                 pos = get_valid_position();
             }
             
-            List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
+            List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size);
 
             foreach (Vector3 p in nearby)
             {
@@ -970,7 +965,7 @@ public class ProvinceMarker: MonoBehaviour
                 continue;
             }
 
-            List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
+            List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size);
 
             foreach (Vector3 p in remove)
             {
@@ -1012,13 +1007,14 @@ public class ProvinceMarker: MonoBehaviour
         return new Vector3(-9000, -9000, 0);
     }
 
-    public void CalculateSpritePoints()
+    public IEnumerable CalculateSpritePoints()
     {
         if (m_wraps != null)
         {
             foreach (ProvinceWrapMarker m in m_wraps)
             {
                 m.CalculateSpritePoints();
+                if (Util.ShouldYield()) yield return null;
             }
         }
 
@@ -1026,7 +1022,7 @@ public class ProvinceMarker: MonoBehaviour
         Vector3 mins = get_mins();
         Vector3 maxs = get_maxs();
         Vector3 cur = new Vector3(mins.x, mins.y);
-        List<ConnectionMarker> roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER).ToList();
+        List<ConnectionMarker> roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER);
         MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         while (cur.x < maxs.x)
@@ -1040,6 +1036,7 @@ public class ProvinceMarker: MonoBehaviour
 
             cur.y = mins.y + UnityEngine.Random.Range(0.04f, 0.06f);
             cur.x += 0.04f;
+            if (Util.ShouldYield()) yield return null;
         }
 
         m_sprite_points.Shuffle();
