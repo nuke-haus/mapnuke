@@ -42,11 +42,6 @@ public class CamControl: MonoBehaviour
 
         float size = m_cam.orthographicSize;
         m_cam.orthographicSize = Mathf.SmoothStep(m_cam.orthographicSize, m_target, INTERPOLATE_CAM);
-
-        Vector3 pos = m_cam.transform.position;
-        Vector3 newpos = Vector3.Lerp(pos, m_lastpos, INTERPOLATE_POS);
-
-        m_cam.transform.position = newpos;
     }
 
     public void OnGUI()
