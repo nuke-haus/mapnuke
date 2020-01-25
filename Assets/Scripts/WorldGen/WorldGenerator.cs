@@ -1178,7 +1178,7 @@ static class WorldGenerator
 
             foreach (PlayerData d in scrambled)
             {
-                if (d.NationData.WaterPercentage > 0.3f)
+                if (d.NationData.WaterPercentage >= 0.5f) // Only water nations with a lot of water should be clustered together 
                 {
                     water.Add(d);
                 }
@@ -1283,7 +1283,7 @@ static class WorldGenerator
             }
         }
 
-        if (m_cluster_water) // put water nations close together
+        if (m_cluster_water) // put water nations close together if the user has this option ticked
         {
             List<Node> starts = m_nodes.Where(x => x.ProvinceData.Terrain.IsFlagSet(Terrain.START)).ToList();
 
