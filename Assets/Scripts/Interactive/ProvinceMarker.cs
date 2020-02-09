@@ -892,8 +892,8 @@ public class ProvinceMarker: MonoBehaviour
             }
         }
 
-        int valid_ct = 0;
         set.MapSprites.Shuffle();
+        List<ProvinceSprite> sprites = new List<ProvinceSprite>();
 
         foreach (ProvinceSprite ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
@@ -901,86 +901,41 @@ public class ProvinceMarker: MonoBehaviour
             {
                 continue;
             }
-
-            valid_ct++;
-            Vector3 pos = m_sprite_points[0];
-
-            if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
-            {
-                pos = get_valid_position();
-            }
-            
-            List<Vector3> nearby = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size);
-
-            foreach (Vector3 p in nearby)
-            {
-                m_sprite_points.Remove(p);
-            }
-
-            pos.z = -3f;
-
-            GameObject g = GameObject.Instantiate(MapSpritePrefab);
-            SpriteMarker sm = g.GetComponent<SpriteMarker>();
-            sm.SetSprite(ps);
-            sm.transform.position = pos;
-
-            m_sprites.Add(sm);
-            m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
+            sprites.Add(ps);
         }
 
-        if (valid_ct == 0)
+        if (sprites.Count == 0)
         {
             return m_sprites;
         }
-
-        while (m_sprite_points.Any()) // randomly sprinkle sprites
         {
-            Vector3 pos = m_sprite_points[0];
-            ProvinceSprite ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
-
-            while (ps == null || UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
+            List<NativeObjectPlacer.Item> sprite_items = new List<NativeObjectPlacer.Item>();
+            List<float> sprite_size = new List<float>();
+            foreach (var s in sprites)
             {
-                ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
-
-                if (ps == null)
+                sprite_items.Add(new NativeObjectPlacer.Item
                 {
-                    break;
-                }
+                    size = s.Size,
+                    spawn_chance = s.SpawnChance,
+                    extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV,
+                });
             }
-
-            if (ps == null)
+            List<Vector3> already_placed = new List<Vector3>();
+            foreach (var p in m_sprites) already_placed.Add(p.transform.position);
+            List<int> objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
+            for (int i = 0; i < objs.Count; ++i)
             {
-                m_sprite_points.Remove(pos);
-                continue;
+
+                GameObject g = GameObject.Instantiate(MapSpritePrefab);
+                SpriteMarker sm = g.GetComponent<SpriteMarker>();
+                sm.SetSprite(sprites[objs[i]]);
+                sm.transform.position = m_sprite_points[i];
+
+                m_sprites.Add(sm);
+                m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
+
             }
-
-            if (ps.ValidTerrain == Terrain.LARGEPROV) // keep houses and such closer to the middle
-            {
-                pos = get_valid_position();
-            }
-
-            if (m_sprites.Any(x => Vector3.Distance(x.transform.position, pos) < ps.Size))
-            {
-                m_sprite_points.Remove(pos);
-                continue;
-            }
-
-            List<Vector3> remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size);
-
-            foreach (Vector3 p in remove)
-            {
-                m_sprite_points.Remove(p);
-            }
-
-            pos.z = -3f;
-
-            GameObject g = GameObject.Instantiate(MapSpritePrefab);
-            SpriteMarker sm = g.GetComponent<SpriteMarker>();
-            sm.SetSprite(ps);
-            sm.transform.position = pos;
-
-            m_sprites.Add(sm);
-            m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
+            m_sprite_points.Clear();
         }
 
         List<SpriteMarker> all = new List<SpriteMarker>();
