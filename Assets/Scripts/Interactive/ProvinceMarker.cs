@@ -994,6 +994,9 @@ public class ProvinceMarker: MonoBehaviour
             if (Util.ShouldYield()) yield return null;
         }
 
+        NativeCullNearby.Invoke(m_sprite_points, GetCullPoints(roads_rivers), set.ProvinceEdgeThreshold);
+        for (int i = 0; i < m_sprite_points.Count; ++i) m_sprite_points[i] += new Vector3(0, 0, -10);
+
         m_sprite_points.Shuffle();
         List<Vector3> result = new List<Vector3>();
 
@@ -1008,6 +1011,17 @@ public class ProvinceMarker: MonoBehaviour
         m_sprite_points = result;
     }
 
+    List<Vector3> GetCullPoints(List<ConnectionMarker> roads_rivers)
+    {
+        List<Vector3> pts = new List<Vector3>();
+        pts.AddRange(m_poly);
+        foreach (ConnectionMarker m in roads_rivers)
+        {
+            pts.AddRange(m.CullingPoints);
+        }
+        return pts;
+    }
+
     void do_ray_trace(Vector3 pt, List<ConnectionMarker> roads_rivers, MapSpriteSet set)
     {
         pt.z = -900;
@@ -1018,24 +1032,6 @@ public class ProvinceMarker: MonoBehaviour
             if (hit.collider == MeshCollider)
             {
                 Vector3 hitpt = new Vector3(hit.point.x, hit.point.y, 0);
-
-                if (m_poly.Any(x => Vector3.Distance(x, hitpt) < set.ProvinceEdgeThreshold))
-                {
-                    return;
-                }
-
-                foreach (ConnectionMarker m in roads_rivers)
-                {
-                    foreach (Vector3 cp in m.CullingPoints)
-                    {
-                        if (Vector3.Distance(cp, hitpt) < set.ProvinceEdgeThreshold)
-                        {
-                            return;
-                        }
-                    }
-                }
-
-                hitpt.z = -10;
                 m_sprite_points.Add(hitpt);
             }
         }
