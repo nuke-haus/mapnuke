@@ -204,6 +204,7 @@ public static class AllNationData
         AddNation(new NationData("(LA) Ragha", 100, 0.0f, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.SWAMP | Terrain.LARGEPROV, Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Xibalba", 101, 0.3f, Age.LATE, Terrain.CAVE, new Terrain[] { Terrain.CAVE, Terrain.PLAINS, Terrain.PLAINS }));
         AddNation(new NationData("(LA) Phlegra", 102, 0.0f, Age.LATE, Terrain.MOUNTAINS, new Terrain[] { Terrain.PLAINS, Terrain.PLAINS, Terrain.FOREST }));
+        AddNation(new NationData("(LA) Vaettiheim", 103, 0.0f, Age.LATE, Terrain.FOREST, new Terrain[] { Terrain.PLAINS, Terrain.FOREST, Terrain.FOREST }));
         AddNation(new NationData("(LA) Atlantis", 106, 0.7f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.FOREST, Terrain.FOREST, Terrain.PLAINS, Terrain.SEA }));
         AddNation(new NationData("(LA) R'lyeh", 107, 0.7f, Age.LATE, Terrain.DEEPSEA | Terrain.SEA, new Terrain[] { Terrain.DEEPSEA | Terrain.SEA, Terrain.FOREST | Terrain.SEA, Terrain.SEA, Terrain.SEA, Terrain.SEA }));
         AddNation(new NationData("(LA) Erytheia", 108, 0.7f, Age.LATE, Terrain.PLAINS, new Terrain[] { Terrain.FOREST, Terrain.PLAINS, Terrain.PLAINS, Terrain.SEA }));
