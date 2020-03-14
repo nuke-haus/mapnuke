@@ -890,9 +890,10 @@ static class WorldGenerator
         {
             if (n.HasNation) // capring logic
             {
-                if (!m_nat_starts)
+                if (!m_nat_starts && !n.Nation.NationData.CapTerrain.HasFlag(Terrain.SEA))
                 {
                     n.ProvinceData.SetTerrainFlags(Terrain.PLAINS);
+
                     continue;
                 }
                 
