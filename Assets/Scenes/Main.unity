@@ -12493,6 +12493,8 @@ MonoBehaviour:
   HideableControls:
   - {fileID: 737684028}
   - {fileID: 891474918}
+  province_id_mesh_prefab: {fileID: 1554114095980611341, guid: 8c0b8bf8eb52dc54ba476803b4ff72e2,
+    type: 3}
 --- !u!4 &785715001
 Transform:
   m_ObjectHideFlags: 0
@@ -12528,6 +12530,11 @@ MonoBehaviour:
   ConnectionWidget: {fileID: 3149887036459754099, guid: 094c08e4ef30b4e479c64af848155a9e,
     type: 3}
   MapBorder: {fileID: 535369215}
+  m_generated: []
+  m_provinces: []
+  m_connections: []
+  m_size_y: 1.6
+  m_size_x: 2.56
 --- !u!82 &785715003
 AudioSource:
   m_ObjectHideFlags: 0

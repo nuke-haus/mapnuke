@@ -25,16 +25,19 @@ using UnityEngine.Assertions;
 
 // A CubicBezierCurve represents a single segment of a Bezier path. It knows how to interpret 4 CVs using the Bezier basis
 // functions. This class implements cubic Bezier curves -- not linear or quadratic.
-class CubicBezierCurve
+struct CubicBezierCurve
 {
-    Vector3[] controlVerts = new Vector3[4];
+    Vector3 controlVerts_0;
+    Vector3 controlVerts_1;
+    Vector3 controlVerts_2;
+    Vector3 controlVerts_3;
 
-    public CubicBezierCurve(Vector3[] cvs)
+    public CubicBezierCurve(Vector3 controlVerts_1, Vector3 controlVerts_2, Vector3 controlVerts_3, Vector3 controlVerts_4)
     {
-        // Cubic Bezier curves require 4 cvs.
-        Assert.IsTrue(cvs.Length == 4);
-        for (int cv = 0; cv < 4; cv++)
-            controlVerts[cv] = cvs[cv];
+        this.controlVerts_0 = controlVerts_1;
+        this.controlVerts_1 = controlVerts_2;
+        this.controlVerts_2 = controlVerts_3;
+        this.controlVerts_3 = controlVerts_4;
     }
 
     public Vector3 GetPoint(float t)                            // t E [0, 1].
@@ -48,7 +51,7 @@ class CubicBezierCurve
         float bb2 = 3 * t * t * c;
         float bb3 = t * t * t;
 
-        Vector3 point = controlVerts[0] * bb0 + controlVerts[1] * bb1 + controlVerts[2] * bb2 + controlVerts[3] * bb3;
+        Vector3 point = controlVerts_0 * bb0 + controlVerts_1 * bb1 + controlVerts_2 * bb2 + controlVerts_3 * bb3;
         return point;
     }
 
@@ -57,9 +60,9 @@ class CubicBezierCurve
         // See: http://bimixual.org/AnimationLibrary/beziertangents.html
         Assert.IsTrue((t >= 0.0f) && (t <= 1.0f));
 
-        Vector3 q0 = controlVerts[0] + ((controlVerts[1] - controlVerts[0]) * t);
-        Vector3 q1 = controlVerts[1] + ((controlVerts[2] - controlVerts[1]) * t);
-        Vector3 q2 = controlVerts[2] + ((controlVerts[3] - controlVerts[2]) * t);
+        Vector3 q0 = controlVerts_0 + ((controlVerts_1 - controlVerts_0) * t);
+        Vector3 q1 = controlVerts_1 + ((controlVerts_2 - controlVerts_1) * t);
+        Vector3 q2 = controlVerts_2 + ((controlVerts_3 - controlVerts_2) * t);
 
         Vector3 r0 = q0 + ((q1 - q0) * t);
         Vector3 r1 = q1 + ((q2 - q1) * t);
@@ -324,13 +327,7 @@ public class CubicBezierPath
         if (segment >= numCurveSegments)
             segment = numCurveSegments - 1;
 
-        Vector3[] curveCVs = new Vector3[4];
-        curveCVs[0] = controlVerts[3 * segment + 0];
-        curveCVs[1] = controlVerts[3 * segment + 1];
-        curveCVs[2] = controlVerts[3 * segment + 2];
-        curveCVs[3] = controlVerts[3 * segment + 3];
-
-        CubicBezierCurve bc = new CubicBezierCurve(curveCVs);
+        CubicBezierCurve bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
         return bc.GetPoint(t - (float)segment);
     }
 
@@ -367,13 +364,7 @@ public class CubicBezierPath
         if (segment >= numCurveSegments)
             segment = numCurveSegments - 1;
 
-        Vector3[] curveCVs = new Vector3[4];
-        curveCVs[0] = controlVerts[3 * segment + 0];
-        curveCVs[1] = controlVerts[3 * segment + 1];
-        curveCVs[2] = controlVerts[3 * segment + 2];
-        curveCVs[3] = controlVerts[3 * segment + 3];
-
-        CubicBezierCurve bc = new CubicBezierCurve(curveCVs);
+        CubicBezierCurve bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
         return bc.GetTangent(t - (float)segment);
     }
 
@@ -391,11 +382,8 @@ public class CubicBezierPath
         float closestParam = 0.0f;
         for (int startIndex = 0; startIndex < controlVerts.Length - 1; startIndex += 3)
         {
-            Vector3[] curveCVs = new Vector3[4];
-            for (int i = 0; i < 4; i++)
-                curveCVs[i] = controlVerts[startIndex + i];
 
-            CubicBezierCurve curve = new CubicBezierCurve(curveCVs);
+            CubicBezierCurve curve = new CubicBezierCurve(controlVerts[startIndex + 0], controlVerts[startIndex + 1], controlVerts[startIndex + 2], controlVerts[startIndex + 3]);
             float curveClosestParam = curve.GetClosestParam(pos, paramThreshold);
 
             Vector3 curvePos = curve.GetPoint(curveClosestParam);

@@ -195,8 +195,6 @@ public class DefaultArtStyle : ArtStyle
 
         m_all_sprites = all;
 
-        sort_sprites();
-
         ElementManager.s_element_manager.AddGeneratedObjects(result);
         CaptureCam.s_capture_cam.Render();
     }
@@ -246,8 +244,6 @@ public class DefaultArtStyle : ArtStyle
             if (Util.ShouldYield()) yield return null;
         }
 
-        sort_sprites();
-
         foreach (SpriteMarker m in m_all_sprites)
         {
             result.Add(m.gameObject);
@@ -287,36 +283,6 @@ public class DefaultArtStyle : ArtStyle
 
         JustChangedSeason = true;
         CaptureCam.s_capture_cam.Render();
-    }
-
-    void sort_sprites()
-    {
-        List<SpriteMarker> fix = new List<SpriteMarker>();
-
-        foreach (SpriteMarker m in m_all_sprites)
-        {
-            if (m != null)
-            {
-                fix.Add(m);
-            }
-        }
-
-        m_all_sprites = fix;
-
-        int max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
-
-        foreach (SpriteMarker m in m_all_sprites) //.OrderBy(x => 9000f - x.transform.position.y))
-        {
-            if (m == null)
-            {
-                continue;
-            }
-
-            Vector3 pos = m.transform.position;
-            int y = max_y - Mathf.RoundToInt(pos.y * 100f);
-
-            m.SetOrder(y);
-        }
     }
 
     /// <summary>

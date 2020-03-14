@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ArtGen\ArtManager.cs" />
     <Compile Include="Assets\Scripts\ArtGen\ArtStyles\Default.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\BorderOverlap.cs" />
     <Compile Include="Assets\Scripts\ArtGen\MapSprite.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\MeshSpriteRenderer.cs" />
     <Compile Include="Assets\Scripts\ArtGen\PolyBorder.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\SpriteGroup.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteMarker.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteSet.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteSetCollection.cs" />
@@ -117,6 +120,7 @@
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
     <None Include="Assets\Layouts\Compact.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
+    <None Include="Assets\Gfx\Shaders\Sprites-DepthTest.shader" />
     <None Include="Assets\Layouts\Example.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Johan/source/repos/mapnuke_o/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

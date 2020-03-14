@@ -12,8 +12,7 @@ public class CamControl: MonoBehaviour
     public float MaxSize;
     public float MinSize;
 
-    [SerializeField]
-    private EventSystem eventSystem;
+    public EventSystem eventSystem;
 
     const float INTERPOLATE_CAM = 0.48f;
     const float INTERPOLATE_POS = 0.01f;

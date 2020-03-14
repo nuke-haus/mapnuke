@@ -32,6 +32,9 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] HideableOptions;
     public GameObject[] HideableControls;
 
+    public MeshRenderer province_id_mesh_prefab;
+    GameObject province_id_map_container;
+
     bool m_generic_starts = false;
     bool m_cluster_water = true;
     bool m_teamplay = false;
@@ -155,6 +158,7 @@ public class GenerationManager : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
         NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
         MoveCameraForGeneration(layout);
+        Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_generate(layout), true));
     }
 
@@ -184,18 +188,19 @@ public class GenerationManager : MonoBehaviour
 
         // generate the unity objects using the conceptual nodes
         ElementManager mgr = GetComponent<ElementManager>();
-        yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
-
-        ProvinceManager.s_province_manager.SetLayout(layout);
-        ConnectionManager.s_connection_manager.SetLayout(layout);
 
         // position and resize the cameras
         Vector3 campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
-        Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
         CaptureCamera.transform.position = campos;
 
         float ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;
         CaptureCamera.orthographicSize = ortho;
+
+        yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
+
+        ProvinceManager.s_province_manager.SetLayout(layout);
+        ConnectionManager.s_connection_manager.SetLayout(layout);
+        Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
     }
 
     void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 
@@ -205,8 +210,9 @@ public class GenerationManager : MonoBehaviour
 
     public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
+        Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_regen(provs, conns, layout)));
-   }
+    }
 
    IEnumerator perform_async(System.Func<IEnumerator> function, bool show_log = false) {
       LoadingScreen.SetActive(true);
@@ -302,6 +308,59 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(output_async(str));
     }
 
+    void MakeProvinceIdTexture(ProvinceMarker pm, Vector3 offset, Transform t)
+    {
+        Bounds cam_bounds = CaptureCam.Bounds(offset);
+
+        var pn = pm.ProvinceNumber;
+        Color c = new Color32(0, (byte)(pn / 256), (byte)(pn % 256), 255);
+        Debug.Assert(pn != 0);
+        {
+            var province_mesh = Instantiate(province_id_mesh_prefab);
+            province_mesh.GetComponent<MeshFilter>().mesh = pm.MeshFilter.sharedMesh;
+            var new_mat = Instantiate(province_id_mesh_prefab.sharedMaterial);
+            new_mat.color = c;
+            province_mesh.GetComponent<MeshRenderer>().material = new_mat;
+            province_mesh.transform.position = offset;
+            var bounds = province_mesh.bounds;
+            province_mesh.transform.SetParent(t);
+            BorderOverlap.Duplicate(province_mesh.gameObject, province_mesh.bounds, cam_bounds);
+        }
+    }
+
+    public int[] GetProvinceIdVals(Vector3 offset)
+    {
+        ElementManager mgr = GetComponent<ElementManager>();
+        Destroy(province_id_map_container);
+        province_id_map_container = new GameObject("ProvinceIdMapContainer");
+        Transform tr = province_id_map_container.transform;
+        foreach (var prov in mgr.m_provinces)
+        {
+            MakeProvinceIdTexture(prov, offset, tr);
+        }
+
+        CaptureCam.s_capture_cam.transform.position += offset;
+
+        CaptureCam.s_capture_cam.Camera.Render();
+
+        CaptureCam.s_capture_cam.transform.position -= offset;
+        var tex = mgr.Texture;
+        Texture2D t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
+        t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
+
+
+        Color32[] pixels = t.GetPixels32();
+        Destroy(t);
+
+        int[] province_ids = new int[pixels.Length];
+        for (int i = 0; i < pixels.Length; ++i)
+        {
+            Color32 p = pixels[i];
+            province_ids[i] = p.b + p.g * 256;
+        }
+        return province_ids;
+    }
+
     IEnumerator output_async(string str, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
@@ -317,8 +376,9 @@ public class GenerationManager : MonoBehaviour
 
         ElementManager mgr = GetComponent<ElementManager>();
         NodeLayout layout = WorldGenerator.GetLayout();
+        int[] province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
 
-        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay);
+        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
 
         yield return null;
 

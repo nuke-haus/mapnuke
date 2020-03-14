@@ -41,8 +41,9 @@ public class ProvinceMarker: MonoBehaviour
     public MeshCollider MeshCollider;
     public GameObject MeshObj;
 
-    public List<TextMesh> TextOutlines;
+    public SpriteGroup sprite_group;
 
+    public List<TextMesh> TextOutlines;
     ProvinceWidget m_widget;
     List<ProvinceWrapMarker> m_wraps;
     Node m_node;
@@ -51,7 +52,6 @@ public class ProvinceMarker: MonoBehaviour
     Vector3 m_poly_center = Vector3.zero;
     List<Vector3> m_poly;
     List<Vector3> m_sprite_points;
-    List<SpriteMarker> m_sprites;
     List<ConnectionMarker> m_connections;
     Dictionary<Terrain, Color> m_colors;
     bool m_selected = false;
@@ -97,14 +97,6 @@ public class ProvinceMarker: MonoBehaviour
         get
         {
             return m_node.ID;
-        }
-    }
-
-    public List<SpriteMarker> Sprites
-    {
-        get
-        {
-            return m_sprites;
         }
     }
 
@@ -820,14 +812,6 @@ public class ProvinceMarker: MonoBehaviour
 
     public void ClearSprites()
     {
-        if (m_sprites != null)
-        {
-            foreach (SpriteMarker sm in m_sprites)
-            {
-                GameObject.Destroy(sm.gameObject);
-            }
-        }
-
         if (m_wraps != null)
         {
             foreach (ProvinceWrapMarker m in m_wraps)
@@ -836,7 +820,7 @@ public class ProvinceMarker: MonoBehaviour
             }
         }
 
-        m_sprites = new List<SpriteMarker>();
+        sprite_group.Clear();
     }
 
     public List<SpriteMarker> PlaceSprites()
@@ -855,7 +839,7 @@ public class ProvinceMarker: MonoBehaviour
 
         if (!set.MapSprites.Any())
         {
-            return m_sprites;
+            return new List<SpriteMarker>();
         }
 
         List<ProvinceSprite> shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain));
@@ -876,16 +860,8 @@ public class ProvinceMarker: MonoBehaviour
                 {
                     Vector3 pos = m_poly_center;
                     m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f));
-
-                    pos.z = -3f;
-
-                    GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                    SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                    sm.SetSprite(ps);
-                    sm.transform.position = pos;
-
-                    m_sprites.Add(sm);
-                    m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
+                    pos.z = -3;
+                    sprite_group.PlaceSprite(ps, pos);
 
                     break;
                 }
@@ -906,7 +882,7 @@ public class ProvinceMarker: MonoBehaviour
 
         if (sprites.Count == 0)
         {
-            return m_sprites;
+            return new List<SpriteMarker>();
         }
         {
             List<NativeObjectPlacer.Item> sprite_items = new List<NativeObjectPlacer.Item>();
@@ -921,30 +897,23 @@ public class ProvinceMarker: MonoBehaviour
                 });
             }
             List<Vector3> already_placed = new List<Vector3>();
-            foreach (var p in m_sprites) already_placed.Add(p.transform.position);
+            already_placed.AddRange(sprite_group.SpritePos());
             List<int> objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
             for (int i = 0; i < objs.Count; ++i)
             {
-
-                GameObject g = GameObject.Instantiate(MapSpritePrefab);
-                SpriteMarker sm = g.GetComponent<SpriteMarker>();
-                sm.SetSprite(sprites[objs[i]]);
-                sm.transform.position = m_sprite_points[i];
-
-                m_sprites.Add(sm);
-                m_sprites.AddRange(sm.CreateMirrorSprites(Vector3.zero, Vector3.zero));
-
+                sprite_group.PlaceSprite(sprites[objs[i]], m_sprite_points[i]);
             }
             m_sprite_points.Clear();
         }
 
         List<SpriteMarker> all = new List<SpriteMarker>();
-        all.AddRange(m_sprites);
 
         foreach (ProvinceWrapMarker m in m_wraps)
         {
             all.AddRange(m.PlaceSprites());
         }
+
+        sprite_group.Build(CaptureCam.Bounds());
 
         return all;
     }
@@ -984,8 +953,14 @@ public class ProvinceMarker: MonoBehaviour
         {
             while (cur.y < maxs.y)
             {
-                do_ray_trace(cur, roads_rivers, set);
+                var pt = cur;
+                pt.z = -900;
+                RaycastHit hit;
 
+                if (MeshCollider.Raycast(new Ray(pt, Vector3.forward), out hit, 9000))
+                {
+                    m_sprite_points.Add(new Vector3(pt.x, pt.y, 0));
+                }
                 cur.y += UnityEngine.Random.Range(0.04f, 0.06f);
             }
 
@@ -1020,21 +995,6 @@ public class ProvinceMarker: MonoBehaviour
             pts.AddRange(m.CullingPoints);
         }
         return pts;
-    }
-
-    void do_ray_trace(Vector3 pt, List<ConnectionMarker> roads_rivers, MapSpriteSet set)
-    {
-        pt.z = -900;
-        RaycastHit hit;
-
-        if (Physics.Raycast(pt, Vector3.forward, out hit, 9000))
-        {
-            if (hit.collider == MeshCollider)
-            {
-                Vector3 hitpt = new Vector3(hit.point.x, hit.point.y, 0);
-                m_sprite_points.Add(hitpt);
-            }
-        }
     }
 
     bool validate_solid(Vector3 pt)
@@ -1106,6 +1066,7 @@ public class ProvinceMarker: MonoBehaviour
 
     void assign_mat(Season s = Season.SUMMER)
     {
+        sprite_group.SetSeason(s);
         if (s == Season.SUMMER)
         {
             if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
