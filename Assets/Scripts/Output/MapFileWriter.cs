@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
@@ -51,7 +50,7 @@ public class PolyLineData
 /// </summary>
 public static class MapFileWriter
 {
-    public static void GenerateText(string mapname, NodeLayout layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay)
+    public static void GenerateText(string mapname, NodeLayout layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay, int[] province_ids)
     {
         string data_folder = Application.dataPath;
         string folder = data_folder + "/Export/";
@@ -139,7 +138,7 @@ public static class MapFileWriter
                     terr |= Terrain.START;
                 }
 
-                write(fs, "#terrain " + m.ProvinceNumber + " " + (int) terr);
+                write(fs, "#terrain " + m.ProvinceNumber + " " + (int)terr);
             }
 
             write(fs, "\n-- Province Neighbour Data");
@@ -159,11 +158,30 @@ public static class MapFileWriter
 
             write(fs, "\n-- Province Border Data");
 
-            List<PolyLineData> pd = calculate_poly_data();
-
-            foreach (PolyLineData p in pd)
             {
-                write(fs, "#pb " + p.X + " " + p.Y + " " + p.NumPixels + " " + p.ProvNum);
+                int cur = 0;
+                for (int cur_y = 0; cur_y < y; ++cur_y)
+                {
+                    int cur_id = 0;
+                    int cur_px = 0;
+                    int cur_x = 0;
+                    for (; cur_x < x; ++cur_x)
+                    {
+                        int nex_id = province_ids[cur];
+                        if (nex_id != cur_id)
+                        {
+                            if (cur_id != 0)
+                            {
+                                write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
+                            }
+                            cur_px = 0;
+                        }
+                        cur_id = nex_id;
+                        cur_px++;
+                        cur++;
+                    }
+                    if (cur_id != 0) write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
+                }
             }
 
             fs.Close();
@@ -187,110 +205,6 @@ public static class MapFileWriter
         }
 
         return res;
-    }
-
-    static RaycastHit do_ray_trace(Vector3 pt)
-    {
-        pt.z = -900;
-
-        RaycastHit hit;
-        Physics.Raycast(pt, Vector3.forward, out hit, 9000);
-
-        return hit;
-    }
-
-    private static List<PolyLineData> calculate_poly_data()
-    {
-        Vector3 mins = MapBorder.s_map_border.Mins;
-        Vector3 maxs = MapBorder.s_map_border.Maxs;
-        Vector3 cur = mins;
-        float pixel = 0.01f;
-        List<PolyLineData> data = new List<PolyLineData>();
-        PolyLineData cur_data = null;
-
-        while (cur.y <= maxs.y)
-        {
-            while (cur.x <= maxs.x)
-            {
-                RaycastHit hit = do_ray_trace(cur);
-
-                if (hit.collider != null)
-                {
-                    ProvinceMarker pm = hit.collider.gameObject.GetComponentInParent<ProvinceMarker>();
-                    ProvinceWrapMarker pwm = hit.collider.gameObject.GetComponentInParent<ProvinceWrapMarker>();
-                    Node n = null;
-                    int prov_num = int.MaxValue;
-
-                    if (pm != null)
-                    {
-                        n = pm.Node;
-                        prov_num = pm.ProvinceNumber;
-                    }
-                    else if (pwm != null)
-                    {
-                        n = pwm.Parent.Node;
-                        prov_num = pwm.Parent.ProvinceNumber;
-                    }
-
-                    if (n != null)
-                    {
-                        if (cur_data == null)
-                        {
-                            cur_data = new PolyLineData(n, cur - mins, prov_num, 1);
-                        }
-                        else
-                        {
-                            if (cur_data.Node == n)
-                            {
-                                cur_data.Increment();
-                            }
-                            else
-                            {
-                                data.Add(cur_data);
-                                cur_data = new PolyLineData(n, cur - mins, prov_num, 1);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if (cur_data != null)
-                    {
-                        cur_data.Increment();
-                    }
-                }
-
-                cur.x += pixel;
-            }
-
-            if (cur_data != null)
-            {
-                cur_data.IsEdge = true;
-                data.Add(cur_data);
-
-                cur_data = null;
-            }
-
-            cur.y += pixel;
-            cur.x = mins.x;
-        }
-
-        /*List<PolyLineData> bad = new List<PolyLineData>();
-
-        foreach (PolyLineData p in data.Where(x => x.IsEdge))
-        {
-            PolyLineData left = data.FirstOrDefault(x => x.Y == p.Y && x != p && x.Node == p.Node);
-
-            if (left != null)
-            {
-                p.NumPixels += left.NumPixels;
-                bad.Add(left);
-            }
-        }
-
-        data.RemoveAll(x => bad.Contains(x));*/
-
-        return data;
     }
 
     private static void write(FileStream fs, string value)

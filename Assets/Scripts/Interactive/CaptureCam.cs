@@ -27,7 +27,7 @@ public class CaptureCam: MonoBehaviour
     Camera m_cam;
     bool m_defer_render = false;
 
-    void Start()
+    void Awake()
     {
         s_capture_cam = this;
 
