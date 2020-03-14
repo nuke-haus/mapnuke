@@ -1075,6 +1075,7 @@ public class ProvinceMarker: MonoBehaviour
 
     void assign_mat(Season s = Season.SUMMER)
     {
+        sprite_group.SetSeason(s);
         if (s == Season.SUMMER)
         {
             if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))
