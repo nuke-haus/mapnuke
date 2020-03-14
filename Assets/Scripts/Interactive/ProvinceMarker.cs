@@ -917,7 +917,7 @@ public class ProvinceMarker: MonoBehaviour
                 {
                     size = s.Size,
                     spawn_chance = s.SpawnChance,
-                    extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV,
+                    extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
                 });
             }
             List<Vector3> already_placed = new List<Vector3>();

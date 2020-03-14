@@ -13,7 +13,8 @@ public struct NativeObjectPlacer : IJob
     {
         public float size;
         public float spawn_chance;
-        public bool extra_border_dist;
+        // Substitute for booleans since burst compile doesn't like booleans.
+        public int extra_border_dist;
     }
 
     public static List<int> Invoke(List<Item> item, List<Vector3> points, List<Vector3> border, List<Vector3> already_placed_items)
@@ -155,7 +156,7 @@ public struct NativeObjectPlacer : IJob
         if (n_in == 0) return;
         Vector3 pos = points[n_in - 1];
 
-        if (item[pick].extra_border_dist)
+        if (item[pick].extra_border_dist != 0)
         {
             pos = get_valid_position();
             if (pos.x == new Vector3(-100000, 0, 0).x) return;
