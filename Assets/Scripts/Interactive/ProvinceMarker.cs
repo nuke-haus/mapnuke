@@ -953,8 +953,14 @@ public class ProvinceMarker: MonoBehaviour
         {
             while (cur.y < maxs.y)
             {
-                do_ray_trace(cur, roads_rivers, set);
+                var pt = cur;
+                pt.z = -900;
+                RaycastHit hit;
 
+                if (MeshCollider.Raycast(new Ray(pt, Vector3.forward), out hit, 9000))
+                {
+                    m_sprite_points.Add(new Vector3(pt.x, pt.y, 0));
+                }
                 cur.y += UnityEngine.Random.Range(0.04f, 0.06f);
             }
 
@@ -989,21 +995,6 @@ public class ProvinceMarker: MonoBehaviour
             pts.AddRange(m.CullingPoints);
         }
         return pts;
-    }
-
-    void do_ray_trace(Vector3 pt, List<ConnectionMarker> roads_rivers, MapSpriteSet set)
-    {
-        pt.z = -900;
-        RaycastHit hit;
-
-        if (Physics.Raycast(pt, Vector3.forward, out hit, 9000))
-        {
-            if (hit.collider == MeshCollider)
-            {
-                Vector3 hitpt = new Vector3(hit.point.x, hit.point.y, 0);
-                m_sprite_points.Add(hitpt);
-            }
-        }
     }
 
     bool validate_solid(Vector3 pt)
