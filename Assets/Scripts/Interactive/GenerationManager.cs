@@ -155,6 +155,7 @@ public class GenerationManager : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
         NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
         MoveCameraForGeneration(layout);
+        Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_generate(layout), true));
     }
 
@@ -206,8 +207,9 @@ public class GenerationManager : MonoBehaviour
 
     public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
+        Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_regen(provs, conns, layout)));
-   }
+    }
 
    IEnumerator perform_async(System.Func<IEnumerator> function, bool show_log = false) {
       LoadingScreen.SetActive(true);
