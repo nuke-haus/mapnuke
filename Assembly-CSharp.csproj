@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ArtGen\ArtManager.cs" />
     <Compile Include="Assets\Scripts\ArtGen\ArtStyles\Default.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\BorderOverlap.cs" />
     <Compile Include="Assets\Scripts\ArtGen\MapSprite.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\MeshSpriteRenderer.cs" />
     <Compile Include="Assets\Scripts\ArtGen\PolyBorder.cs" />
+    <Compile Include="Assets\Scripts\ArtGen\SpriteGroup.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteMarker.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteSet.cs" />
     <Compile Include="Assets\Scripts\ArtGen\SpriteSetCollection.cs" />

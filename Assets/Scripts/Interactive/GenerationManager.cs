@@ -184,18 +184,19 @@ public class GenerationManager : MonoBehaviour
 
         // generate the unity objects using the conceptual nodes
         ElementManager mgr = GetComponent<ElementManager>();
-        yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
-
-        ProvinceManager.s_province_manager.SetLayout(layout);
-        ConnectionManager.s_connection_manager.SetLayout(layout);
 
         // position and resize the cameras
         Vector3 campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
-        Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
         CaptureCamera.transform.position = campos;
 
         float ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;
         CaptureCamera.orthographicSize = ortho;
+
+        yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
+
+        ProvinceManager.s_province_manager.SetLayout(layout);
+        ConnectionManager.s_connection_manager.SetLayout(layout);
+        Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
     }
 
     void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 
