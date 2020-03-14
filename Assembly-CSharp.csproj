@@ -117,6 +117,7 @@
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
     <None Include="Assets\Layouts\Compact.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
+    <None Include="Assets\Gfx\Shaders\Sprites-DepthTest.shader" />
     <None Include="Assets\Layouts\Example.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Johan/source/repos/mapnuke_o/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
