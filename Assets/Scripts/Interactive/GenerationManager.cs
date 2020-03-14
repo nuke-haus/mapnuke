@@ -31,6 +31,7 @@ public class GenerationManager : MonoBehaviour
     public GameObject LogContent;
     public GameObject[] HideableOptions;
     public GameObject[] HideableControls;
+    public GameObject[] HideableButtons;
 
     public MeshRenderer province_id_mesh_prefab;
     GameObject province_id_map_container;
@@ -173,6 +174,10 @@ public class GenerationManager : MonoBehaviour
 
    IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
     {
+        foreach (GameObject obj in HideableButtons)
+        {
+            obj.SetActive(false);
+        }
 
         if (layout == null)
         {
@@ -201,6 +206,11 @@ public class GenerationManager : MonoBehaviour
         ProvinceManager.s_province_manager.SetLayout(layout);
         ConnectionManager.s_connection_manager.SetLayout(layout);
         Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
+
+        foreach (GameObject obj in HideableButtons)
+        {
+            obj.SetActive(true);
+        }
     }
 
     void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 

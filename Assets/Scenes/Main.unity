@@ -12493,6 +12493,12 @@ MonoBehaviour:
   HideableControls:
   - {fileID: 737684028}
   - {fileID: 891474918}
+  HideableButtons:
+  - {fileID: 1115201446}
+  - {fileID: 488792196}
+  - {fileID: 61125601}
+  - {fileID: 1619484545}
+  - {fileID: 1619842931}
   province_id_mesh_prefab: {fileID: 1554114095980611341, guid: 8c0b8bf8eb52dc54ba476803b4ff72e2,
     type: 3}
 --- !u!4 &785715001
