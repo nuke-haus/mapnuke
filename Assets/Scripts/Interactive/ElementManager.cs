@@ -18,11 +18,11 @@ public class ElementManager : MonoBehaviour
     public GameObject ConnectionWidget;
     public MapBorder MapBorder;
 
-    List<GameObject> m_generated;
-    List<ProvinceMarker> m_provinces;
-    List<ConnectionMarker> m_connections;
-    float m_size_y = 1.60f;
-    float m_size_x = 2.56f;
+    public List<GameObject> m_generated;
+    public List<ProvinceMarker> m_provinces;
+    public List<ConnectionMarker> m_connections;
+    public float m_size_y = 1.60f;
+    public float m_size_x = 2.56f;
     float m_edge_tolerance = 0.35f; // use 0.5f for testing purposes.
 
     public float Y
@@ -232,13 +232,28 @@ public class ElementManager : MonoBehaviour
         }
 
         m_provinces.AddRange(dummies);
+        Dictionary<Node, ProvinceMarker> real_province = new Dictionary<Node, ProvinceMarker>();
+        Dictionary<Node, List<ProvinceMarker>> dummy_province = new Dictionary<Node, List<ProvinceMarker>>();
+
+        foreach (var pm in m_provinces)
+        {
+            if (!dummy_province.ContainsKey(pm.Node)) dummy_province[pm.Node] = new List<ProvinceMarker> { };
+            if (pm.IsDummy)
+            {
+                dummy_province[pm.Node].Add(pm);
+            }
+            else
+            {
+                real_province[pm.Node] = pm;
+            }
+        }
 
         foreach (Connection c in conns) // create connection markers
         {
-            ProvinceMarker prov1 = m_provinces.FirstOrDefault(x => x.Node == c.Node1 && !x.IsDummy);
-            ProvinceMarker prov2 = m_provinces.FirstOrDefault(x => x.Node == c.Node2 && !x.IsDummy);
-            List<ProvinceMarker> pd1 = m_provinces.Where(x => x.Node == c.Node1 && x.IsDummy).ToList();
-            List<ProvinceMarker> pd2 = m_provinces.Where(x => x.Node == c.Node2 && x.IsDummy).ToList();
+            ProvinceMarker prov1 = real_province[c.Node1];
+            ProvinceMarker prov2 = real_province[c.Node2];
+            List<ProvinceMarker> pd1 = dummy_province[c.Node1];
+            List<ProvinceMarker> pd2 = dummy_province[c.Node2];
 
             if (pd1.Any() || pd2.Any()) // edge case
             {
