@@ -341,7 +341,6 @@ public class GenerationManager : MonoBehaviour
     public int[] GetProvinceIdVals(Vector3 offset)
     {
         ElementManager mgr = GetComponent<ElementManager>();
-        Destroy(province_id_map_container);
         province_id_map_container = new GameObject("ProvinceIdMapContainer");
         Transform tr = province_id_map_container.transform;
         foreach (var prov in mgr.m_provinces)
@@ -361,6 +360,7 @@ public class GenerationManager : MonoBehaviour
 
         Color32[] pixels = t.GetPixels32();
         Destroy(t);
+        Destroy(province_id_map_container);
 
         int[] province_ids = new int[pixels.Length];
         for (int i = 0; i < pixels.Length; ++i)
