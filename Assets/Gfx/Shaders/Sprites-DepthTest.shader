@@ -22,7 +22,8 @@ Shader "Sprites/DepthTest"
 
 		Cull Off
 		Lighting Off
-      ZWrite On
+        ZWrite On
+		ColorMask RGB
 		Fog { Mode Off }
 		Blend SrcAlpha OneMinusSrcAlpha
 
