@@ -31635,7 +31635,8 @@ MonoBehaviour:
       - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
       - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
       - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
       WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
@@ -31648,7 +31649,8 @@ MonoBehaviour:
       - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
       - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
       - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 4bceb57c779cdd7479cf83d232cfc0d0, type: 3}
       WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
@@ -31661,7 +31663,8 @@ MonoBehaviour:
       - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
       - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
       - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 11c6f0e8525077744872a718bdc03e72, type: 3}
       WinterSprite: {fileID: 21300000, guid: 39b0b582bb1439a4599995a6b3744995, type: 3}
@@ -32324,7 +32327,8 @@ MonoBehaviour:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 0.81960785, g: 0.5921569, b: 0.03529412, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 256
     - Sprite: {fileID: 21300000, guid: 621c49208ed0f7a43800b1a4cc1f75b4, type: 3}
       WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
@@ -32337,7 +32341,8 @@ MonoBehaviour:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 0.81960785, g: 0.5921569, b: 0.03529412, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 256
     - Sprite: {fileID: 21300000, guid: 96aae8b14e8c6c24882f7f6988df9a59, type: 3}
       WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
@@ -32350,7 +32355,8 @@ MonoBehaviour:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 0.81960785, g: 0.5921569, b: 0.03529412, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 256
     - Sprite: {fileID: 21300000, guid: 40bd8511ca3807f4a86a2a98b5586822, type: 3}
       WinterSprite: {fileID: 21300000, guid: 3515f844517016c4b9ed897d280f8c9b, type: 3}
@@ -33007,7 +33013,8 @@ MonoBehaviour:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
       - {r: 0.28235295, g: 0.42352942, b: 0.12156863, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: cc8b5180d92e4c842b0c6bbfb080ca69, type: 3}
       WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
@@ -33020,7 +33027,8 @@ MonoBehaviour:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
       - {r: 0.28235295, g: 0.42352942, b: 0.12156863, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: 8a2c3474cbe5d2f49b9f6ad587074f4e, type: 3}
       WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
@@ -33033,7 +33041,8 @@ MonoBehaviour:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
       - {r: 0.28235295, g: 0.42352942, b: 0.12156863, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: 4bceb57c779cdd7479cf83d232cfc0d0, type: 3}
       WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
@@ -33046,7 +33055,8 @@ MonoBehaviour:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
       - {r: 0.28235295, g: 0.42352942, b: 0.12156863, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
       WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
@@ -33059,7 +33069,8 @@ MonoBehaviour:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
       - {r: 0.28235295, g: 0.42352942, b: 0.12156863, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: ed81a4fde968e264bbbe509b5ff4bf9d, type: 3}
       WinterSprite: {fileID: 21300000, guid: 63f8427cbecb2524095ac2db7696adb8, type: 3}
@@ -33735,7 +33746,8 @@ MonoBehaviour:
       IsCenterpiece: 0
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 2
     - Sprite: {fileID: 21300000, guid: f60d78cc6b3309a409aabd8dfe519b7e, type: 3}
       WinterSprite: {fileID: 21300000, guid: 7140caba55ad97346b7de41fb6a5c796, type: 3}
@@ -33746,7 +33758,8 @@ MonoBehaviour:
       IsCenterpiece: 0
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 2
     - Sprite: {fileID: 0}
       WinterSprite: {fileID: 21300000, guid: 3c91e65d7c4a6e049a887063c2b5c1bd, type: 3}
