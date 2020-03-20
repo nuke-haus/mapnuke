@@ -434,18 +434,12 @@ static class WorldGenerator
         {
             if (n.Nation.NationData.IsWater)
             {
-                int modifier = n.ConnectedNodes.Count + 1; // subtract their capring from the total count
+                int modifier = n.ConnectedNodes.Count + 1; // subtract their capring and cap from the total count
                 int count = 0;
-                int num_water = Mathf.RoundToInt(m_layout.ProvsPerPlayer * n.Nation.NationData.WaterPercentage);
-
-                if (modifier >= num_water) // there should be at least 1 water province added
-                {
-                    modifier = num_water - 1;
-                }
-
+                int num_water = Mathf.RoundToInt((m_layout.ProvsPerPlayer - modifier) * n.Nation.NationData.WaterPercentage);
                 int total_iterations = 0;
                 
-                while (count < num_water - modifier)
+                while (count < num_water)
                 {
                     int iterations = UnityEngine.Random.Range(1, 3);
 
@@ -458,7 +452,7 @@ static class WorldGenerator
                     Node cur = n.ConnectedNodes.GetRandom().ConnectedNodes.GetRandom();
                     total_iterations++;
 
-                    while (i < iterations && count < num_water - modifier)
+                    while (i < iterations && count < num_water)
                     {
                         if (!cur.HasNation && !cur.IsCapRing && !cur.ProvinceData.IsWater)
                         {
@@ -977,7 +971,7 @@ static class WorldGenerator
             }
         }
 
-        // capring connections - every player should have 5 provinces in their capring
+        // capring connections - every player is assigned the proper amount of capring provinces
         foreach (Node n in m_nodes.Where(x => x.HasNation))
         {
             List<Node> diag = new List<Node>();
@@ -986,7 +980,7 @@ static class WorldGenerator
             diag.Add(get_node_with_wrap(n.X - 1, n.Y - 1));
             diag.Add(get_node_with_wrap(n.X - 1, n.Y + 1));
 
-            while (n.Connections.Count < 5) //(n.Connections.Count < n.Nation.CapRing)
+            while (n.Connections.Count < n.Nation.NationData.CapRingSize) 
             {
                 Node next = diag.GetRandom();
                 diag.Remove(next);

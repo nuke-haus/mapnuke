@@ -73,6 +73,7 @@ public class GenerationManager : MonoBehaviour
         m_log_content = new List<GameObject>();
 
         load_layouts();
+        load_nation_data();
         update_nations();
         hide_controls();
     }
@@ -622,6 +623,31 @@ public class GenerationManager : MonoBehaviour
 
                 m_content.Add(cnt);
             }
+        }
+    }
+
+    void load_nation_data()
+    {
+        string data_folder = Application.dataPath;
+        string folder = data_folder + "/Nations/";
+
+        foreach (string file in Directory.GetFiles(folder))
+        {
+            if (file.Contains(".meta"))
+            {
+                continue;
+            }
+
+            string contents = File.ReadAllText(file);
+            var serializer = new XmlSerializer(typeof(NationCollection));
+            NationCollection result;
+
+            using (TextReader reader = new StringReader(contents))
+            {
+                result = (NationCollection)serializer.Deserialize(reader);
+            }
+
+            AllNationData.AddNations(result);
         }
     }
 

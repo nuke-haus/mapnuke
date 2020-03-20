@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Nation>
+    <Name>Plains Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Forest Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Cave Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>CAVE</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Mountain Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Highland Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Wasteland Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Swamp Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Island Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>Underwater Start</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA</CapTerrain>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+  </Nation>
+</NationCollection>
