@@ -79,7 +79,11 @@ public class GenerationManager : MonoBehaviour
 
     void Update()
     {
-      Util.ResetFrameTime();
+        Util.ResetFrameTime();
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.generateMap))
+            OnGenerate();
+
     }
 
     public void LogText(string text)
@@ -543,6 +547,10 @@ public class GenerationManager : MonoBehaviour
         update_nations();
     }
 
+
+    /// <summary>
+    /// Populates the dropdown list for nation select
+    /// </summary>
     void populate_nations(Dropdown d, int i)
     {
         var list = AllNationData.AllNations.Where(x => (x.Age == m_age || m_age == Age.ALL) && x.ID != -1);

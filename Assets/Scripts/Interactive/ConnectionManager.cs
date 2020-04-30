@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +6,7 @@ using UnityEngine.UI;
 /// Manager class that handles post-processing for connections.
 /// Has a global singleton.
 /// </summary>
+
 public class ConnectionManager: MonoBehaviour
 {
     public static ConnectionManager s_connection_manager;
@@ -31,6 +29,46 @@ public class ConnectionManager: MonoBehaviour
         s_connection_manager = this;
 	}
 
+    private void Update()
+    {
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleMountain))
+            toggleConnectionType(ConnectionType.MOUNTAIN);
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleRoad))
+            toggleConnectionType(ConnectionType.ROAD);
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleMountainPass))
+            toggleConnectionType(ConnectionType.MOUNTAINPASS);
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleStandard))
+            toggleConnectionType(ConnectionType.STANDARD);
+
+        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleRiver))
+            toggleConnectionType(ConnectionType.RIVER);
+
+    }
+
+
+    private void toggleConnectionType(ConnectionType targetCT)
+    {
+
+        if (m_current == null)
+            return;
+
+        ConnectionType currentCT = m_current.Connection.ConnectionType;
+
+        if (currentCT == targetCT)
+        {
+            SetConnectionType((int)ConnectionType.STANDARD);
+        }
+        else
+        {
+            SetConnectionType((int)targetCT);
+        }
+
+    }
+
     public void SetLayout(NodeLayout layout)
     {
         m_layout = layout;
@@ -43,6 +81,7 @@ public class ConnectionManager: MonoBehaviour
             m_current.UpdateConnection(ct);
         }
     }*/
+
 
     public void SetConnectionType(int ct)
     {
