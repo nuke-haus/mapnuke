@@ -36,6 +36,7 @@ public class GenerationManager : MonoBehaviour
     public MeshRenderer province_id_mesh_prefab;
     GameObject province_id_map_container;
 
+    bool isGenerating = false;
     bool m_generic_starts = false;
     bool m_cluster_water = true;
     bool m_teamplay = false;
@@ -81,7 +82,7 @@ public class GenerationManager : MonoBehaviour
     {
         Util.ResetFrameTime();
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.generateMap))
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.GENERATEMAP) && !isGenerating)
             OnGenerate();
 
     }
@@ -178,10 +179,13 @@ public class GenerationManager : MonoBehaviour
 
    IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
     {
+
         foreach (GameObject obj in HideableButtons)
         {
             obj.SetActive(false);
         }
+
+        isGenerating = true;
 
         if (layout == null)
         {
@@ -215,6 +219,9 @@ public class GenerationManager : MonoBehaviour
         {
             obj.SetActive(true);
         }
+
+        isGenerating = false;
+
     }
 
     void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 

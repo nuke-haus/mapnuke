@@ -32,39 +32,39 @@ public class ConnectionManager: MonoBehaviour
     private void Update()
     {
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleMountain))
-            toggleConnectionType(ConnectionType.MOUNTAIN);
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.TOGGLEMOUNTAIN))
+            ToggleConnectionType(ConnectionType.MOUNTAIN);
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleRoad))
-            toggleConnectionType(ConnectionType.ROAD);
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.TOGGLEROAD))
+            ToggleConnectionType(ConnectionType.ROAD);
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleMountainPass))
-            toggleConnectionType(ConnectionType.MOUNTAINPASS);
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.TOGGLEMOUNTAINPASS))
+            ToggleConnectionType(ConnectionType.MOUNTAINPASS);
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleStandard))
-            toggleConnectionType(ConnectionType.STANDARD);
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.TOGGLESTANDARD))
+            ToggleConnectionType(ConnectionType.STANDARD);
 
-        if (InputManager.instance.KeyDown(Keybindings.ActionEnum.toggleRiver))
-            toggleConnectionType(ConnectionType.RIVER);
+        if (InputManager.s_instance.KeyDown(Keybindings.ActionEnum.TOGGLERIVER))
+            ToggleConnectionType(ConnectionType.RIVER);
 
     }
 
 
-    private void toggleConnectionType(ConnectionType targetCT)
+    private void ToggleConnectionType(ConnectionType target_CT)
     {
 
         if (m_current == null)
             return;
 
-        ConnectionType currentCT = m_current.Connection.ConnectionType;
+        ConnectionType current_CT = m_current.Connection.ConnectionType;
 
-        if (currentCT == targetCT)
+        if (current_CT == target_CT)
         {
             SetConnectionType((int)ConnectionType.STANDARD);
         }
         else
         {
-            SetConnectionType((int)targetCT);
+            SetConnectionType((int)target_CT);
         }
 
     }

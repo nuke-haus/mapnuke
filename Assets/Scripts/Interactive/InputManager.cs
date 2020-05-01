@@ -11,20 +11,22 @@ public class InputManager : MonoBehaviour
 {
     
     public Keybindings keybindings;
-    public static InputManager instance;
+    public static InputManager s_instance;
 
     private void Awake()
     {
         //Singleton
-        if (instance == null)
+        if (s_instance == null)
         {
-            instance = this;
+            s_instance = this;
         }
-        else if(instance != this)
+        else if(s_instance != this)
         {
             Destroy(this);
         }
+
         DontDestroyOnLoad(this);
+
     }
 
 

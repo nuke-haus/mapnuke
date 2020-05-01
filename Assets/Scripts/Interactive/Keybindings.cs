@@ -15,8 +15,8 @@
 public class Keybindings : ScriptableObject
 {
     //1001F
-    public KeyCode toggleRoad, toggleMountain, toggleMountainPass, toggleRiver, toggleNormal, generateMap;
-    public enum ActionEnum { toggleRoad, toggleMountain, toggleMountainPass, toggleRiver, toggleStandard, generateMap };
+    public KeyCode toggle_road, toggle_mountain, toggle_mountain_pass, toggle_river, toggle_normal, generate_map;
+    public enum ActionEnum { TOGGLEROAD, TOGGLEMOUNTAIN, TOGGLEMOUNTAINPASS, TOGGLERIVER, TOGGLESTANDARD, GENERATEMAP };
 
     //1001G
     public KeyCode CheckKey(ActionEnum key)
@@ -24,18 +24,18 @@ public class Keybindings : ScriptableObject
 
         switch(key)
         {
-            case ActionEnum.toggleRoad:
-                return toggleRoad;
-            case ActionEnum.toggleMountain:
-                return toggleMountain;
-            case ActionEnum.toggleMountainPass:
-                return toggleMountainPass;
-            case ActionEnum.toggleRiver:
-                return toggleRiver;
-            case ActionEnum.toggleStandard:
-                return toggleNormal;
-            case ActionEnum.generateMap:
-                return generateMap;
+            case ActionEnum.TOGGLEROAD:
+                return toggle_road;
+            case ActionEnum.TOGGLEMOUNTAIN:
+                return toggle_mountain;
+            case ActionEnum.TOGGLEMOUNTAINPASS:
+                return toggle_mountain_pass;
+            case ActionEnum.TOGGLERIVER:
+                return toggle_river;
+            case ActionEnum.TOGGLESTANDARD:
+                return toggle_normal;
+            case ActionEnum.GENERATEMAP:
+                return generate_map;
             default:
                 return KeyCode.None;
 
