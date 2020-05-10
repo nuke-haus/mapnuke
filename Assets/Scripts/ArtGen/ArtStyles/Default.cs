@@ -51,11 +51,6 @@ public class DefaultArtStyle : ArtStyle
             m.ClearTriangles();
         }
 
-        foreach (ProvinceMarker pm in provs)
-        {
-            pm.UpdateConnections();
-        }
-
         calc_triangles(m_all_conns, layout);
 
         foreach (ConnectionMarker cm in conns)

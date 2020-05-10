@@ -342,20 +342,6 @@ public class ProvinceMarker: MonoBehaviour
         m_connections.Add(m);
     }
 
-    public void UpdateConnections()
-    {
-        if (IsDummy)
-        {
-            return;
-        }
-
-        foreach (ConnectionMarker m in m_connections)
-        {
-            Vector3 center = get_weighted_center(m.Endpoint1, m.Endpoint2, m.Prov1.Node, m.Prov2.Node);
-            m.gameObject.transform.position = center;
-        }
-    }
-
     public void UpdateLinked()
     {
         if (!IsDummy && LinkedProvinces != null && LinkedProvinces.Any())
