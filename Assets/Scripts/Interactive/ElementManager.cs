@@ -436,11 +436,11 @@ public class ElementManager : MonoBehaviour
         Vector3 center = (p1 + p2) / 2;
         float dist = Vector3.Distance(center, p1);
 
-        if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV))
+        if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n1.Connections.Count == 4)
         {
             center += (dir2 * (dist * 0.16f));
         }
-        if (n2.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV))
+        if (n2.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n2.Connections.Count == 4)
         {
             center += (dir1 * (dist * 0.16f));
         }
