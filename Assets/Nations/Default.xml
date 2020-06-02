@@ -9,7 +9,7 @@
   
     <Nation>
 	
-      <Name>(EA) My Cool Nation</Name>      /// This is the name that appears in the program. 
+      <Name>(EA) My Cool Nation</Name>        /// This is the name that appears in the program. 
 	  
       <ID>69</ID>                             /// The ID of the nation. A value of -1 makes the program use the nation as a generic nation.
 	  
@@ -350,6 +350,18 @@
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Ubar</Name>
+    <ID>33</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+	<TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Atlantis</Name>
