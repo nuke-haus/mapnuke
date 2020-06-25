@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +6,7 @@ using UnityEngine.UI;
 /// Manager class that handles post-processing for provinces.
 /// Has a global singleton.
 /// </summary>
+
 public class ProvinceManager: MonoBehaviour
 {
     public static ProvinceManager s_province_manager;
