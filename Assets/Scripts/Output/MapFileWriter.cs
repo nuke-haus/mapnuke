@@ -74,10 +74,10 @@ public static class MapFileWriter
 
         using (FileStream fs = File.Create(path))
         {
-            var dom_col_r = (int)(GenerationManager.s_generation_manager.BorderColor.r * 255f);
-            var dom_col_g = (int)(GenerationManager.s_generation_manager.BorderColor.g * 255f);
-            var dom_col_b = (int)(GenerationManager.s_generation_manager.BorderColor.b * 255f);
-            var dom_col_a = (int)(GenerationManager.s_generation_manager.BorderColor.a * 255f);
+            var dom_col_r = (int)(GenerationManager.s_generation_manager.OverlayColor.r * 255f);
+            var dom_col_g = (int)(GenerationManager.s_generation_manager.OverlayColor.g * 255f);
+            var dom_col_b = (int)(GenerationManager.s_generation_manager.OverlayColor.b * 255f);
+            var dom_col_a = (int)(GenerationManager.s_generation_manager.OverlayColor.a * 255f);
 
             string map_stats = string.Format("Player count: {0}, Throne count: {1}, Province count: {2}", layout.NumPlayers, layout.NumThrones, layout.TotalProvinces);
 
