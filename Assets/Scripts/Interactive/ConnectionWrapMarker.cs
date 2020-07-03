@@ -297,9 +297,8 @@ public class ConnectionWrapMarker: MonoBehaviour
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
 
-        Color c = new Color(0f, 0f, 0f, ArtManager.s_art_manager.BorderOpacity);
-        BorderLine.startColor = c;
-        BorderLine.endColor = c;
+        BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
+        BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
     }
 
     Vector2[] get_pts_array(List<Vector3> list)

@@ -706,9 +706,8 @@ public class ConnectionMarker: MonoBehaviour
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
 
-        Color c = new Color(0f, 0f, 0f, ArtManager.s_art_manager.BorderOpacity);
-        BorderLine.startColor = c;
-        BorderLine.endColor = c;
+        BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
+        BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
 
         SetSeason(GenerationManager.s_generation_manager.Season);
     }

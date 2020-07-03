@@ -204,7 +204,7 @@
   <Nation>
     <Name>(EA) Fomoria</Name>
     <ID>19</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>

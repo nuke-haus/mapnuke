@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// Manager class that handles all user input and generally is the entry point for a lot of logic.
@@ -32,10 +33,16 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] HideableOptions;
     public GameObject[] HideableControls;
     public GameObject[] HideableButtons;
+    public InputField[] OverlayFields;
+    public InputField[] BorderFields;
+    public Image OverlayPreview;
+    public Image BorderPreview;
 
     public MeshRenderer province_id_mesh_prefab;
     GameObject province_id_map_container;
 
+    Color m_border_color = new Color();
+    Color m_overlay_color = new Color();
     bool m_generic_starts = false;
     bool m_cluster_water = true;
     bool m_teamplay = false;
@@ -46,6 +53,9 @@ public class GenerationManager : MonoBehaviour
     List<GameObject> m_content;
     List<PlayerData> m_nations;
     NodeLayoutCollection m_layouts;
+
+    public Color BorderColor => m_border_color;
+    public Color OverlayColor => m_overlay_color;
 
     public Season Season
     {
@@ -76,6 +86,8 @@ public class GenerationManager : MonoBehaviour
         load_nation_data();
         update_nations();
         hide_controls();
+        OnBorderColorUpdate();
+        OnOverlayColorUpdate();
     }
 
     void Update()
@@ -438,6 +450,50 @@ public class GenerationManager : MonoBehaviour
 
         LoadingScreen.SetActive(false);
         //LogScreen.SetActive(false);
+    }
+
+    public void OnOverlayColorUpdate()
+    {
+        var red = 255f;
+        var green = 0f;
+        var blue = 0f;
+        var a = 55f;
+
+        float.TryParse(OverlayFields[0].text, out red);
+        float.TryParse(OverlayFields[1].text, out green);
+        float.TryParse(OverlayFields[2].text, out blue);
+        float.TryParse(OverlayFields[3].text, out a);
+
+        red = Mathf.Clamp(red, 0f, 255f) / 255f;
+        green = Mathf.Clamp(green, 0f, 255f) / 255f;
+        blue = Mathf.Clamp(blue, 0f, 255f) / 255f;
+        a = Mathf.Clamp(a, 0f, 255f) / 255f;
+
+        m_overlay_color = new Color(red, green, blue, a);
+
+        OverlayPreview.color = m_overlay_color;
+    }
+
+    public void OnBorderColorUpdate()
+    {
+        var red = 255f;
+        var green = 0f;
+        var blue = 0f;
+        var a = 55f;
+
+        float.TryParse(BorderFields[0].text, out red);
+        float.TryParse(BorderFields[1].text, out green);
+        float.TryParse(BorderFields[2].text, out blue);
+        float.TryParse(BorderFields[3].text, out a);
+
+        red = Mathf.Clamp(red, 0f, 255f) / 255f;
+        green = Mathf.Clamp(green, 0f, 255f) / 255f;
+        blue = Mathf.Clamp(blue, 0f, 255f) / 255f;
+        a = Mathf.Clamp(a, 0f, 255f) / 255f;
+
+        m_border_color = new Color(red, green, blue, a);
+
+        BorderPreview.color = m_border_color;
     }
 
     public void OnCluster()
