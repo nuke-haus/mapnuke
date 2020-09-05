@@ -92,7 +92,7 @@ public class GenerationManager : MonoBehaviour
 
     void Update()
     {
-      Util.ResetFrameTime();
+        Util.ResetFrameTime();
     }
 
     public void LogText(string text)
@@ -138,11 +138,6 @@ public class GenerationManager : MonoBehaviour
 
     public void OnGenerate()
     {
-        /*if (Logo != null && Logo.activeSelf)
-        {
-            Logo.SetActive(false);
-        }*/
-
         if (ElementManager.s_element_manager.GeneratedObjects.Any())
         {
             ElementManager.s_element_manager.WipeGeneratedObjects();
@@ -277,7 +272,6 @@ public class GenerationManager : MonoBehaviour
         }
 
         LoadingScreen.SetActive(false);
-        //LogScreen.SetActive(false);
     }
 
     public void OnSeasonChanged()

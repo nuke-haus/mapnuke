@@ -8494,7 +8494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ac1ac8d3000784397807fd18eec300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSize: 20
+  MaxSize: 25
   MinSize: 1
   eventSystem: {fileID: 181575569}
 --- !u!20 &519420031
