@@ -5,8 +5,12 @@ using UnityEngine;
 /// Collection of all sprite data used in sprite generation. 
 /// Edit this sprite data through the unity editor.
 /// </summary>
-public class SpriteSetCollection : MonoBehaviour
+public class ArtConfiguration : MonoBehaviour
 {
+    [Header("Basic Info")]
+    public string ArtConfigurationName;
+
+    [Header("Province Sprite Sets")]
     public MapSpriteSet Plains;
     public MapSpriteSet Sea;
     public MapSpriteSet DeepSea;
@@ -18,62 +22,55 @@ public class SpriteSetCollection : MonoBehaviour
     public MapSpriteSet Mountains;
     public MapSpriteSet Waste;
 
+    [Header("Connection Sprite Sets")]
     public ConnectionSpriteSet Road;
     public ConnectionSpriteSet Mountain;
     public ConnectionSpriteSet MountainPass;
     public ConnectionSpriteSet ShallowRiver;
     public ConnectionSpriteSet DeepRiver;
-
     public ConnectionSpriteSet MountainSpecial;
+
+    [Header("Summer Province Mesh Materials")]
+    public Material MatSwamp;
+    public Material MatForest;
+    public Material MatWaste;
+    public Material MatMountain;
+    public Material MatHighland;
+    public Material MatCave;
+    public Material MatFarm;
+    public Material MatPlains;
+    public Material MatSea;
+    public Material MatDeepSea;
+    public Material MatShore;
+
+    [Header("Winter Province Mesh Materials")]
+    public Material MatWinterSwamp;
+    public Material MatWinterForest;
+    public Material MatWinterWaste;
+    public Material MatWinterMountain;
+    public Material MatWinterHighland;
+    public Material MatWinterCave;
+    public Material MatWinterFarm;
+    public Material MatWinterPlains;
+    public Material MatWinterSea;
+    public Material MatWinterDeepSea;
+    public Material MatWinterShore;
+
+    [Header("Summer Connection Mesh Materials")]
+    public Material MatRiver;
+    public Material MatDeepRiver;
+    public Material MatRiverShore;
+    public Material MatRoad;
+
+    [Header("Winter Connection Mesh Materials")]
+    public Material MatWinterRiver;
+    public Material MatWinterDeepRiver;
+    public Material MatWinterRiverShore;
+    public Material MatWinterRoad;
 
     public ConnectionSprite GetMountainSpecSprite()
     {
         return MountainSpecial.GetSprite();
-    }
-
-    [Obsolete]
-    public float GetMaxSize(Terrain flags)
-    {
-        if (flags.IsFlagSet(Terrain.SEA))
-        {
-            return Sea.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.DEEPSEA))
-        {
-            return DeepSea.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.FARM))
-        {
-            return Farm.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.SWAMP))
-        {
-            return Swamp.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.CAVE))
-        {
-            return Cave.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.FOREST))
-        {
-            return Forest.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.HIGHLAND))
-        {
-            return Highland.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.MOUNTAINS))
-        {
-            return Mountains.GetMaxSize(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.WASTE))
-        {
-            return Waste.GetMaxSize(flags);
-        }
-        else
-        {
-            return Plains.GetMaxSize(flags);
-        }
     }
 
     public float GetCullChance(Terrain flags)

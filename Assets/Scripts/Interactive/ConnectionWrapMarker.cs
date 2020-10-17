@@ -10,7 +10,6 @@ public class ConnectionWrapMarker : MonoBehaviour
     public Material MatSea;
     public Material MatDeepSea;
     public Material MatRoad;
-
     public Material MatWinterSea;
     public Material MatWinterDeepSea;
     public Material MatWinterRoad;
@@ -45,6 +44,18 @@ public class ConnectionWrapMarker : MonoBehaviour
         {
             return m_offset;
         }
+    }
+
+    public void UpdateArtStyle()
+    {
+        var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        MatSea = art_config.MatRiver;
+        MatDeepSea = art_config.MatDeepRiver;
+        MatRoad = art_config.MatRoad;
+        MatWinterSea = art_config.MatWinterRiver;
+        MatWinterDeepSea = art_config.MatWinterDeepRiver;
+        MatWinterRoad = art_config.MatWinterRoad;
     }
 
     public void SetParent(ConnectionMarker parent)
@@ -131,6 +142,7 @@ public class ConnectionWrapMarker : MonoBehaviour
 
         var g = GameObject.Instantiate(InnerStrokePrefab);
         m_stroke = g.GetComponent<InnerStroke>();
+        m_stroke.UpdateArtStyle();
         m_stroke.DrawStroke(m_poly, offset + new Vector3(0f, 0f, -0.9f), false, 0.03f, 0.06f);
     }
 
@@ -146,6 +158,7 @@ public class ConnectionWrapMarker : MonoBehaviour
         {
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
+            m_stroke.UpdateArtStyle();
             m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), offset);
         }
     }

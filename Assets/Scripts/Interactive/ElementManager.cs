@@ -130,22 +130,22 @@ public class ElementManager : MonoBehaviour
             var pos = new Vector3(n.X * m_size_x, n.Y * m_size_y, 0);
             var randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
 
-            var g = GameObject.Instantiate(ProvinceMarker);
-            g.transform.position = randpos;
+            var marker_obj = GameObject.Instantiate(ProvinceMarker);
+            marker_obj.transform.position = randpos;
 
-            var m = g.GetComponent<ProvinceMarker>();
+            var province_marker = marker_obj.GetComponent<ProvinceMarker>();
+            var widget_obj = GameObject.Instantiate(ProvinceWidget);
+            var widget = widget_obj.GetComponent<ProvinceWidget>();
 
-            var w = GameObject.Instantiate(ProvinceWidget);
-            //w.transform.position = randpos + new Vector3(500f, 0f, 0f);
+            widget.SetParent(province_marker);
+            province_marker.SetWidget(widget);
+            province_marker.UpdateArtStyle();
+            province_marker.SetNode(n);
 
-            var widget = w.GetComponent<ProvinceWidget>();
-            widget.SetParent(m);
-            m.SetWidget(widget);
-            m.SetNode(n);
+            m_provinces.Add(province_marker);
+            m_generated.Add(marker_obj);
+            m_generated.Add(widget_obj);
 
-            m_provinces.Add(m);
-            m_generated.Add(g);
-            m_generated.Add(w);
             if (Util.ShouldYield()) yield return null;
         }
 
@@ -171,14 +171,16 @@ public class ElementManager : MonoBehaviour
                 g1.transform.position = pos_up;
 
                 var m1 = g1.GetComponent<ProvinceMarker>();
+                m1.UpdateArtStyle();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
-
+                
                 var g2 = GameObject.Instantiate(ProvinceMarker);
                 g2.transform.position = pos_right;
 
                 var m2 = g2.GetComponent<ProvinceMarker>();
+                m2.UpdateArtStyle();
                 m2.AddLinkedProvince(m);
                 m.AddLinkedProvince(m2);
                 m2.SetDummy(true, m);
@@ -187,6 +189,7 @@ public class ElementManager : MonoBehaviour
                 g3.transform.position = pos_diag;
 
                 var m3 = g3.GetComponent<ProvinceMarker>();
+                m3.UpdateArtStyle();
                 m3.AddLinkedProvince(m);
                 m.AddLinkedProvince(m3);
                 m3.SetDummy(true, m);
@@ -206,6 +209,7 @@ public class ElementManager : MonoBehaviour
                 g1.transform.position = pos_right;
 
                 var m1 = g1.GetComponent<ProvinceMarker>();
+                m1.UpdateArtStyle();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
@@ -221,6 +225,7 @@ public class ElementManager : MonoBehaviour
                 g1.transform.position = pos_up;
 
                 var m1 = g1.GetComponent<ProvinceMarker>();
+                m1.UpdateArtStyle();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
@@ -228,6 +233,7 @@ public class ElementManager : MonoBehaviour
                 dummies.Add(m1);
                 m_generated.Add(g1);
             }
+
             if (Util.ShouldYield()) yield return null;
         }
 
@@ -311,6 +317,7 @@ public class ElementManager : MonoBehaviour
                 var w = GameObject.Instantiate(ConnectionWidget);
                 w.transform.position = center + new Vector3(500f, 0f, 0f);
 
+                m.UpdateArtStyle();
                 m.SetEdgeConnection(true);
                 m.SetProvinces(prov1, prov2);
                 m.SetEndPoints(p1, p2);
@@ -346,8 +353,9 @@ public class ElementManager : MonoBehaviour
 
                 var widget = w.GetComponent<ConnectionWidget>();
                 widget.SetParent(m);
-                m.SetWidget(widget);
 
+                m.UpdateArtStyle();
+                m.SetWidget(widget);
                 m.SetConnection(c);
 
                 m_connections.Add(m);

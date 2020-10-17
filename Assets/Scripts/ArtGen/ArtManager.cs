@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manager class that handles all things art-related.
@@ -14,7 +16,9 @@ public class ArtManager : MonoBehaviour
     public GameObject RenderPlane;
     public GameObject EditorPlane;
     public Material RenderMat;
-    public SpriteSetCollection SpriteSetCollection;
+    public Dropdown ArtStyleDropdown;
+    public ArtConfiguration CurrentArtConfiguration;
+    public List<ArtConfiguration> ArtConfigurations;
     private ArtStyle m_art;
     private RenderTexture m_render_texture;
 
@@ -29,10 +33,29 @@ public class ArtManager : MonoBehaviour
         }
     }
 
+    public void OnArtStyleDropdownValueChanged(Dropdown d)
+    {
+        var str = d.captionText.text;
+        var art_config = ArtConfigurations.FirstOrDefault(config => config.ArtConfigurationName == str);
+
+        if (art_config != null)
+        {
+            CurrentArtConfiguration = art_config;
+        }
+    }
+
     private void Awake()
     {
         s_art_manager = this;
         m_art = new DefaultArtStyle();
+
+        foreach (var art_config in ArtConfigurations)
+        {
+            var data = new Dropdown.OptionData(art_config.ArtConfigurationName);
+            ArtStyleDropdown.options.Add(data);
+        }
+
+        ArtStyleDropdown.value = 0;
     }
 
     public bool JustChangedSeason
@@ -50,22 +73,22 @@ public class ArtManager : MonoBehaviour
 
     public ProvinceSprite GetProvinceSprite(Terrain flags)
     {
-        return SpriteSetCollection.GetMapSprite(flags);
+        return CurrentArtConfiguration.GetMapSprite(flags);
     }
 
     public MapSpriteSet GetMapSpriteSet(Terrain flags)
     {
-        return SpriteSetCollection.GetMapSpriteSet(flags);
+        return CurrentArtConfiguration.GetMapSpriteSet(flags);
     }
 
     public ConnectionSprite GetConnectionSprite(ConnectionType flags)
     {
-        return SpriteSetCollection.GetConnectionSprite(flags);
+        return CurrentArtConfiguration.GetConnectionSprite(flags);
     }
 
     public ConnectionSprite GetMountainSpecSprite()
     {
-        return SpriteSetCollection.GetMountainSpecSprite();
+        return CurrentArtConfiguration.GetMountainSpecSprite();
     }
 
     public IEnumerator GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout, float x, float y)

@@ -69,6 +69,33 @@ public class ProvinceWrapMarker : MonoBehaviour
         }
     }
 
+    public void UpdateArtStyle()
+    {
+        var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        MatSwamp = art_config.MatSwamp;
+        MatForest = art_config.MatForest;
+        MatWaste = art_config.MatWaste;
+        MatMountain = art_config.MatMountain;
+        MatHighland = art_config.MatHighland;
+        MatCave = art_config.MatCave;
+        MatFarm = art_config.MatFarm;
+        MatPlains = art_config.MatPlains;
+        MatSea = art_config.MatSea;
+        MatDeepSea = art_config.MatDeepSea;
+
+        MatWinterSwamp = art_config.MatWinterSwamp;
+        MatWinterForest = art_config.MatWinterForest;
+        MatWinterWaste = art_config.MatWinterWaste;
+        MatWinterMountain = art_config.MatWinterMountain;
+        MatWinterHighland = art_config.MatWinterHighland;
+        MatWinterCave = art_config.MatWinterCave;
+        MatWinterFarm = art_config.MatWinterFarm;
+        MatWinterPlains = art_config.MatWinterPlains;
+        MatWinterSea = art_config.MatWinterSea;
+        MatWinterDeepSea = art_config.MatWinterDeepSea;
+    }
+
     public void SetParent(ProvinceMarker pm)
     {
         m_parent = pm;
@@ -408,7 +435,7 @@ public class ProvinceWrapMarker : MonoBehaviour
         m_sprite_points.Shuffle();
         var result = new List<Vector3>();
 
-        var cull = ArtManager.s_art_manager.SpriteSetCollection.GetCullChance(m_node.ProvinceData.Terrain);
+        var cull = ArtManager.s_art_manager.CurrentArtConfiguration.GetCullChance(m_node.ProvinceData.Terrain);
         var cullcount = Mathf.RoundToInt((1.0f - cull) * m_sprite_points.Count);
 
         for (var i = 0; i < cullcount; i++)

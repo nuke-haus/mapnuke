@@ -11,7 +11,6 @@ public class ConnectionMarker : MonoBehaviour
     public Material MatSea;
     public Material MatDeepSea;
     public Material MatRoad;
-
     public Material MatWinterSea;
     public Material MatWinterDeepSea;
     public Material MatWinterRoad;
@@ -192,6 +191,18 @@ public class ConnectionMarker : MonoBehaviour
         {
             return m_p2;
         }
+    }
+
+    public void UpdateArtStyle()
+    {
+        var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        MatSea = art_config.MatRiver;
+        MatDeepSea = art_config.MatDeepRiver;
+        MatRoad = art_config.MatRoad;
+        MatWinterSea = art_config.MatWinterRiver;
+        MatWinterDeepSea = art_config.MatWinterDeepRiver;
+        MatWinterRoad = art_config.MatWinterRoad;
     }
 
     public bool TouchingProvince(ProvinceMarker pm)
@@ -604,6 +615,7 @@ public class ConnectionMarker : MonoBehaviour
         var obj = GameObject.Instantiate(WrapMarkerPrefab);
         var wrap = obj.GetComponent<ConnectionWrapMarker>();
 
+        wrap.UpdateArtStyle();
         wrap.SetParent(this);
         wrap.CreatePoly(m_poly, pb, offset);
         obj.transform.position = obj.transform.position + offset;
@@ -760,6 +772,7 @@ public class ConnectionMarker : MonoBehaviour
 
         var g = GameObject.Instantiate(InnerStrokePrefab);
         m_stroke = g.GetComponent<InnerStroke>();
+        m_stroke.UpdateArtStyle();
         m_stroke.DrawStroke(m_poly, new Vector3(0, 0, -0.9f), false, 0.03f, 0.06f);
     }
 
@@ -775,6 +788,7 @@ public class ConnectionMarker : MonoBehaviour
         {
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
+            m_stroke.UpdateArtStyle();
             m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), Vector3.zero);
         }
     }

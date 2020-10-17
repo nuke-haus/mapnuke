@@ -6,13 +6,23 @@ public class InnerStroke : MonoBehaviour
 {
     public Material RiverShore;
     public Material SeaShore;
-
     public Material RiverShoreWinter;
     public Material SeaShoreWinter;
+
     private bool m_is_sea = false;
 
+    public void UpdateArtStyle()
+    {
+        var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        RiverShore = art_config.MatRiverShore;
+        SeaShore = art_config.MatShore;
+        RiverShoreWinter = art_config.MatWinterRiverShore;
+        SeaShoreWinter = art_config.MatWinterShore;
+    }
+
     /// <summary>
-    /// Method used for water provinces
+    /// Method used for drawing shoreline for water provinces
     /// </summary>
     public void DrawStroke(List<Vector3> pts, Vector3 offset, bool is_sea = true, float min = 0.1f, float max = 0.2f)
     {

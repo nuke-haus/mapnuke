@@ -138,41 +138,31 @@ public class ProvinceMarker : MonoBehaviour
         }
     }
 
-    // Don't use this
-    public List<ConnectionMarker> OrderedConnections
+    public void UpdateArtStyle()
     {
-        get
-        {
-            var result = new List<ConnectionMarker>();
-            var temp = new List<ConnectionMarker>();
-            temp.AddRange(m_connections.Where(x => x.TouchingProvince(this)));
-            temp = temp.OrderBy(x => Vector3.Distance(x.transform.position, transform.position)).ToList();
+        var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
 
-            var start = temp[0];
-            temp.Remove(start);
-            result.Add(start);
+        MatSwamp = art_config.MatSwamp;
+        MatForest = art_config.MatForest;
+        MatWaste = art_config.MatWaste;
+        MatMountain = art_config.MatMountain;
+        MatHighland = art_config.MatHighland;
+        MatCave = art_config.MatCave;
+        MatFarm = art_config.MatFarm;
+        MatPlains = art_config.MatPlains;
+        MatSea = art_config.MatSea;
+        MatDeepSea = art_config.MatDeepSea;
 
-            while (temp.Any())
-            {
-                ConnectionMarker close = null;
-                var dist = 9000f;
-
-                foreach (var m in temp)
-                {
-                    if (close == null || m.Connection.DistanceTo(start.Connection) < dist)
-                    {
-                        close = m;
-                        dist = m.Connection.DistanceTo(start.Connection);
-                    }
-                }
-
-                result.Add(close);
-                temp.Remove(close);
-                start = close;
-            }
-
-            return result;
-        }
+        MatWinterSwamp = art_config.MatWinterSwamp;
+        MatWinterForest = art_config.MatWinterForest;
+        MatWinterWaste = art_config.MatWinterWaste;
+        MatWinterMountain = art_config.MatWinterMountain;
+        MatWinterHighland = art_config.MatWinterHighland;
+        MatWinterCave = art_config.MatWinterCave;
+        MatWinterFarm = art_config.MatWinterFarm;
+        MatWinterPlains = art_config.MatWinterPlains;
+        MatWinterSea = art_config.MatWinterSea;
+        MatWinterDeepSea = art_config.MatWinterDeepSea;
     }
 
     public void SetDummy(bool b, ProvinceMarker owner)
@@ -561,6 +551,7 @@ public class ProvinceMarker : MonoBehaviour
                     var obj = GameObject.Instantiate(WrapMarkerPrefab);
                     var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
+                    wrap.UpdateArtStyle();
                     wrap.SetParent(this);
                     wrap.SetNode(m_node);
                     wrap.CreatePoly(m_poly, -pm.DummyOffset);
@@ -581,6 +572,7 @@ public class ProvinceMarker : MonoBehaviour
                 var obj = GameObject.Instantiate(WrapMarkerPrefab);
                 var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
+                wrap.UpdateArtStyle();
                 wrap.SetParent(this);
                 wrap.SetNode(m_node);
                 wrap.CreatePoly(m_poly, pm.DummyOffset);
@@ -611,6 +603,7 @@ public class ProvinceMarker : MonoBehaviour
                     var obj = GameObject.Instantiate(WrapMarkerPrefab);
                     var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
+                    wrap.UpdateArtStyle();
                     wrap.SetParent(this);
                     wrap.SetNode(m_node);
                     wrap.CreatePoly(m_poly, -pm.DummyOffset);
@@ -975,7 +968,7 @@ public class ProvinceMarker : MonoBehaviour
         m_sprite_points.Shuffle();
         var result = new List<Vector3>();
 
-        var cull = ArtManager.s_art_manager.SpriteSetCollection.GetCullChance(m_node.ProvinceData.Terrain);
+        var cull = ArtManager.s_art_manager.CurrentArtConfiguration.GetCullChance(m_node.ProvinceData.Terrain);
         var cullcount = Mathf.RoundToInt((1.0f - cull) * m_sprite_points.Count);
 
         for (var i = 0; i < cullcount; i++)

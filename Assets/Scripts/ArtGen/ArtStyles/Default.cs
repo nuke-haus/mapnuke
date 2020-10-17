@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// !!!
+/// The original plan was to support different art styles that handled all of their own generation logic.
+/// This plan was way too ambitious and so this abstract class isn't needed (at least not in this state).
+/// For now it's fine to leave it as is since this project has reached its conclusion more or less.
+/// In a perfect world this class would be refactored out since art styles are handled by the ArtManager.
+/// !!!
+
 public abstract class ArtStyle
 {
     public abstract string GetName();
