@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 [Flags]
@@ -115,7 +114,7 @@ public class Connection
     {
         get
         {
-            int ct = 0;
+            var ct = 0;
 
             if (Node1.ProvinceData.IsWaterSwamp)
             {
@@ -131,7 +130,7 @@ public class Connection
         }
     }
 
-    public Connection(Node n1, Node n2, ConnectionType c, bool diagonal = false): this(n1, n2)
+    public Connection(Node n1, Node n2, ConnectionType c, bool diagonal = false) : this(n1, n2)
     {
         ConnectionType = c;
         Diagonal = diagonal;
@@ -143,9 +142,9 @@ public class Connection
         Node1 = n1;
         Node2 = n2;
 
-        Vector2 p1 = new Vector2(n1.X, n1.Y);
-        Vector2 p2 = new Vector2(n2.X, n2.Y);
-        Vector2 pos = (p1 + p2) / 2;
+        var p1 = new Vector2(n1.X, n1.Y);
+        var p2 = new Vector2(n2.X, n2.Y);
+        var pos = (p1 + p2) / 2;
 
         if (Mathf.Abs(n1.X - n2.X) > 3.0f)
         {
@@ -177,7 +176,7 @@ public class Connection
 
     public List<Node> GetUniqueNodes(Connection c1, Connection c2)
     {
-        List<Node> result = new List<Node>();
+        var result = new List<Node>();
 
         if (!result.Contains(c1.Node1))
         {
@@ -220,11 +219,11 @@ public class Connection
         }
     }
 
-    public void CalcAdjacent(List<Connection> conns, NodeLayout nl) 
+    public void CalcAdjacent(List<Connection> conns, NodeLayout nl)
     {
         if (Diagonal)
         {
-            List<Node> diags = Node1.ConnectedNodes.Where(x => Node2.ConnectedNodes.Contains(x)).ToList();
+            var diags = Node1.ConnectedNodes.Where(x => Node2.ConnectedNodes.Contains(x)).ToList();
             diags.Add(Node1);
             diags.Add(Node2);
 
@@ -232,7 +231,7 @@ public class Connection
         }
         else
         {
-            List<Node> diags = Node1.ConnectedNodes.Where(x => Node2.ConnectedNodes.Contains(x)).ToList();
+            var diags = Node1.ConnectedNodes.Where(x => Node2.ConnectedNodes.Contains(x)).ToList();
             diags.Add(Node1);
             diags.Add(Node2);
 
@@ -242,7 +241,7 @@ public class Connection
 
     public static Connection Create(Node n1, Node n2, ConnectionType c)
     {
-        Connection con = new Connection(n1, n2, c);
+        var con = new Connection(n1, n2, c);
         return con;
     }
 }

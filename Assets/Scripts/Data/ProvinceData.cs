@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [Flags]
 public enum Terrain
@@ -50,7 +47,7 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA); 
+            return Terrain.IsFlagSet(Terrain.SEA);
         }
     }
 
@@ -58,7 +55,7 @@ public class ProvinceData
     {
         get
         {
-            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.SWAMP); 
+            return Terrain.IsFlagSet(Terrain.SEA) || Terrain.IsFlagSet(Terrain.SWAMP);
         }
     }
 

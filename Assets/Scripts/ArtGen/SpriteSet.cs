@@ -107,4 +107,3 @@ public class ConnectionSpriteSet
         return ConnectionSprites.GetRandom();
     }
 }
-

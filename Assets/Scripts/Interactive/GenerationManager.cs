@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 /// <summary>
 /// Manager class that handles all user input and generally is the entry point for a lot of logic.
@@ -37,22 +36,21 @@ public class GenerationManager : MonoBehaviour
     public InputField[] BorderFields;
     public Image OverlayPreview;
     public Image BorderPreview;
-
     public MeshRenderer province_id_mesh_prefab;
-    GameObject province_id_map_container;
 
-    Color m_border_color = new Color();
-    Color m_overlay_color = new Color();
-    bool m_generic_starts = false;
-    bool m_cluster_water = true;
-    bool m_teamplay = false;
-    int m_player_count = 9;
-    Age m_age = Age.EARLY;
-    Season m_season = Season.SUMMER;
-    List<GameObject> m_log_content;
-    List<GameObject> m_content;
-    List<PlayerData> m_nations;
-    NodeLayoutCollection m_layouts;
+    private GameObject province_id_map_container;
+    private Color m_border_color = new Color();
+    private Color m_overlay_color = new Color();
+    private bool m_generic_starts = false;
+    private bool m_cluster_water = true;
+    private bool m_teamplay = false;
+    private int m_player_count = 9;
+    private Age m_age = Age.EARLY;
+    private Season m_season = Season.SUMMER;
+    private List<GameObject> m_log_content;
+    private List<GameObject> m_content;
+    private List<PlayerData> m_nations;
+    private NodeLayoutCollection m_layouts;
 
     public Color BorderColor => m_border_color;
     public Color OverlayColor => m_overlay_color;
@@ -73,7 +71,7 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         AllNationData.Init();
         GeneratorSettings.Initialize();
@@ -90,7 +88,7 @@ public class GenerationManager : MonoBehaviour
         OnOverlayColorUpdate();
     }
 
-    void Update()
+    private void Update()
     {
         Util.ResetFrameTime();
     }
@@ -100,15 +98,15 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(do_log(text));
     }
 
-    IEnumerator do_log(string text)
+    private IEnumerator do_log(string text)
     {
         yield return null;
 
-        int pos = m_log_content.Count + 1;
+        var pos = m_log_content.Count + 1;
 
-        GameObject obj = GameObject.Instantiate(LogContent);
-        RectTransform rt = obj.GetComponent<RectTransform>();
-        UnityEngine.UI.Text txt = obj.GetComponent<UnityEngine.UI.Text>();
+        var obj = GameObject.Instantiate(LogContent);
+        var rt = obj.GetComponent<RectTransform>();
+        var txt = obj.GetComponent<UnityEngine.UI.Text>();
 
         txt.text = text;
         rt.SetParent(LogScreen.GetComponent<RectTransform>());
@@ -128,7 +126,7 @@ public class GenerationManager : MonoBehaviour
 
     public void ClearLog()
     {
-        foreach (GameObject g in m_log_content)
+        foreach (var g in m_log_content)
         {
             GameObject.Destroy(g);
         }
@@ -143,15 +141,14 @@ public class GenerationManager : MonoBehaviour
             ElementManager.s_element_manager.WipeGeneratedObjects();
         }
 
-        List<PlayerData> picks = new List<PlayerData>();
+        var picks = new List<PlayerData>();
 
-        foreach (GameObject obj in m_content)
+        foreach (var obj in m_content)
         {
-            NationPicker np = obj.GetComponent<NationPicker>();
-            string str = np.NationName;
-
-            NationData data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
-            PlayerData pd = new PlayerData(data, np.TeamNum);
+            var np = obj.GetComponent<NationPicker>();
+            var str = np.NationName;
+            var data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
+            var pd = new PlayerData(data, np.TeamNum);
 
             if (data == null || (picks.Any(x => x.NationData.Name == data.Name) && !m_generic_starts))
             {
@@ -165,13 +162,13 @@ public class GenerationManager : MonoBehaviour
         m_nations = picks;
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
-        NodeLayout layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
+        var layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
         MoveCameraForGeneration(layout);
         Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_generate(layout), true));
     }
 
-    void MoveCameraForGeneration(NodeLayout layout)
+    private void MoveCameraForGeneration(NodeLayout layout)
     {
         var main_cam = Camera.main;
         var p = main_cam.transform.position;
@@ -180,9 +177,9 @@ public class GenerationManager : MonoBehaviour
         main_cam.transform.position = p;
     }
 
-   IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
+    private IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
     {
-        foreach (GameObject obj in HideableButtons)
+        foreach (var obj in HideableButtons)
         {
             obj.SetActive(false);
         }
@@ -196,17 +193,17 @@ public class GenerationManager : MonoBehaviour
 
         // create the conceptual nodes and connections first
         WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, NatStarts.isOn, m_nations, layout);
-        List<Connection> conns = WorldGenerator.GetConnections();
-        List<Node> nodes = WorldGenerator.GetNodes();
+        var conns = WorldGenerator.GetConnections();
+        var nodes = WorldGenerator.GetNodes();
 
         // generate the unity objects using the conceptual nodes
-        ElementManager mgr = GetComponent<ElementManager>();
+        var mgr = GetComponent<ElementManager>();
 
         // position and resize the cameras
-        Vector3 campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
+        var campos = new Vector3(layout.X * 0.5f * mgr.X - mgr.X, layout.Y * 0.5f * mgr.Y - mgr.Y, -10);
         CaptureCamera.transform.position = campos;
 
-        float ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;
+        var ortho = (mgr.Y * layout.Y * 100) / 100f / 2f;
         CaptureCamera.orthographicSize = ortho;
 
         yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
@@ -215,13 +212,13 @@ public class GenerationManager : MonoBehaviour
         ConnectionManager.s_connection_manager.SetLayout(layout);
         Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
 
-        foreach (GameObject obj in HideableButtons)
+        foreach (var obj in HideableButtons)
         {
             obj.SetActive(true);
         }
     }
 
-    void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout) 
+    private void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
         ArtManager.s_art_manager.RegenerateElements(provs, conns, layout);
     }
@@ -232,28 +229,31 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(perform_async(() => do_regen(provs, conns, layout)));
     }
 
-   IEnumerator perform_async(System.Func<IEnumerator> function, bool show_log = false) {
-      LoadingScreen.SetActive(true);
+    private IEnumerator perform_async(System.Func<IEnumerator> function, bool show_log = false)
+    {
+        LoadingScreen.SetActive(true);
 
-      if (show_log) {
-         //LogScreen.SetActive(true); 
-         //ClearLog();
-      }
+        if (show_log)
+        {
+            //LogScreen.SetActive(true); 
+            //ClearLog();
+        }
 
-      yield return null;
-      yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
-      float start_time = Time.realtimeSinceStartup;
-      if (function != null) {
-         yield return StartCoroutine(function());
-      }
-      float total_time = Time.realtimeSinceStartup - start_time;
-      Debug.LogFormat("Generation time: {0}", total_time);
+        yield return null;
+        yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
+        var start_time = Time.realtimeSinceStartup;
+        if (function != null)
+        {
+            yield return StartCoroutine(function());
+        }
+        var total_time = Time.realtimeSinceStartup - start_time;
+        Debug.LogFormat("Generation time: {0}", total_time);
 
-      LoadingScreen.SetActive(false);
-      //LogScreen.SetActive(false);
-   }
+        LoadingScreen.SetActive(false);
+        //LogScreen.SetActive(false);
+    }
 
-   IEnumerator perform_async(System.Action function, bool show_log = false)
+    private IEnumerator perform_async(System.Action function, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
 
@@ -295,7 +295,7 @@ public class GenerationManager : MonoBehaviour
         Application.Quit();
     }
 
-    void do_season_change()
+    private void do_season_change()
     {
         ArtManager.s_art_manager.ChangeSeason(m_season);
     }
@@ -312,7 +312,7 @@ public class GenerationManager : MonoBehaviour
 
     public void GenerateOutput()
     {
-        string str = MapName.text;
+        var str = MapName.text;
 
         if (string.IsNullOrEmpty(str))
         {
@@ -325,9 +325,9 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(output_async(str));
     }
 
-    void MakeProvinceIdTexture(ProvinceMarker pm, Vector3 offset, Transform t)
+    private void MakeProvinceIdTexture(ProvinceMarker pm, Vector3 offset, Transform t)
     {
-        Bounds cam_bounds = CaptureCam.Bounds(offset);
+        var cam_bounds = CaptureCam.Bounds(offset);
 
         var pn = pm.ProvinceNumber;
         Color c = new Color32(0, (byte)(pn / 256), (byte)(pn % 256), 255);
@@ -347,38 +347,40 @@ public class GenerationManager : MonoBehaviour
 
     public int[] GetProvinceIdVals(Vector3 offset)
     {
-        ElementManager mgr = GetComponent<ElementManager>();
+        var mgr = GetComponent<ElementManager>();
         province_id_map_container = new GameObject("ProvinceIdMapContainer");
-        Transform tr = province_id_map_container.transform;
+        var tr = province_id_map_container.transform;
+
         foreach (var prov in mgr.m_provinces)
         {
             MakeProvinceIdTexture(prov, offset, tr);
         }
 
         CaptureCam.s_capture_cam.transform.position += offset;
-
         CaptureCam.s_capture_cam.Camera.Render();
-
         CaptureCam.s_capture_cam.transform.position -= offset;
+
         var tex = mgr.Texture;
-        Texture2D t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
+        var t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
+        var pixels = t.GetPixels32();
 
-        Color32[] pixels = t.GetPixels32();
         Destroy(t);
         Destroy(province_id_map_container);
 
-        int[] province_ids = new int[pixels.Length];
-        for (int i = 0; i < pixels.Length; ++i)
+        var province_ids = new int[pixels.Length];
+
+        for (var i = 0; i < pixels.Length; ++i)
         {
-            Color32 p = pixels[i];
+            var p = pixels[i];
             province_ids[i] = p.b + p.g * 256;
         }
+
         return province_ids;
     }
 
-    IEnumerator output_async(string str, bool show_log = false)
+    private IEnumerator output_async(string str, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
 
@@ -391,15 +393,15 @@ public class GenerationManager : MonoBehaviour
         yield return null;
         yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
 
-        ElementManager mgr = GetComponent<ElementManager>();
-        NodeLayout layout = WorldGenerator.GetLayout();
-        int[] province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
+        var mgr = GetComponent<ElementManager>();
+        var layout = WorldGenerator.GetLayout();
+        var province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
 
         MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
 
         yield return null;
 
-        MapFileWriter.GenerateImage(str, mgr.Texture); // summer
+        MapFileWriter.GenerateImage(str, mgr.Texture); // summer image
 
         mgr.ShowLabels(true);
 
@@ -421,13 +423,13 @@ public class GenerationManager : MonoBehaviour
         do_season_change();
 
         yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
-        yield return new WaitForEndOfFrame(); // possibly not needed
+        yield return new WaitForEndOfFrame(); 
 
-        ArtManager.s_art_manager.CaptureCam.Render(); // possibly not needed
+        ArtManager.s_art_manager.CaptureCam.Render(); 
 
-        yield return new WaitForEndOfFrame(); // possibly not needed
+        yield return new WaitForEndOfFrame(); 
 
-        MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter
+        MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter image
 
         if (m_season == Season.SUMMER)
         {
@@ -511,18 +513,18 @@ public class GenerationManager : MonoBehaviour
 
     public void OnHideOptions()
     {
-        GameObject o = HideableOptions[0];
+        var o = HideableOptions[0];
 
         if (o.activeSelf)
         {
-            foreach (GameObject obj in HideableOptions)
+            foreach (var obj in HideableOptions)
             {
                 obj.SetActive(false);
             }
         }
         else
         {
-            foreach (GameObject obj in HideableOptions)
+            foreach (var obj in HideableOptions)
             {
                 obj.SetActive(true);
             }
@@ -531,20 +533,20 @@ public class GenerationManager : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
     }
 
-    void hide_controls()
+    private void hide_controls()
     {
-        GameObject o = HideableControls[0];
+        var o = HideableControls[0];
 
         if (o.activeSelf)
         {
-            foreach (GameObject obj in HideableControls)
+            foreach (var obj in HideableControls)
             {
                 obj.SetActive(false);
             }
         }
         else
         {
-            foreach (GameObject obj in HideableControls)
+            foreach (var obj in HideableControls)
             {
                 obj.SetActive(true);
             }
@@ -553,9 +555,9 @@ public class GenerationManager : MonoBehaviour
 
     public void OnPlayerCountChanged(Dropdown d)
     {
-        string str = d.captionText.text;
-        string trim = str.Replace(" Players", string.Empty);
-        int players = 2;
+        var str = d.captionText.text;
+        var trim = str.Replace(" Players", string.Empty);
+        var players = 2;
         int.TryParse(trim, out players);
 
         m_player_count = players;
@@ -565,7 +567,7 @@ public class GenerationManager : MonoBehaviour
 
     public void OnAgeChanged(Dropdown d)
     {
-        string str = d.captionText.text;
+        var str = d.captionText.text;
 
         if (str == "Middle Ages")
         {
@@ -584,7 +586,7 @@ public class GenerationManager : MonoBehaviour
             m_age = Age.ALL;
         }
 
-        foreach (GameObject obj in m_content)
+        foreach (var obj in m_content)
         {
             GameObject.Destroy(obj);
         }
@@ -594,7 +596,7 @@ public class GenerationManager : MonoBehaviour
         update_nations();
     }
 
-    void populate_nations(Dropdown d, int i)
+    private void populate_nations(Dropdown d, int i)
     {
         var list = AllNationData.AllNations.Where(x => (x.Age == m_age || m_age == Age.ALL) && x.ID != -1);
 
@@ -606,7 +608,7 @@ public class GenerationManager : MonoBehaviour
 
         d.options.Clear();
 
-        foreach (NationData nd in list)
+        foreach (var nd in list)
         {
             d.options.Add(new Dropdown.OptionData(nd.Name));
         }
@@ -615,13 +617,13 @@ public class GenerationManager : MonoBehaviour
         d.value = i;
     }
 
-    void update_nations()
+    private void update_nations()
     {
-        List<Dropdown.OptionData> list = new List<Dropdown.OptionData>();
+        var list = new List<Dropdown.OptionData>();
 
-        foreach (NodeLayout layout in m_layouts.Layouts.Where(x => x.NumPlayers == m_player_count))
+        foreach (var layout in m_layouts.Layouts.Where(x => x.NumPlayers == m_player_count))
         {
-            Dropdown.OptionData od = new Dropdown.OptionData(layout.Name);
+            var od = new Dropdown.OptionData(layout.Name);
             list.Add(od);
         }
 
@@ -631,22 +633,22 @@ public class GenerationManager : MonoBehaviour
 
         while (m_content.Count > m_player_count)
         {
-            GameObject obj = m_content[m_content.Count - 1];
+            var obj = m_content[m_content.Count - 1];
             m_content.RemoveAt(m_content.Count - 1);
 
             GameObject.Destroy(obj);
         }
 
-        RectTransform tf = ScrollPanel.GetComponent<RectTransform>();
+        var tf = ScrollPanel.GetComponent<RectTransform>();
         tf.sizeDelta = new Vector2(247f, 2f + m_player_count * 34f);
 
-        for (int i = 0; i < m_player_count; i++)
+        for (var i = 0; i < m_player_count; i++)
         {
             if (m_content.Count > i)
             {
-                GameObject obj = m_content[i];
-                RectTransform rt = obj.GetComponent<RectTransform>();
-                NationPicker np = obj.GetComponent<NationPicker>();
+                var obj = m_content[i];
+                var rt = obj.GetComponent<RectTransform>();
+                var np = obj.GetComponent<NationPicker>();
                 np.Initialize();
                 np.SetTeamplay(m_teamplay);
 
@@ -658,9 +660,9 @@ public class GenerationManager : MonoBehaviour
             }
             else
             {
-                GameObject cnt = GameObject.Instantiate(NationPicker);
-                RectTransform rt = cnt.GetComponent<RectTransform>();
-                NationPicker np = cnt.GetComponent<NationPicker>();
+                var cnt = GameObject.Instantiate(NationPicker);
+                var rt = cnt.GetComponent<RectTransform>();
+                var np = cnt.GetComponent<NationPicker>();
                 np.Initialize();
                 np.SetTeamplay(m_teamplay);
 
@@ -676,19 +678,19 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    void load_nation_data()
+    private void load_nation_data()
     {
-        string data_folder = Application.dataPath;
-        string folder = data_folder + "/Nations/";
+        var data_folder = Application.dataPath;
+        var folder = data_folder + "/Nations/";
 
-        foreach (string file in Directory.GetFiles(folder))
+        foreach (var file in Directory.GetFiles(folder))
         {
             if (file.Contains(".meta"))
             {
                 continue;
             }
 
-            string contents = File.ReadAllText(file);
+            var contents = File.ReadAllText(file);
             var serializer = new XmlSerializer(typeof(NationCollection));
             NationCollection result;
 
@@ -701,27 +703,27 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    void load_layouts()
+    private void load_layouts()
     {
         m_layouts = new NodeLayoutCollection();
 
-        string data_folder = Application.dataPath;
-        string folder = data_folder + "/Layouts/";
+        var data_folder = Application.dataPath;
+        var folder = data_folder + "/Layouts/";
 
-        foreach (string file in Directory.GetFiles(folder))
+        foreach (var file in Directory.GetFiles(folder))
         {
             if (file.Contains(".meta"))
             {
                 continue;
             }
 
-            string contents = File.ReadAllText(file);
+            var contents = File.ReadAllText(file);
             var serializer = new XmlSerializer(typeof(NodeLayoutCollection));
             NodeLayoutCollection result;
 
             using (TextReader reader = new StringReader(contents))
             {
-                result = (NodeLayoutCollection) serializer.Deserialize(reader);
+                result = (NodeLayoutCollection)serializer.Deserialize(reader);
             }
 
             m_layouts.Add(result);

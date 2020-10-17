@@ -34,7 +34,7 @@ public static class TGAEncode
         (byte)'L',
         (byte)'E',
         (byte)'.',
-        0 
+        0
     };
 
     /// <summary>
@@ -49,23 +49,23 @@ public static class TGAEncode
                 Channel.R,
                 Channel.G,
                 Channel.B
-                //Channel.A   // we don't need an alpha channel
+                // Channel.A  
             };
         }
 
-        int num_channels = channels.Length;
+        var num_channels = channels.Length;
 
         if (num_channels != 3 && num_channels != 4)
         {
             throw new UnityException("Can only save TGA with 3 or 4 channels");
         }
 
-        Color32[] pixels = texture.GetPixels32();
-        byte[] header_bytes = CreateTGAHeader(texture.width, texture.height, num_channels == 4);
-        byte[] tga_bytes = new byte[header_bytes.Length + TGA_FOOTER.Length + pixels.Length * num_channels];
-        int cur_byte = header_bytes.Length;
+        var pixels = texture.GetPixels32();
+        var header_bytes = CreateTGAHeader(texture.width, texture.height, num_channels == 4);
+        var tga_bytes = new byte[header_bytes.Length + TGA_FOOTER.Length + pixels.Length * num_channels];
+        var cur_byte = header_bytes.Length;
 
-        foreach (Color32 pixel in pixels)
+        foreach (var pixel in pixels)
         {
             // RGBA textures are stored as BGRA internally
             tga_bytes[cur_byte + 0] = GetChannel(pixel, channels[2]);         // B

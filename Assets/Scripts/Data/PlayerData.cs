@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-public class PlayerData
+﻿public class PlayerData
 {
     public NationData NationData
     {

@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Behaviour class for the pink map border.
-/// Has a global singleton.
 /// </summary>
-public class MapBorder: MonoBehaviour
+public class MapBorder : MonoBehaviour
 {
     public static MapBorder s_map_border;
 
@@ -35,14 +33,13 @@ public class MapBorder: MonoBehaviour
         mins.z = -3.9f;
         maxs.z = -3.9f;
 
-        List<Vector3> pts = new List<Vector3>();
+        var pts = new List<Vector3>();
         pts.Add(mins);
         pts.Add(new Vector3(mins.x, maxs.y, maxs.z));
         pts.Add(maxs);
         pts.Add(new Vector3(maxs.x, mins.y, mins.z));
-        //pts.Add(mins);
 
-        LineRenderer rend = GetComponent<LineRenderer>();
+        var rend = GetComponent<LineRenderer>();
         rend.SetPositions(pts.ToArray());
     }
 }

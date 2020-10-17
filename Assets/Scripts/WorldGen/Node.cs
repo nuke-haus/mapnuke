@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ using UnityEngine;
 /// Keeps track of adjacencies, connections and other relevant data.
 /// </summary>
 public class Node
-{ 
+{
     public PlayerData Nation
     {
         get;
@@ -89,9 +88,9 @@ public class Node
     {
         get
         {
-            List<Node> result = new List<Node>();
+            var result = new List<Node>();
 
-            foreach (Connection c in Connections)
+            foreach (var c in Connections)
             {
                 if (c.Node1 == this)
                 {
@@ -116,7 +115,7 @@ public class Node
                 return false;
             }
 
-            foreach (Connection c in Connections)
+            foreach (var c in Connections)
             {
                 if (c.ConnectionType != ConnectionType.STANDARD)
                 {
@@ -137,10 +136,10 @@ public class Node
                 return false;
             }
 
-            int bad = 0;
-            int good = 0;
+            var bad = 0;
+            var good = 0;
 
-            foreach (Connection c in Connections)
+            foreach (var c in Connections)
             {
                 if (c.ConnectionType == ConnectionType.STANDARD)
                 {
@@ -160,9 +159,9 @@ public class Node
     {
         get
         {
-            int num = 0;
+            var num = 0;
 
-            foreach (Connection c in Connections)
+            foreach (var c in Connections)
             {
                 if (c.ConnectionType == ConnectionType.STANDARD)
                 {
@@ -213,9 +212,9 @@ public class Node
 
     public List<Node> GetConnectedProvincesOfType(Terrain t, bool recursive = false)
     {
-        List<Node> nodes = new List<Node>();
+        var nodes = new List<Node>();
 
-        foreach (Node n in ConnectedNodes)
+        foreach (var n in ConnectedNodes)
         {
             if (n.ProvinceData.Terrain.IsFlagSet(t))
             {

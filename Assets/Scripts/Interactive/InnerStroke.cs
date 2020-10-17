@@ -1,27 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class InnerStroke: MonoBehaviour
+public class InnerStroke : MonoBehaviour
 {
     public Material RiverShore;
     public Material SeaShore;
 
     public Material RiverShoreWinter;
     public Material SeaShoreWinter;
-
-    bool m_is_sea = false;
+    private bool m_is_sea = false;
 
     /// <summary>
     /// Method used for water provinces
     /// </summary>
     public void DrawStroke(List<Vector3> pts, Vector3 offset, bool is_sea = true, float min = 0.1f, float max = 0.2f)
     {
-        List<Vector3> offset_pts = new List<Vector3>();
-        LineRenderer rend = GetComponent<LineRenderer>();
-       
-        foreach (Vector3 p in pts)
+        var offset_pts = new List<Vector3>();
+        var rend = GetComponent<LineRenderer>();
+
+        foreach (var p in pts)
         {
             offset_pts.Add(p + offset);
         }
@@ -29,14 +27,14 @@ public class InnerStroke: MonoBehaviour
         rend.positionCount = pts.Count;
         rend.SetPositions(offset_pts.ToArray());
 
-        AnimationCurve jitter = new AnimationCurve();
-        int num_keys = UnityEngine.Random.Range(2, 6); 
-        List<float> floats = new List<float>();
+        var jitter = new AnimationCurve();
+        var num_keys = UnityEngine.Random.Range(2, 6);
+        var floats = new List<float>();
 
-        for (int i = 0; i < num_keys; i++)
+        for (var i = 0; i < num_keys; i++)
         {
-            float rand = UnityEngine.Random.Range(0f, 1f);
-            int ct = 0;
+            var rand = UnityEngine.Random.Range(0f, 1f);
+            var ct = 0;
 
             while (floats.Any(x => Mathf.Abs(rand - x) < 0.1f) && ct < 10)
             {
@@ -58,7 +56,7 @@ public class InnerStroke: MonoBehaviour
 
     public void SetSeason(Season s)
     {
-        LineRenderer rend = GetComponent<LineRenderer>();
+        var rend = GetComponent<LineRenderer>();
 
         if (s == Season.SUMMER)
         {

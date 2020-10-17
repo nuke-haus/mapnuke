@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CaptureCam: MonoBehaviour
+public class CaptureCam : MonoBehaviour
 {
     public static CaptureCam s_capture_cam;
 
@@ -11,7 +9,7 @@ public class CaptureCam: MonoBehaviour
         var campos = CaptureCam.s_capture_cam.transform.position;
         var camera_h = CaptureCam.s_capture_cam.Camera.orthographicSize * 2;
         var camera_w = CaptureCam.s_capture_cam.Camera.aspect * camera_h;
-        Bounds cam_bounds = new Bounds(campos + offset, new Vector3(camera_w, camera_h));
+        var cam_bounds = new Bounds(campos + offset, new Vector3(camera_w, camera_h));
 
         return cam_bounds;
     }
@@ -24,10 +22,10 @@ public class CaptureCam: MonoBehaviour
         }
     }
 
-    Camera m_cam;
-    bool m_defer_render = false;
+    private Camera m_cam;
+    private bool m_defer_render = false;
 
-    void Awake()
+    private void Awake()
     {
         s_capture_cam = this;
 
@@ -35,8 +33,8 @@ public class CaptureCam: MonoBehaviour
         m_cam.enabled = false;
     }
 
-    void Update()
-    { 
+    private void Update()
+    {
         if (m_defer_render)
         {
             m_cam.Render();

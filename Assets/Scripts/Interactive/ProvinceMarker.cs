@@ -7,7 +7,7 @@ using UnityEngine;
 /// The behaviour class for provinces.
 /// This class handles creation of province polygons and manages behaviour of the province's unity objects.
 /// </summary>
-public class ProvinceMarker: MonoBehaviour
+public class ProvinceMarker : MonoBehaviour
 {
     public Material MatSwamp;
     public Material MatForest;
@@ -44,21 +44,21 @@ public class ProvinceMarker: MonoBehaviour
     public SpriteGroup sprite_group;
 
     public List<TextMesh> TextOutlines;
-    ProvinceWidget m_widget;
-    List<ProvinceWrapMarker> m_wraps;
-    Node m_node;
-    List<ProvinceMarker> m_linked;
-    Vector3 m_dummy_offset = Vector3.zero;
-    Vector3 m_poly_center = Vector3.zero;
-    List<Vector3> m_poly;
-    List<Vector3> m_sprite_points;
-    List<ConnectionMarker> m_connections;
-    Dictionary<Terrain, Color> m_colors;
-    bool m_selected = false;
-    bool m_is_dummy = false;
-    float m_scale = 1.0f;
-    float m_center_size = 9000f;
-    bool m_needs_regen = false;
+    private ProvinceWidget m_widget;
+    private List<ProvinceWrapMarker> m_wraps;
+    private Node m_node;
+    private List<ProvinceMarker> m_linked;
+    private Vector3 m_dummy_offset = Vector3.zero;
+    private Vector3 m_poly_center = Vector3.zero;
+    private List<Vector3> m_poly;
+    private List<Vector3> m_sprite_points;
+    private List<ConnectionMarker> m_connections;
+    private Dictionary<Terrain, Color> m_colors;
+    private bool m_selected = false;
+    private bool m_is_dummy = false;
+    private float m_scale = 1.0f;
+    private float m_center_size = 9000f;
+    private bool m_needs_regen = false;
 
     public bool NeedsRegen
     {
@@ -120,9 +120,9 @@ public class ProvinceMarker: MonoBehaviour
     {
         get
         {
-            List<ProvinceMarker> provs = new List<ProvinceMarker>();
+            var provs = new List<ProvinceMarker>();
 
-            foreach (ConnectionMarker m in m_connections)
+            foreach (var m in m_connections)
             {
                 if (m.Prov1 != this && !provs.Contains(m.Prov1))
                 {
@@ -143,21 +143,21 @@ public class ProvinceMarker: MonoBehaviour
     {
         get
         {
-            List<ConnectionMarker> result = new List<ConnectionMarker>();
-            List<ConnectionMarker> temp = new List<ConnectionMarker>();
+            var result = new List<ConnectionMarker>();
+            var temp = new List<ConnectionMarker>();
             temp.AddRange(m_connections.Where(x => x.TouchingProvince(this)));
-            temp = temp.OrderBy(x => Vector3.Distance(x.transform.position, this.transform.position)).ToList();
+            temp = temp.OrderBy(x => Vector3.Distance(x.transform.position, transform.position)).ToList();
 
-            ConnectionMarker start = temp[0];
+            var start = temp[0];
             temp.Remove(start);
             result.Add(start);
 
             while (temp.Any())
             {
                 ConnectionMarker close = null;
-                float dist = 9000f;
+                var dist = 9000f;
 
-                foreach (ConnectionMarker m in temp)
+                foreach (var m in temp)
                 {
                     if (close == null || m.Connection.DistanceTo(start.Connection) < dist)
                     {
@@ -203,17 +203,17 @@ public class ProvinceMarker: MonoBehaviour
         {
             if (on)
             {
-                Vector3 pos = Text.gameObject.transform.localPosition;
+                var pos = Text.gameObject.transform.localPosition;
                 pos.y = 0f;
 
                 Text.gameObject.transform.localPosition = pos;
                 Text.fontSize = 44;
                 Text.gameObject.layer = 9;
 
-                float add_x = -0.01f;
-                float add_y = -0.01f;
+                var add_x = -0.01f;
+                var add_y = -0.01f;
 
-                foreach (TextMesh m in TextOutlines)
+                foreach (var m in TextOutlines)
                 {
                     pos = m.gameObject.transform.localPosition;
                     pos.y = add_y;
@@ -233,17 +233,17 @@ public class ProvinceMarker: MonoBehaviour
             }
             else
             {
-                Vector3 pos = Text.gameObject.transform.localPosition;
+                var pos = Text.gameObject.transform.localPosition;
                 pos.y = 0.16f;
 
                 Text.gameObject.transform.localPosition = pos;
                 Text.fontSize = 34;
                 Text.gameObject.layer = 8;
 
-                float add_x = -0.01f;
-                float add_y = -0.01f;
+                var add_x = -0.01f;
+                var add_y = -0.01f;
 
-                foreach (TextMesh m in TextOutlines)
+                foreach (var m in TextOutlines)
                 {
                     pos = m.gameObject.transform.localPosition;
                     pos.y = 0.16f + add_y;
@@ -268,18 +268,18 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (m_colors == null)
         {
-            Dictionary<Terrain, Color> dict = new Dictionary<Terrain, Color>();
-            dict.Add(Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f));
-            dict.Add(Terrain.SEA, new Color(0.4f, 0.6f, 0.9f));
-            dict.Add(Terrain.FARM, new Color(0.9f, 0.8f, 0.2f));
-            dict.Add(Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f));
-            dict.Add(Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f));
-            dict.Add(Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f));
-            dict.Add(Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f));
-            dict.Add(Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f));
-            dict.Add(Terrain.CAVE, new Color(0.1f, 0.4f, 0.5f));
-
-            m_colors = dict;
+            m_colors = new Dictionary<Terrain, Color>
+            {
+                { Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f) },
+                { Terrain.SEA, new Color(0.4f, 0.6f, 0.9f) },
+                { Terrain.FARM, new Color(0.9f, 0.8f, 0.2f) },
+                { Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f) },
+                { Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f) },
+                { Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f) },
+                { Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f) },
+                { Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f) },
+                { Terrain.CAVE, new Color(0.1f, 0.4f, 0.5f) }
+            };
         }
 
         m_node = n;
@@ -303,13 +303,13 @@ public class ProvinceMarker: MonoBehaviour
         {
             Text.gameObject.SetActive(true);
             Text.text = m_node.Nation.NationData.Name;
-            Text.color = new Color(1.0f, 0.5f, 1.0f); 
+            Text.color = new Color(1.0f, 0.5f, 1.0f);
         }
         else if (m_node.ProvinceData.IsThrone)
         {
             Text.gameObject.SetActive(true);
             Text.text = "Throne";
-            Text.color = new Color(1.0f, 0.3f, 0.3f); 
+            Text.color = new Color(1.0f, 0.3f, 0.3f);
         }
         else
         {
@@ -317,7 +317,7 @@ public class ProvinceMarker: MonoBehaviour
             Text.text = string.Empty;
         }
 
-        foreach (TextMesh m in TextOutlines)
+        foreach (var m in TextOutlines)
         {
             if (Text.text == string.Empty)
             {
@@ -349,9 +349,9 @@ public class ProvinceMarker: MonoBehaviour
             return;
         }
 
-        foreach (ConnectionMarker m in m_connections)
+        foreach (var m in m_connections)
         {
-            Vector3 center = get_weighted_center(m.Endpoint1, m.Endpoint2, m.Prov1.Node, m.Prov2.Node);
+            var center = get_weighted_center(m.Endpoint1, m.Endpoint2, m.Prov1.Node, m.Prov2.Node);
             m.gameObject.transform.position = center;
         }
     }
@@ -360,7 +360,7 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (!IsDummy && LinkedProvinces != null && LinkedProvinces.Any())
         {
-            foreach (ProvinceMarker pm in LinkedProvinces)
+            foreach (var pm in LinkedProvinces)
             {
                 pm.UpdateColor();
             }
@@ -371,7 +371,7 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (Node.ProvinceData.Terrain.IsFlagSet(Terrain.SEA))
         {
-            foreach (ConnectionMarker c in m_connections)
+            foreach (var c in m_connections)
             {
                 if (c.Connection.ConnectionType != ConnectionType.STANDARD)
                 {
@@ -405,12 +405,12 @@ public class ProvinceMarker: MonoBehaviour
         m_widget.SetNode(m_node);
     }
 
-    Vector3 get_weighted_center(Vector3 p1, Vector3 p2, Node n1, Node n2)
+    private Vector3 get_weighted_center(Vector3 p1, Vector3 p2, Node n1, Node n2)
     {
-        Vector3 dir1 = (p1 - p2).normalized;
-        Vector3 dir2 = (p2 - p1).normalized;
-        Vector3 center = (p1 + p2) / 2;
-        float dist = Vector3.Distance(center, p1);
+        var dir1 = (p1 - p2).normalized;
+        var dir2 = (p2 - p1).normalized;
+        var center = (p1 + p2) / 2;
+        var dist = Vector3.Distance(center, p1);
 
         if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n1.Connections.Count == 4)
         {
@@ -433,11 +433,11 @@ public class ProvinceMarker: MonoBehaviour
         return center;
     }
 
-    Color get_node_color(Node n)
+    private Color get_node_color(Node n)
     {
-        Terrain t = n.ProvinceData.Terrain;
+        var t = n.ProvinceData.Terrain;
 
-        foreach (KeyValuePair<Terrain, Color> pair in m_colors)
+        foreach (var pair in m_colors)
         {
             if (t.IsFlagSet(pair.Key))
             {
@@ -453,7 +453,7 @@ public class ProvinceMarker: MonoBehaviour
         m_widget = w;
     }
 
-    void Update()
+    private void Update()
     {
         if (m_selected)
         {
@@ -463,7 +463,7 @@ public class ProvinceMarker: MonoBehaviour
         }
     }
 
-    void OnMouseOver()
+    private void OnMouseOver()
     {
         if (m_is_dummy)
         {
@@ -494,7 +494,7 @@ public class ProvinceMarker: MonoBehaviour
         }
         else
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 if (m != null)
                 {
@@ -506,23 +506,23 @@ public class ProvinceMarker: MonoBehaviour
         }
     }
 
-    List<GameObject> create_connection_wraps(ProvinceMarker pm, Vector3 offset)
+    private List<GameObject> create_connection_wraps(ProvinceMarker pm, Vector3 offset)
     {
-        List<GameObject> objs = new List<GameObject>();
+        var objs = new List<GameObject>();
 
         if (IsDummy)
         {
             return objs;
         }
 
-        foreach (ConnectionMarker m in pm.Connections)
+        foreach (var m in pm.Connections)
         {
-            GameObject obj = m.CreateWrapMesh(m.PolyBorder, offset);
+            var obj = m.CreateWrapMesh(m.PolyBorder, offset);
 
             if (obj != null)
             {
                 objs.Add(obj);
-            } 
+            }
         }
 
         return objs;
@@ -540,16 +540,16 @@ public class ProvinceMarker: MonoBehaviour
             m_wraps = new List<ProvinceWrapMarker>();
         }
 
-        List<GameObject> objs = new List<GameObject>();
+        var objs = new List<GameObject>();
 
         if (LinkedProvinces == null || !LinkedProvinces.Any()) // case for standard provinces
         {
             if (ConnectedProvinces.Any(x => x.IsDummy))
             {
-                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy);
-                List<Vector3> offsets = new List<Vector3>();
+                var mars = ConnectedProvinces.Where(x => x.IsDummy);
+                var offsets = new List<Vector3>();
 
-                foreach (ProvinceMarker pm in mars)
+                foreach (var pm in mars)
                 {
                     if (offsets.Any(x => Vector3.Distance(x, pm.DummyOffset) < 0.01f))
                     {
@@ -558,8 +558,8 @@ public class ProvinceMarker: MonoBehaviour
 
                     offsets.Add(pm.DummyOffset);
 
-                    GameObject obj = GameObject.Instantiate(WrapMarkerPrefab);
-                    ProvinceWrapMarker wrap = obj.GetComponent<ProvinceWrapMarker>();
+                    var obj = GameObject.Instantiate(WrapMarkerPrefab);
+                    var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
                     wrap.SetParent(this);
                     wrap.SetNode(m_node);
@@ -574,12 +574,12 @@ public class ProvinceMarker: MonoBehaviour
         }
         else // case for provinces with linked dummy nodes
         {
-            List<ProvinceMarker> ignore = new List<ProvinceMarker>();
+            var ignore = new List<ProvinceMarker>();
 
-            foreach (ProvinceMarker pm in LinkedProvinces)
+            foreach (var pm in LinkedProvinces)
             {
-                GameObject obj = GameObject.Instantiate(WrapMarkerPrefab);
-                ProvinceWrapMarker wrap = obj.GetComponent<ProvinceWrapMarker>();
+                var obj = GameObject.Instantiate(WrapMarkerPrefab);
+                var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
                 wrap.SetParent(this);
                 wrap.SetNode(m_node);
@@ -599,17 +599,17 @@ public class ProvinceMarker: MonoBehaviour
 
             if (ConnectedProvinces.Any(x => x.IsDummy && !ignore.Contains(x)))
             {
-                List<ProvinceMarker> mars = ConnectedProvinces.Where(x => x.IsDummy && !ignore.Contains(x));
+                var mars = ConnectedProvinces.Where(x => x.IsDummy && !ignore.Contains(x));
 
-                foreach (ProvinceMarker pm in mars)
+                foreach (var pm in mars)
                 {
                     if (pm.DummyOffset.x > 0f && pm.DummyOffset.y > 0f && mars.Count > 1)
                     {
                         continue;
                     }
 
-                    GameObject obj = GameObject.Instantiate(WrapMarkerPrefab);
-                    ProvinceWrapMarker wrap = obj.GetComponent<ProvinceWrapMarker>();
+                    var obj = GameObject.Instantiate(WrapMarkerPrefab);
+                    var wrap = obj.GetComponent<ProvinceWrapMarker>();
 
                     wrap.SetParent(this);
                     wrap.SetNode(m_node);
@@ -629,20 +629,20 @@ public class ProvinceMarker: MonoBehaviour
     public void RecalculatePoly()
     {
         m_poly = new List<Vector3>();
- 
+
         if (IsDummy)
         {
             return;
         }
 
-        List<PolyBorder> borders = new List<PolyBorder>();
+        var borders = new List<PolyBorder>();
 
-        List<ConnectionMarker> conns = new List<ConnectionMarker>();
+        var conns = new List<ConnectionMarker>();
         conns.AddRange(m_connections);
 
         if (m_linked != null)
         {
-            foreach (ProvinceMarker pm in m_linked)
+            foreach (var pm in m_linked)
             {
                 conns.AddRange(pm.Connections);
             }
@@ -650,14 +650,14 @@ public class ProvinceMarker: MonoBehaviour
 
         if (Node.X == 0 && Node.Y == 0) // corner case
         {
-            foreach (ConnectionMarker cm in Connections) // main connections
+            foreach (var cm in Connections) // main connections
             {
                 borders.Add(cm.PolyBorder);
             }
 
-            foreach (ProvinceMarker pm in LinkedProvinces) // grab all children connections
+            foreach (var pm in LinkedProvinces) // grab all children connections
             {
-                foreach (ConnectionMarker cm in pm.Connections) 
+                foreach (var cm in pm.Connections)
                 {
                     borders.Add(cm.GetOffsetBorder(-cm.DummyOffset));
                 }
@@ -665,7 +665,7 @@ public class ProvinceMarker: MonoBehaviour
         }
         else // bot side or left side case
         {
-            foreach (ConnectionMarker cm in conns)
+            foreach (var cm in conns)
             {
                 if (cm.IsEdge && (Node.X == 0 || Node.Y == 0) && Vector3.Distance(cm.Midpoint, transform.position) > 3f)
                 {
@@ -679,9 +679,9 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         m_needs_regen = false;
-        Vector3 cur = borders[0].P2;
+        var cur = borders[0].P2;
         PolyBorder b = null;
-        List<PolyBorder> result = new List<PolyBorder>();
+        var result = new List<PolyBorder>();
 
         while (borders.Any())
         {
@@ -698,7 +698,7 @@ public class ProvinceMarker: MonoBehaviour
                     break;
                 }
 
-                PolyBorder rev = b.Reversed();
+                var rev = b.Reversed();
 
                 result.Add(rev);
                 borders.Remove(b);
@@ -717,13 +717,13 @@ public class ProvinceMarker: MonoBehaviour
             }
         }
 
-        Vector3 avg = Vector3.zero;
-        List<Vector3> simplified = new List<Vector3>();
+        var avg = Vector3.zero;
+        var simplified = new List<Vector3>();
 
-        foreach (PolyBorder pb in result)
+        foreach (var pb in result)
         {
-            int mid1 = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.33f);
-            int mid2 = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.66f);
+            var mid1 = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.33f);
+            var mid2 = Mathf.RoundToInt(pb.OrderedPoints.Count * 0.66f);
 
             m_poly.AddRange(pb.GetFullLengthBorderMinusEnd());
             avg += pb.P1;
@@ -734,12 +734,12 @@ public class ProvinceMarker: MonoBehaviour
             simplified.Add(pb.OrderedPoints[mid2]);
         }
 
-        Vector3 closest = new Vector3(9000, 9000);
+        var closest = new Vector3(9000, 9000);
         avg /= (result.Count * 3);
         avg -= new Vector3(0f, 0.2f); // shift the center down slightly for aesthetics
         simplified = simplified.OrderBy(x => Mathf.Abs(avg.y - x.y)).ToList();
 
-        foreach (Vector3 p in simplified) // calculate the distance to left
+        foreach (var p in simplified) // calculate the distance to left
         {
             if (p.x < avg.x)
             {
@@ -748,7 +748,7 @@ public class ProvinceMarker: MonoBehaviour
             }
         }
 
-        foreach (Vector3 p in simplified) // calculate the distance to right
+        foreach (var p in simplified) // calculate the distance to right
         {
             if (p.x > avg.x)
             {
@@ -768,17 +768,17 @@ public class ProvinceMarker: MonoBehaviour
             return;
         }
 
-        Triangulator tr = new Triangulator(get_pts_array(m_poly));
-        int[] indices = tr.Triangulate();
+        var tr = new Triangulator(get_pts_array(m_poly));
+        var indices = tr.Triangulate();
 
-        Vector2[] uv = new Vector2[m_poly.Count];
+        var uv = new Vector2[m_poly.Count];
 
-        for (int i = 0; i < m_poly.Count; i++)
+        for (var i = 0; i < m_poly.Count; i++)
         {
             uv[i] = new Vector2(m_poly[i].x, m_poly[i].y);
         }
 
-        Mesh m = new Mesh();
+        var m = new Mesh();
         m.vertices = m_poly.ToArray();
         m.uv = uv;
         m.triangles = indices;
@@ -786,10 +786,10 @@ public class ProvinceMarker: MonoBehaviour
         m.RecalculateNormals();
         m.RecalculateBounds();
 
-        Vector3[] norms = m.normals;
-        bool valid = validate_solid(transform.position);
+        var norms = m.normals;
+        var valid = validate_solid(transform.position);
 
-        for (int i = 0; i < norms.Length - 1; i++)
+        for (var i = 0; i < norms.Length - 1; i++)
         {
             if (valid)
             {
@@ -806,7 +806,7 @@ public class ProvinceMarker: MonoBehaviour
         MeshFilter.mesh = m;
         MeshCollider.sharedMesh = m;
         MeshObj.transform.localPosition = transform.position * -1f;
-        
+
         assign_mat(GenerationManager.s_generation_manager.Season);
     }
 
@@ -814,7 +814,7 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (m_wraps != null)
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 m.ClearSprites();
             }
@@ -829,20 +829,20 @@ public class ProvinceMarker: MonoBehaviour
 
         if (m_wraps != null)
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 m.PlaceSprites();
             }
         }
 
-        MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         if (!set.MapSprites.Any())
         {
             return new List<SpriteMarker>();
         }
 
-        List<ProvinceSprite> shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain));
+        var shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain));
 
         if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) && !m_node.ProvinceData.IsWater)
         {
@@ -850,15 +850,15 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         shuffled.Shuffle();
-        List<ProvinceSprite> centers = shuffled.OrderBy(x => 9000f - x.Size).ToList();
+        var centers = shuffled.OrderBy(x => 9000f - x.Size).ToList();
 
         if (centers.Any() && !IsDummy) // certain provinces have a centerpiece so place that first
         {
-            foreach (ProvinceSprite ps in centers)
+            foreach (var ps in centers)
             {
                 if (ps.Size < m_center_size)
                 {
-                    Vector3 pos = m_poly_center;
+                    var pos = m_poly_center;
                     m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f));
                     pos.z = -3;
                     sprite_group.PlaceSprite(ps, pos);
@@ -869,9 +869,9 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         set.MapSprites.Shuffle();
-        List<ProvinceSprite> sprites = new List<ProvinceSprite>();
+        var sprites = new List<ProvinceSprite>();
 
-        foreach (ProvinceSprite ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
+        foreach (var ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
             if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !m_sprite_points.Any())
             {
@@ -885,8 +885,8 @@ public class ProvinceMarker: MonoBehaviour
             return new List<SpriteMarker>();
         }
         {
-            List<NativeObjectPlacer.Item> sprite_items = new List<NativeObjectPlacer.Item>();
-            List<float> sprite_size = new List<float>();
+            var sprite_items = new List<NativeObjectPlacer.Item>();
+            var sprite_size = new List<float>();
             foreach (var s in sprites)
             {
                 sprite_items.Add(new NativeObjectPlacer.Item
@@ -896,19 +896,19 @@ public class ProvinceMarker: MonoBehaviour
                     extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
                 });
             }
-            List<Vector3> already_placed = new List<Vector3>();
+            var already_placed = new List<Vector3>();
             already_placed.AddRange(sprite_group.SpritePos());
-            List<int> objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
-            for (int i = 0; i < objs.Count; ++i)
+            var objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
+            for (var i = 0; i < objs.Count; ++i)
             {
                 sprite_group.PlaceSprite(sprites[objs[i]], m_sprite_points[i]);
             }
             m_sprite_points.Clear();
         }
 
-        List<SpriteMarker> all = new List<SpriteMarker>();
+        var all = new List<SpriteMarker>();
 
-        foreach (ProvinceWrapMarker m in m_wraps)
+        foreach (var m in m_wraps)
         {
             all.AddRange(m.PlaceSprites());
         }
@@ -918,9 +918,9 @@ public class ProvinceMarker: MonoBehaviour
         return all;
     }
 
-    Vector3 get_valid_position()
+    private Vector3 get_valid_position()
     {
-        foreach (Vector3 v in m_sprite_points)
+        foreach (var v in m_sprite_points)
         {
             if (!m_poly.Any(y => Vector3.Distance(new Vector3(v.x, v.y, 0f), y) < 0.38f))
             {
@@ -935,7 +935,7 @@ public class ProvinceMarker: MonoBehaviour
     {
         if (m_wraps != null)
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 m.CalculateSpritePoints();
                 if (Util.ShouldYield()) yield return null;
@@ -943,11 +943,11 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         m_sprite_points = new List<Vector3>();
-        Vector3 mins = get_mins();
-        Vector3 maxs = get_maxs();
-        Vector3 cur = new Vector3(mins.x, mins.y);
-        List<ConnectionMarker> roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER);
-        MapSpriteSet set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+        var mins = get_mins();
+        var maxs = get_maxs();
+        var cur = new Vector3(mins.x, mins.y);
+        var roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER);
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         while (cur.x < maxs.x)
         {
@@ -970,15 +970,15 @@ public class ProvinceMarker: MonoBehaviour
         }
 
         NativeCullNearby.Invoke(m_sprite_points, GetCullPoints(roads_rivers), set.ProvinceEdgeThreshold);
-        for (int i = 0; i < m_sprite_points.Count; ++i) m_sprite_points[i] += new Vector3(0, 0, -10);
+        for (var i = 0; i < m_sprite_points.Count; ++i) m_sprite_points[i] += new Vector3(0, 0, -10);
 
         m_sprite_points.Shuffle();
-        List<Vector3> result = new List<Vector3>();
+        var result = new List<Vector3>();
 
-        float cull = ArtManager.s_art_manager.SpriteSetCollection.GetCullChance(m_node.ProvinceData.Terrain);
-        int cullcount = Mathf.RoundToInt((1.0f - cull) * m_sprite_points.Count);
+        var cull = ArtManager.s_art_manager.SpriteSetCollection.GetCullChance(m_node.ProvinceData.Terrain);
+        var cullcount = Mathf.RoundToInt((1.0f - cull) * m_sprite_points.Count);
 
-        for (int i = 0; i < cullcount; i++)
+        for (var i = 0; i < cullcount; i++)
         {
             result.Add(m_sprite_points[i]);
         }
@@ -986,18 +986,18 @@ public class ProvinceMarker: MonoBehaviour
         m_sprite_points = result;
     }
 
-    List<Vector3> GetCullPoints(List<ConnectionMarker> roads_rivers)
+    private List<Vector3> GetCullPoints(List<ConnectionMarker> roads_rivers)
     {
-        List<Vector3> pts = new List<Vector3>();
+        var pts = new List<Vector3>();
         pts.AddRange(m_poly);
-        foreach (ConnectionMarker m in roads_rivers)
+        foreach (var m in roads_rivers)
         {
             pts.AddRange(m.CullingPoints);
         }
         return pts;
     }
 
-    bool validate_solid(Vector3 pt)
+    private bool validate_solid(Vector3 pt)
     {
         RaycastHit hit;
         pt.z = -900f;
@@ -1013,11 +1013,11 @@ public class ProvinceMarker: MonoBehaviour
         return false;
     }
 
-    Vector3 get_mins()
+    private Vector3 get_mins()
     {
-        Vector3 result = MeshCollider.bounds.min;
+        var result = MeshCollider.bounds.min;
         result.z = 0f;
-        Vector3 mins = MapBorder.s_map_border.Mins;
+        var mins = MapBorder.s_map_border.Mins;
 
         if (result.x < mins.x)
         {
@@ -1032,11 +1032,11 @@ public class ProvinceMarker: MonoBehaviour
         return result;
     }
 
-    Vector3 get_maxs()
+    private Vector3 get_maxs()
     {
-        Vector3 result = MeshCollider.bounds.max;
+        var result = MeshCollider.bounds.max;
         result.z = 0f;
-        Vector3 maxs = MapBorder.s_map_border.Maxs;
+        var maxs = MapBorder.s_map_border.Maxs;
 
         if (result.x > maxs.x)
         {
@@ -1057,14 +1057,14 @@ public class ProvinceMarker: MonoBehaviour
 
         if (m_wraps != null)
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 m.SetSeason(s);
             }
         }
     }
 
-    void assign_mat(Season s = Season.SUMMER)
+    private void assign_mat(Season s = Season.SUMMER)
     {
         sprite_group.SetSeason(s);
         if (s == Season.SUMMER)
@@ -1158,18 +1158,18 @@ public class ProvinceMarker: MonoBehaviour
 
         if (m_wraps != null)
         {
-            foreach (ProvinceWrapMarker m in m_wraps)
+            foreach (var m in m_wraps)
             {
                 m.UpdateMaterial();
             }
         }
     }
 
-    Vector2[] get_pts_array(List<Vector3> list)
+    private Vector2[] get_pts_array(List<Vector3> list)
     {
-        List<Vector2> vecs = new List<Vector2>();
+        var vecs = new List<Vector2>();
 
-        foreach (Vector3 vec in list)
+        foreach (var vec in list)
         {
             vecs.Add(new Vector2(vec.x, vec.y));
         }

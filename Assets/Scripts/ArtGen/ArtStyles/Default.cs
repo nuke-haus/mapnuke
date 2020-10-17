@@ -22,9 +22,9 @@ public abstract class ArtStyle
 /// </summary>
 public class DefaultArtStyle : ArtStyle
 {
-    List<ProvinceMarker> m_all_provs;
-    List<ConnectionMarker> m_all_conns;
-    List<SpriteMarker> m_all_sprites;
+    private List<ProvinceMarker> m_all_provs;
+    private List<ConnectionMarker> m_all_conns;
+    private List<SpriteMarker> m_all_sprites;
 
     public override string GetName()
     {
@@ -33,10 +33,10 @@ public class DefaultArtStyle : ArtStyle
 
     public override void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
-        List<GameObject> result = new List<GameObject>();
-        List<ConnectionMarker> linked = new List<ConnectionMarker>();
+        var result = new List<GameObject>();
+        var linked = new List<ConnectionMarker>();
 
-        foreach (ConnectionMarker m in conns)
+        foreach (var m in conns)
         {
             if (m.LinkedConnection != null)
             {
@@ -46,26 +46,26 @@ public class DefaultArtStyle : ArtStyle
 
         conns.AddRange(linked);
 
-        foreach (ConnectionMarker m in m_all_conns)
+        foreach (var m in m_all_conns)
         {
             m.ClearTriangles();
         }
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
             pm.UpdateConnections();
         }
 
-        calc_triangles(m_all_conns, layout);
+        calc_triangles(m_all_conns);
 
-        foreach (ConnectionMarker cm in conns)
+        foreach (var cm in conns)
         {
             cm.CreatePolyBorder();
             cm.ClearWrapMeshes();
             cm.RecalculatePoly();
         }
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
             pm.UpdateLabel();
             pm.RecalculatePoly();
@@ -74,16 +74,16 @@ public class DefaultArtStyle : ArtStyle
             result.AddRange(pm.CreateWrapMeshes()); // also create connection wrap meshes
         }
 
-        List<ProvinceMarker> bad = provs.Where(x => x.NeedsRegen).ToList();
-        List<ProvinceMarker> add = new List<ProvinceMarker>();
+        var bad = provs.Where(x => x.NeedsRegen).ToList();
+        var add = new List<ProvinceMarker>();
 
         if (bad.Any())
         {
             Debug.LogError(bad.Count + " provinces have invalid PolyBorders. Regenerating additional provinces.");
 
-            foreach (ProvinceMarker b in bad)
+            foreach (var b in bad)
             {
-                foreach (ProvinceMarker adj in b.ConnectedProvinces)
+                foreach (var adj in b.ConnectedProvinces)
                 {
                     if (provs.Contains(adj))
                     {
@@ -96,7 +96,7 @@ public class DefaultArtStyle : ArtStyle
 
                         if (adj.LinkedProvinces[0].LinkedProvinces.Count > 1)
                         {
-                            foreach (ProvinceMarker link in adj.LinkedProvinces[0].LinkedProvinces) // 3 dummies
+                            foreach (var link in adj.LinkedProvinces[0].LinkedProvinces) // 3 dummies
                             {
                                 add.AddRange(adj.ConnectedProvinces);
                             }
@@ -112,7 +112,7 @@ public class DefaultArtStyle : ArtStyle
 
                         if (adj.LinkedProvinces != null && adj.LinkedProvinces.Any())
                         {
-                            foreach (ProvinceMarker link in adj.LinkedProvinces)
+                            foreach (var link in adj.LinkedProvinces)
                             {
                                 add.AddRange(link.ConnectedProvinces);
                             }
@@ -127,16 +127,16 @@ public class DefaultArtStyle : ArtStyle
 
                 if (b.LinkedProvinces != null && b.LinkedProvinces.Any())
                 {
-                    foreach (ProvinceMarker link in b.LinkedProvinces)
+                    foreach (var link in b.LinkedProvinces)
                     {
                         add.AddRange(link.ConnectedProvinces);
                     }
                 }
             }
 
-            foreach (ProvinceMarker pm in add)
+            foreach (var pm in add)
             {
-                foreach (ConnectionMarker m in pm.Connections)
+                foreach (var m in pm.Connections)
                 {
                     if (!conns.Contains(m) && ((provs.Contains(m.Prov1) || add.Contains(m.Prov1)) && (provs.Contains(m.Prov2) || add.Contains(m.Prov2))))
                     {
@@ -145,14 +145,14 @@ public class DefaultArtStyle : ArtStyle
                 }
             }
 
-            foreach (ConnectionMarker cm in conns)
+            foreach (var cm in conns)
             {
                 cm.CreatePolyBorder();
                 cm.ClearWrapMeshes();
                 cm.RecalculatePoly();
             }
 
-            foreach (ProvinceMarker pm in add)
+            foreach (var pm in add)
             {
                 pm.UpdateLabel();
                 pm.RecalculatePoly();
@@ -161,7 +161,7 @@ public class DefaultArtStyle : ArtStyle
                 result.AddRange(pm.CreateWrapMeshes()); // also create connection wrap meshes
             }
 
-            foreach (ProvinceMarker pm in provs)
+            foreach (var pm in provs)
             {
                 pm.UpdateLabel();
                 pm.RecalculatePoly();
@@ -171,20 +171,20 @@ public class DefaultArtStyle : ArtStyle
             }
         }
 
-        foreach (ConnectionMarker cm in conns)
+        foreach (var cm in conns)
         {
             m_all_sprites.AddRange(cm.PlaceSprites());
         }
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
             foreach (var unused in pm.CalculateSpritePoints()) { }
             m_all_sprites.AddRange(pm.PlaceSprites());
         }
 
-        List<SpriteMarker> all = new List<SpriteMarker>();
+        var all = new List<SpriteMarker>();
 
-        foreach (SpriteMarker m in m_all_sprites)
+        foreach (var m in m_all_sprites)
         {
             if (m != null && m.gameObject != null)
             {
@@ -201,14 +201,14 @@ public class DefaultArtStyle : ArtStyle
 
     public override IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
     {
-        List<GameObject> result = new List<GameObject>();
+        var result = new List<GameObject>();
 
         m_all_conns = conns;
         m_all_provs = provs;
 
-        calc_triangles(conns, layout);
+        calc_triangles(conns);
 
-        foreach (ConnectionMarker cm in conns)
+        foreach (var cm in conns)
         {
             cm.CreatePolyBorder();
             cm.ClearWrapMeshes();
@@ -216,7 +216,7 @@ public class DefaultArtStyle : ArtStyle
             if (Util.ShouldYield()) yield return null;
         }
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
             pm.UpdateLabel();
             pm.RecalculatePoly();
@@ -228,13 +228,13 @@ public class DefaultArtStyle : ArtStyle
 
         m_all_sprites = new List<SpriteMarker>();
 
-        foreach (ConnectionMarker cm in conns)
+        foreach (var cm in conns)
         {
             m_all_sprites.AddRange(cm.PlaceSprites());
             if (Util.ShouldYield()) yield return null;
         }
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
             foreach (var x in pm.CalculateSpritePoints())
             {
@@ -244,7 +244,7 @@ public class DefaultArtStyle : ArtStyle
             if (Util.ShouldYield()) yield return null;
         }
 
-        foreach (SpriteMarker m in m_all_sprites)
+        foreach (var m in m_all_sprites)
         {
             result.Add(m.gameObject);
             if (Util.ShouldYield()) yield return null;
@@ -263,7 +263,7 @@ public class DefaultArtStyle : ArtStyle
 
         JustChangedSeason = false;
 
-        foreach (SpriteMarker m in m_all_sprites)
+        foreach (var m in m_all_sprites)
         {
             if (m != null)
             {
@@ -271,12 +271,12 @@ public class DefaultArtStyle : ArtStyle
             }
         }
 
-        foreach (ProvinceMarker m in m_all_provs)
+        foreach (var m in m_all_provs)
         {
             m.SetSeason(s);
         }
 
-        foreach (ConnectionMarker m in m_all_conns)
+        foreach (var m in m_all_conns)
         {
             m.SetSeason(s);
         }
@@ -289,11 +289,11 @@ public class DefaultArtStyle : ArtStyle
     /// Every diagonal connection forms a triangle with its adjacent connections, we want to compute the center of these triangles.
     /// Some trickery has to be done to account for the wrapping connections.
     /// </summary>
-    void calc_triangles(List<ConnectionMarker> conns, NodeLayout layout)
+    private void calc_triangles(List<ConnectionMarker> conns)
     {
-        foreach (ConnectionMarker c in conns)
+        foreach (var c in conns)
         {
-            List<ConnectionMarker> adj = get_adjacent(conns, c);
+            var adj = get_adjacent(conns, c);
 
             if (adj.Count == 4)
             {
@@ -301,17 +301,17 @@ public class DefaultArtStyle : ArtStyle
                 {
                     if (c.Dummy.Node.X == 0 && c.Dummy.Node.Y == 0)
                     {
-                        ConnectionMarker upper = adj.FirstOrDefault(x => x.Connection.Pos.y == 0f);
-                        ConnectionMarker right = adj.FirstOrDefault(x => x.Connection.Pos.x == 0f);
-                        ConnectionMarker lower = adj.FirstOrDefault(x => x != right && x != upper && x.Connection.Pos.x == c.Connection.Pos.x);
-                        ConnectionMarker left = adj.FirstOrDefault(x => x != right && x != upper && x != lower);
+                        var upper = adj.FirstOrDefault(x => x.Connection.Pos.y == 0f);
+                        var right = adj.FirstOrDefault(x => x.Connection.Pos.x == 0f);
+                        var lower = adj.FirstOrDefault(x => x != right && x != upper && x.Connection.Pos.x == c.Connection.Pos.x);
+                        var left = adj.FirstOrDefault(x => x != right && x != upper && x != lower);
 
-                        Vector3 upperpos = upper.transform.position;
-                        Vector3 rightpos = right.transform.position;
-                        Vector3 upperoffset = Vector3.zero;
-                        Vector3 rightoffset = Vector3.zero;
-                        bool is_upper = false;
-                        bool is_right = false;
+                        var upperpos = upper.transform.position;
+                        var rightpos = right.transform.position;
+                        var upperoffset = Vector3.zero;
+                        var rightoffset = Vector3.zero;
+                        var is_upper = false;
+                        var is_right = false;
 
                         if (Vector3.Distance(upperpos, c.transform.position) > 4f)
                         {
@@ -329,8 +329,8 @@ public class DefaultArtStyle : ArtStyle
 
                         if (unique_nodes(c, lower, left) == 3)
                         {
-                            Vector3 mid1 = (c.transform.position + lower.transform.position + left.transform.position) / 3;
-                            Vector3 mid2 = (c.transform.position + upperpos + rightpos) / 3;
+                            var mid1 = (c.transform.position + lower.transform.position + left.transform.position) / 3;
+                            var mid2 = (c.transform.position + upperpos + rightpos) / 3;
 
                             c.AddTriangleCenter(mid1);
                             lower.AddTriangleCenter(mid1);
@@ -358,8 +358,8 @@ public class DefaultArtStyle : ArtStyle
                         }
                         else
                         {
-                            Vector3 mid1 = (c.transform.position + lower.transform.position + rightpos) / 3;
-                            Vector3 mid2 = (c.transform.position + upperpos + left.transform.position) / 3;
+                            var mid1 = (c.transform.position + lower.transform.position + rightpos) / 3;
+                            var mid2 = (c.transform.position + upperpos + left.transform.position) / 3;
 
                             c.AddTriangleCenter(mid1);
                             lower.AddTriangleCenter(mid1);
@@ -388,17 +388,17 @@ public class DefaultArtStyle : ArtStyle
                     }
                     else
                     {
-                        ConnectionMarker upper = adj.FirstOrDefault(x => x.Connection.Pos.y == c.Connection.Pos.y + 0.5f || c.Connection.Pos.y == 0f);
-                        ConnectionMarker lower = adj.FirstOrDefault(x => x.Connection.Pos.y != c.Connection.Pos.y && x != upper);
-                        ConnectionMarker right = adj.FirstOrDefault(x => x.Connection.Pos.x == c.Connection.Pos.x + 0.5f || c.Connection.Pos.x == 0f);
-                        ConnectionMarker left = adj.FirstOrDefault(x => x.Connection.Pos.x != c.Connection.Pos.x && x != right);
+                        var upper = adj.FirstOrDefault(x => x.Connection.Pos.y == c.Connection.Pos.y + 0.5f || c.Connection.Pos.y == 0f);
+                        var lower = adj.FirstOrDefault(x => x.Connection.Pos.y != c.Connection.Pos.y && x != upper);
+                        var right = adj.FirstOrDefault(x => x.Connection.Pos.x == c.Connection.Pos.x + 0.5f || c.Connection.Pos.x == 0f);
+                        var left = adj.FirstOrDefault(x => x.Connection.Pos.x != c.Connection.Pos.x && x != right);
 
-                        Vector3 upperpos = upper.transform.position;
-                        Vector3 rightpos = right.transform.position;
-                        Vector3 upperoffset = Vector3.zero;
-                        Vector3 rightoffset = Vector3.zero;
-                        bool is_upper = false;
-                        bool is_right = false;
+                        var upperpos = upper.transform.position;
+                        var rightpos = right.transform.position;
+                        var upperoffset = Vector3.zero;
+                        var rightoffset = Vector3.zero;
+                        var is_upper = false;
+                        var is_right = false;
 
                         if (Vector3.Distance(upperpos, c.transform.position) > 4f)
                         {
@@ -416,8 +416,8 @@ public class DefaultArtStyle : ArtStyle
 
                         if (unique_nodes(c, lower, left) == 3)
                         {
-                            Vector3 mid1 = (c.transform.position + lower.transform.position + left.transform.position) / 3;
-                            Vector3 mid2 = (c.transform.position + upperpos + rightpos) / 3;
+                            var mid1 = (c.transform.position + lower.transform.position + left.transform.position) / 3;
+                            var mid2 = (c.transform.position + upperpos + rightpos) / 3;
 
                             c.AddTriangleCenter(mid1);
                             lower.AddTriangleCenter(mid1);
@@ -445,8 +445,8 @@ public class DefaultArtStyle : ArtStyle
                         }
                         else
                         {
-                            Vector3 mid1 = (c.transform.position + lower.transform.position + rightpos) / 3;
-                            Vector3 mid2 = (c.transform.position + upperpos + left.transform.position) / 3;
+                            var mid1 = (c.transform.position + lower.transform.position + rightpos) / 3;
+                            var mid2 = (c.transform.position + upperpos + left.transform.position) / 3;
 
                             c.AddTriangleCenter(mid1);
                             lower.AddTriangleCenter(mid1);
@@ -476,17 +476,17 @@ public class DefaultArtStyle : ArtStyle
                 }
                 else
                 {
-                    ConnectionMarker anchor = adj[0];
+                    var anchor = adj[0];
                     ConnectionMarker other = null;
                     adj.Remove(anchor);
 
-                    foreach (ConnectionMarker c2 in adj)
+                    foreach (var c2 in adj)
                     {
                         if (unique_nodes(c, c2, anchor) == 3)
                         {
                             other = c2;
 
-                            Vector3 mid = (c.transform.position + c2.transform.position + anchor.transform.position) / 3;
+                            var mid = (c.transform.position + c2.transform.position + anchor.transform.position) / 3;
                             c.AddTriangleCenter(mid);
                             c2.AddTriangleCenter(mid);
                             anchor.AddTriangleCenter(mid);
@@ -497,9 +497,9 @@ public class DefaultArtStyle : ArtStyle
                     adj.Remove(other);
 
                     anchor = adj[0];
-                    ConnectionMarker c3 = adj[1];
+                    var c3 = adj[1];
 
-                    Vector3 mid2 = (c.transform.position + c3.transform.position + anchor.transform.position) / 3;
+                    var mid2 = (c.transform.position + c3.transform.position + anchor.transform.position) / 3;
                     c.AddTriangleCenter(mid2);
                     c3.AddTriangleCenter(mid2);
                     anchor.AddTriangleCenter(mid2);
@@ -508,14 +508,14 @@ public class DefaultArtStyle : ArtStyle
         }
     }
 
-    List<ConnectionMarker> get_adjacent(List<ConnectionMarker> conns, ConnectionMarker c)
+    private List<ConnectionMarker> get_adjacent(List<ConnectionMarker> conns, ConnectionMarker c)
     {
-        return conns.Where(x => c.Connection.Adjacent.Contains(x.Connection)).ToList();// && Vector3.Distance(c.transform.position, x.transform.position) < 4.0f).ToList();
+        return conns.Where(x => c.Connection.Adjacent.Contains(x.Connection)).ToList();
     }
 
-    int unique_nodes(ConnectionMarker m1, ConnectionMarker m2, ConnectionMarker m3)
+    private int unique_nodes(ConnectionMarker m1, ConnectionMarker m2, ConnectionMarker m3)
     {
-        List<Node> temp = new List<Node>();
+        var temp = new List<Node>();
 
         if (!temp.Contains(m1.Prov1.Node))
         {

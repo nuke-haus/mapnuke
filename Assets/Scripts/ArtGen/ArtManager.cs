@@ -1,15 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Manager class that handles all things art-related.
 /// Has a global singleton.
 /// </summary>
-public class ArtManager: MonoBehaviour
+public class ArtManager : MonoBehaviour
 {
     public static ArtManager s_art_manager;
 
@@ -18,9 +15,8 @@ public class ArtManager: MonoBehaviour
     public GameObject EditorPlane;
     public Material RenderMat;
     public SpriteSetCollection SpriteSetCollection;
-
-    ArtStyle m_art;
-    RenderTexture m_render_texture;
+    private ArtStyle m_art;
+    private RenderTexture m_render_texture;
 
     public RenderTexture Texture
     {
@@ -33,7 +29,7 @@ public class ArtManager: MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
         s_art_manager = this;
         m_art = new DefaultArtStyle();
@@ -84,24 +80,24 @@ public class ArtManager: MonoBehaviour
         m_art.Regenerate(provs, conns, layout);
     }
 
-    void setup_cam(float x, float y)
+    private void setup_cam(float x, float y)
     {
-        int tx = Mathf.RoundToInt(x * 100);
-        int ty = Mathf.RoundToInt(y * 100);
+        var tx = Mathf.RoundToInt(x * 100);
+        var ty = Mathf.RoundToInt(y * 100);
 
         m_render_texture = new RenderTexture(tx, ty, 24);
-      
-        Vector3 mins = MapBorder.s_map_border.Mins;
-        Vector3 maxs = MapBorder.s_map_border.Maxs;
+
+        var mins = MapBorder.s_map_border.Mins;
+        var maxs = MapBorder.s_map_border.Maxs;
         maxs.y = mins.y;
 
-        Vector3 maxs2 = MapBorder.s_map_border.Maxs;
+        var maxs2 = MapBorder.s_map_border.Maxs;
         maxs2.x = mins.x;
 
-        float dist = Vector3.Distance(mins, maxs);
-        float vert_dist = Vector3.Distance(mins, maxs2);
-        float side_dist = 500f;
-        float sep_dist = 5f;
+        var dist = Vector3.Distance(mins, maxs);
+        var vert_dist = Vector3.Distance(mins, maxs2);
+        var side_dist = 500f;
+        var sep_dist = 5f;
 
         EditorPlane.transform.position = new Vector3(mins.x + side_dist + (dist * 0.5f), mins.y + (vert_dist * 0.5f), 0);
         EditorPlane.transform.localScale = new Vector3(x * 0.1f, RenderPlane.transform.localScale.y, y * 0.1f);

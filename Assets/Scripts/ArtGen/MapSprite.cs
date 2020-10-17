@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +9,12 @@ using UnityEditor;
 [CanEditMultipleObjects]
 public class MapSpriteEditor : Editor
 {
-    SerializedProperty sprite;
-    SerializedProperty spawn_chance;
-    SerializedProperty size;
-    SerializedProperty terrain;
+    private SerializedProperty sprite;
+    private SerializedProperty spawn_chance;
+    private SerializedProperty size;
+    private SerializedProperty terrain;
 
-    void OnEnable()
+    private void OnEnable()
     {
         sprite = serializedObject.FindProperty("Sprite");
         spawn_chance = serializedObject.FindProperty("SpawnChance");
@@ -63,14 +62,14 @@ public class MapSprite
 }
 
 [Serializable]
-public class ProvinceSprite: MapSprite
+public class ProvinceSprite : MapSprite
 {
-    //[CustomEnumFlag] for some reason this doesn't work. fuck unity
+    // [CustomEnumFlag] for some reason this doesn't work, thanks unity
     public Terrain ValidTerrain;
 }
 
 [Serializable]
-public class ConnectionSprite: MapSprite
+public class ConnectionSprite : MapSprite
 {
-   
+
 }

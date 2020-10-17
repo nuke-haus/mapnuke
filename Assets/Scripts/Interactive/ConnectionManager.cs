@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +6,7 @@ using UnityEngine.UI;
 /// Manager class that handles post-processing for connections.
 /// Has a global singleton.
 /// </summary>
-public class ConnectionManager: MonoBehaviour
+public class ConnectionManager : MonoBehaviour
 {
     public static ConnectionManager s_connection_manager;
 
@@ -23,26 +20,18 @@ public class ConnectionManager: MonoBehaviour
     public Toggle DeepRiver;
     public Toggle ShallowRiver;
 
-    ConnectionMarker m_current;
-    NodeLayout m_layout;
+    private ConnectionMarker m_current;
+    private NodeLayout m_layout;
 
-    void Awake()
+    private void Awake()
     {
         s_connection_manager = this;
-	}
+    }
 
     public void SetLayout(NodeLayout layout)
     {
         m_layout = layout;
     }
-
-    /*public void UpdateConnection(ConnectionType ct)
-    {
-        if (m_current != null && m_current.Connection != null)
-        {
-            m_current.UpdateConnection(ct);
-        }
-    }*/
 
     public void SetConnectionType(int ct)
     {
@@ -51,8 +40,8 @@ public class ConnectionManager: MonoBehaviour
             return;
         }
 
-        ConnectionType c = (ConnectionType)ct;
-        ConnectionType cur = m_current.Connection.ConnectionType;
+        var c = (ConnectionType)ct;
+        var cur = m_current.Connection.ConnectionType;
 
         if (c == cur)
         {
@@ -66,8 +55,8 @@ public class ConnectionManager: MonoBehaviour
             m_current.LinkedConnection.UpdateConnection(c);
         }
 
-        List<ProvinceMarker> provs = new List<ProvinceMarker>();
-        List<ConnectionMarker> conns = new List<ConnectionMarker>();
+        var provs = new List<ProvinceMarker>();
+        var conns = new List<ConnectionMarker>();
         ProvinceMarker pm = null;
 
         if (m_current.Prov1.IsDummy)
@@ -81,7 +70,7 @@ public class ConnectionManager: MonoBehaviour
 
         provs.Add(pm);
 
-        foreach (ProvinceMarker m in pm.ConnectedProvinces)
+        foreach (var m in pm.ConnectedProvinces)
         {
             if (m.IsDummy)
             {
@@ -95,9 +84,9 @@ public class ConnectionManager: MonoBehaviour
 
         conns.AddRange(pm.Connections);
 
-        foreach (ProvinceMarker p in provs)
+        foreach (var p in provs)
         {
-            foreach (ConnectionMarker m in p.Connections)
+            foreach (var m in p.Connections)
             {
                 if (provs.Contains(m.Prov1) && provs.Contains(m.Prov2) && !conns.Contains(m))
                 {
@@ -106,54 +95,7 @@ public class ConnectionManager: MonoBehaviour
             }
         }
 
-        /*if (m_current.Prov1.IsDummy)
-        {
-            provs.AddRange(m_current.Prov1.LinkedProvinces);
-        }
-        else
-        {
-            provs.Add(m_current.Prov1);
-
-            foreach (ProvinceMarker pm in m_current.Prov1.ConnectedProvinces)
-            {
-                if (pm.IsDummy)
-                {
-                    foreach (ProvinceMarker pm2 in pm.LinkedProvinces)
-                    {
-                        if (!provs.Contains(pm2))
-                        {
-                            provs.Add(pm2);
-                        }
-                    }
-                }
-            }
-        }
-
-        if (m_current.Prov2.IsDummy)
-        {
-            provs.AddRange(m_current.Prov2.LinkedProvinces);
-        }
-        else
-        {
-            provs.Add(m_current.Prov2);
-
-            foreach (ProvinceMarker pm in m_current.Prov2.ConnectedProvinces)
-            {
-                if (pm.IsDummy)
-                {
-                    foreach (ProvinceMarker pm2 in pm.LinkedProvinces)
-                    {
-                        if (!provs.Contains(pm2))
-                        {
-                            provs.Add(pm2);
-                        }
-                    }
-                }
-            }
-        }*/
-
         GetComponent<AudioSource>().PlayOneShot(AudioApply);
-
         GenerationManager.s_generation_manager.RegenerateElements(provs, conns, m_layout);
     }
 
@@ -180,7 +122,7 @@ public class ConnectionManager: MonoBehaviour
 
         m_current = null;
 
-        ConnectionType ct = c.Connection.ConnectionType;
+        var ct = c.Connection.ConnectionType;
         update_checkbox(ct);
 
         m_current = c;
@@ -201,7 +143,7 @@ public class ConnectionManager: MonoBehaviour
         }
     }
 
-    void update_checkbox(ConnectionType ct)
+    private void update_checkbox(ConnectionType ct)
     {
         switch (ct)
         {

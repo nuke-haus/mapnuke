@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -38,8 +36,8 @@ public class SpawnPoint
 
     public float DistanceTo(SpawnPoint s)
     {
-        Vector2 v1 = new Vector2(X, Y);
-        Vector2 v2 = new Vector2(s.X, s.Y);
+        var v1 = new Vector2(X, Y);
+        var v2 = new Vector2(s.X, s.Y);
 
         return Vector2.Distance(v1, v2);
     }
@@ -132,13 +130,13 @@ public class NodeLayout
 
     public void AddThrone(int x, int y)
     {
-        SpawnPoint p = new SpawnPoint(x, y, SpawnType.THRONE);
+        var p = new SpawnPoint(x, y, SpawnType.THRONE);
         Spawns.Add(p);
     }
 
     public void AddPlayer(int x, int y, int team_num = 0)
     {
-        SpawnPoint p = new SpawnPoint(x, y, SpawnType.PLAYER);
+        var p = new SpawnPoint(x, y, SpawnType.PLAYER);
         Spawns.Add(p);
     }
 

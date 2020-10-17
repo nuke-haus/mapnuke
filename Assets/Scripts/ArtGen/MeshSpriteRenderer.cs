@@ -1,22 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class MeshSpriteRenderer : MonoBehaviour
 {
     public class MeshBuilder
     {
-        List<Vector3> vertices = new List<Vector3>();
-        List<int> triangles = new List<int>();
-        List<Vector2> uv = new List<Vector2>();
-        List<Color> colors = new List<Color>();
+        private readonly List<Vector3> vertices = new List<Vector3>();
+        private readonly List<int> triangles = new List<int>();
+        private readonly List<Vector2> uv = new List<Vector2>();
+        private readonly List<Color> colors = new List<Color>();
 
         public void Add(Sprite s, Vector3 pos, Color c, bool flip)
         {
-            int n = vertices.Count;
+            var n = vertices.Count;
             var min = s.bounds.min;
             var max = s.bounds.max;
-            float dy = max.y - min.y;
+            var dy = max.y - min.y;
             vertices.Add(new Vector3(min.x, min.y, 0) + pos);
             vertices.Add(new Vector3(max.x, min.y, 0) + pos);
             vertices.Add(new Vector3(min.x, max.y, -dy * 0.1f) + pos);
@@ -27,24 +26,26 @@ public class MeshSpriteRenderer : MonoBehaviour
             colors.Add(c);
             var factor = new Vector2(1.0f / s.texture.width, 1.0f / s.texture.height);
             var r = s.textureRect;
+
             if (flip)
             {
                 uv.Add(new Vector2(r.xMax, r.yMin) * factor);
                 uv.Add(new Vector2(r.xMin, r.yMin) * factor);
                 uv.Add(new Vector2(r.xMax, r.yMax) * factor);
                 uv.Add(new Vector2(r.xMin, r.yMax) * factor);
-
-            } else
+            }
+            else
             {
                 uv.Add(new Vector2(r.xMin, r.yMin) * factor);
                 uv.Add(new Vector2(r.xMax, r.yMin) * factor);
                 uv.Add(new Vector2(r.xMin, r.yMax) * factor);
                 uv.Add(new Vector2(r.xMax, r.yMax) * factor);
             }
+
             triangles.Add(0 + n);
             triangles.Add(3 + n);
             triangles.Add(1 + n);
-            
+
             triangles.Add(0 + n);
             triangles.Add(2 + n);
             triangles.Add(3 + n);
@@ -52,7 +53,7 @@ public class MeshSpriteRenderer : MonoBehaviour
 
         public Mesh Build()
         {
-            Mesh mesh = new Mesh();
+            var mesh = new Mesh();
             mesh.vertices = vertices.ToArray();
             mesh.uv = uv.ToArray();
             mesh.triangles = triangles.ToArray();
@@ -62,12 +63,11 @@ public class MeshSpriteRenderer : MonoBehaviour
         }
     }
 
-    MeshBuilder builder = new MeshBuilder();
+    private readonly MeshBuilder builder = new MeshBuilder();
+    private bool m_dirty = false;
 
     public List<Vector3> sprite_pos = new List<Vector3>();
-
-
-    bool dirty = false;
+   
     public void Add(Sprite s, Vector3 pos, bool flip = false)
     {
         Add(s, pos, Color.white, flip);
@@ -78,25 +78,25 @@ public class MeshSpriteRenderer : MonoBehaviour
         if (s == null) return;
         InitMaterial(s.texture);
         sprite_pos.Add(pos);
-        dirty = true;
+        m_dirty = true;
         builder.Add(s, pos, c, flip);
     }
 
     public void SetMesh(Mesh m)
     {
-        dirty = false;
-        MeshFilter mf = GetComponent<MeshFilter>();
+        m_dirty = false;
+        var mf = GetComponent<MeshFilter>();
         mf.mesh = m;
-        MeshRenderer mr = GetComponent<MeshRenderer>();
+        var mr = GetComponent<MeshRenderer>();
         mr.material = mat;
     }
-    static bool init_atlas_material = false;
+
+    private static bool init_atlas_material = false;
     public Material atlas_material;
+    private static Material mat;
+    private static Texture2D set_texture;
 
-    static Material mat;
-    static Texture2D set_texture;
-
-    void InitMaterial(Texture2D t)
+    private void InitMaterial(Texture2D t)
     {
         // TODO(johan): This is a hack and only works when all sprites comes from the same atlas, make proper fix! 
         if (init_atlas_material)
@@ -107,27 +107,28 @@ public class MeshSpriteRenderer : MonoBehaviour
             }
             return;
         }
+
         init_atlas_material = true;
         set_texture = t;
         mat = Instantiate(atlas_material);
         mat.mainTexture = t;
     }
 
-    public MeshRenderer mesh => GetComponent<MeshRenderer>();
+    public MeshRenderer Mesh => GetComponent<MeshRenderer>();
 
-    public void Build ()
+    public void Build()
     {
-        if (dirty)
+        if (m_dirty)
         {
             SetMesh(builder.Build());
         }
 
     }
 
-    public Bounds bounds => GetComponent<MeshRenderer>().bounds;
+    public Bounds Bounds => GetComponent<MeshRenderer>().bounds;
 
     // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
         Build();
     }

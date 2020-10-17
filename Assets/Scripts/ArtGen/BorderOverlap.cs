@@ -7,8 +7,8 @@ public static class BorderOverlap
     public static void DupOnce(GameObject o, Transform into, List<GameObject> spawns, Vector3 dir)
     {
 
-        int n = spawns.Count;
-        for (int i = 0; i < n; ++i)
+        var n = spawns.Count;
+        for (var i = 0; i < n; ++i)
         {
             var sr2 = GameObject.Instantiate(spawns[i]);
             sr2.transform.position = spawns[i].transform.position + dir;
@@ -29,7 +29,7 @@ public static class BorderOverlap
     public static List<GameObject> Duplicate(GameObject o, Bounds b, Bounds bounds, Transform into = null)
     {
         if (into == null) into = o.transform.parent;
-        List<GameObject> spawns = new List<GameObject>();
+        var spawns = new List<GameObject>();
         if (b.min.x <= bounds.min.x)
         {
             DupOnce(o, into, spawns, Vector3.right * bounds.size.x);

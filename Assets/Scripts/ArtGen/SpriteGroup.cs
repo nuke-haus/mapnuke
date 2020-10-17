@@ -65,8 +65,8 @@ public class SpriteGroup : MonoBehaviour
         mesh_sprites_dupes.Clear();
         foreach (var m in winter_mesh_sprites_dupes) Destroy(m);
         winter_mesh_sprites_dupes.Clear();
-        mesh_sprites_dupes.AddRange(BorderOverlap.Duplicate(mesh_sprites.gameObject, mesh_sprites.bounds, b));
-        winter_mesh_sprites_dupes.AddRange(BorderOverlap.Duplicate(winter_mesh_sprites.gameObject, winter_mesh_sprites.bounds, b));
+        mesh_sprites_dupes.AddRange(BorderOverlap.Duplicate(mesh_sprites.gameObject, mesh_sprites.Bounds, b));
+        winter_mesh_sprites_dupes.AddRange(BorderOverlap.Duplicate(winter_mesh_sprites.gameObject, winter_mesh_sprites.Bounds, b));
     }
 
     public void Build(Bounds b)

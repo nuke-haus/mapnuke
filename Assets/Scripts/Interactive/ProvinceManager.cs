@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,7 @@ using UnityEngine.UI;
 /// Manager class that handles post-processing for provinces.
 /// Has a global singleton.
 /// </summary>
-public class ProvinceManager: MonoBehaviour
+public class ProvinceManager : MonoBehaviour
 {
     public static ProvinceManager s_province_manager;
 
@@ -30,11 +28,10 @@ public class ProvinceManager: MonoBehaviour
     public Toggle Colder;
     public Toggle Warmer;
     public Toggle Throne;
+    private ProvinceMarker m_current;
+    private NodeLayout m_layout;
 
-    ProvinceMarker m_current;
-    NodeLayout m_layout;
-
-    void Awake()
+    private void Awake()
     {
         s_province_manager = this;
     }
@@ -51,39 +48,39 @@ public class ProvinceManager: MonoBehaviour
             return;
         }
 
-        Terrain flags = Terrain.PLAINS;
+        var flags = Terrain.PLAINS;
 
         if (Highland.isOn)
         {
-            flags = flags | Terrain.HIGHLAND;
+            flags |= Terrain.HIGHLAND;
         }
         if (Mountain.isOn)
         {
-            flags = flags | Terrain.MOUNTAINS;
+            flags |= Terrain.MOUNTAINS;
         }
         if (Cave.isOn)
         {
-            flags = flags | Terrain.CAVE;
+            flags |= Terrain.CAVE;
         }
         if (Swamp.isOn)
         {
-            flags = flags | Terrain.SWAMP;
+            flags |= Terrain.SWAMP;
         }
         if (Waste.isOn)
         {
-            flags = flags | Terrain.WASTE;
+            flags |= Terrain.WASTE;
         }
         if (Forest.isOn)
         {
-            flags = flags | Terrain.FOREST;
+            flags |= Terrain.FOREST;
         }
         if (Farm.isOn)
         {
-            flags = flags | Terrain.FARM;
+            flags |= Terrain.FARM;
         }
         if (Sea.isOn)
         {
-            flags = flags | Terrain.SEA;
+            flags |= Terrain.SEA;
         }
         if (DeepSea.isOn)
         {
@@ -92,25 +89,25 @@ public class ProvinceManager: MonoBehaviour
 
         if (Large.isOn)
         {
-            flags = flags | Terrain.LARGEPROV;
+            flags |= Terrain.LARGEPROV;
         }
         else if (Small.isOn)
         {
-            flags = flags | Terrain.SMALLPROV;
+            flags |= Terrain.SMALLPROV;
         }
 
         if (Colder.isOn)
         {
-            flags = flags | Terrain.COLDER;
+            flags |= Terrain.COLDER;
         }
         else if (Warmer.isOn)
         {
-            flags = flags | Terrain.WARMER;
+            flags |= Terrain.WARMER;
         }
 
         if (Throne.isOn)
         {
-            flags = flags | Terrain.THRONE;
+            flags |= Terrain.THRONE;
         }
 
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
@@ -118,19 +115,19 @@ public class ProvinceManager: MonoBehaviour
         m_current.UpdateLinked();
         m_current.ValidateConnections();
 
-        List<ProvinceMarker> provs = new List<ProvinceMarker>();
-        List<ProvinceMarker> dummies = new List<ProvinceMarker>();
+        var provs = new List<ProvinceMarker>();
+        var dummies = new List<ProvinceMarker>();
 
-        foreach (ProvinceMarker pm in m_current.ConnectedProvinces)
+        foreach (var pm in m_current.ConnectedProvinces)
         {
             if (pm.IsDummy)
             {
                 dummies.Add(pm);
                 provs.AddRange(pm.LinkedProvinces);
-                
+
                 if (pm.LinkedProvinces[0].LinkedProvinces.Count > 1)
                 {
-                    foreach (ProvinceMarker linked in pm.LinkedProvinces[0].LinkedProvinces) // 3 dummies
+                    foreach (var linked in pm.LinkedProvinces[0].LinkedProvinces) // 3 dummies
                     {
                         dummies.Add(linked);
                         provs.AddRange(linked.ConnectedProvinces);
@@ -147,7 +144,7 @@ public class ProvinceManager: MonoBehaviour
 
                 if (pm.LinkedProvinces != null && pm.LinkedProvinces.Any())
                 {
-                    foreach (ProvinceMarker linked in pm.LinkedProvinces)
+                    foreach (var linked in pm.LinkedProvinces)
                     {
                         provs.AddRange(linked.ConnectedProvinces);
                         dummies.Add(linked);
@@ -160,19 +157,18 @@ public class ProvinceManager: MonoBehaviour
 
         if (m_current.LinkedProvinces != null && m_current.LinkedProvinces.Any())
         {
-            foreach (ProvinceMarker linked in m_current.LinkedProvinces)
+            foreach (var linked in m_current.LinkedProvinces)
             {
                 provs.AddRange(linked.ConnectedProvinces);
                 dummies.Add(linked);
             }
         }
 
-        List<ConnectionMarker> conns = new List<ConnectionMarker>();
-        List<ProvinceMarker> extra = new List<ProvinceMarker>();
+        var conns = new List<ConnectionMarker>();
 
-        foreach (ProvinceMarker pm in provs)
+        foreach (var pm in provs)
         {
-            foreach (ConnectionMarker m in pm.Connections)
+            foreach (var m in pm.Connections)
             {
                 if (!conns.Contains(m) && ((provs.Contains(m.Prov1) || dummies.Contains(m.Prov1)) && (provs.Contains(m.Prov2) || dummies.Contains(m.Prov2))))
                 {
@@ -229,7 +225,7 @@ public class ProvinceManager: MonoBehaviour
         }
     }
 
-    void clear_checkboxes()
+    private void clear_checkboxes()
     {
         Highland.isOn = false;
         Mountain.isOn = false;
@@ -247,9 +243,9 @@ public class ProvinceManager: MonoBehaviour
         Warmer.isOn = false;
     }
 
-    void update_checkboxes(Terrain flags)
+    private void update_checkboxes(Terrain flags)
     {
-        bool plains = true;
+        var plains = true;
 
         if (flags.IsFlagSet(Terrain.HIGHLAND))
         {

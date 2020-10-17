@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 /// <summary>
@@ -19,7 +17,7 @@ public class PolyBorder
     {
         get
         {
-            int num = OrderedPoints.Count;
+            var num = OrderedPoints.Count;
             num = Mathf.RoundToInt(num * 0.5f);
 
             return OrderedPoints[num];
@@ -48,7 +46,7 @@ public class PolyBorder
 
     public List<Vector3> GetFullLengthBorder()
     {
-        List<Vector3> pts = new List<Vector3>();
+        var pts = new List<Vector3>();
         pts.Add(P1);
         pts.AddRange(OrderedPoints);
         pts.Add(P2);
@@ -58,11 +56,11 @@ public class PolyBorder
 
     public List<Vector3> GetFullLengthBorderMinusEnd(bool reversed = false)
     {
-        List<Vector3> pts = new List<Vector3>();
+        var pts = new List<Vector3>();
 
         if (reversed)
         {
-            PolyBorder pb = Reversed();
+            var pb = Reversed();
             pts.Add(pb.P1);
             pts.AddRange(pb.OrderedPoints);
         }
@@ -71,61 +69,55 @@ public class PolyBorder
             pts.Add(P1);
             pts.AddRange(OrderedPoints);
         }
-        
+
         return pts;
     }
 
     public PolyBorder Offset(Vector3 offset)
     {
-        List<Vector3> ordered = new List<Vector3>();
+        var ordered = new List<Vector3>();
 
-        foreach (Vector3 v in OrderedPoints)
+        foreach (var v in OrderedPoints)
         {
             ordered.Add(v + offset);
         }
 
-        PolyBorder pb = new PolyBorder(P1 + offset, P2 + offset, Connection);
+        var pb = new PolyBorder(P1 + offset, P2 + offset, Connection);
         pb.OrderedPoints = ordered;
 
         return pb;
     }
-    
+
     public PolyBorder Reversed()
     {
-        List<Vector3> ordered = new List<Vector3>();
+        var ordered = new List<Vector3>();
         ordered.AddRange(OrderedPoints);
         ordered.Reverse();
 
-        List<Vector3> ordered_fine = new List<Vector3>();
+        var ordered_fine = new List<Vector3>();
         ordered_fine.AddRange(OrderedFinePoints);
         ordered_fine.Reverse();
 
-        PolyBorder pb = new PolyBorder(P2, P1, Connection);
+        var pb = new PolyBorder(P2, P1, Connection);
         pb.OrderedPoints = ordered;
         pb.OrderedFinePoints = ordered_fine;
 
         return pb;
     }
 
-    void apply_jitter(float jitter)
+    private void apply_jitter(float jitter)
     {
-        float dist = 0.08f;
-        List<Vector3> knots = new List<Vector3>();
-        Vector3 norm = (P2 - P1).normalized;
-        Vector3 prev = P1;
+        var dist = 0.08f;
+        var knots = new List<Vector3>();
+        var prev = P1;
 
-        foreach (Vector3 pt in OrderedPoints)
+        foreach (var pt in OrderedPoints)
         {
-            /*if (Vector3.Distance(prev, pt) < dist)
-            {
-                continue;
-            }*/
-
             dist = UnityEngine.Random.Range(0.04f, 0.16f);
 
-            Vector3 dir = (pt - prev).normalized;
-            Vector3 lateral = Vector3.Cross(dir, Vector3.forward);
-            Vector3 shift = pt + lateral * UnityEngine.Random.Range(-jitter, jitter);
+            var dir = (pt - prev).normalized;
+            var lateral = Vector3.Cross(dir, Vector3.forward);
+            var shift = pt + lateral * UnityEngine.Random.Range(-jitter, jitter);
             knots.Add(shift);
 
             prev = pt;
@@ -134,11 +126,11 @@ public class PolyBorder
         generate_ordered(knots, true);
     }
 
-    void calc_points(bool is_road = false) // create several knots randomly shifted between p1 and p2
+    private void calc_points(bool is_road = false) // create several knots randomly shifted between p1 and p2
     {
-        float dist = Vector3.Distance(P1, P2);
-        float latdist = dist * 0.16f;
-        int maxknots = Mathf.Max(Mathf.FloorToInt(dist / 0.30f), 2);
+        var dist = Vector3.Distance(P1, P2);
+        var latdist = dist * 0.16f;
+        var maxknots = Mathf.Max(Mathf.FloorToInt(dist / 0.30f), 2);
 
         if (is_road)
         {
@@ -146,19 +138,19 @@ public class PolyBorder
             maxknots++;
         }
 
-        Vector3 dir = (P2 - P1).normalized;
-        Vector3 lat = Vector3.Cross(dir, Vector3.forward);
-        Vector3 midpt = (P1 + P2) / 2;
-        List<Vector3> knotstarts = new List<Vector3>();
+        var dir = (P2 - P1).normalized;
+        var lat = Vector3.Cross(dir, Vector3.forward);
+        var midpt = (P1 + P2) / 2;
+        var knotstarts = new List<Vector3>();
 
-        List<Vector3> knots = new List<Vector3>();
+        var knots = new List<Vector3>();
         knots.Add(P1);
         knots.Add(P2);
 
-        for (int j = 0; j < UnityEngine.Random.Range(1, maxknots); j++) // pick points on the line where knots will be
+        for (var j = 0; j < UnityEngine.Random.Range(1, maxknots); j++) // pick points on the line where knots will be
         {
-            int limit = 0;
-            Vector3 randpos = P1 + (dir * UnityEngine.Random.Range(dist * 0.15f, dist * 0.85f));
+            var limit = 0;
+            var randpos = P1 + (dir * UnityEngine.Random.Range(dist * 0.15f, dist * 0.85f));
 
             while (knotstarts.Any(x => Vector3.Distance(randpos, x) < 0.15f) && limit < 25)
             {
@@ -172,12 +164,12 @@ public class PolyBorder
             }
         }
 
-        foreach (Vector3 v in knotstarts) // figure out the lateral shift of each knot
+        foreach (var v in knotstarts) // figure out the lateral shift of each knot
         {
-            int limit = 0;
-            float middist = Vector3.Distance(v, midpt);
-            float scale = Mathf.Max(1f - (middist / (dist * 0.35f)), 0.30f);
-            Vector3 finalpt = v + lat * UnityEngine.Random.Range(-latdist * scale, latdist * scale);
+            var limit = 0;
+            var middist = Vector3.Distance(v, midpt);
+            var scale = Mathf.Max(1f - (middist / (dist * 0.35f)), 0.30f);
+            var finalpt = v + lat * UnityEngine.Random.Range(-latdist * scale, latdist * scale);
 
             while (Vector3.Distance(finalpt, v) < (latdist * scale * 0.10f) && limit < 10)
             {
@@ -193,20 +185,20 @@ public class PolyBorder
         generate_ordered(knots);
     }
 
-    void generate_ordered(List<Vector3> knots, bool generate_fine = false)
+    private void generate_ordered(List<Vector3> knots, bool generate_fine = false)
     {
         OrderedPoints = new List<Vector3>();
-        CubicBezierPath path = new CubicBezierPath(knots.ToArray());
+        var path = new CubicBezierPath(knots.ToArray());
 
-        float mindist = 0.06f;
-        float spacing = 0.08f;
-        float max = (float)(knots.Count - 1) - 0.12f;
-        float i = 0.12f;
-        Vector3 last = P1;
+        var mindist = 0.06f;
+        var spacing = 0.08f;
+        var max = (float)(knots.Count - 1) - 0.12f;
+        var i = 0.12f;
+        var last = P1;
 
         while (i < max)
         {
-            Vector3 pt = path.GetPoint(i);
+            var pt = path.GetPoint(i);
 
             if (Vector3.Distance(pt, last) >= mindist)
             {
@@ -232,7 +224,7 @@ public class PolyBorder
 
         while (i < max)
         {
-            Vector3 pt = path.GetPoint(i);
+            var pt = path.GetPoint(i);
 
             if (Vector3.Distance(pt, last) >= mindist)
             {
@@ -243,8 +235,8 @@ public class PolyBorder
             i += spacing;
         }
 
-        Vector3 mid_start = (P1 + OrderedFinePoints[0]) * 0.5f;
-        Vector3 mid_end = (P2 + OrderedFinePoints[OrderedFinePoints.Count - 1]) * 0.5f;
+        var mid_start = (P1 + OrderedFinePoints[0]) * 0.5f;
+        var mid_end = (P2 + OrderedFinePoints[OrderedFinePoints.Count - 1]) * 0.5f;
 
         OrderedFinePoints.Insert(0, mid_start);
         OrderedFinePoints.Add(mid_end);
@@ -263,7 +255,7 @@ public class PolyBorder
         OrderedPoints = vecs;
     }
 
-    void calc_points_shitty() // random jiggle. very shitty.
+    void calc_points_shitty() // random jiggle. very ugly.
     {
         Vector3 cur = P1;
         Vector3 dir = (P2 - P1).normalized;
@@ -281,7 +273,7 @@ public class PolyBorder
         OrderedPoints = vecs;
     }
 
-    void calc_points_v2() // bad
+    void calc_points_v2() // ugly jitter
     {
         float dist = Vector3.Distance(P1, P2) * 0.3f;
         List<Vector3> vecs = new List<Vector3>();
@@ -392,7 +384,7 @@ public class PolyBorder
         OrderedPoints = vecs.OrderBy(x => dist_proj(x, P1, lat)).ToList();
     }*/
 
-    float dist_proj(Vector3 pos, Vector3 anchor, Vector3 dir)
+    private float dist_proj(Vector3 pos, Vector3 anchor, Vector3 dir)
     {
         if (Vector3.Distance(pos, anchor) < 0.01f)
         {
@@ -402,15 +394,14 @@ public class PolyBorder
         return Vector3.Distance(project(anchor, pos, dir), anchor);
     }
 
-    Vector3 project(Vector3 target, Vector3 start, Vector3 dir)
+    private Vector3 project(Vector3 target, Vector3 start, Vector3 dir)
     {
-        Plane p = new Plane(dir, target);
-        Ray r = new Ray(start, dir);
-        float f = 0f;
+        var p = new Plane(dir, target);
+        var r = new Ray(start, dir);
 
-        if (p.Raycast(r, out f))
+        if (p.Raycast(r, out var f))
         {
-            Vector3 pt = r.GetPoint(f); // this is dumb. i hate unity
+            var pt = r.GetPoint(f); 
 
             return pt;
         }

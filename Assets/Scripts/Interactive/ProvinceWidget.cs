@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ProvinceWidget: MonoBehaviour
+public class ProvinceWidget : MonoBehaviour
 {
     public SpriteRenderer Renderer;
     public TextMesh Text;
-
     public List<TextMesh> TextOutlines;
 
-    ProvinceMarker m_parent;
-    bool m_selected = false;
-    float m_scale = 1.0f;
-    Dictionary<Terrain, Color> m_colors;
+    private ProvinceMarker m_parent;
+    private bool m_selected = false;
+    private float m_scale = 1.0f;
+    private Dictionary<Terrain, Color> m_colors;
 
     public void SetParent(ProvinceMarker m)
     {
@@ -31,29 +29,29 @@ public class ProvinceWidget: MonoBehaviour
     {
         if (m_colors == null)
         {
-            Dictionary<Terrain, Color> dict = new Dictionary<Terrain, Color>();
-            dict.Add(Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f));
-            dict.Add(Terrain.SEA, new Color(0.4f, 0.6f, 0.9f));
-            dict.Add(Terrain.FARM, new Color(0.9f, 0.8f, 0.2f));
-            dict.Add(Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f));
-            dict.Add(Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f));
-            dict.Add(Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f));
-            dict.Add(Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f));
-            dict.Add(Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f));
-            dict.Add(Terrain.CAVE, new Color(0.1f, 0.4f, 0.5f));
-
-            m_colors = dict;
+            m_colors = new Dictionary<Terrain, Color>
+            {
+                { Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f) },
+                { Terrain.SEA, new Color(0.4f, 0.6f, 0.9f) },
+                { Terrain.FARM, new Color(0.9f, 0.8f, 0.2f) },
+                { Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f) },
+                { Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f) },
+                { Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f) },
+                { Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f) },
+                { Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f) },
+                { Terrain.CAVE, new Color(0.1f, 0.4f, 0.5f) }
+            };
         }
 
         UpdateLabel(n);
         UpdateColor(n);
     }
 
-    Color get_node_color(Node n)
+    private Color get_node_color(Node n)
     {
-        Terrain t = n.ProvinceData.Terrain;
+        var t = n.ProvinceData.Terrain;
 
-        foreach (KeyValuePair<Terrain, Color> pair in m_colors)
+        foreach (var pair in m_colors)
         {
             if (t.IsFlagSet(pair.Key))
             {
@@ -89,7 +87,7 @@ public class ProvinceWidget: MonoBehaviour
             Text.text = string.Empty;
         }
 
-        foreach (TextMesh m in TextOutlines)
+        foreach (var m in TextOutlines)
         {
             if (Text.text == string.Empty)
             {
@@ -104,7 +102,7 @@ public class ProvinceWidget: MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (m_selected)
         {
@@ -113,7 +111,7 @@ public class ProvinceWidget: MonoBehaviour
         }
     }
 
-    void OnMouseOver()
+    private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
         {

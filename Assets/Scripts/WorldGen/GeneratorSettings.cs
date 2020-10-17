@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using UnityEngine;
 
 /// <summary>
@@ -60,8 +56,8 @@ public class FloatRange // simple class for managing float random ranges
         }
     }
 
-    float m_orig_min;
-    float m_orig_max;
+    private readonly float m_orig_min;
+    private readonly float m_orig_max;
 
     public int MaxInt
     {
@@ -93,8 +89,8 @@ public class FloatRange // simple class for managing float random ranges
 
     public void Update(int min, int max)
     {
-        float fmin = min / 100f;
-        float fmax = max / 100f;
+        var fmin = min / 100f;
+        var fmax = max / 100f;
 
         Update(fmin, fmax);
     }

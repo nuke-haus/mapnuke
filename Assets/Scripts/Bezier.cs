@@ -17,24 +17,22 @@
 // INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
 // AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // PERFORMANCE OF THIS SOFTWARE.
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Assertions;
 
-
 // A CubicBezierCurve represents a single segment of a Bezier path. It knows how to interpret 4 CVs using the Bezier basis
 // functions. This class implements cubic Bezier curves -- not linear or quadratic.
-struct CubicBezierCurve
+internal struct CubicBezierCurve
 {
-    Vector3 controlVerts_0;
-    Vector3 controlVerts_1;
-    Vector3 controlVerts_2;
-    Vector3 controlVerts_3;
+    private Vector3 controlVerts_0;
+    private Vector3 controlVerts_1;
+    private Vector3 controlVerts_2;
+    private Vector3 controlVerts_3;
 
     public CubicBezierCurve(Vector3 controlVerts_1, Vector3 controlVerts_2, Vector3 controlVerts_3, Vector3 controlVerts_4)
     {
-        this.controlVerts_0 = controlVerts_1;
+        controlVerts_0 = controlVerts_1;
         this.controlVerts_1 = controlVerts_2;
         this.controlVerts_2 = controlVerts_3;
         this.controlVerts_3 = controlVerts_4;
@@ -43,15 +41,15 @@ struct CubicBezierCurve
     public Vector3 GetPoint(float t)                            // t E [0, 1].
     {
         Assert.IsTrue((t >= 0.0f) && (t <= 1.0f));
-        float c = 1.0f - t;
+        var c = 1.0f - t;
 
         // The Bernstein polynomials.
-        float bb0 = c * c * c;
-        float bb1 = 3 * t * c * c;
-        float bb2 = 3 * t * t * c;
-        float bb3 = t * t * t;
+        var bb0 = c * c * c;
+        var bb1 = 3 * t * c * c;
+        var bb2 = 3 * t * t * c;
+        var bb3 = t * t * t;
 
-        Vector3 point = controlVerts_0 * bb0 + controlVerts_1 * bb1 + controlVerts_2 * bb2 + controlVerts_3 * bb3;
+        var point = controlVerts_0 * bb0 + controlVerts_1 * bb1 + controlVerts_2 * bb2 + controlVerts_3 * bb3;
         return point;
     }
 
@@ -60,13 +58,13 @@ struct CubicBezierCurve
         // See: http://bimixual.org/AnimationLibrary/beziertangents.html
         Assert.IsTrue((t >= 0.0f) && (t <= 1.0f));
 
-        Vector3 q0 = controlVerts_0 + ((controlVerts_1 - controlVerts_0) * t);
-        Vector3 q1 = controlVerts_1 + ((controlVerts_2 - controlVerts_1) * t);
-        Vector3 q2 = controlVerts_2 + ((controlVerts_3 - controlVerts_2) * t);
+        var q0 = controlVerts_0 + ((controlVerts_1 - controlVerts_0) * t);
+        var q1 = controlVerts_1 + ((controlVerts_2 - controlVerts_1) * t);
+        var q2 = controlVerts_2 + ((controlVerts_3 - controlVerts_2) * t);
 
-        Vector3 r0 = q0 + ((q1 - q0) * t);
-        Vector3 r1 = q1 + ((q2 - q1) * t);
-        Vector3 tangent = r1 - r0;
+        var r0 = q0 + ((q1 - q0) * t);
+        var r1 = q1 + ((q2 - q1) * t);
+        var tangent = r1 - r0;
         return tangent;
     }
 
@@ -75,22 +73,22 @@ struct CubicBezierCurve
         return GetClosestParamRec(pos, 0.0f, 1.0f, paramThreshold);
     }
 
-    float GetClosestParamRec(Vector3 pos, float beginT, float endT, float thresholdT)
+    private float GetClosestParamRec(Vector3 pos, float beginT, float endT, float thresholdT)
     {
-        float mid = (beginT + endT) / 2.0f;
+        var mid = (beginT + endT) / 2.0f;
 
         // Base case for recursion.
         if ((endT - beginT) < thresholdT)
             return mid;
 
         // The two halves have param range [start, mid] and [mid, end]. We decide which one to use by using a midpoint param calculation for each section.
-        float paramA = (beginT + mid) / 2.0f;
-        float paramB = (mid + endT) / 2.0f;
+        var paramA = (beginT + mid) / 2.0f;
+        var paramB = (mid + endT) / 2.0f;
 
-        Vector3 posA = GetPoint(paramA);
-        Vector3 posB = GetPoint(paramB);
-        float distASq = (posA - pos).sqrMagnitude;
-        float distBSq = (posB - pos).sqrMagnitude;
+        var posA = GetPoint(paramA);
+        var posB = GetPoint(paramB);
+        var distASq = (posA - pos).sqrMagnitude;
+        var distBSq = (posB - pos).sqrMagnitude;
 
         if (distASq < distBSq)
             endT = mid;
@@ -113,10 +111,11 @@ public class CubicBezierPath
         Open,
         Closed
     }
-    Type type = Type.Open;
-    int numCurveSegments = 0;
-    int numControlVerts = 0;
-    Vector3[] controlVerts = null;
+
+    private Type type = Type.Open;
+    private int numCurveSegments = 0;
+    private int numControlVerts = 0;
+    private Vector3[] controlVerts = null;
 
     // The term 'knot' is another name for a point right on the path (an interpolated point). With this constructor the
     // knots are supplied and interpolated. knots.length (the number of knots) must be >= 2. Interior Cvs are generated
@@ -148,15 +147,15 @@ public class CubicBezierPath
 
         // For a closed path this still works if you consider the last point as separate from the first. That is, a closed
         // path is just like an open except the last interpolated point happens to match the first.
-        int numInterpolatedPoints = numCurveSegments + 1;
+        var numInterpolatedPoints = numCurveSegments + 1;
         if (numInterpolatedPoints < 2)
             return 0.0f;
 
-        float totalDist = 0.0f;
-        for (int n = 1; n < numInterpolatedPoints; n++)
+        var totalDist = 0.0f;
+        for (var n = 1; n < numInterpolatedPoints; n++)
         {
-            Vector3 a = controlVerts[(n - 1) * 3];
-            Vector3 b = controlVerts[n * 3];
+            var a = controlVerts[(n - 1) * 3];
+            var b = controlVerts[n * 3];
             totalDist += (a - b).magnitude;
         }
 
@@ -168,13 +167,13 @@ public class CubicBezierPath
 
     public float ComputeApproxParamPerUnitLength()
     {
-        float length = ComputeApproxLength();
+        var length = ComputeApproxLength();
         return (float)numCurveSegments / length;
     }
 
     public float ComputeApproxNormParamPerUnitLength()
     {
-        float length = ComputeApproxLength();
+        var length = ComputeApproxLength();
         return 1.0f / length;
     }
 
@@ -182,7 +181,7 @@ public class CubicBezierPath
     // must be >= 2.
     public void InterpolatePoints(Vector3[] knots, Type t)
     {
-        int numKnots = knots.Length;
+        var numKnots = knots.Length;
         Assert.IsTrue(numKnots >= 2);
         Clear();
         type = t;
@@ -195,31 +194,31 @@ public class CubicBezierPath
                     controlVerts = new Vector3[numControlVerts];
 
                     // Place the interpolated CVs.
-                    for (int n = 0; n < numKnots; n++)
+                    for (var n = 0; n < numKnots; n++)
                         controlVerts[n * 3] = knots[n];
 
                     // Place the first and last non-interpolated CVs.
-                    Vector3 initialPoint = (knots[1] - knots[0]) * 0.25f;
+                    var initialPoint = (knots[1] - knots[0]) * 0.25f;
 
                     // Interpolate 1/4 away along first segment.
                     controlVerts[1] = knots[0] + initialPoint;
-                    Vector3 finalPoint = (knots[numKnots - 2] - knots[numKnots - 1]) * 0.25f;
+                    var finalPoint = (knots[numKnots - 2] - knots[numKnots - 1]) * 0.25f;
 
                     // Interpolate 1/4 backward along last segment.
                     controlVerts[numControlVerts - 2] = knots[numKnots - 1] + finalPoint;
 
                     // Now we'll do all the interior non-interpolated CVs.
-                    for (int k = 1; k < numCurveSegments; k++)
+                    for (var k = 1; k < numCurveSegments; k++)
                     {
-                        Vector3 a = knots[k - 1] - knots[k];
-                        Vector3 b = knots[k + 1] - knots[k];
-                        float aLen = a.magnitude;
-                        float bLen = b.magnitude;
+                        var a = knots[k - 1] - knots[k];
+                        var b = knots[k + 1] - knots[k];
+                        var aLen = a.magnitude;
+                        var bLen = b.magnitude;
 
                         if ((aLen > 0.0f) && (bLen > 0.0f))
                         {
-                            float abLen = (aLen + bLen) / 8.0f;
-                            Vector3 ab = (b / bLen) - (a / aLen);
+                            var abLen = (aLen + bLen) / 8.0f;
+                            var ab = (b / bLen) - (a / aLen);
                             ab.Normalize();
                             ab *= abLen;
 
@@ -245,31 +244,31 @@ public class CubicBezierPath
                     controlVerts = new Vector3[numControlVerts];
 
                     // First lets place the interpolated CVs and duplicate the first into the last CV slot.
-                    for (int n = 0; n < numKnots; n++)
+                    for (var n = 0; n < numKnots; n++)
                         controlVerts[n * 3] = knots[n];
 
                     controlVerts[numControlVerts - 1] = knots[0];
 
                     // Now we'll do all the interior non-interpolated CVs. We go to k=NumCurveSegments which will compute the
                     // two CVs around the zeroth knot (points[0]).
-                    for (int k = 1; k <= numCurveSegments; k++)
+                    for (var k = 1; k <= numCurveSegments; k++)
                     {
-                        int modkm1 = k - 1;
-                        int modkp1 = (k + 1) % numCurveSegments;
-                        int modk = k % numCurveSegments;
+                        var modkm1 = k - 1;
+                        var modkp1 = (k + 1) % numCurveSegments;
+                        var modk = k % numCurveSegments;
 
-                        Vector3 a = knots[modkm1] - knots[modk];
-                        Vector3 b = knots[modkp1] - knots[modk];
-                        float aLen = a.magnitude;
-                        float bLen = b.magnitude;
-                        int mod3km1 = 3 * k - 1;
+                        var a = knots[modkm1] - knots[modk];
+                        var b = knots[modkp1] - knots[modk];
+                        var aLen = a.magnitude;
+                        var bLen = b.magnitude;
+                        var mod3km1 = 3 * k - 1;
 
                         // Need the -1 so the end point is a duplicated start point.
-                        int mod3kp1 = (3 * k + 1) % (numControlVerts - 1);
+                        var mod3kp1 = (3 * k + 1) % (numControlVerts - 1);
                         if ((aLen > 0.0f) && (bLen > 0.0f))
                         {
-                            float abLen = (aLen + bLen) / 8.0f;
-                            Vector3 ab = (b / bLen) - (a / aLen);
+                            var abLen = (aLen + bLen) / 8.0f;
+                            var ab = (b / bLen) - (a / aLen);
                             ab.Normalize();
                             ab *= abLen;
 
@@ -290,7 +289,7 @@ public class CubicBezierPath
     // For a closed path the last CV must match the first.
     public void SetControlVerts(Vector3[] cvs, Type t)
     {
-        int numCVs = cvs.Length;
+        var numCVs = cvs.Length;
         Assert.IsTrue(numCVs > 0);
         Assert.IsTrue(((t == Type.Open) && (numCVs >= 4)) || ((t == Type.Closed) && (numCVs >= 7)));
         Assert.IsTrue(((numCVs - 1) % 3) == 0);
@@ -323,11 +322,11 @@ public class CubicBezierPath
 
         // Segment 0 is for t E [0, 1). The last segment is for t E [NumCurveSegments-1, NumCurveSegments].
         // The following 'if' statement deals with the final inclusive bracket on the last segment. The cast must truncate.
-        int segment = (int)t;
+        var segment = (int)t;
         if (segment >= numCurveSegments)
             segment = numCurveSegments - 1;
 
-        CubicBezierCurve bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
+        var bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
         return bc.GetPoint(t - (float)segment);
     }
 
@@ -360,11 +359,11 @@ public class CubicBezierPath
 
         // Segment 0 is for t E [0, 1). The last segment is for t E [NumCurveSegments-1, NumCurveSegments].
         // The following 'if' statement deals with the final inclusive bracket on the last segment. The cast must truncate.
-        int segment = (int)t;
+        var segment = (int)t;
         if (segment >= numCurveSegments)
             segment = numCurveSegments - 1;
 
-        CubicBezierCurve bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
+        var bc = new CubicBezierCurve(controlVerts[3 * segment + 0], controlVerts[3 * segment + 1], controlVerts[3 * segment + 2], controlVerts[3 * segment + 3]);
         return bc.GetTangent(t - (float)segment);
     }
 
@@ -378,20 +377,20 @@ public class CubicBezierPath
     // use: paramThreshold = ComputeApproxParamPerUnitLength() * 0.15f.
     public float ComputeClosestParam(Vector3 pos, float paramThreshold)
     {
-        float minDistSq = float.MaxValue;
-        float closestParam = 0.0f;
-        for (int startIndex = 0; startIndex < controlVerts.Length - 1; startIndex += 3)
+        var minDistSq = float.MaxValue;
+        var closestParam = 0.0f;
+        for (var startIndex = 0; startIndex < controlVerts.Length - 1; startIndex += 3)
         {
 
-            CubicBezierCurve curve = new CubicBezierCurve(controlVerts[startIndex + 0], controlVerts[startIndex + 1], controlVerts[startIndex + 2], controlVerts[startIndex + 3]);
-            float curveClosestParam = curve.GetClosestParam(pos, paramThreshold);
+            var curve = new CubicBezierCurve(controlVerts[startIndex + 0], controlVerts[startIndex + 1], controlVerts[startIndex + 2], controlVerts[startIndex + 3]);
+            var curveClosestParam = curve.GetClosestParam(pos, paramThreshold);
 
-            Vector3 curvePos = curve.GetPoint(curveClosestParam);
-            float distSq = (curvePos - pos).sqrMagnitude;
+            var curvePos = curve.GetPoint(curveClosestParam);
+            var distSq = (curvePos - pos).sqrMagnitude;
             if (distSq < minDistSq)
             {
                 minDistSq = distSq;
-                float startParam = ((float)startIndex) / 3.0f;
+                var startParam = ((float)startIndex) / 3.0f;
                 closestParam = startParam + curveClosestParam;
             }
         }

@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NationPicker: MonoBehaviour
+public class NationPicker : MonoBehaviour
 {
     public Dropdown NationDropdown;
-    public Dropdown TeamDropdown; 
+    public Dropdown TeamDropdown;
 
     public string NationName
     {
@@ -21,9 +19,9 @@ public class NationPicker: MonoBehaviour
     {
         get
         {
-            int i = 1;
-            string text = TeamDropdown.options[TeamDropdown.value].text;
-            bool pass = int.TryParse(text, out i);
+            var i = 1;
+            var text = TeamDropdown.options[TeamDropdown.value].text;
+            var pass = int.TryParse(text, out i);
 
             return i;
         }
@@ -31,7 +29,7 @@ public class NationPicker: MonoBehaviour
 
     public void SetTeamplay(bool b)
     {
-        RectTransform tf = NationDropdown.GetComponent<RectTransform>();
+        var tf = NationDropdown.GetComponent<RectTransform>();
 
         TeamDropdown.interactable = b;
         TeamDropdown.gameObject.SetActive(b);
@@ -48,7 +46,7 @@ public class NationPicker: MonoBehaviour
 
     public void Initialize()
     {
-        ColorBlock block = NationDropdown.colors;
+        var block = NationDropdown.colors;
         block.normalColor = new Color(0.4f, 0.8f, 0.5f);
         block.highlightedColor = new Color(0.4f, 1.0f, 0.4f);
         NationDropdown.colors = block;

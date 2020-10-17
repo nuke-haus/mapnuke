@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(CustomEnumFlagAttribute))]
-class EnumFlagAttributePropertyDrawer: PropertyDrawer
+internal class EnumFlagAttributePropertyDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -22,9 +22,9 @@ class EnumFlagAttributePropertyDrawer: PropertyDrawer
         EditorGUI.EndProperty();
     }
 }
- 
-public class CustomEnumFlagAttribute: PropertyAttribute
+
+public class CustomEnumFlagAttribute : PropertyAttribute
 {
-} 
+}
 
 #endif

@@ -23,7 +23,7 @@ public class ElementManager : MonoBehaviour
     public List<ConnectionMarker> m_connections;
     public float m_size_y = 1.60f;
     public float m_size_x = 2.56f;
-    float m_edge_tolerance = 0.35f; // use 0.5f for testing purposes.
+    private readonly float m_edge_tolerance = 0.35f; // use 0.5f for testing purposes.
 
     public float Y
     {
@@ -65,7 +65,7 @@ public class ElementManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         s_element_manager = this;
 
@@ -74,7 +74,7 @@ public class ElementManager : MonoBehaviour
 
     public void ShowLabels(bool on)
     {
-        foreach (ProvinceMarker pm in m_provinces)
+        foreach (var pm in m_provinces)
         {
             pm.ShowLabel(on);
         }
@@ -89,7 +89,7 @@ public class ElementManager : MonoBehaviour
     {
         if (m_generated != null)
         {
-            foreach (GameObject o in m_generated)
+            foreach (var o in m_generated)
             {
                 GameObject.Destroy(o);
             }
@@ -104,7 +104,7 @@ public class ElementManager : MonoBehaviour
     {
         if (m_generated != null)
         {
-            foreach (GameObject o in m_generated)
+            foreach (var o in m_generated)
             {
                 GameObject.Destroy(o);
             }
@@ -116,29 +116,29 @@ public class ElementManager : MonoBehaviour
         m_provinces = new List<ProvinceMarker>();
         m_connections = new List<ConnectionMarker>();
 
-        Vector3 min = Vector3.zero - new Vector3(m_size_x, m_size_y);
-        Vector3 max = new Vector3(m_size_x * (layout.X - 1), m_size_y * (layout.Y - 1));
-        Vector3 min_top = new Vector3(min.x, max.y);
-        Vector3 max_bot = new Vector3(max.x, min.y);
-        float dist_up = Vector3.Distance(min, min_top);
-        float dist_horz = Vector3.Distance(min, max_bot);
+        var min = Vector3.zero - new Vector3(m_size_x, m_size_y);
+        var max = new Vector3(m_size_x * (layout.X - 1), m_size_y * (layout.Y - 1));
+        var min_top = new Vector3(min.x, max.y);
+        var max_bot = new Vector3(max.x, min.y);
+        var dist_up = Vector3.Distance(min, min_top);
+        var dist_horz = Vector3.Distance(min, max_bot);
 
         MapBorder.SetBorders(min, max);
 
-        foreach (Node n in nodes) // create basic provinces
+        foreach (var n in nodes) // create basic provinces
         {
-            Vector3 pos = new Vector3(n.X * m_size_x, n.Y * m_size_y, 0);
-            Vector3 randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
+            var pos = new Vector3(n.X * m_size_x, n.Y * m_size_y, 0);
+            var randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
 
-            GameObject g = GameObject.Instantiate(ProvinceMarker);
+            var g = GameObject.Instantiate(ProvinceMarker);
             g.transform.position = randpos;
 
-            ProvinceMarker m = g.GetComponent<ProvinceMarker>();
+            var m = g.GetComponent<ProvinceMarker>();
 
-            GameObject w = GameObject.Instantiate(ProvinceWidget);
+            var w = GameObject.Instantiate(ProvinceWidget);
             //w.transform.position = randpos + new Vector3(500f, 0f, 0f);
 
-            ProvinceWidget widget = w.GetComponent<ProvinceWidget>();
+            var widget = w.GetComponent<ProvinceWidget>();
             widget.SetParent(m);
             m.SetWidget(widget);
             m.SetNode(n);
@@ -151,42 +151,42 @@ public class ElementManager : MonoBehaviour
 
         adjust_province_positions();
 
-        foreach (ProvinceMarker m in m_provinces)
+        foreach (var m in m_provinces)
         {
             m.OffsetWidget(); // properly position widget
             if (Util.ShouldYield()) yield return null;
         }
 
-        List<ProvinceMarker> dummies = new List<ProvinceMarker>();
+        var dummies = new List<ProvinceMarker>();
 
-        foreach (ProvinceMarker m in m_provinces) // create dummy provinces
+        foreach (var m in m_provinces) // create dummy provinces
         {
             if (m.Node.X == 0 && m.Node.Y == 0)
             {
-                Vector3 pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
-                Vector3 pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
-                Vector3 pos_diag = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y + dist_up);
+                var pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
+                var pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
+                var pos_diag = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y + dist_up);
 
-                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                var g1 = GameObject.Instantiate(ProvinceMarker);
                 g1.transform.position = pos_up;
 
-                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                var m1 = g1.GetComponent<ProvinceMarker>();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
 
-                GameObject g2 = GameObject.Instantiate(ProvinceMarker);
+                var g2 = GameObject.Instantiate(ProvinceMarker);
                 g2.transform.position = pos_right;
 
-                ProvinceMarker m2 = g2.GetComponent<ProvinceMarker>();
+                var m2 = g2.GetComponent<ProvinceMarker>();
                 m2.AddLinkedProvince(m);
                 m.AddLinkedProvince(m2);
                 m2.SetDummy(true, m);
 
-                GameObject g3 = GameObject.Instantiate(ProvinceMarker);
+                var g3 = GameObject.Instantiate(ProvinceMarker);
                 g3.transform.position = pos_diag;
 
-                ProvinceMarker m3 = g3.GetComponent<ProvinceMarker>();
+                var m3 = g3.GetComponent<ProvinceMarker>();
                 m3.AddLinkedProvince(m);
                 m.AddLinkedProvince(m3);
                 m3.SetDummy(true, m);
@@ -200,12 +200,12 @@ public class ElementManager : MonoBehaviour
             }
             else if (m.Node.X == 0)
             {
-                Vector3 pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
+                var pos_right = new Vector3(m.transform.position.x + dist_horz, m.transform.position.y);
 
-                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                var g1 = GameObject.Instantiate(ProvinceMarker);
                 g1.transform.position = pos_right;
 
-                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                var m1 = g1.GetComponent<ProvinceMarker>();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
@@ -215,12 +215,12 @@ public class ElementManager : MonoBehaviour
             }
             else if (m.Node.Y == 0)
             {
-                Vector3 pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
+                var pos_up = new Vector3(m.transform.position.x, m.transform.position.y + dist_up);
 
-                GameObject g1 = GameObject.Instantiate(ProvinceMarker);
+                var g1 = GameObject.Instantiate(ProvinceMarker);
                 g1.transform.position = pos_up;
 
-                ProvinceMarker m1 = g1.GetComponent<ProvinceMarker>();
+                var m1 = g1.GetComponent<ProvinceMarker>();
                 m1.AddLinkedProvince(m);
                 m.AddLinkedProvince(m1);
                 m1.SetDummy(true, m);
@@ -232,8 +232,8 @@ public class ElementManager : MonoBehaviour
         }
 
         m_provinces.AddRange(dummies);
-        Dictionary<Node, ProvinceMarker> real_province = new Dictionary<Node, ProvinceMarker>();
-        Dictionary<Node, List<ProvinceMarker>> dummy_province = new Dictionary<Node, List<ProvinceMarker>>();
+        var real_province = new Dictionary<Node, ProvinceMarker>();
+        var dummy_province = new Dictionary<Node, List<ProvinceMarker>>();
 
         foreach (var pm in m_provinces)
         {
@@ -248,12 +248,12 @@ public class ElementManager : MonoBehaviour
             }
         }
 
-        foreach (Connection c in conns) // create connection markers
+        foreach (var c in conns) // create connection markers
         {
-            ProvinceMarker prov1 = real_province[c.Node1];
-            ProvinceMarker prov2 = real_province[c.Node2];
-            List<ProvinceMarker> pd1 = dummy_province[c.Node1];
-            List<ProvinceMarker> pd2 = dummy_province[c.Node2];
+            var prov1 = real_province[c.Node1];
+            var prov2 = real_province[c.Node2];
+            var pd1 = dummy_province[c.Node1];
+            var pd2 = dummy_province[c.Node2];
 
             if (pd1.Any() || pd2.Any()) // edge case
             {
@@ -297,25 +297,25 @@ public class ElementManager : MonoBehaviour
                     prov2 = pd2[0];
                 }
 
-                GameObject g = GameObject.Instantiate(ConnectionMarker);
-                ConnectionMarker m = g.GetComponent<ConnectionMarker>();
-                Vector3 p1 = prov1.transform.position;
-                Vector3 p2 = prov2.transform.position;
+                var g = GameObject.Instantiate(ConnectionMarker);
+                var m = g.GetComponent<ConnectionMarker>();
+                var p1 = prov1.transform.position;
+                var p2 = prov2.transform.position;
 
                 prov1.AddConnection(m);
                 prov2.AddConnection(m);
 
-                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                var center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
                 g.transform.position = center;
 
-                GameObject w = GameObject.Instantiate(ConnectionWidget);
+                var w = GameObject.Instantiate(ConnectionWidget);
                 w.transform.position = center + new Vector3(500f, 0f, 0f);
 
                 m.SetEdgeConnection(true);
                 m.SetProvinces(prov1, prov2);
                 m.SetEndPoints(p1, p2);
 
-                ConnectionWidget widget = w.GetComponent<ConnectionWidget>();
+                var widget = w.GetComponent<ConnectionWidget>();
                 widget.SetParent(m);
                 m.SetWidget(widget);
 
@@ -327,24 +327,24 @@ public class ElementManager : MonoBehaviour
             }
             else // base case
             {
-                GameObject g = GameObject.Instantiate(ConnectionMarker);
-                ConnectionMarker m = g.GetComponent<ConnectionMarker>();
-                Vector3 p1 = prov1.transform.position;
-                Vector3 p2 = prov2.transform.position;
+                var g = GameObject.Instantiate(ConnectionMarker);
+                var m = g.GetComponent<ConnectionMarker>();
+                var p1 = prov1.transform.position;
+                var p2 = prov2.transform.position;
 
                 prov1.AddConnection(m);
                 prov2.AddConnection(m);
 
-                Vector3 center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
+                var center = get_weighted_center(p1, p2, prov1.Node, prov2.Node);
                 g.transform.position = center;
 
-                GameObject w = GameObject.Instantiate(ConnectionWidget);
+                var w = GameObject.Instantiate(ConnectionWidget);
                 w.transform.position = center + new Vector3(500f, 0f, 0f);
 
                 m.SetProvinces(prov1, prov2);
                 m.SetEndPoints(p1, p2);
 
-                ConnectionWidget widget = w.GetComponent<ConnectionWidget>();
+                var widget = w.GetComponent<ConnectionWidget>();
                 widget.SetParent(m);
                 m.SetWidget(widget);
 
@@ -362,17 +362,17 @@ public class ElementManager : MonoBehaviour
         yield return StartCoroutine(ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y));
     }
 
-    void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
+    private void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
     {
-        int ypos = 0;
+        var ypos = 0;
         var row = m_provinces.Where(x => x.Node.Y == ypos && !x.IsDummy).ToList();
 
         while (row.Any())
         {
-            foreach (ProvinceMarker m in row)
+            foreach (var m in row)
             {
-                Vector3 pos = m.transform.position;
-                float add = 0.02f;
+                var pos = m.transform.position;
+                var add = 0.02f;
 
                 if (UnityEngine.Random.Range(0, 2) == 0)
                 {
@@ -392,21 +392,21 @@ public class ElementManager : MonoBehaviour
         }
     }
 
-    void number_provinces() // assign province numbers based on X and Y position, this is how dominions does it
+    private void number_provinces() // assign province numbers based on X and Y position, this is how dominions 5 does it
     {
         var valid = m_provinces.Where(x => !x.IsDummy).OrderBy(x => x.gameObject.transform.position.y).ThenBy(x => x.gameObject.transform.position.x);
-        int num = 1;
+        var num = 1;
 
-        foreach (ProvinceMarker pm in valid)
+        foreach (var pm in valid)
         {
             pm.Node.SetID(num);
             num++;
         }
     }
 
-    Vector3 get_mirrored_pos(Vector3 min, Vector3 max, Vector3 vec)
+    private Vector3 get_mirrored_pos(Vector3 min, Vector3 max, Vector3 vec)
     {
-        Vector3 diff = vec - min;
+        var diff = vec - min;
 
         if (Mathf.Abs(vec.x - min.x) < 0.01f)
         {
@@ -429,12 +429,12 @@ public class ElementManager : MonoBehaviour
         return vec;
     }
 
-    Vector3 get_weighted_center(Vector3 p1, Vector3 p2, Node n1, Node n2)
+    private Vector3 get_weighted_center(Vector3 p1, Vector3 p2, Node n1, Node n2)
     {
-        Vector3 dir1 = (p1 - p2).normalized;
-        Vector3 dir2 = (p2 - p1).normalized;
-        Vector3 center = (p1 + p2) / 2;
-        float dist = Vector3.Distance(center, p1);
+        var dir1 = (p1 - p2).normalized;
+        var dir2 = (p2 - p1).normalized;
+        var center = (p1 + p2) / 2;
+        var dist = Vector3.Distance(center, p1);
 
         if (n1.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) || n1.Connections.Count == 4)
         {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
-using UnityEngine;
 
 public enum Age
 {
@@ -92,7 +89,7 @@ public static class AllNationData
 
     public static void AddNations(NationCollection coll)
     {
-        foreach (NationData d in coll.Nations)
+        foreach (var d in coll.Nations)
         {
             AllNations.Add(d);
         }

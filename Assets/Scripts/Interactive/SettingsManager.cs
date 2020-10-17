@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager: MonoBehaviour
+public class SettingsManager : MonoBehaviour
 {
     public AudioClip AudioClick;
 
@@ -49,8 +47,7 @@ public class SettingsManager: MonoBehaviour
     public Text NormSizePercent;
 
     public Button AcceptButton;
-
-    bool m_invalid = false;
+    private bool m_invalid = false;
 
     public void Initialize()
     {
@@ -58,7 +55,7 @@ public class SettingsManager: MonoBehaviour
         update_labels();
     }
 
-    void update_textboxes()
+    private void update_textboxes()
     {
         SwampMin.text = GeneratorSettings.s_generator_settings.SwampFreq.MinInt.ToString();
         SwampMax.text = GeneratorSettings.s_generator_settings.SwampFreq.MaxInt.ToString();
@@ -145,9 +142,9 @@ public class SettingsManager: MonoBehaviour
 
     public void ValidateChanges() // user changed value
     {
-        int total_size = get_int(SmallMax) + get_int(LargeMax);
+        var total_size = get_int(SmallMax) + get_int(LargeMax);
 
-        int total = get_int(SwampMax) +
+        var total = get_int(SwampMax) +
             get_int(WasteMax) +
             get_int(MountainMax) +
             get_int(HighlandMax) +
@@ -156,15 +153,15 @@ public class SettingsManager: MonoBehaviour
             get_int(ForestMax) +
             get_int(LakeMax);
 
-        int total_conn = get_int(RoadMax) +
+        var total_conn = get_int(RoadMax) +
             get_int(CliffMax) +
             get_int(CliffPassMax) +
             get_int(RiverMax) +
             get_int(DeepRiverMax);
 
-        int total_plains = 100 - total;
-        int total_normal_conn = 100 - total_conn;
-        int total_normal_size = 100 - total_size;
+        var total_plains = 100 - total;
+        var total_normal_conn = 100 - total_conn;
+        var total_normal_size = 100 - total_size;
 
         ProvSizePercent.text = "Total: " + total_size + "%";
         ProvPercent.text = "Total: " + total + "%";
@@ -208,15 +205,14 @@ public class SettingsManager: MonoBehaviour
         AcceptButton.interactable = !m_invalid;
     }
 
-    int get_int(InputField f)
+    private int get_int(InputField f)
     {
         if (f.text == string.Empty)
         {
             f.text = "0";
         }
 
-        int res = 0;
-        bool pass = int.TryParse(f.text, out res);
+        var pass = int.TryParse(f.text, out var res);
 
         if (!pass)
         {
@@ -226,15 +222,14 @@ public class SettingsManager: MonoBehaviour
         return res;
     }
 
-    float get_float(InputField f)
+    private float get_float(InputField f)
     {
         if (f.text == string.Empty)
         {
             f.text = "0";
         }
 
-        int res = 0;
-        bool pass = int.TryParse(f.text, out res);
+        var pass = int.TryParse(f.text, out var res);
 
         if (!pass)
         {
@@ -244,11 +239,11 @@ public class SettingsManager: MonoBehaviour
         return ((float)res) / 100f;
     }
 
-    void update_labels()
+    private void update_labels()
     {
-        int total_size = GeneratorSettings.s_generator_settings.SmallFreq.MaxInt + GeneratorSettings.s_generator_settings.LargeFreq.MaxInt;
+        var total_size = GeneratorSettings.s_generator_settings.SmallFreq.MaxInt + GeneratorSettings.s_generator_settings.LargeFreq.MaxInt;
 
-        int total = GeneratorSettings.s_generator_settings.SwampFreq.MaxInt +
+        var total = GeneratorSettings.s_generator_settings.SwampFreq.MaxInt +
             GeneratorSettings.s_generator_settings.WasteFreq.MaxInt +
             GeneratorSettings.s_generator_settings.MountainFreq.MaxInt +
             GeneratorSettings.s_generator_settings.HighlandFreq.MaxInt +
@@ -257,15 +252,15 @@ public class SettingsManager: MonoBehaviour
             GeneratorSettings.s_generator_settings.ForestFreq.MaxInt +
             GeneratorSettings.s_generator_settings.LakeFreq.MaxInt;
 
-        int total_conn = GeneratorSettings.s_generator_settings.RoadFreq.MaxInt +
+        var total_conn = GeneratorSettings.s_generator_settings.RoadFreq.MaxInt +
             GeneratorSettings.s_generator_settings.CliffFreq.MaxInt +
             GeneratorSettings.s_generator_settings.CliffPassFreq.MaxInt +
             GeneratorSettings.s_generator_settings.RiverFreq.MaxInt +
             GeneratorSettings.s_generator_settings.DeepRiverFreq.MaxInt;
 
-        int total_plains = 100 - total;
-        int total_normal_conn = 100 - total_conn;
-        int total_normal_size = 100 - total_size;
+        var total_plains = 100 - total;
+        var total_normal_conn = 100 - total_conn;
+        var total_normal_size = 100 - total_size;
 
         ProvSizePercent.text = "Total: " + total_size + "%";
         ProvPercent.text = "Total: " + total + "%";

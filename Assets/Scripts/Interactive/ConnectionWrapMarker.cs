@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Behavious class for duplicate river/road meshes
+/// Behaviour class for duplicate river/road meshes used at map edge for horizontal/vertical wrapping cases
 /// </summary>
-public class ConnectionWrapMarker: MonoBehaviour
+public class ConnectionWrapMarker : MonoBehaviour
 {
     public Material MatSea;
     public Material MatDeepSea;
@@ -25,14 +23,13 @@ public class ConnectionWrapMarker: MonoBehaviour
 
     public GameObject MapSpritePrefab;
     public GameObject InnerStrokePrefab;
-
-    PolyBorder m_border;
-    List<Vector3> m_poly;
-    ConnectionMarker m_parent;
-    Connection m_connection;
-    List<SpriteMarker> m_sprites;
-    InnerStroke m_stroke;
-    Vector3 m_offset;
+    private PolyBorder m_border;
+    private List<Vector3> m_poly;
+    private ConnectionMarker m_parent;
+    private Connection m_connection;
+    private List<SpriteMarker> m_sprites;
+    private InnerStroke m_stroke;
+    private Vector3 m_offset;
 
     public PolyBorder PolyBorder
     {
@@ -81,11 +78,11 @@ public class ConnectionWrapMarker: MonoBehaviour
         SetSeason(GenerationManager.s_generation_manager.Season);
     }
 
-    void draw_road(Vector3 offset)
+    private void draw_road(Vector3 offset)
     {
-        List<Vector3> pts = new List<Vector3>();
+        var pts = new List<Vector3>();
 
-        foreach (Vector3 pos in m_poly)
+        foreach (var pos in m_poly)
         {
             pts.Add(pos + offset);
         }
@@ -93,14 +90,14 @@ public class ConnectionWrapMarker: MonoBehaviour
         RoadLine.positionCount = pts.Count;
         RoadLine.SetPositions(pts.ToArray());
 
-        AnimationCurve jitter = new AnimationCurve();
-        int num_keys = UnityEngine.Random.Range(2, 8);
-        List<float> floats = new List<float>();
+        var jitter = new AnimationCurve();
+        var num_keys = UnityEngine.Random.Range(2, 8);
+        var floats = new List<float>();
 
-        for (int i = 0; i < num_keys; i++)
+        for (var i = 0; i < num_keys; i++)
         {
-            float rand = UnityEngine.Random.Range(0f, 1f);
-            int ct = 0;
+            var rand = UnityEngine.Random.Range(0f, 1f);
+            var ct = 0;
 
             while (floats.Any(x => Mathf.Abs(rand - x) < 0.1f) && ct < 10)
             {
@@ -119,7 +116,7 @@ public class ConnectionWrapMarker: MonoBehaviour
         RoadLine.widthCurve = jitter;
     }
 
-    void draw_river_shore(Vector3 offset)
+    private void draw_river_shore(Vector3 offset)
     {
         if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
@@ -132,12 +129,12 @@ public class ConnectionWrapMarker: MonoBehaviour
             m_stroke = null;
         }
 
-        GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+        var g = GameObject.Instantiate(InnerStrokePrefab);
         m_stroke = g.GetComponent<InnerStroke>();
         m_stroke.DrawStroke(m_poly, offset + new Vector3(0f, 0f, -0.9f), false, 0.03f, 0.06f);
     }
 
-    void draw_shore(Vector3 offset)
+    private void draw_shore(Vector3 offset)
     {
         if (m_stroke != null)
         {
@@ -147,7 +144,7 @@ public class ConnectionWrapMarker: MonoBehaviour
 
         if ((m_parent.Prov1.Node.ProvinceData.IsWater && !m_parent.Prov2.Node.ProvinceData.IsWater) || (m_parent.Prov2.Node.ProvinceData.IsWater && !m_parent.Prov1.Node.ProvinceData.IsWater))
         {
-            GameObject g = GameObject.Instantiate(InnerStrokePrefab);
+            var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
             m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), offset);
         }
@@ -157,7 +154,7 @@ public class ConnectionWrapMarker: MonoBehaviour
     {
         if (m_sprites != null)
         {
-            foreach (SpriteMarker sm in m_sprites)
+            foreach (var sm in m_sprites)
             {
                 GameObject.Destroy(sm.gameObject);
             }
@@ -169,7 +166,7 @@ public class ConnectionWrapMarker: MonoBehaviour
         GameObject.Destroy(gameObject);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         if (m_stroke != null)
         {
@@ -228,18 +225,18 @@ public class ConnectionWrapMarker: MonoBehaviour
         {
             return;
         }
-       
-        Triangulator tr = new Triangulator(get_pts_array(m_poly));
-        int[] indices = tr.Triangulate();
 
-        Vector2[] uv = new Vector2[m_poly.Count];
+        var tr = new Triangulator(get_pts_array(m_poly));
+        var indices = tr.Triangulate();
 
-        for (int i = 0; i < m_poly.Count; i++)
+        var uv = new Vector2[m_poly.Count];
+
+        for (var i = 0; i < m_poly.Count; i++)
         {
             uv[i] = new Vector2(m_poly[i].x, m_poly[i].y);
         }
 
-        Mesh m = new Mesh();
+        var m = new Mesh();
         m.vertices = m_poly.ToArray();
         m.uv = uv;
         m.triangles = indices;
@@ -247,9 +244,9 @@ public class ConnectionWrapMarker: MonoBehaviour
         m.RecalculateNormals();
         m.RecalculateBounds();
 
-        Vector3[] norms = m.normals;
+        var norms = m.normals;
 
-        for (int i = 0; i < norms.Length - 1; i++)
+        for (var i = 0; i < norms.Length - 1; i++)
         {
             norms[i] = Vector3.back;
         }
@@ -258,7 +255,7 @@ public class ConnectionWrapMarker: MonoBehaviour
 
         MeshFilter.mesh = m;
 
-        Vector3 pos = transform.position * -1f;
+        var pos = transform.position * -1f;
         if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
             pos.z = -2.0f;
@@ -284,15 +281,15 @@ public class ConnectionWrapMarker: MonoBehaviour
             return;
         }
 
-        List<Vector3> border = pb.GetFullLengthBorder();
-        List<Vector3> fix = new List<Vector3>();
+        var border = pb.GetFullLengthBorder();
+        var fix = new List<Vector3>();
 
-        foreach (Vector3 v in border)
+        foreach (var v in border)
         {
             fix.Add(new Vector3(v.x + offset.x, v.y + offset.y, -0.8f));
         }
 
-        Vector3[] arr = fix.ToArray();
+        var arr = fix.ToArray();
 
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
@@ -301,11 +298,11 @@ public class ConnectionWrapMarker: MonoBehaviour
         BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
     }
 
-    Vector2[] get_pts_array(List<Vector3> list)
+    private Vector2[] get_pts_array(List<Vector3> list)
     {
-        List<Vector2> vecs = new List<Vector2>();
+        var vecs = new List<Vector2>();
 
-        foreach (Vector3 vec in list)
+        foreach (var vec in list)
         {
             vecs.Add(new Vector2(vec.x, vec.y));
         }
@@ -313,11 +310,11 @@ public class ConnectionWrapMarker: MonoBehaviour
         return vecs.ToArray();
     }
 
-    SpriteMarker make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
+    private SpriteMarker make_sprite(Vector3 pos, ConnectionSprite cs, Vector3 offset)
     {
         pos.z = -3f;
-        GameObject g = GameObject.Instantiate(MapSpritePrefab);
-        SpriteMarker sm = g.GetComponent<SpriteMarker>();
+        var g = GameObject.Instantiate(MapSpritePrefab);
+        var sm = g.GetComponent<SpriteMarker>();
         sm.SetSprite(cs);
         sm.transform.position = pos + offset;
 
@@ -331,7 +328,7 @@ public class ConnectionWrapMarker: MonoBehaviour
     {
         if (m_sprites != null)
         {
-            foreach (SpriteMarker sm in m_sprites)
+            foreach (var sm in m_sprites)
             {
                 GameObject.Destroy(sm.gameObject);
             }
@@ -348,22 +345,22 @@ public class ConnectionWrapMarker: MonoBehaviour
 
             m_sprites = new List<SpriteMarker>();
 
-            Vector3 last = new Vector3(-900, -900, 0);
-            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            var last = new Vector3(-900, -900, 0);
+            var cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             if (cs == null)
             {
                 return m_sprites;
             }
 
-            int ct = 0;
+            var ct = 0;
 
             make_sprite(PolyBorder.P1, cs, Vector3.zero);
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
-            foreach (Vector3 pt in PolyBorder.OrderedFinePoints)
+            foreach (var pt in PolyBorder.OrderedFinePoints)
             {
                 if (Vector3.Distance(last, pt) < cs.Size && ct < m_border.OrderedFinePoints.Count - 1)
                 {
@@ -388,14 +385,14 @@ public class ConnectionWrapMarker: MonoBehaviour
 
             m_sprites = new List<SpriteMarker>();
 
-            Vector3 last = new Vector3(-900, -900, 0);
-            ConnectionSprite cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            PolyBorder other = PolyBorder.Reversed();
+            var last = new Vector3(-900, -900, 0);
+            var cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
+            var other = PolyBorder.Reversed();
 
-            int right_ct = 0;
-            int right_pos = 0;
+            var right_ct = 0;
+            var right_pos = 0;
 
-            foreach (Vector3 pt in other.OrderedFinePoints)
+            foreach (var pt in other.OrderedFinePoints)
             {
                 if (Vector3.Distance(last, pt) < cs.Size)
                 {
@@ -418,12 +415,12 @@ public class ConnectionWrapMarker: MonoBehaviour
                 right_pos++;
             }
 
-            Vector3 endpt = other.OrderedFinePoints[right_pos];
+            var endpt = other.OrderedFinePoints[right_pos];
             right_ct = -1;
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bool is_mountain = true;
+            var is_mountain = true;
 
-            foreach (Vector3 pt in PolyBorder.OrderedFinePoints)
+            foreach (var pt in PolyBorder.OrderedFinePoints)
             {
                 if (Vector3.Distance(pt, endpt) < 0.08f)
                 {

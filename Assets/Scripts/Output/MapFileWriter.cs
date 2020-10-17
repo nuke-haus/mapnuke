@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 /// <summary>
@@ -52,9 +52,9 @@ public static class MapFileWriter
 {
     public static void GenerateText(string mapname, NodeLayout layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay, int[] province_ids)
     {
-        string data_folder = Application.dataPath;
-        string folder = data_folder + "/Export/";
-        string path = folder + mapname + ".map";
+        var data_folder = Application.dataPath;
+        var folder = data_folder + "/Export/";
+        var path = folder + mapname + ".map";
 
         if (!Directory.Exists(folder))
         {
@@ -66,20 +66,20 @@ public static class MapFileWriter
             File.Delete(path);
         }
 
-        int x = Mathf.RoundToInt(layout.X * mgr.X * 100);
-        int y = Mathf.RoundToInt(layout.Y * mgr.Y * 100);
+        var x = Mathf.RoundToInt(layout.X * mgr.X * 100);
+        var y = Mathf.RoundToInt(layout.Y * mgr.Y * 100);
 
         provs = provs.Where(p => !p.IsDummy).ToList();
         provs = provs.OrderBy(p => p.ProvinceNumber).ToList();
 
-        using (FileStream fs = File.Create(path))
+        using (var fs = File.Create(path))
         {
             var dom_col_r = (int)(GenerationManager.s_generation_manager.OverlayColor.r * 255f);
             var dom_col_g = (int)(GenerationManager.s_generation_manager.OverlayColor.g * 255f);
             var dom_col_b = (int)(GenerationManager.s_generation_manager.OverlayColor.b * 255f);
             var dom_col_a = (int)(GenerationManager.s_generation_manager.OverlayColor.a * 255f);
 
-            string map_stats = string.Format("Player count: {0}, Throne count: {1}, Province count: {2}", layout.NumPlayers, layout.NumThrones, layout.TotalProvinces);
+            var map_stats = string.Format("Player count: {0}, Throne count: {1}, Province count: {2}", layout.NumPlayers, layout.NumThrones, layout.TotalProvinces);
 
             write(fs, "-- Basic Map Information");
             write(fs, "#dom2title " + mapname);
@@ -93,7 +93,7 @@ public static class MapFileWriter
 
             write(fs, "\n-- Start Location Data");
 
-            foreach (PlayerData d in nations)
+            foreach (var d in nations)
             {
                 if (d.NationData.ID > -1)
                 {
@@ -101,7 +101,7 @@ public static class MapFileWriter
                 }
             }
 
-            foreach (ProvinceMarker m in provs)
+            foreach (var m in provs)
             {
                 if (m.Node.HasNation)
                 {
@@ -125,9 +125,9 @@ public static class MapFileWriter
 
             write(fs, "\n-- Terrain Data");
 
-            foreach (ProvinceMarker m in provs)
+            foreach (var m in provs)
             {
-                Terrain terr = m.Node.ProvinceData.Terrain;
+                var terr = m.Node.ProvinceData.Terrain;
 
                 if (GeneratorSettings.s_generator_settings.UseClassicMountains && !terr.IsFlagSet(Terrain.MOUNTAINS) && mountain_count(m) >= 1f)
                 {
@@ -149,9 +149,9 @@ public static class MapFileWriter
 
             write(fs, "\n-- Province Neighbour Data");
 
-            foreach (ProvinceMarker m in provs)
+            foreach (var m in provs)
             {
-                foreach (Connection c in m.Node.Connections)
+                foreach (var c in m.Node.Connections)
                 {
                     write(fs, "#neighbour " + c.Node1.ID + " " + c.Node2.ID);
 
@@ -165,15 +165,15 @@ public static class MapFileWriter
             write(fs, "\n-- Province Border Data");
 
             {
-                int cur = 0;
-                for (int cur_y = 0; cur_y < y; ++cur_y)
+                var cur = 0;
+                for (var cur_y = 0; cur_y < y; ++cur_y)
                 {
-                    int cur_id = 0;
-                    int cur_px = 0;
-                    int cur_x = 0;
+                    var cur_id = 0;
+                    var cur_px = 0;
+                    var cur_x = 0;
                     for (; cur_x < x; ++cur_x)
                     {
-                        int nex_id = province_ids[cur];
+                        var nex_id = province_ids[cur];
                         if (nex_id != cur_id)
                         {
                             if (cur_id != 0)
@@ -194,11 +194,11 @@ public static class MapFileWriter
         }
     }
 
-    static float mountain_count(ProvinceMarker m)
+    private static float mountain_count(ProvinceMarker m)
     {
-        float res = 0f;
+        var res = 0f;
 
-        foreach (Connection c in m.Node.Connections)
+        foreach (var c in m.Node.Connections)
         {
             if (c.ConnectionType == ConnectionType.MOUNTAIN)
             {
@@ -216,22 +216,22 @@ public static class MapFileWriter
     private static void write(FileStream fs, string value)
     {
         value += "\n";
-        byte[] info = new UTF8Encoding(true).GetBytes(value);
+        var info = new UTF8Encoding(true).GetBytes(value);
         fs.Write(info, 0, info.Length);
     }
 
     public static void GenerateImage(string mapname, RenderTexture tex, bool is_targa = true)
     {
-        Texture2D t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
+        var t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
-        string data_folder = Application.dataPath;
-        string folder = data_folder + "/Export/";
+        var data_folder = Application.dataPath;
+        var folder = data_folder + "/Export/";
 
         if (is_targa)
         {
-            byte[] bytes = t.EncodeToTGA();
-            string path = folder + mapname + ".tga";
+            var bytes = t.EncodeToTGA();
+            var path = folder + mapname + ".tga";
 
             if (!Directory.Exists(folder))
             {
@@ -247,8 +247,8 @@ public static class MapFileWriter
         }
         else
         {
-            byte[] bytes = t.EncodeToPNG();
-            string path = folder + mapname + ".png";
+            var bytes = t.EncodeToPNG();
+            var path = folder + mapname + ".png";
 
             if (!Directory.Exists(folder))
             {

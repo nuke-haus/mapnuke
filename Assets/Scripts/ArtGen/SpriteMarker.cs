@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum Season
@@ -12,12 +10,11 @@ public enum Season
 /// <summary>
 /// The behaviour class for sprite objects that are used to decorate provinces and connections.
 /// </summary>
-public class SpriteMarker: MonoBehaviour
+public class SpriteMarker : MonoBehaviour
 {
     public GameObject MapSpritePrefab;
-
-    bool m_force_flip = false;
-    bool m_flip_x = false;
+    private bool m_force_flip = false;
+    private bool m_flip_x = false;
 
     public MapSprite MapSprite
     {
@@ -129,7 +126,7 @@ public class SpriteMarker: MonoBehaviour
 
     public void CopyFrom(SpriteMarker m)
     {
-        this.IsDummy = true;
+        IsDummy = true;
         MapSprite = m.MapSprite;
         GetComponent<SpriteRenderer>().flipX = m.GetComponent<SpriteRenderer>().flipX;
         GetComponent<SpriteRenderer>().color = m.GetComponent<SpriteRenderer>().color;
@@ -147,22 +144,22 @@ public class SpriteMarker: MonoBehaviour
 
     public List<SpriteMarker> CreateMirrorSprites(Vector3 forced_max, Vector3 forced_min, bool force = false)
     {
-        List<SpriteMarker> result = new List<SpriteMarker>();
-        SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        Bounds b = rend.bounds;
-        Vector3 max = b.max;
-        Vector3 min = b.min;
-        
+        var result = new List<SpriteMarker>();
+        var rend = GetComponent<SpriteRenderer>();
+        var b = rend.bounds;
+        var max = b.max;
+        var min = b.min;
+
         if (force)
         {
             max = forced_max;
             min = forced_min;
         }
 
-        Vector3 map_max = MapBorder.s_map_border.Maxs;
-        Vector3 map_min = MapBorder.s_map_border.Mins;
-        Vector3 size = map_max - map_min;
-        bool flip = FlipX;
+        var map_max = MapBorder.s_map_border.Maxs;
+        var map_min = MapBorder.s_map_border.Mins;
+        var size = map_max - map_min;
+        var flip = FlipX;
 
         if (max.x > map_max.x)
         {
@@ -194,15 +191,15 @@ public class SpriteMarker: MonoBehaviour
         return result;
     }
 
-    SpriteMarker create_sprite(Vector3 pos, bool flip)
+    private SpriteMarker create_sprite(Vector3 pos, bool flip)
     {
-        GameObject g = GameObject.Instantiate(MapSpritePrefab);
-        SpriteMarker sm = g.GetComponent<SpriteMarker>();
+        var g = GameObject.Instantiate(MapSpritePrefab);
+        var sm = g.GetComponent<SpriteMarker>();
         sm.CopyFrom(this);
         sm.transform.position = pos;
 
-        int max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
-        int y = max_y - Mathf.RoundToInt(pos.y * 100f);
+        var max_y = Mathf.RoundToInt((MapBorder.s_map_border.Maxs.y + 1.0f) * 100f);
+        var y = max_y - Mathf.RoundToInt(pos.y * 100f);
 
         sm.SetOrder(y);
         sm.SetFlip(true, flip);
