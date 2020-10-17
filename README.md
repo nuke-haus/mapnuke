@@ -10,6 +10,10 @@
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
 
+### How to add your own art style
+
+A recent update to MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style.
+
 ### The to-do list
 
 Missing features and other known issues.
