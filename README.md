@@ -31,22 +31,31 @@ A recent update to MapNuke now allows you to add your own custom art styles. The
 
 ![Step 5](https://cdn.discordapp.com/attachments/404681432238391307/767117176833441813/d3.png)
 
-It's a bit complex so i'll try to describe what each value does.
+It's a bit complex so i'll try to describe what the values for each terrain type do:
 
-__Cull Chance__ - A value between 0 and 1. Higher values will result in less sprite density on the province. Try using 0 and 0.99 if you want to see the difference it makes.
-__Province Edge Threshold__ - How close to the edge of the province can sprites be? This helps stop sprites from overlapping. 
+* __Cull Chance__ - A value between 0 and 1. Higher values will result in less sprite density on the province. Try using 0 and 0.99 if you want to see the difference it makes.
 
-Each sprite has several parameters.
+* __Province Edge Threshold__ - How close to the edge of the province can sprites be? This helps stop sprites from overlapping. 
 
-__Sprite__ - The sprite to use in summer.
-__Winter Sprite__ - The sprite to use in winter.
-__Spawn Chance__ - Value between 0 and 1. 1 means it will be very common.
-__Can Flip__ - Can the sprite be flipped on the X axis?
-__Can Flip Winter__ - Same as above but in winter.
-__Is Centerpiece__ - Some province types (ie. caves, mountains) have a large central sprite. These are centerpieces.
-__Valid Colors__ - List of valid colors to tint the sprite with. Just use white with 100% alpha if you don't want the sprite to be tintable.
-__Valid Colors Winter__ - Same as above for winter.
-__Valid Terrain__ - What type of terrain flag is required for this sprite to get used? Certain provinces (ie. wasteland) use this to specify special sprites. Examine the default art style to understand this better.
+Each sprite has several parameters:
+
+* __Sprite__ - The sprite to use in summer.
+
+* __Winter Sprite__ - The sprite to use in winter.
+
+* __Spawn Chance__ - Value between 0 and 1. 1 means it will be very common.
+
+* __Can Flip__ - Can the sprite be flipped on the X axis?
+
+* __Can Flip Winter__ - Same as above but in winter.
+
+* __Is Centerpiece__ - Some province types (ie. caves, mountains) have a large central sprite. These are centerpieces.
+
+* __Valid Colors__ - List of valid colors to tint the sprite with. Just use white with 100% alpha if you don't want the sprite to be tintable.
+
+* __Valid Colors Winter__ - Same as above for winter.
+
+* __Valid Terrain__ - What type of terrain flag is required for this sprite to get used? Certain provinces (ie. wasteland) use this to specify special sprites. Examine the default art style to understand this better.
 
 6. Add your materials from step 3 to the material list.
 
