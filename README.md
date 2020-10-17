@@ -17,6 +17,8 @@ A recent update to MapNuke now allows you to add your own custom art styles. The
 1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
 2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. Import your desired sprite assets. Click on imported art assets to look at their import settings. You can copy the settings used by existing assets if you aren't sure what values to use here.
 
+__Important note: Don't use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it some off-white that looks close enough to white.__
+
 ![Step 2](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
 
 3. Create the folders you'd like to store your materials in. For example, the default materials are stored in _Gfx/Materials/Default_. Follow a similar naming convention to what you did in step 2 here. Import any textures being used for the province materials (if applicable) into this folder. You can examine the default materials which use a noise shader to see how those are done. You'll want to use a different shader if you're doing a texture-based material.
