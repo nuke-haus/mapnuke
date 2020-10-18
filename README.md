@@ -65,6 +65,8 @@ Each sprite has several parameters:
 
 7. Add your new art style to the list of valid art styles in the ArtManager. Click the ArtManager in the scene view and examine its _Art Configurations_ field. Increase its capacity by 1 and click-drag your new art style into the new space. This is the collection of valid art styles that can be chosen at runtime.
 
+![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117180805709824/d6.png)
+
 8. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
 
 ### The to-do list
