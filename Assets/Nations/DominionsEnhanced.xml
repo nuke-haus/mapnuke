@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Nation>
+    <Name>DE - (MA) Ryugo-jo</Name>
+    <ID>114</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Chaco</Name>
+    <ID>124</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Ongtupqa</Name>
+    <ID>125</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Ongtupqa</Name>
+    <ID>126</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Nahullo</Name>
+    <ID>127</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Albion</Name>
+    <ID>128</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Zion</Name>
+    <ID>129</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Bhöd</Name>
+    <ID>130</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Shamballa</Name>
+    <ID>131</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Fennoscandia</Name>
+    <ID>132</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Rotterland</Name>
+    <ID>133</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>LARGEPROV SWAMP</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Tartary</Name>
+    <ID>134</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Great Arrada</Name>
+    <ID>135</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Alchera</Name>
+    <ID>136</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Sawaiiki</Name>
+    <ID>140</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Juhera</Name>
+    <ID>155</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Iram</Name>
+    <ID>156</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Iram</Name>
+    <ID>157</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (EA) Nihuala</Name>
+    <ID>160</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (MA) Nihuala</Name>
+    <ID>161</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Nihuala</Name>
+    <ID>162</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Venedia</Name>
+    <ID>166</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Dom-Dan'yel</Name>
+    <ID>167</ID>
+    <WaterPercentage>0.7</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA CAVE</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>DE - (LA) Gondwana</Name>
+    <ID>168</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+</NationCollection>
