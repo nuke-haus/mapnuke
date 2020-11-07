@@ -154,7 +154,7 @@
   <Nation>
     <Name>DE - (EA) Alchera</Name>
     <ID>136</ID>
-    <WaterPercentage>0</WaterPercentage>
+    <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>WASTE</CapTerrain>
