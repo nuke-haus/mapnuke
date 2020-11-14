@@ -12,7 +12,7 @@
 
 ### How to add your own art style
 
-A recent update to MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
+MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
 
 1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
 2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. Import your desired sprite assets. Click on imported art assets to look at their import settings. You can copy the settings used by existing assets if you aren't sure what values to use here.
@@ -41,9 +41,9 @@ It's a bit complex so i'll try to describe what the values for each terrain type
 
 Each sprite has several parameters:
 
-* __Sprite__ - The sprite to use in summer.
+* __Sprite__ - The sprite to use in summer. Use transparent_pixel.png for your summer sprite if you don't want anything to render in summer.
 
-* __Winter Sprite__ - The sprite to use in winter.
+* __Winter Sprite__ - The sprite to use in winter. Use transparent_pixel.png for your winter sprite if you don't want anything to render in winter.
 
 * __Spawn Chance__ - Value between 0 and 1, 0 being nonexistent and 1 being very common.
 
