@@ -63,7 +63,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GridSize: 28
+    - _GridSize: 15
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -81,7 +81,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.6320754, g: 0.55668634, b: 0.45616764, a: 1}
-    - _Color2: {r: 0.7264151, g: 0.6561323, b: 0.5585173, a: 1}
-    - _Color3: {r: 0.8396226, g: 0.76663655, b: 0.6693218, a: 1}
+    - _Color1: {r: 0.27058825, g: 0.24313727, b: 0.27058825, a: 1}
+    - _Color2: {r: 0.43137258, g: 0.3803922, b: 0.40784317, a: 1}
+    - _Color3: {r: 0.7607844, g: 0.69411767, b: 0.654902, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
