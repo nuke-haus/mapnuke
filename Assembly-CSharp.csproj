@@ -110,7 +110,9 @@
     <Compile Include="Assets\Scripts\WorldGen\Node.cs" />
     <Compile Include="Assets\Scripts\WorldGen\NodeLayout.cs" />
     <Compile Include="Assets\Scripts\WorldGen\WorldGenerator.cs" />
+    <None Include="Assets\Layouts\elbowroom.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
+    <None Include="Assets\Layouts\devilcross.xml" />
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
     <None Include="Assets\Nations\Default.xml" />
