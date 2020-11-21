@@ -68,22 +68,3 @@ Each sprite has several parameters:
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117180805709824/d6.png)
 
 8. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
-
-### The to-do list
-
-Missing features and other known issues.
-
-- Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite. Right now only wastelands are given hot/cold modifiers.
-- Compact map layouts for 15, 17, 18, 19, 20 and 21 players.
-
-### The wish list
-
-Some features that would be nice to have.
-
-- More sprite variety.
-- Add a dialog box somewhere that lets players give provinces custom names if they want.
-- Support for non-wrapping maps.
-
-### Other info
-
-Stay tuned for more cool stuff - www.nuke.haus
