@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{ABF12CD5-6921-67AE-EB55-9F2986B3EEA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -111,7 +110,6 @@
     <Compile Include="Assets\Scripts\WorldGen\Node.cs" />
     <Compile Include="Assets\Scripts\WorldGen\NodeLayout.cs" />
     <Compile Include="Assets\Scripts\WorldGen\WorldGenerator.cs" />
-    <None Include=".editorconfig" />
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
@@ -119,7 +117,8 @@
     <None Include="Assets\Gfx\Shaders\Perlin5write.shader" />
     <None Include="Assets\Gfx\Shaders\Test2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin3.shader" />
-    <None Include="Assets\Layouts\30_Players.xml" />
+    <None Include="Assets\Nations\DominionsEnhanced.xml" />
+    <None Include="Assets\Layouts\Hoard.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5read.shader" />
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
     <None Include="Assets\Layouts\Compact.xml" />

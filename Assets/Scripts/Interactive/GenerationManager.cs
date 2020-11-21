@@ -513,21 +513,11 @@ public class GenerationManager : MonoBehaviour
 
     public void OnHideOptions()
     {
-        var o = HideableOptions[0];
+        var enabled = HideableOptions[0].activeSelf;
 
-        if (o.activeSelf)
+        foreach (var obj in HideableOptions)
         {
-            foreach (var obj in HideableOptions)
-            {
-                obj.SetActive(false);
-            }
-        }
-        else
-        {
-            foreach (var obj in HideableOptions)
-            {
-                obj.SetActive(true);
-            }
+            obj.SetActive(!enabled);
         }
 
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
@@ -535,21 +525,9 @@ public class GenerationManager : MonoBehaviour
 
     private void hide_controls()
     {
-        var o = HideableControls[0];
-
-        if (o.activeSelf)
+        foreach (var obj in HideableControls)
         {
-            foreach (var obj in HideableControls)
-            {
-                obj.SetActive(false);
-            }
-        }
-        else
-        {
-            foreach (var obj in HideableControls)
-            {
-                obj.SetActive(true);
-            }
+            obj.SetActive(false);
         }
     }
 
@@ -640,7 +618,7 @@ public class GenerationManager : MonoBehaviour
         }
 
         var tf = ScrollPanel.GetComponent<RectTransform>();
-        tf.sizeDelta = new Vector2(247f, 2f + m_player_count * 34f);
+        tf.sizeDelta = new Vector2(290f, 2f + m_player_count * 34f);
 
         for (var i = 0; i < m_player_count; i++)
         {
