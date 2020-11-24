@@ -68,3 +68,9 @@ Each sprite has several parameters:
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117180805709824/d6.png)
 
 8. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
+
+### How to make province shaders use textures.
+
+A texture-based material probably looks a lot nicer than the materials with perlin noise shaders I used. I'm not much of an artist. You'll need to create a new material using the __Unlit/Texture__ shader. Import your texture and use settings similar to the ones in the image below. Make sure wrap mode is set to repeat or your texture will not tile correctly.
+
+![Image](https://cdn.discordapp.com/attachments/668838745516015625/780931011683811348/screenshot-mangadex.org-2020.11.24-17_12_23.png)
