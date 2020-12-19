@@ -181,7 +181,7 @@
   <Nation>
     <Name>(EA) Agartha</Name>
     <ID>17</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <WaterPercentage>0.2</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
