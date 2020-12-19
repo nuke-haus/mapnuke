@@ -69,21 +69,8 @@ Each sprite has several parameters:
 
 8. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
 
-### The to-do list
+### How to make province shaders use textures.
 
-Missing features and other known issues.
+A texture-based material probably looks a lot nicer than the materials with perlin noise shaders I used. I'm not much of an artist. You'll need to create a new material using the __Unlit/Texture__ shader. Import your texture and use settings similar to the ones in the image below. Make sure wrap mode is set to repeat or your texture will not tile correctly.
 
-- Add unique sprites for hot and cold province modifiers. For example, a swamp with the colder province attribute should have some sort of unique sprite. Right now only wastelands are given hot/cold modifiers.
-- Compact map layouts for 15, 17, 18, 19, 20 and 21 players.
-
-### The wish list
-
-Some features that would be nice to have.
-
-- More sprite variety.
-- Add a dialog box somewhere that lets players give provinces custom names if they want.
-- Support for non-wrapping maps.
-
-### Other info
-
-Stay tuned for more cool stuff - www.nuke.haus
+![Image](https://cdn.discordapp.com/attachments/668838745516015625/780931011683811348/screenshot-mangadex.org-2020.11.24-17_12_23.png)
