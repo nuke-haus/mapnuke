@@ -4283,7 +4283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArtConfigurationName: Default Map Art
   Plains:
-    CullChance: 0.85
+    CullChance: 0.6
     ProvinceEdgeThreshold: 0.14
     MapSprites:
     - Sprite: {fileID: 21300000, guid: 259673809c3d83c42b4d1327481d8b2a, type: 3}
