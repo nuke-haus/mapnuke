@@ -87,6 +87,10 @@ __Custom/Texture__
 
 This shader is useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. Make sure your texture is a high enough resolution so that patterns are harder to spot. I'd recommend at least 1024x1024 pixels.
 
+Your texture import settings should look something like:
+
+![Texture Import](https://cdn.discordapp.com/attachments/404681432238391307/793258263511695360/import.png)
+
 __Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4__
 
 ![Texture Blend](https://cdn.discordapp.com/attachments/404681432238391307/793239504118480896/texblend.png)
