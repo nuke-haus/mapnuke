@@ -763,7 +763,6 @@ public class ProvinceMarker : MonoBehaviour
 
         var tr = new Triangulator(get_pts_array(m_poly));
         var indices = tr.Triangulate();
-
         var uv = new Vector2[m_poly.Count];
 
         for (var i = 0; i < m_poly.Count; i++)
@@ -866,7 +865,7 @@ public class ProvinceMarker : MonoBehaviour
 
         foreach (var ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
-            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !m_sprite_points.Any())
+            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !ps.PlaceAtLeastOne || !m_sprite_points.Any())
             {
                 continue;
             }

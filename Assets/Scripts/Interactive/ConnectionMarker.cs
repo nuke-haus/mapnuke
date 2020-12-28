@@ -754,8 +754,7 @@ public class ConnectionMarker : MonoBehaviour
             if (ct < 10)
             {
                 floats.Add(rand);
-
-                jitter.AddKey(rand, UnityEngine.Random.Range(0.12f, 0.24f));
+                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.54f));
             }
         }
 
@@ -837,8 +836,8 @@ public class ConnectionMarker : MonoBehaviour
             prev = pt;
         }
 
-        var endpt = pb.P2 + norm * 0.05f + lateral * min_lat;
-        var endpt2 = pb.P2 + norm * 0.05f - lateral * min_lat;
+        var endpt = pb.P2 + norm * 0.04f + lateral * min_lat;
+        var endpt2 = pb.P2 + norm * 0.04f - lateral * min_lat;
 
         pts.Add(endpt);
         pts.Add(endpt2);
@@ -883,12 +882,12 @@ public class ConnectionMarker : MonoBehaviour
             prev = pt;
         }
 
-        endpt = pb.P1 - norm * 0.05f + lateral * min_lat;
-        endpt2 = pb.P1 - norm * 0.05f - lateral * min_lat;
+        endpt = pb.P1 - norm * 0.04f + lateral * min_lat;
+        endpt2 = pb.P1 - norm * 0.04f - lateral * min_lat;
 
         pts.Add(endpt);
         pts.Add(endpt2);
-        pts.Add(pts[0]); // - norm * 0.004f 
+        pts.Add(pts[0]); 
 
         var path = new CubicBezierPath(pts.ToArray());
 

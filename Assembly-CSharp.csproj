@@ -114,11 +114,15 @@
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
     <None Include="Assets\Nations\Default.xml" />
+    <None Include="Assets\Gfx\Shaders\TexBlend2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5write.shader" />
     <None Include="Assets\Gfx\Shaders\Test2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin3.shader" />
     <None Include="Assets\Nations\DominionsEnhanced.xml" />
+    <None Include="Assets\Gfx\Shaders\TexBlend3.shader" />
     <None Include="Assets\Layouts\Hoard.xml" />
+    <None Include="Assets\Gfx\Shaders\Texture.shader" />
+    <None Include="Assets\Gfx\Shaders\TexBlend4.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5read.shader" />
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
     <None Include="Assets\Layouts\Compact.xml" />

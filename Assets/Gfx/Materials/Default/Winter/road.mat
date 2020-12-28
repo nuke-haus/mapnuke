@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: road
-  m_Shader: {fileID: 4800000, guid: 9bd74e076bcf5ef46a5b19dd02125e58, type: 3}
+  m_Shader: {fileID: 4800000, guid: 652ff0316532c9849ae62a8599e4aafa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,15 +73,17 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold1: 0.4
-    - _Threshold2: 0.75
+    - _Threshold1: 0.2
+    - _Threshold2: 0.55
+    - _Threshold3: 0.7
     - _UVSec: 0
     - _X: 1
     - _Y: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.6320754, g: 0.55668634, b: 0.45616764, a: 1}
-    - _Color2: {r: 0.7264151, g: 0.6561323, b: 0.5585173, a: 1}
-    - _Color3: {r: 0.8396226, g: 0.76663655, b: 0.6693218, a: 1}
+    - _Color1: {r: 0.6320754, g: 0.55668634, b: 0.45616764, a: 0.8627451}
+    - _Color2: {r: 0.9716981, g: 0.9432489, b: 0.9029459, a: 0.11764706}
+    - _Color3: {r: 0.7254902, g: 0.654902, b: 0.5568628, a: 0.8627451}
+    - _Color4: {r: 0.8392157, g: 0.7647059, b: 0.67058825, a: 0.8627451}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

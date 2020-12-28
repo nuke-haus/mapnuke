@@ -1,4 +1,4 @@
-﻿Shader "Custom/Perlin5"
+﻿Shader "Custom/TexBlend2"
 {
     Properties
     {
@@ -7,22 +7,15 @@
         _Y ("Seed Y", float) = 1.0
 		_ScaleX ("Scale X", float) = 1.0
         _ScaleY ("Scale Y", float) = 1.0
-		_Threshold1 ("Color 1-2 Threshold", float) = 0.25
-		_Threshold2 ("Color 2-3 Threshold", float) = 0.50
-		_Threshold3 ("Color 3-4 Threshold", float) = 0.75
-		_Threshold4 ("Color 4-5 Threshold", float) = 0.75
-		_Color1 ("Color1", Color) = (1,1,1,1)
-		_Color2 ("Color2", Color) = (1,1,1,1)
-		_Color3 ("Color3", Color) = (1,1,1,1)
-		_Color4 ("Color4", Color) = (1,1,1,1)
-		_Color5 ("Color5", Color) = (1,1,1,1)
+        _ScaleUV("Scale UV", float) = 1.5
+		_Threshold ("Tex 1-2 Threshold", float) = 0.5
+        _Tex1 ("Tex1", 2D) = "white" {}
+        _Tex2 ("Tex2", 2D) = "white" {}
     }
  
     SubShader
     {
-        Tags {"Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent"}
-        ZWrite Off
-        Blend SrcAlpha OneMinusSrcAlpha
+        Tags { "RenderType"="Opaque" }
  
         Pass
         {
@@ -95,43 +88,27 @@
             float _Y;
 			float _ScaleX;
             float _ScaleY;
-			float _Threshold1;
-			float _Threshold2;
-			float _Threshold3;
-			float _Threshold4;
+			float _Threshold;
+            float _ScaleUV;
 
-			uniform float4 _Color1;
-			uniform float4 _Color2;
-			uniform float4 _Color3;
-			uniform float4 _Color4;
-			uniform float4 _Color5;
+			sampler2D _Tex1;
+            sampler2D _Tex2;
  
-            fixed4 frag (v2f_img i) : SV_Target
+            fixed4 frag(v2f_img i): SV_Target
             {
-                i.uv *= _GridSize;
-                i.uv += float2(_X, _Y);
-				i.uv /= float2(_ScaleX, _ScaleY);
-                float ns = PerlinNoise2D(i.uv) / 2 + 0.5f;
+                float2 uv = i.uv;
+                uv *= _GridSize;
+                uv += float2(_X, _Y);
+				uv /= float2(_ScaleX, _ScaleY);
+                float ns = PerlinNoise2D(uv) / 2 + 0.5f;
 
-				if (ns < _Threshold1)
+				if (ns < _Threshold)
 				{
-					return _Color1;
+					return tex2D(_Tex1, i.uv * _ScaleUV);
 				}
-				if (ns < _Threshold2)
-				{
-					return _Color2;
-				}
-				if (ns < _Threshold3)
-				{
-					return _Color3;
-				}
-				if (ns < _Threshold4)
-				{
-					return _Color4;
-				}
-				return _Color5;
-                //return float4(ns, ns, ns, 1.0f);
+				return tex2D(_Tex2, i.uv * _ScaleUV);
             }
+
             ENDCG
         }
     }

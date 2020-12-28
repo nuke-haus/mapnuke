@@ -1206,6 +1206,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1222,6 +1223,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1238,6 +1240,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1254,6 +1257,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1270,6 +1274,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1286,6 +1291,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1302,6 +1308,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -1312,6 +1319,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -1322,6 +1330,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -1332,6 +1341,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -1342,6 +1352,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1352,6 +1363,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1366,6 +1378,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1380,6 +1393,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
       - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
@@ -1394,6 +1408,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1408,6 +1423,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1418,6 +1434,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1428,6 +1445,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1438,6 +1456,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1448,6 +1467,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1458,6 +1478,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1468,6 +1489,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1478,6 +1500,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1488,6 +1511,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1498,6 +1522,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1508,6 +1533,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1518,6 +1544,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1528,6 +1555,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1538,6 +1566,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1548,6 +1577,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1558,6 +1588,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1568,6 +1599,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1578,6 +1610,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1588,6 +1621,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1598,6 +1632,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1608,6 +1643,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1618,6 +1654,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1632,6 +1669,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1642,6 +1680,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -1652,6 +1691,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1662,6 +1702,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -1672,6 +1713,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1682,6 +1724,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1692,6 +1735,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1702,6 +1746,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1712,6 +1757,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1722,6 +1768,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -1732,6 +1779,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1742,6 +1790,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1752,6 +1801,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1762,6 +1812,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1772,6 +1823,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1782,6 +1834,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1792,6 +1845,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1802,6 +1856,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -1812,6 +1867,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1822,6 +1878,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1832,6 +1889,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1842,6 +1900,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1852,6 +1911,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -1866,6 +1926,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.74575156, g: 0.85882354, b: 0.18039213, a: 1}
       - {r: 0.6516339, g: 0.75686276, b: 0.12549017, a: 1}
@@ -1882,6 +1943,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.6779085, g: 0.85882354, b: 0.18039213, a: 1}
       - {r: 0.4622222, g: 0.75686276, b: 0.12549017, a: 1}
@@ -1898,6 +1960,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.85882354, g: 0.73333335, b: 0.18039216, a: 1}
       - {r: 0.75686276, g: 0.6666667, b: 0.1254902, a: 1}
@@ -1914,6 +1977,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1924,6 +1988,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.5017388, g: 0.671, b: 0.2236667, a: 1}
@@ -1938,6 +2003,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.958, g: 0.81801826, b: 0.20122372, a: 1}
       - {r: 0.895, g: 0.788342, b: 0.14839375, a: 1}
@@ -1952,6 +2018,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.986, g: 0.84192693, b: 0.207105, a: 1}
       - {r: 0.881, g: 0.7760104, b: 0.1460725, a: 1}
@@ -1966,6 +2033,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -1980,6 +2048,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -1990,6 +2059,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2000,6 +2070,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2010,6 +2081,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2020,6 +2092,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2030,6 +2103,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2040,6 +2114,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2050,6 +2125,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2060,6 +2136,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2070,6 +2147,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2080,6 +2158,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2090,6 +2169,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2100,6 +2180,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2110,6 +2191,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2120,6 +2202,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -2130,6 +2213,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
       - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
@@ -2146,6 +2230,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
       - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
@@ -2162,6 +2247,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
       - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
@@ -2178,6 +2264,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.3137255, g: 0.5058824, b: 0.43137255, a: 1}
       - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
@@ -2194,6 +2281,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -2210,6 +2298,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
       - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
@@ -2226,6 +2315,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -2246,6 +2336,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2256,6 +2347,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2266,6 +2358,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2276,6 +2369,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2286,6 +2380,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2296,6 +2391,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2306,6 +2402,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2316,6 +2413,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2326,6 +2424,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2336,6 +2435,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2346,6 +2446,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2356,6 +2457,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2366,6 +2468,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2376,6 +2479,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2386,6 +2490,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2396,6 +2501,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2406,6 +2512,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2416,6 +2523,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2426,6 +2534,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2436,6 +2545,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2446,6 +2556,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2456,6 +2567,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2466,6 +2578,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2476,6 +2589,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -2486,6 +2600,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2496,6 +2611,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2506,6 +2622,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2520,6 +2637,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2530,6 +2648,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2540,6 +2659,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2550,6 +2670,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2560,6 +2681,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2570,6 +2692,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2580,6 +2703,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2590,6 +2714,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -2600,6 +2725,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2610,6 +2736,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
@@ -2624,6 +2751,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
@@ -2638,6 +2766,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
@@ -2652,6 +2781,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
@@ -2666,6 +2796,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
       - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
@@ -2680,6 +2811,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2694,6 +2826,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2704,6 +2837,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2714,6 +2848,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2724,6 +2859,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2734,6 +2870,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2744,6 +2881,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2754,6 +2892,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2764,6 +2903,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2774,6 +2914,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2784,6 +2925,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2794,6 +2936,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2804,6 +2947,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2814,6 +2958,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2824,6 +2969,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2834,6 +2980,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2844,6 +2991,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2854,6 +3002,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2864,6 +3013,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2874,6 +3024,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2884,6 +3035,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2894,6 +3046,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2904,6 +3057,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2914,6 +3068,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -2924,6 +3079,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2934,6 +3090,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2944,6 +3101,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2958,6 +3116,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -2968,6 +3127,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -2978,6 +3138,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -2988,6 +3149,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -2998,6 +3160,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3008,6 +3171,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3018,6 +3182,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3028,6 +3193,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3038,6 +3204,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3048,6 +3215,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3058,6 +3226,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3068,6 +3237,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3078,6 +3248,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3088,6 +3259,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3098,6 +3270,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3108,6 +3281,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3118,6 +3292,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -3128,6 +3303,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3138,6 +3314,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3148,6 +3325,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3158,6 +3336,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3168,6 +3347,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3178,6 +3358,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3188,6 +3369,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3198,6 +3380,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3208,6 +3391,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -3218,6 +3402,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -3228,6 +3413,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -3238,6 +3424,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -3252,6 +3439,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors: []
@@ -3263,6 +3451,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors: []
@@ -3274,6 +3463,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors: []
@@ -3285,6 +3475,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3295,6 +3486,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3305,6 +3497,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3315,6 +3508,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3325,6 +3519,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3335,6 +3530,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3345,6 +3541,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -3357,6 +3554,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -3369,6 +3567,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3379,6 +3578,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3389,6 +3589,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3399,6 +3600,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3409,6 +3611,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3419,6 +3622,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3429,6 +3633,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -3441,6 +3646,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: f16ba6a07a71f244c9caf24225ba35f9, type: 3}
@@ -3450,6 +3656,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: f7ccc3859b45fe84c83f87dc8d3b0625, type: 3}
@@ -3459,6 +3666,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 71e4c39d7b8664e41844b7b022ae376c, type: 3}
@@ -3468,6 +3676,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   Mountain:
@@ -3479,6 +3688,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 77dd03277fadb0e488abf71026695057, type: 3}
@@ -3488,6 +3698,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: b1f2ad6d9b17243469a2fcaa684db5f7, type: 3}
@@ -3497,6 +3708,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 9e25685a10cca21409c5056be69f4a32, type: 3}
@@ -3506,6 +3718,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: cf40f7a6fd159ea4faa914e2443e85d5, type: 3}
@@ -3515,6 +3728,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: c1d6da258e2b68a4ba4a319f1d93df92, type: 3}
@@ -3524,6 +3738,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 47d7354e6141de7489d3d3d88992c70a, type: 3}
@@ -3533,6 +3748,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 9b6b70022516432499b77c4ff2a81f21, type: 3}
@@ -3542,6 +3758,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 7b88748750831514e9cdb8e5055ab7aa, type: 3}
@@ -3551,6 +3768,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MountainPass:
@@ -3562,6 +3780,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -3571,6 +3790,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -3580,6 +3800,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -3589,6 +3810,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -3598,6 +3820,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -3607,6 +3830,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   ShallowRiver:
@@ -3618,6 +3842,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: a3b61d4663688804f92fb3d11dc35f7e, type: 3}
@@ -3627,6 +3852,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   DeepRiver:
@@ -3638,6 +3864,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: cb9845732c80d3f4a82dd0ff00b647a1, type: 3}
@@ -3647,6 +3874,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MountainSpecial:
@@ -3658,6 +3886,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: cf315db43f8d2b04db2aa7ceacd0bc44, type: 3}
@@ -3667,6 +3896,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 7670ad9a7403f6f48bb3d1135f918254, type: 3}
@@ -3676,6 +3906,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 2009acbd23b3ca24fb6406205941340f, type: 3}
@@ -3685,6 +3916,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 71b63be3a8ff23443ac0a38b571ed8fe, type: 3}
@@ -3694,6 +3926,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 3c094f144d9875e408b06ed1340af7ec, type: 3}
@@ -3703,6 +3936,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MatSwamp: {fileID: 2100000, guid: f0847052ad0f6ab41b6066d74bc4a46a, type: 2}
@@ -4283,105 +4517,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArtConfigurationName: Default Map Art
   Plains:
-    CullChance: 0.6
+    CullChance: 0.75
     ProvinceEdgeThreshold: 0.14
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: 259673809c3d83c42b4d1327481d8b2a, type: 3}
-      WinterSprite: {fileID: 21300000, guid: a1a7b9eb5d01d6340ab95511d503b3d9, type: 3}
-      SpawnChance: 1
-      Size: 0.04
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
-      WinterSprite: {fileID: 21300000, guid: bd1bc73ad4fca6e4e87b80512f971a4a, type: 3}
-      SpawnChance: 1
-      Size: 0.04
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 4bceb57c779cdd7479cf83d232cfc0d0, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 1bd79409fec598d458e1cf535d1efc2b, type: 3}
-      SpawnChance: 1
-      Size: 0.04
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 8a2c3474cbe5d2f49b9f6ad587074f4e, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 06aba9105d08153459c5499654dc1bb1, type: 3}
-      SpawnChance: 1
-      Size: 0.05
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: cc8b5180d92e4c842b0c6bbfb080ca69, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 6a8b4648300218f4d8c36f2096fb0551, type: 3}
-      SpawnChance: 1
-      Size: 0.04
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 2f6f347c9d7a8db4385803f5f242f22e, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 06aba9105d08153459c5499654dc1bb1, type: 3}
-      SpawnChance: 1
-      Size: 0.05
-      CanFlip: 1
-      CanFlipWinter: 1
-      IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 0.9254902, g: 0.9254902, b: 0.9137255, a: 1}
-      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
-      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
-      ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: e6e28ff19abee3940b30998413b1a29e, type: 3}
       WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 0.08
@@ -4389,6 +4527,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -4399,6 +4538,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -4409,6 +4549,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -4419,6 +4560,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
@@ -4429,30 +4571,29 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
-    - Sprite: {fileID: 21300000, guid: 259673809c3d83c42b4d1327481d8b2a, type: 3}
+    - Sprite: {fileID: 21300000, guid: 11c6f0e8525077744872a718bdc03e72, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 39b0b582bb1439a4599995a6b3744995, type: 3}
+      SpawnChance: 0.02
+      Size: 0.2
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
       WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 0.8
       Size: 0.05
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
-      ValidColors:
-      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
-      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
-      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
-      ValidWinterColors:
-      - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
-      SpawnChance: 0.8
-      Size: 0.05
-      CanFlip: 1
-      CanFlipWinter: 0
-      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
       - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
@@ -4461,12 +4602,13 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 4bceb57c779cdd7479cf83d232cfc0d0, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
       SpawnChance: 0.8
       Size: 0.05
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
       - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
@@ -4474,16 +4616,121 @@ MonoBehaviour:
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 11c6f0e8525077744872a718bdc03e72, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 39b0b582bb1439a4599995a6b3744995, type: 3}
-      SpawnChance: 0.02
-      Size: 0.2
-      CanFlip: 0
+    - Sprite: {fileID: 21300000, guid: 8a2c3474cbe5d2f49b9f6ad587074f4e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
+      SpawnChance: 0.8
+      Size: 0.05
+      CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
-      ValidColors: []
-      ValidWinterColors: []
-      ValidTerrain: 2
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 2f6f347c9d7a8db4385803f5f242f22e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 956bce8264a5953429125d51320744a4, type: 3}
+      SpawnChance: 0.8
+      Size: 0.05
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 259673809c3d83c42b4d1327481d8b2a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a1a7b9eb5d01d6340ab95511d503b3d9, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 0.9098039, g: 0.91764706, b: 0.92941177, a: 1}
+      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
+      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 07feae20c70bcc64e95c387921d0bd3d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: bd1bc73ad4fca6e4e87b80512f971a4a, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 0.9098039, g: 0.91764706, b: 0.92941177, a: 1}
+      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
+      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 4bceb57c779cdd7479cf83d232cfc0d0, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1bd79409fec598d458e1cf535d1efc2b, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 0.9098039, g: 0.91764706, b: 0.92941177, a: 1}
+      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
+      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 8a2c3474cbe5d2f49b9f6ad587074f4e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 06aba9105d08153459c5499654dc1bb1, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 0.9098039, g: 0.91764706, b: 0.92941177, a: 1}
+      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
+      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: cc8b5180d92e4c842b0c6bbfb080ca69, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6a8b4648300218f4d8c36f2096fb0551, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0.8745098, g: 0.85490197, b: 0.627451, a: 1}
+      - {r: 0.80784315, g: 0.78039217, b: 0.49803922, a: 1}
+      - {r: 0.6862745, g: 0.7176471, b: 0.42352942, a: 1}
+      ValidWinterColors:
+      - {r: 0.9098039, g: 0.91764706, b: 0.92941177, a: 1}
+      - {r: 0.8392157, g: 0.87058824, b: 0.90588236, a: 1}
+      - {r: 0.7137255, g: 0.7647059, b: 0.8117647, a: 1}
+      ValidTerrain: 0
   Sea:
     CullChance: 0.85
     ProvinceEdgeThreshold: 0.18
@@ -4495,6 +4742,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4505,6 +4753,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4515,6 +4764,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4525,6 +4775,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4535,6 +4786,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4545,6 +4797,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4555,6 +4808,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4565,6 +4819,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4575,6 +4830,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4585,6 +4841,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4595,6 +4852,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -4605,6 +4863,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -4615,6 +4874,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4625,6 +4885,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4635,6 +4896,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4645,6 +4907,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4655,6 +4918,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4665,6 +4929,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4675,6 +4940,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -4685,6 +4951,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -4695,6 +4962,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -4705,6 +4973,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -4715,6 +4984,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -4725,6 +4995,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4735,6 +5006,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4745,6 +5017,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4755,6 +5028,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4765,6 +5039,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4775,6 +5050,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4785,6 +5061,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4795,6 +5072,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4805,6 +5083,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4815,6 +5094,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4825,6 +5105,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4839,6 +5120,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4849,6 +5131,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -4859,6 +5142,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4869,6 +5153,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -4879,6 +5164,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4889,6 +5175,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4899,6 +5186,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4909,6 +5197,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4919,6 +5208,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4929,6 +5219,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -4939,6 +5230,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -4949,6 +5241,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -4959,6 +5252,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4969,6 +5263,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4979,6 +5274,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4989,6 +5285,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -4999,6 +5296,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -5009,6 +5307,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 256
@@ -5019,6 +5318,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -5029,6 +5329,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -5039,6 +5340,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -5049,6 +5351,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -5059,6 +5362,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4
@@ -5073,6 +5377,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5089,6 +5394,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5105,6 +5411,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5121,6 +5428,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5131,6 +5439,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5145,6 +5454,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5159,6 +5469,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 0.76862746, b: 0, a: 1}
       - {r: 1, g: 0.76862746, b: 0, a: 1}
@@ -5173,6 +5484,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5187,6 +5499,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5197,6 +5510,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5207,6 +5521,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5217,6 +5532,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5227,6 +5543,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5237,6 +5554,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5247,6 +5565,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5257,6 +5576,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5267,6 +5587,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5277,6 +5598,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5287,6 +5609,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5297,6 +5620,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5307,6 +5631,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5317,6 +5642,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5327,6 +5653,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 32
@@ -5337,6 +5664,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5353,6 +5681,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5369,6 +5698,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5385,6 +5715,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5401,6 +5732,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5417,6 +5749,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5433,6 +5766,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
       - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
@@ -5453,6 +5787,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5463,6 +5798,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5473,6 +5809,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5483,6 +5820,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5493,6 +5831,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5503,6 +5842,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5513,6 +5853,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5523,6 +5864,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5533,6 +5875,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5543,6 +5886,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5553,6 +5897,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5563,6 +5908,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5573,6 +5919,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5583,6 +5930,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5593,6 +5941,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5603,6 +5952,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5613,6 +5963,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5623,6 +5974,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5633,6 +5985,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5643,6 +5996,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5653,6 +6007,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5663,6 +6018,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5673,6 +6029,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5683,6 +6040,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4096
@@ -5693,6 +6051,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5703,6 +6062,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5713,6 +6073,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5727,6 +6088,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5737,6 +6099,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5747,6 +6110,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5757,6 +6121,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5767,6 +6132,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5777,6 +6143,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5787,6 +6154,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5797,6 +6165,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 128
@@ -5807,6 +6176,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5817,6 +6187,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
@@ -5831,6 +6202,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
@@ -5845,6 +6217,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
@@ -5859,6 +6232,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
@@ -5873,6 +6247,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 0.46666667, g: 0.62352943, b: 0.21568628, a: 1}
       - {r: 0.4, g: 0.54509807, b: 0.17254902, a: 1}
@@ -5887,6 +6262,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5901,6 +6277,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5911,6 +6288,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5921,6 +6299,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5931,6 +6310,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -5941,6 +6321,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5951,6 +6332,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5961,6 +6343,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5971,6 +6354,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5981,6 +6365,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -5991,6 +6376,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6001,6 +6387,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6011,6 +6398,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6021,6 +6409,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6031,6 +6420,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6041,6 +6431,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6051,6 +6442,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6061,6 +6453,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6071,6 +6464,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6081,6 +6475,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6091,6 +6486,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6101,6 +6497,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6111,6 +6508,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6121,6 +6519,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 16
@@ -6131,6 +6530,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6141,6 +6541,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6151,6 +6552,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6165,6 +6567,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6175,6 +6578,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6185,6 +6589,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6195,6 +6600,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6205,6 +6611,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6215,6 +6622,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6225,6 +6633,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6235,6 +6644,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6245,6 +6655,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6255,6 +6666,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6265,6 +6677,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6275,6 +6688,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6285,6 +6699,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6295,6 +6710,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6305,6 +6721,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6315,6 +6732,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6325,6 +6743,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6335,6 +6754,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6345,6 +6765,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6355,6 +6776,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6365,6 +6787,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6375,6 +6798,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6385,6 +6809,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6395,6 +6820,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6405,6 +6831,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6415,6 +6842,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 4194304
@@ -6425,6 +6853,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6435,6 +6864,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
@@ -6445,45 +6875,52 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 2
   Waste:
-    CullChance: 0.98
+    CullChance: 0.88
     ProvinceEdgeThreshold: 0.15
     MapSprites:
     - Sprite: {fileID: 21300000, guid: 1bf2b4d8aa0787943870bde2a9d0c89e, type: 3}
-      WinterSprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 1
       Size: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 536870912
     - Sprite: {fileID: 21300000, guid: fbda58a6c3b65a04eb880b2d88e36052, type: 3}
-      WinterSprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
       SpawnChance: 1
       Size: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 536870912
     - Sprite: {fileID: 21300000, guid: fe0cf3cac92f13e429049bd04c15d213, type: 3}
-      WinterSprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
       SpawnChance: 1
       Size: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidWinterColors: []
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 536870912
     - Sprite: {fileID: 21300000, guid: bbad87109ed7139478da68614fb0b7bb, type: 3}
       WinterSprite: {fileID: 21300000, guid: b03eb51b6004f334b9e4a0570d30e498, type: 3}
@@ -6492,6 +6929,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6502,6 +6940,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6512,6 +6951,29 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: a1ecfcf8bea347040af9567623d3d611, type: 3}
+      WinterSprite: {fileID: 21300000, guid: da684fb93520e5e47b854ca3048c9a35, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 7f3f95ec25104c54badc31ab7941d03c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8d6429e755cc54d4d822af4d738748d0, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6522,6 +6984,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6532,6 +6995,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6542,6 +7006,29 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: fdfe81cc2389d724294d3a9a987d4ae5, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 4f75c99363c82904ca352126e5cdd709, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: b7f136b73da61a74fa005f3e2b2eac48, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 067da419b4a2ede4ca6894bb7a9dc5d5, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6552,6 +7039,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -6564,6 +7052,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -6576,6 +7065,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -6588,6 +7078,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
@@ -6600,38 +7091,20 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 1073741824
-    - Sprite: {fileID: 21300000, guid: fdfe81cc2389d724294d3a9a987d4ae5, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 4f75c99363c82904ca352126e5cdd709, type: 3}
+    - Sprite: {fileID: 21300000, guid: 91ea512213324bd4ba7140c0487ecc0b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 1
-      Size: 0.1
+      Size: 0.14
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
-      ValidColors: []
-      ValidWinterColors: []
-      ValidTerrain: 64
-    - Sprite: {fileID: 21300000, guid: b7f136b73da61a74fa005f3e2b2eac48, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 067da419b4a2ede4ca6894bb7a9dc5d5, type: 3}
-      SpawnChance: 1
-      Size: 0.12
-      CanFlip: 0
-      CanFlipWinter: 0
-      IsCenterpiece: 0
-      ValidColors: []
-      ValidWinterColors: []
-      ValidTerrain: 64
-    - Sprite: {fileID: 21300000, guid: a1ecfcf8bea347040af9567623d3d611, type: 3}
-      WinterSprite: {fileID: 21300000, guid: da684fb93520e5e47b854ca3048c9a35, type: 3}
-      SpawnChance: 1
-      Size: 0.08
-      CanFlip: 0
-      CanFlipWinter: 0
-      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6642,6 +7115,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
@@ -6652,28 +7126,165 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 64
-    - Sprite: {fileID: 21300000, guid: 548fa3b913a992e4c9e71f516f07796d, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
-      SpawnChance: 0.8
-      Size: 0.14
-      CanFlip: 0
-      CanFlipWinter: 0
-      IsCenterpiece: 0
-      ValidColors: []
-      ValidWinterColors: []
-      ValidTerrain: 64
-    - Sprite: {fileID: 21300000, guid: 7f3f95ec25104c54badc31ab7941d03c, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 8d6429e755cc54d4d822af4d738748d0, type: 3}
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 1
       Size: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
-      ValidColors: []
-      ValidWinterColors: []
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 956bce8264a5953429125d51320744a4, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 956bce8264a5953429125d51320744a4, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 956bce8264a5953429125d51320744a4, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
       ValidTerrain: 64
   Road:
     ConnectionSprites:
@@ -6684,6 +7295,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: a30c7b2a5b4108d4fab9dc548c084aa1, type: 3}
@@ -6693,6 +7305,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: b5ead0f4c16064d4ead7f6e2679269ba, type: 3}
@@ -6702,6 +7315,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 016e878fac29e0b439a7b155dcb57cb0, type: 3}
@@ -6711,6 +7325,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   Mountain:
@@ -6722,6 +7337,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: ced4a312d3ef1c246af8a1a53e193c8a, type: 3}
@@ -6731,6 +7347,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 39d27c2f759e21c4abae3f7d7e7b04dd, type: 3}
@@ -6740,6 +7357,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: d55bb709dab283746b204eaeaaf89796, type: 3}
@@ -6749,6 +7367,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: e0ff9d69183db144bad688d135788a2d, type: 3}
@@ -6758,6 +7377,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: e42526b6ee0407043a9e27bbd3a8619f, type: 3}
@@ -6767,6 +7387,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 954696dff2f124e45b553c35c183d320, type: 3}
@@ -6776,6 +7397,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: e9c9aafd3c45f28498abc7560ae56880, type: 3}
@@ -6785,6 +7407,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 26273f9a2b7ffcd4d82b21989dbb80e7, type: 3}
@@ -6794,6 +7417,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MountainPass:
@@ -6805,6 +7429,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -6814,6 +7439,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -6823,6 +7449,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -6832,6 +7459,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -6841,6 +7469,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 0}
@@ -6850,6 +7479,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   ShallowRiver:
@@ -6861,6 +7491,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 12b663edb780bc64fbdcc10de335e013, type: 3}
@@ -6870,6 +7501,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   DeepRiver:
@@ -6881,6 +7513,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 3c73e293d8a7a264ea683c5e6e6ca238, type: 3}
@@ -6890,6 +7523,7 @@ MonoBehaviour:
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MountainSpecial:
@@ -6901,6 +7535,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: da2a470c950254845beaa5fd2f8268e7, type: 3}
@@ -6910,6 +7545,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 4b4003d1ce1b2cf44b512e4ec54a4a52, type: 3}
@@ -6919,6 +7555,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 4cb51d692fe76f243b15be5c2b106538, type: 3}
@@ -6928,6 +7565,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 89cfd77937671a24dabc29cbe83d3efd, type: 3}
@@ -6937,6 +7575,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
     - Sprite: {fileID: 21300000, guid: 2b30e8a3134f6b0469b9897e85f85995, type: 3}
@@ -6946,6 +7585,7 @@ MonoBehaviour:
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
   MatSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
@@ -14033,7 +14673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 500, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
