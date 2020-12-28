@@ -754,7 +754,7 @@ public class ConnectionMarker : MonoBehaviour
             if (ct < 10)
             {
                 floats.Add(rand);
-                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.54f));
+                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.52f));
             }
         }
 

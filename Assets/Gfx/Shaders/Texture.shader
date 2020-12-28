@@ -2,11 +2,6 @@
 {
     Properties
     {
-        _GridSize ("GridSize", float) = 1.0
-        _X ("Seed X", float) = 1.0
-        _Y ("Seed Y", float) = 1.0
-		_ScaleX ("Scale X", float) = 1.0
-        _ScaleY ("Scale Y", float) = 1.0
         _ScaleUV("Scale UV", float) = 1.5
         _Tex ("Texture", 2D) = "white" {}
     }
@@ -81,12 +76,6 @@
                   return 2.3 * n_xy;
             }
  
-            float _GridSize;
-            float _X;
-            float _Y;
-			float _ScaleX;
-            float _ScaleY;
-			float _Threshold;
             float _ScaleUV;
 			sampler2D _Tex;
  
