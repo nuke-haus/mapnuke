@@ -91,6 +91,8 @@ Your texture import settings should look something like:
 
 ![Texture Import](https://cdn.discordapp.com/attachments/404681432238391307/793258263511695360/import.png)
 
+Use point filtering if you want crisp pixel art and bilinear/trilinear filtering if you want antialiasing.
+
 __Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4__
 
 ![Texture Blend](https://cdn.discordapp.com/attachments/404681432238391307/793239504118480896/texblend.png)
