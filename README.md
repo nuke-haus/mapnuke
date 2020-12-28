@@ -81,6 +81,14 @@ __Custom/Perlin3, Custom/Perlin4, Custom/Perlin5__
 
 The perlin noise shaders create a randomized set of colorful blobs. Perlin3 lets you choose 3 colors, Perlin4 is for 4 colors and Perlin5 is for 5 colors.
 
+There are some special perlin noise shaders used in niche cases:
+
+- Custom/Perlin5write
+- Custom/Perlin6write
+- Custom/Perlin5read
+
+These use stencil buffers to create a shoreline effect in bodies of water (and rivers). 
+
 __Custom/Texture__
 
 ![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
