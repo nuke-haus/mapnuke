@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomNameDataCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <!-- Basic stuff to use for putting spaces/punctuation/etc in names -->
+  <NameData> 
+    <ID>SPACE</ID>
+    <String> </String>
+  </NameData>
+  <NameData> 
+    <ID>HYPHEN</ID>
+    <String>-</String>
+  </NameData>
+  <NameData> 
+    <ID>OF</ID>
+    <String>of</String>
+  </NameData>
+  <NameData> 
+    <ID>THE</ID>
+    <String>the</String>
+  </NameData>
+  <NameData> 
+    <ID>'S</ID>
+    <String>'s</String>
+  </NameData>
+  <NameData> 
+    <ID>S</ID>
+    <String>s</String>
+  </NameData>
+              <!-- Actual string collections to use for generating names -->
+  <NameData>  <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
+    <ID>CONCEPT</ID>
+
+    <String>virgin</String>
+    <String>valor</String>
+    <String>wisdom</String>
+    <String>solitude</String>
+    <String>dusk</String>
+    <String>sunlight</String>
+    <String>twilight</String>
+    <String>iron</String>
+    <String>steel</String>
+    <String>brass</String>
+    <String>copper</String>
+    <String>gold</String>
+    <String>silver</String>
+    <String>blood</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>THRONE</Terrain>
+
+    <String>greed</String>
+    <String>avarice</String>
+    <String>piety</String>
+    <String>grace</String>
+    <String>faith</String>
+    <String>heresy</String>
+    <String>fortune</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>COLDER</Terrain>
+
+    <String>ice</String>
+    <String>frost</String>
+    <String>rime</String>
+    <String>winter</String>
+    <String>snow</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>WARMER</Terrain>
+
+    <String>flame</String>
+    <String>fire</String>
+    <String>embers</String>
+    <String>warmth</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>PLAINS</Terrain>
+
+    <String>fortune</String>
+    <String>adventure</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>FOREST</Terrain>
+
+    <String>growth</String>
+    <String>regrowth</String>
+    <String>moss</String>
+    <String>bark</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>SWAMP</Terrain>
+
+    <String>misery</String>
+    <String>famine</String>
+    <String>hunger</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>WASTE</Terrain>
+
+    <String>misery</String>
+    <String>famine</String>
+    <String>dust</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>FARM</Terrain>
+
+    <String>plenty</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>HIGHLAND</Terrain>
+
+    <String>fog</String>
+    <String>mist</String>
+    <String>clouds</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>CAVE</Terrain>
+
+    <String>darkness</String>
+    <String>brimstone</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>SEA</Terrain>
+
+    <String>salt</String>
+    <String>sand</String>
+    <String>pearls</String>
+    <String>coral</String>
+    <String>fog</String>
+    <String>basalt</String>
+    <String>mist</String>
+  </NameData>
+  <NameData>  <!-- NOUN is a common noun used primarily in names like "the <adjective> <noun>" -->
+    <ID>NOUN</ID>
+    <Terrain>PLAINS</Terrain>
+
+    <String>field</String>
+    <String>expanse</String>
+    <String>range</String>
+    <String>glebe</String>
+    <String>pasture</String>
+    <String>meadow</String>
+    <String>hills</String>
+    <String>vale</String>
+    <String>glen</String>
+  </NameData>
+  <NameData>  <!-- legacy support for manual mountain terrain flag -->
+    <ID>NOUN</ID>
+    <Terrain>MOUNTAINS</Terrain>
+    <String>peak</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>THRONE</Terrain>
+
+    <String>sanctuary</String>
+    <String>sanctum</String>
+    <String>shrine</String>
+    <String>pillar</String>
+    <String>arches</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>FOREST</Terrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>copse</String>
+    <String>grove</String>
+    <String>thicket</String>
+    <String>woods</String>
+    <String>wilds</String>
+    <String>weald</String>
+    <String>wilderness</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>SWAMP</Terrain>
+
+    <String>bog</String>
+    <String>fen</String>
+    <String>lowlands</String>
+    <String>marsh</String>
+    <String>mire</String>
+    <String>swamp</String>
+    <String>delta</String>
+    <String>loch</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>WASTE</Terrain>
+
+    <String>desert</String>
+    <String>crypt</String>
+    <String>barrens</String>
+    <String>dune</String>
+    <String>ruins</String>
+    <String>relic</String>
+    <String>bone field</String>
+    <String>graveyard</String>
+    <String>graves</String>
+    <String>remnants</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>FARM</Terrain>
+
+    <String>expanse</String>
+    <String>fields</String>
+    <String>orchard</String>
+    <String>glebe</String>
+    <String>grange</String>
+    <String>crescent</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>HIGHLAND</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>highland</String>
+    <String>bluff</String>
+    <String>cliff</String>
+    <String>hilltop</String>
+    <String>plateau</String>
+    <String>ridge</String>
+    <String>mound</String>
+    <String>hills</String>
+    <String>hillock</String>
+    <String>cairn</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>CAVE</Terrain>
+
+    <String>cavern</String>
+    <String>caves</String>
+    <String>chambers</String>
+    <String>catacombs</String>
+    <String>halls</String>
+    <String>mines</String>
+    <String>quarry</String>
+    <String>hole</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>SEA</Terrain>
+
+    <String>abyss</String>
+    <String>lake</String>
+    <String>lagoon</String>
+    <String>bay</String>
+    <String>gulf</String>
+    <String>sea</String>
+    <String>shoals</String>
+    <String>depths</String>
+    <String>whirlpool</String>
+    <String>tides</String>
+    <String>harbor</String>
+  </NameData>
+  <NameData> <!-- adjectives for describing nouns, this one is general purpose since it has no terrain specified -->
+    <ID>ADJECTIVE</ID>
+
+    <String>silent</String>
+    <String>quiet</String>
+    <String>tranquil</String>
+    <String>black</String>
+    <String>bloody</String>
+    <String>unholy</String>
+    <String>lost</String>
+    <String>cursed</String>
+    <String>forgotten</String>
+    <String>punished</String>
+    <String>desecrated</String>
+    <String>defiled</String>
+    <String>blighted</String>
+    <String>impure</String>
+    <String>starlit</String>
+    <String>starless</String>
+    <String>shimmering</String>
+    <String>great</String>
+    <String>unbroken</String>
+    <String>endless</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>THRONE</Terrain>
+
+    <String>unseen</String>
+    <String>seraphic</String>
+    <String>infinite</String>
+    <String>eternal</String>
+    <String>holy</String>
+    <String>pure</String>
+    <String>sacred</String>
+    <String>blessed</String>
+    <String>hallowed</String>
+    <String>divine</String>
+    <String>ageless</String>
+    <String>ancient</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>COLDER</Terrain>
+
+    <String>frozen</String>
+    <String>frosted</String>
+    <String>icy</String>
+    <String>icebound</String>
+    <String>frigid</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>WARMER</Terrain>
+
+    <String>hellish</String>
+    <String>scorching</String>
+    <String>burnt</String>
+    <String>burning</String>
+    <String>scalding</String>
+    <String>smouldering</String>
+    <String>flaming</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>PLAINS</Terrain>
+
+    <String>emerald</String>
+    <String>verdant</String>
+    <String>blooming</String>
+    <String>dry</String>
+    <String>rainy</String>
+    <String>burnt</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>FOREST</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+
+    <String>verdant</String>
+    <String>dark</String>
+    <String>jade</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>SWAMP</Terrain>
+
+    <String>festering</String>
+    <String>diseased</String>
+    <String>flooded</String>
+    <String>sunken</String>
+    <String>tainted</String>
+    <String>decaying</String>
+    <String>cruel</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>WASTE</Terrain>
+
+    <String>festering</String>
+    <String>diseased</String>
+    <String>ashen</String>
+    <String>tainted</String>
+    <String>decaying</String>
+    <String>empty</String>
+    <String>dead</String>
+    <String>pale</String>
+    <String>ancient</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>FARM</Terrain>
+
+    <String>fertile</String>
+    <String>bountiful</String>
+    <String>royal</String>
+    <String>regal</String>
+    <String>budding</String>
+    <String>golden</String>
+    <String>noble</String>
+    <String>glimmering</String>
+    <String>autumn</String>
+    <String>summer</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>HIGHLAND</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>great</String>
+    <String>towering</String>
+    <String>colossal</String>
+    <String>majestic</String>
+    <String>windswept</String>
+    <String>mossy</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>CAVE</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>sunken</String>
+    <String>flooded</String>
+    <String>lightless</String>
+    <String>sunless</String>
+    <String>dusk</String>
+    <String>veiled</String>
+    <String>mossy</String>
+    <String>hollow</String>
+    <String>stygian</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>SEA</Terrain>
+
+    <String>azure</String>
+    <String>sapphire</String>
+    <String>cerulean</String>
+    <String>flooding</String>
+  </NameData>
+             <!-- animals. i kind of cheated and mixed in stuff that isn't animals. -->
+  <NameData> <!-- since no terrain is specified, these names are used for all terrain types -->
+    <ID>ANIMAL</ID>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>crow</String>
+    <String>raven</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>THRONE</Terrain>
+
+    <String>pantokrator</String>
+    <String>oracle</String>
+    <String>bishop</String>
+    <String>queen</String>
+    <String>king</String>
+    <String>lord</String>
+    <String>mother</String>
+    <String>pontiff</String>
+    <String>angel</String>
+    <String>mystic</String>
+    <String>giant</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>PLAINS</Terrain>
+
+    <String>hound</String>
+    <String>deer</String>
+    <String>boar</String>
+    <String>lion</String>
+    <String>elk</String>
+    <String>snake</String>
+    <String>cattle</String>
+    <String>goat</String>
+    <String>eagle</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>FOREST</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>bear</String>
+    <String>deer</String>
+    <String>wolf</String>
+    <String>boar</String>
+    <String>lynx</String>
+    <String>eagle</String>
+    <String>elk</String>
+    <String>witch</String>
+    <String>crone</String>
+    <String>shaman</String>
+    <String>dryad</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>SWAMP</Terrain>
+
+    <String>snake</String>
+    <String>rat</String>
+    <String>frog</String>
+    <String>serpent</String>
+    <String>ghoul</String>
+    <String>longdead</String>
+    <String>corpse</String>
+    <String>brigand</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>WASTE</Terrain>
+
+    <String>rat</String>
+    <String>buzzard</String>
+    <String>vulture</String>
+    <String>scorpion</String>
+    <String>coyote</String>
+    <String>scarab</String>
+    <String>mirage</String>
+    <String>ghoul</String>
+    <String>longdead</String>
+    <String>corpse</String>
+    <String>brigand</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>FARM</Terrain>
+
+    <String>libertine</String>
+    <String>guardian</String>
+    <String>sentinel</String>
+    <String>brigand</String>
+    <String>harvest</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>HIGHLAND</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>goat</String>
+    <String>eagle</String>
+    <String>falcon</String>
+    <String>hawk</String>
+    <String>harpy</String>
+    <String>condor</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>CAVE</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>bat</String>
+    <String>rat</String>
+    <String>svartalf</String>
+    <String>dwarf</String>
+    <String>shade</String>
+    <String>statue</String>
+    <String>golem</String>
+    <String>cyclops</String>
+    <String>mushroom</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>SEA</Terrain>
+
+    <String>kraken</String>
+    <String>telkhine</String>
+    <String>shambler</String>
+    <String>spirit</String>
+    <String>shark</String>
+    <String>shipwreck</String>
+  </NameData>
+  <NameData> <!-- procedurally generated jibberish names (ie. risatrisine or alcus)-->
+    <ID>NAME1</ID>
+
+    <String>al</String>
+    <String>el</String>
+    <String>il</String>
+    <String>et</String>
+    <String>bor</String>
+    <String>shima</String>
+    <String>sima</String>
+    <String>tor</String>
+    <String>tar</String>
+    <String>dema</String>
+    <String>ba</String>
+    <String>sa</String>
+    <String>risa</String>
+  </NameData>
+  <NameData>
+    <ID>NAME2</ID>
+
+    <String>kars</String>
+    <String>kris</String>
+    <String>kur</String>
+    <String>kus</String>
+    <String>rist</String>
+    <String>rect</String>
+    <String>rast</String>
+    <String>mal</String>
+    <String>mort</String>
+    <String>tark</String>
+    <String>sik</String>
+    <String>cust</String>
+    <String>cour</String>
+    <String>tris</String>
+  </NameData>
+  <NameData>
+    <ID>NAME3</ID>
+
+    <String>as</String>
+    <String>ar</String>
+    <String>an</String>
+    <String>en</String>
+    <String>us</String>
+    <String>ine</String>
+  </NameData>
+
+</CustomNameDataCollection>

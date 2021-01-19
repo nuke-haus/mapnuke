@@ -20,7 +20,7 @@ public class GeneratorSettings
     public FloatRange CaveFreq = new FloatRange(0.05f, 0.07f);
     public FloatRange FarmFreq = new FloatRange(0.14f, 0.16f);
     public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
-    public FloatRange LakeFreq = new FloatRange(0.05f, 0.07f);
+    public FloatRange LakeFreq = new FloatRange(0.05f, 0.08f);
 
     public FloatRange LargeFreq = new FloatRange(0.28f, 0.32f);
     public FloatRange SmallFreq = new FloatRange(0.10f, 0.14f);
@@ -30,6 +30,8 @@ public class GeneratorSettings
     public FloatRange RiverFreq = new FloatRange(0.06f, 0.08f);
     public FloatRange DeepRiverFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
+
+    public float CustomNameFreq = 0.05f;
 
     public bool UseClassicMountains = true;
 }

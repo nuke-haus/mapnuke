@@ -100,7 +100,7 @@ public class ElementManager : MonoBehaviour
         MapBorder.SetBorders(new Vector3(9000, 9000), new Vector3(9001, 9001));
     }
 
-    public IEnumerator GenerateElements(List<Node> nodes, List<Connection> conns, NodeLayout layout)
+    public IEnumerator GenerateElements(List<Node> nodes, List<Connection> conns, NodeLayoutData layout)
     {
         if (m_generated != null)
         {

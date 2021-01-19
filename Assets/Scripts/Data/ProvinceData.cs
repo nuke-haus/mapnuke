@@ -43,6 +43,12 @@ public class ProvinceData
         private set;
     }
 
+    public string CustomName 
+    {
+        get;
+        private set;
+    }
+
     public bool IsWater
     {
         get
@@ -90,12 +96,19 @@ public class ProvinceData
     {
         Terrain = Terrain.PLAINS;
         ID = -1;
+        CustomName = string.Empty;
     }
 
     public ProvinceData(Terrain t)
     {
         Terrain = t;
         ID = -1;
+        CustomName = string.Empty;
+    }
+
+    public void SetCustomName(string name)
+    {
+        CustomName = name.Trim();
     }
 
     public void SetTerrainFlags(Terrain flags)

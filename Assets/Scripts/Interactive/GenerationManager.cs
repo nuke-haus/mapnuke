@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,7 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] HideableButtons;
     public InputField[] OverlayFields;
     public InputField[] BorderFields;
+    public InputField LoggerText;
     public Image OverlayPreview;
     public Image BorderPreview;
     public MeshRenderer province_id_mesh_prefab;
@@ -51,6 +53,8 @@ public class GenerationManager : MonoBehaviour
     private List<GameObject> m_content;
     private List<PlayerData> m_nations;
     private NodeLayoutCollection m_layouts;
+    private CustomNameDataCollection m_name_data;
+    private CustomNameFormatCollection m_name_formats;
 
     public Color BorderColor => m_border_color;
     public Color OverlayColor => m_overlay_color;
@@ -80,6 +84,9 @@ public class GenerationManager : MonoBehaviour
         m_content = new List<GameObject>();
         m_log_content = new List<GameObject>();
 
+        Application.logMessageReceived += handle_log;
+
+        load_name_data();
         load_layouts();
         load_nation_data();
         update_nations();
@@ -91,6 +98,21 @@ public class GenerationManager : MonoBehaviour
     private void Update()
     {
         Util.ResetFrameTime();
+    }
+
+    void handle_log(string log, string stack, LogType type)
+    {
+        if (type == LogType.Exception && !LogScreen.activeSelf)
+        {
+            LoggerText.text = log + "\n\n" + stack;
+            LogScreen.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(DenyAudio);
+        }
+    }
+
+    public void CloseLogScreen()
+    {
+        LogScreen.SetActive(false);
     }
 
     public void LogText(string text)
@@ -168,7 +190,7 @@ public class GenerationManager : MonoBehaviour
         StartCoroutine(perform_async(() => do_generate(layout), true));
     }
 
-    private void MoveCameraForGeneration(NodeLayout layout)
+    private void MoveCameraForGeneration(NodeLayoutData layout)
     {
         var main_cam = Camera.main;
         var p = main_cam.transform.position;
@@ -177,7 +199,7 @@ public class GenerationManager : MonoBehaviour
         main_cam.transform.position = p;
     }
 
-    private IEnumerator do_generate(NodeLayout layout) // pipeline for initial generation of all nodes and stuff
+    private IEnumerator do_generate(NodeLayoutData layout) // pipeline for initial generation of all nodes and stuff
     {
         foreach (var obj in HideableButtons)
         {
@@ -208,6 +230,8 @@ public class GenerationManager : MonoBehaviour
 
         yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
 
+        set_province_names(mgr.Provinces);
+
         ProvinceManager.s_province_manager.SetLayout(layout);
         ConnectionManager.s_connection_manager.SetLayout(layout);
         Camera.main.transform.position = campos + new Vector3(500f, 0f, 0f);
@@ -218,12 +242,63 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    private void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
+    private void set_province_names(List<ProvinceMarker> provinces)
+    {
+        var name_chance = GeneratorSettings.s_generator_settings.CustomNameFreq;
+
+        foreach (var province in provinces)
+        {
+            if (!province.Node.HasNation && name_chance > UnityEngine.Random.Range(0f, 1f))
+            {
+                province.Node.ProvinceData.SetCustomName(generate_custom_name(provinces, province));
+            }
+        }
+    }
+
+    private string generate_custom_name(List<ProvinceMarker> all, ProvinceMarker marker)
+    {
+        var format = m_name_formats.GetRandom(marker.Node.ProvinceData.Terrain);
+        var name = string.Empty;
+        
+        foreach (var id in format.Strings)
+        {
+            var str = m_name_data.GetRandomString(id, marker.Node.ProvinceData.Terrain, marker.Node.ProvinceData.IsPlains);
+
+            if (str == null)
+            {
+                Debug.LogError($"Unable to find custom name data with id: {id}, terrain: {marker.Node.ProvinceData.Terrain}");
+            } 
+            else
+            {
+                if (id == "SPACE")
+                {
+                    name += " ";
+                }
+                else
+                {
+                    name += str;
+                }
+            }
+        }
+
+        name = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name);
+
+        if (all.Any(x => x.Node.ProvinceData.CustomName != string.Empty && (x.Node.ProvinceData.CustomName.Contains(name) || name.Contains(x.Node.ProvinceData.CustomName))))
+        {
+            return string.Empty;
+        }
+
+        //Debug.Log(name);
+
+        return name;
+    }
+
+    private void do_regen(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout)
     {
         ArtManager.s_art_manager.RegenerateElements(provs, conns, layout);
     }
 
-    public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
+    public void RegenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout)
     {
         Resources.UnloadUnusedAssets();
         StartCoroutine(perform_async(() => do_regen(provs, conns, layout)));
@@ -678,6 +753,55 @@ public class GenerationManager : MonoBehaviour
             }
 
             AllNationData.AddNations(result);
+        }
+    }
+
+    private void load_name_data()
+    {
+        m_name_data = new CustomNameDataCollection();
+        m_name_formats = new CustomNameFormatCollection();
+
+        var data_folder = Application.dataPath;
+        var folder = data_folder + "/NameData/";
+
+        foreach (var file in Directory.GetFiles(folder))
+        {
+            if (file.Contains(".meta"))
+            {
+                continue;
+            }
+
+            var contents = File.ReadAllText(file);
+            var serializer = new XmlSerializer(typeof(CustomNameDataCollection));
+            CustomNameDataCollection result;
+
+            using (TextReader reader = new StringReader(contents))
+            {
+                result = (CustomNameDataCollection)serializer.Deserialize(reader);
+            }
+
+            m_name_data.Add(result);
+        }
+
+        folder = data_folder + "/NameFormats/";
+
+        foreach (var file in Directory.GetFiles(folder))
+        {
+            if (file.Contains(".meta"))
+            {
+                continue;
+            }
+
+            var contents = File.ReadAllText(file);
+            var serializer = new XmlSerializer(typeof(CustomNameFormatCollection));
+            CustomNameFormatCollection result;
+
+            using (TextReader reader = new StringReader(contents))
+            {
+                result = (CustomNameFormatCollection)serializer.Deserialize(reader);
+            }
+
+            m_name_formats.Add(result);
         }
     }
 

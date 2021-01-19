@@ -36,6 +36,7 @@ public class SettingsManager : MonoBehaviour
     public InputField CliffMax;
     public InputField CliffPassMin;
     public InputField CliffPassMax;
+    public InputField ProcNameChance;
 
     public Toggle ClassicMountains;
 
@@ -87,6 +88,7 @@ public class SettingsManager : MonoBehaviour
         CliffMax.text = GeneratorSettings.s_generator_settings.CliffFreq.MaxInt.ToString();
         CliffPassMin.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MinInt.ToString();
         CliffPassMax.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MaxInt.ToString();
+        ProcNameChance.text = (GeneratorSettings.s_generator_settings.CustomNameFreq * 100).ToString();
     }
 
     public void ResetSettings()
@@ -130,8 +132,9 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.SmallFreq.Update(get_float(SmallMin), get_float(SmallMax));
         GeneratorSettings.s_generator_settings.SwampFreq.Update(get_float(SwampMin), get_float(SwampMax));
         GeneratorSettings.s_generator_settings.WasteFreq.Update(get_float(WasteMin), get_float(WasteMax));
+        GeneratorSettings.s_generator_settings.CustomNameFreq = get_float(ProcNameChance);
         GeneratorSettings.s_generator_settings.UseClassicMountains = ClassicMountains.isOn;
-
+        
         gameObject.SetActive(false);
     }
 

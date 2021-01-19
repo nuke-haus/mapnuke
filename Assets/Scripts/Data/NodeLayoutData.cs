@@ -47,14 +47,14 @@ public class SpawnPoint
 public class NodeLayoutCollection
 {
     [XmlElement("Layout")]
-    public List<NodeLayout> Layouts;
+    public List<NodeLayoutData> Layouts;
 
     public NodeLayoutCollection()
     {
-        Layouts = new List<NodeLayout>();
+        Layouts = new List<NodeLayoutData>();
     }
 
-    public NodeLayoutCollection(List<NodeLayout> list)
+    public NodeLayoutCollection(List<NodeLayoutData> list)
     {
         Layouts = list;
     }
@@ -68,7 +68,7 @@ public class NodeLayoutCollection
 /// <summary>
 /// Represents a map layout that determines which coordinates contain player and throne spawns.
 /// </summary>
-public class NodeLayout
+public class NodeLayoutData
 {
     [XmlElement("Name")]
     public string Name;
@@ -114,14 +114,14 @@ public class NodeLayout
     [XmlElement("Spawn")]
     public List<SpawnPoint> Spawns;
 
-    public NodeLayout()
+    public NodeLayoutData()
     {
         X = 8;
         Y = 8;
         Spawns = new List<SpawnPoint>();
     }
 
-    public NodeLayout(int x, int y)
+    public NodeLayoutData(int x, int y)
     {
         X = x;
         Y = y;

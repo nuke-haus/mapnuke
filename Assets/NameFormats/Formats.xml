@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomNameFormatCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NameFormat>
+    <Segment>THE</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>ADJECTIVE</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NOUN</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>ADJECTIVE</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NOUN</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>ADJECTIVE</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>ANIMAL</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NOUN</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>CONCEPT</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NOUN</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>NAME1</Segment>
+    <Segment>NAME2</Segment>
+    <Segment>NAME3</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NOUN</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>NOUN</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>OF</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>CONCEPT</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <Segment>NAME1</Segment>
+    <Segment>NAME2</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <Segment>NAME1</Segment>
+    <Segment>NAME2</Segment>
+    <Segment>NAME3</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <Segment>NAME2</Segment>
+    <Segment>NAME3</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <Segment>NAME1</Segment>
+    <Segment>NAME2</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NAME2</Segment>
+    <Segment>NAME3</Segment>
+  </NameFormat>
+  
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <Segment>NAME2</Segment>
+    <Segment>NAME3</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>NAME1</Segment>
+    <Segment>NAME2</Segment>
+  </NameFormat>
+</CustomNameFormatCollection>

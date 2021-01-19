@@ -21,14 +21,14 @@ public class ConnectionManager : MonoBehaviour
     public Toggle ShallowRiver;
 
     private ConnectionMarker m_current;
-    private NodeLayout m_layout;
+    private NodeLayoutData m_layout;
 
     private void Awake()
     {
         s_connection_manager = this;
     }
 
-    public void SetLayout(NodeLayout layout)
+    public void SetLayout(NodeLayoutData layout)
     {
         m_layout = layout;
     }

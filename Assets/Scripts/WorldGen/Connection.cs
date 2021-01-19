@@ -219,7 +219,7 @@ public class Connection
         }
     }
 
-    public void CalcAdjacent(List<Connection> conns, NodeLayout nl)
+    public void CalcAdjacent(List<Connection> conns, NodeLayoutData nl)
     {
         if (Diagonal)
         {

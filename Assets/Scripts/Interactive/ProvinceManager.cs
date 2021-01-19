@@ -27,16 +27,18 @@ public class ProvinceManager : MonoBehaviour
     public Toggle Small;
     public Toggle Colder;
     public Toggle Warmer;
+    public Toggle MoreSites;
     public Toggle Throne;
+    public InputField Name;
     private ProvinceMarker m_current;
-    private NodeLayout m_layout;
+    private NodeLayoutData m_layout;
 
     private void Awake()
     {
         s_province_manager = this;
     }
 
-    public void SetLayout(NodeLayout layout)
+    public void SetLayout(NodeLayoutData layout)
     {
         m_layout = layout;
     }
@@ -86,6 +88,10 @@ public class ProvinceManager : MonoBehaviour
         {
             flags = flags | Terrain.DEEPSEA | Terrain.SEA;
         }
+        if (MoreSites.isOn)
+        {
+            flags |= Terrain.MANYSITES;
+        }
 
         if (Large.isOn)
         {
@@ -111,6 +117,7 @@ public class ProvinceManager : MonoBehaviour
         }
 
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
+        m_current.Node.ProvinceData.SetCustomName(Name.text);
         m_current.UpdateColor();
         m_current.UpdateLinked();
         m_current.ValidateConnections();
@@ -208,6 +215,7 @@ public class ProvinceManager : MonoBehaviour
 
         clear_checkboxes();
         update_checkboxes(p.Node.ProvinceData.Terrain);
+        update_name(p.Node.ProvinceData.CustomName);
 
         GetComponent<AudioSource>().PlayOneShot(Audio);
     }
@@ -223,6 +231,11 @@ public class ProvinceManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void update_name(string name)
+    {
+        Name.text = name;
     }
 
     private void clear_checkboxes()

@@ -13,8 +13,8 @@ using UnityEngine;
 public abstract class ArtStyle
 {
     public abstract string GetName();
-    public abstract IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
-    public abstract void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout);
+    public abstract IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout);
+    public abstract void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout);
     public abstract void ChangeSeason(Season s);
 
     public bool JustChangedSeason
@@ -38,7 +38,7 @@ public class DefaultArtStyle : ArtStyle
         return "Default Art Style";
     }
 
-    public override void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
+    public override void Regenerate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout)
     {
         var result = new List<GameObject>();
         var linked = new List<ConnectionMarker>();
@@ -206,7 +206,7 @@ public class DefaultArtStyle : ArtStyle
         CaptureCam.s_capture_cam.Render();
     }
 
-    public override IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayout layout)
+    public override IEnumerator Generate(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout)
     {
         var result = new List<GameObject>();
 

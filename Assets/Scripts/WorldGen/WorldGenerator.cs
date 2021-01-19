@@ -11,13 +11,13 @@ internal static class WorldGenerator
     private static bool m_nat_starts = true;
     private static bool m_teamplay = false;
     private static bool m_cluster_water = true;
-    private static NodeLayout m_layout;
+    private static NodeLayoutData m_layout;
     private static List<Node> m_nodes;
     private static List<Node> m_starts;
     private static List<Connection> m_connections;
     private static List<PlayerData> m_nations;
 
-    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<PlayerData> picks, NodeLayout layout)
+    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<PlayerData> picks, NodeLayoutData layout)
     {
         m_nations = picks;
         m_nat_starts = nat_starts;
@@ -62,7 +62,7 @@ internal static class WorldGenerator
         return m_nodes;
     }
 
-    public static NodeLayout GetLayout()
+    public static NodeLayoutData GetLayout()
     {
         return m_layout;
     }
@@ -1185,7 +1185,7 @@ internal static class WorldGenerator
         }
     }
 
-    private static void create_team_nodes(NodeLayout nl, List<PlayerData> nats)
+    private static void create_team_nodes(NodeLayoutData nl, List<PlayerData> nats)
     {
         for (var x = 0; x < nl.X; x++) // create all nodes first
         {
@@ -1252,7 +1252,7 @@ internal static class WorldGenerator
         }
     }
 
-    private static void create_basic_nodes(NodeLayout nl, List<PlayerData> nats, List<PlayerData> water)
+    private static void create_basic_nodes(NodeLayoutData nl, List<PlayerData> nats, List<PlayerData> water)
     {
         for (var x = 0; x < nl.X; x++) // create all nodes first
         {
