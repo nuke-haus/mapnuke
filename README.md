@@ -1,7 +1,7 @@
 # MapNuke
 ## An open-source map generator for Dominions 5
 
-### How to use
+### HOW TO USE
 
 1. Run the program.
 2. In the main menu you'll see a list of players on the left. Choose a player count and select which nations will be used.
@@ -10,14 +10,14 @@
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
 
-### How to add your own art style
+### CREATING YOUR OWN ART STYLE
 
 MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
 
 1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
-2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. Import your desired sprite assets. Click on imported art assets to look at their import settings. You can copy the settings used by existing assets if you aren't sure what values to use here.
+2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. Add your desired sprite assets. Click on art assets to look at their import settings. You can copy the settings used by existing default assets if you aren't sure what values to use here.
 
-__Important note: Don't use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it some off-white that looks close enough to white.__
+__Important note: Don't use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white.__
 
 ![Step 2](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
 
@@ -53,6 +53,8 @@ Each sprite has several parameters:
 
 * __Is Centerpiece__ - Some province types (ie. caves, mountains) have a large central sprite. These are centerpieces. Only one centerpiece is used and it's selected based on the size. Examine the cave province centerpieces in the default art style to understand this better.
 
+* __Place At Least One__ - If this is enabled, each province will have at least one of these sprites present. Disable this option if you want to make certain sprites more rare.
+
 * __Valid Colors__ - List of valid colors to tint the sprite with. Just use white with 100% alpha if you don't want the sprite to be tintable.
 
 * __Valid Colors Winter__ - Same as above for winter.
@@ -69,8 +71,38 @@ Each sprite has several parameters:
 
 8. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
 
-### How to make province shaders use textures.
+### PROVINCE SHADERS
 
-A texture-based material probably looks a lot nicer than the materials with perlin noise shaders I used. I'm not much of an artist. You'll need to create a new material using the __Unlit/Texture__ shader. Import your texture and use settings similar to the ones in the image below. Make sure wrap mode is set to repeat or your texture will not tile correctly.
+Custom art styles can specify which materials each province type uses. There are several custom shaders included with MapNuke you can make use of in your custom materials.
 
-![Image](https://cdn.discordapp.com/attachments/668838745516015625/780931011683811348/screenshot-mangadex.org-2020.11.24-17_12_23.png)
+__Custom/Perlin3, Custom/Perlin4, Custom/Perlin5__
+
+![Perlin Noise](https://cdn.discordapp.com/attachments/404681432238391307/793239502092894228/perlin.png)
+
+The perlin noise shaders create a randomized set of colorful blobs. Perlin3 lets you choose 3 colors, Perlin4 is for 4 colors and Perlin5 is for 5 colors.
+
+There are some special perlin noise shaders used in niche cases:
+
+- Custom/Perlin5write
+- Custom/Perlin6write
+- Custom/Perlin5read
+
+These use stencil buffers to create a shoreline effect in bodies of water (and rivers). 
+
+__Custom/Texture__
+
+![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
+
+This shader is useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. Make sure your texture is a high enough resolution so that patterns are harder to spot. I'd recommend at least 1024x1024 pixels.
+
+Your texture import settings should look something like:
+
+![Texture Import](https://cdn.discordapp.com/attachments/404681432238391307/793258263511695360/import.png)
+
+Use point filtering if you want crisp pixel art and bilinear/trilinear filtering if you want antialiasing.
+
+__Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4__
+
+![Texture Blend](https://cdn.discordapp.com/attachments/404681432238391307/793239504118480896/texblend.png)
+
+These shaders combine perlin noise with textures. Could be useful for some niche cases.
