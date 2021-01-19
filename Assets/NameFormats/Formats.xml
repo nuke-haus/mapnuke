@@ -21,13 +21,7 @@
     <Segment>SPACE</Segment>
     <Segment>NOUN</Segment>
   </NameFormat>
-
-  <NameFormat>
-    <Segment>CONCEPT</Segment>
-    <Segment>SPACE</Segment>
-    <Segment>NOUN</Segment>
-  </NameFormat>
-
+  
   <NameFormat>
     <Segment>NAME1</Segment>
     <Segment>NAME2</Segment>
@@ -37,6 +31,16 @@
   </NameFormat>
 
   <NameFormat>
+    <Segment>NOUN</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>OF</Segment>
+    <Segment>SPACE</Segment>
+    <Segment>CONCEPT</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <Segment>THE</Segment>
+    <Segment>SPACE</Segment>
     <Segment>NOUN</Segment>
     <Segment>SPACE</Segment>
     <Segment>OF</Segment>
@@ -71,7 +75,7 @@
     <Segment>NAME2</Segment>
     <Segment>NAME3</Segment>
   </NameFormat>
-  
+
   <NameFormat>
     <BlockedTerrain>SEA</BlockedTerrain>
     <Segment>NAME2</Segment>

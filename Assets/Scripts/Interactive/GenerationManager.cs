@@ -288,8 +288,6 @@ public class GenerationManager : MonoBehaviour
             return string.Empty;
         }
 
-        //Debug.Log(name);
-
         return name;
     }
 
