@@ -9,6 +9,7 @@
   </NameFormat>
 
   <NameFormat>
+    <BlockedTerrain>THRONE</BlockedTerrain>
     <Segment>ADJECTIVE</Segment>
     <Segment>SPACE</Segment>
     <Segment>NOUN</Segment>
@@ -21,7 +22,7 @@
     <Segment>SPACE</Segment>
     <Segment>NOUN</Segment>
   </NameFormat>
-  
+
   <NameFormat>
     <Segment>NAME1</Segment>
     <Segment>NAME2</Segment>
@@ -50,12 +51,14 @@
 
   <NameFormat>
     <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
     <Segment>NAME1</Segment>
     <Segment>NAME2</Segment>
   </NameFormat>
 
   <NameFormat>
     <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
     <Segment>NAME1</Segment>
     <Segment>NAME2</Segment>
     <Segment>NAME3</Segment>
@@ -63,6 +66,7 @@
 
   <NameFormat>
     <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
     <Segment>NAME2</Segment>
     <Segment>NAME3</Segment>
   </NameFormat>

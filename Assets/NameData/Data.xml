@@ -60,6 +60,7 @@
     <String>unity</String>
     <String>magic</String>
     <String>creation</String>
+    <String>sacrifice</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -108,7 +109,9 @@
     <String>despair</String>
     <String>sorrow</String>
     <String>torment</String>
+    <String>decay</String>
     <String>hunger</String>
+    <String>sacrifice</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -119,7 +122,9 @@
     <String>despair</String>
     <String>sorrow</String>
     <String>torment</String>
+    <String>decay</String>
     <String>dust</String>
+    <String>sacrifice</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -130,6 +135,8 @@
     <String>abundance</String>
     <String>wealth</String>
     <String>riches</String>
+    <String>autumn</String>
+    <String>summer</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -148,6 +155,9 @@
     <String>brimstone</String>
     <String>crystal</String>
     <String>echoes</String>
+    <String>slate</String>
+    <String>marble</String>
+    <String>limestone</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -158,7 +168,6 @@
     <String>pearls</String>
     <String>coral</String>
     <String>fog</String>
-    <String>basalt</String>
     <String>mist</String>
   </NameData>
   <NameData>  
@@ -166,6 +175,7 @@
     <Terrain>DEEPSEA</Terrain>
 
     <String>darkness</String>
+    <String>basalt</String>
   </NameData>
   <NameData>  <!-- NOUN is a common noun used primarily in names like "the <adjective> <noun>" -->
     <ID>NOUN</ID>
@@ -306,15 +316,12 @@
     <ID>ADJECTIVE</ID>
 
     <String>virgin</String>
-    <String>silent</String>
-    <String>quiet</String>
-    <String>tranquil</String>
+    <String>silver</String>
     <String>black</String>
+    <String>bloodstained</String>
     <String>bloody</String>
     <String>unholy</String>
-    <String>lost</String>
     <String>cursed</String>
-    <String>forgotten</String>
     <String>punished</String>
     <String>desecrated</String>
     <String>defiled</String>
@@ -323,9 +330,7 @@
     <String>starlit</String>
     <String>starless</String>
     <String>shimmering</String>
-    <String>great</String>
     <String>unbroken</String>
-    <String>endless</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -333,7 +338,6 @@
 
     <String>unseen</String>
     <String>seraphic</String>
-    <String>infinite</String>
     <String>eternal</String>
     <String>holy</String>
     <String>pure</String>
@@ -343,6 +347,26 @@
     <String>divine</String>
     <String>ageless</String>
     <String>ancient</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>LARGEPROV</Terrain>
+
+    <String>vast</String>
+    <String>boundless</String>
+    <String>endless</String>
+    <String>great</String>
+    <String>infinite</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>SMALLPROV</Terrain>
+
+    <String>silent</String>
+    <String>forgotten</String>
+    <String>lost</String>
+    <String>quiet</String>
+    <String>tranquil</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -401,6 +425,7 @@
     <String>sunken</String>
     <String>tainted</String>
     <String>decaying</String>
+    <String>foul</String>
     <String>cruel</String>
   </NameData>
   <NameData>
@@ -414,6 +439,8 @@
     <String>decaying</String>
     <String>empty</String>
     <String>dead</String>
+    <String>foul</String>
+    <String>cruel</String>
     <String>pale</String>
     <String>ancient</String>
   </NameData>
@@ -429,8 +456,6 @@
     <String>golden</String>
     <String>noble</String>
     <String>glimmering</String>
-    <String>autumn</String>
-    <String>summer</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -450,6 +475,7 @@
     <BlockedTerrain>SEA</BlockedTerrain>
 
     <String>sunken</String>
+    <String>collapsed</String>
     <String>flooded</String>
     <String>lightless</String>
     <String>sunless</String>
@@ -502,6 +528,23 @@
     <String>angel</String>
     <String>mystic</String>
     <String>giant</String>
+    <String>goliath</String>
+    <String>colossus</String>
+    <String>titan</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>LARGEPROV</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>mammoth</String>
+  </NameData>
+  <NameData>
+    <ID>ANIMAL</ID>
+    <Terrain>SMALLPROV</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>spider</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -571,6 +614,7 @@
     <String>guardian</String>
     <String>sentinel</String>
     <String>brigand</String>
+    <String>bastard</String>
     <String>harvest</String>
   </NameData>
   <NameData>
@@ -597,6 +641,7 @@
     <String>shade</String>
     <String>statue</String>
     <String>golem</String>
+    <String>ogre</String>
     <String>cyclops</String>
     <String>mushroom</String>
   </NameData>
@@ -606,6 +651,7 @@
 
     <String>shambler</String>
     <String>spirit</String>
+    <String>whale</String>
     <String>shark</String>
     <String>shipwreck</String>
   </NameData>
@@ -614,7 +660,10 @@
     <Terrain>DEEPSEA</Terrain>
 
     <String>kraken</String>
+    <String>leviathan</String>
     <String>telkhine</String>
+    <String>hydra</String>
+    <String>sea serpent</String>
   </NameData>
   <NameData> <!-- procedurally generated jibberish names (ie. risatrisine or alcus)-->
     <ID>NAME1</ID>
@@ -622,9 +671,9 @@
     <String>al</String>
     <String>el</String>
     <String>il</String>
-    <String>et</String>
+    <String>esta</String>
     <String>bor</String>
-    <String>shima</String>
+    <String>sesta</String>
     <String>sima</String>
     <String>tor</String>
     <String>ar</String>
@@ -644,7 +693,7 @@
     <String>rect</String>
     <String>rast</String>
     <String>mal</String>
-    <String>mort</String>
+    <String>mest</String>
     <String>tark</String>
     <String>sik</String>
     <String>cust</String>
