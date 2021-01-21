@@ -4566,7 +4566,7 @@ MonoBehaviour:
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 42e219552b4ca6a4497381e87c903cc7, type: 3}
       WinterSprite: {fileID: 21300000, guid: e6308f1653d272c4989e91f8ebc8e1dc, type: 3}
-      SpawnChance: 0.02
+      SpawnChance: 0.05
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -4577,7 +4577,7 @@ MonoBehaviour:
       ValidTerrain: 2
     - Sprite: {fileID: 21300000, guid: 11c6f0e8525077744872a718bdc03e72, type: 3}
       WinterSprite: {fileID: 21300000, guid: 39b0b582bb1439a4599995a6b3744995, type: 3}
-      SpawnChance: 0.02
+      SpawnChance: 0.05
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -4847,7 +4847,7 @@ MonoBehaviour:
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: 485e325a7f4cab247939b5c613bf59b9, type: 3}
       WinterSprite: {fileID: 21300000, guid: 485e325a7f4cab247939b5c613bf59b9, type: 3}
-      SpawnChance: 0.01
+      SpawnChance: 0.04
       Size: 0.25
       CanFlip: 0
       CanFlipWinter: 0
@@ -4858,7 +4858,7 @@ MonoBehaviour:
       ValidTerrain: 2
     - Sprite: {fileID: 21300000, guid: 71acb7309b6a6434797d6cb13c0a2aeb, type: 3}
       WinterSprite: {fileID: 21300000, guid: 71acb7309b6a6434797d6cb13c0a2aeb, type: 3}
-      SpawnChance: 0.02
+      SpawnChance: 0.05
       Size: 0.25
       CanFlip: 0
       CanFlipWinter: 0
@@ -5443,7 +5443,7 @@ MonoBehaviour:
       ValidTerrain: 256
     - Sprite: {fileID: 21300000, guid: 7aeea84e88917ed4ebc04641fd0b350b, type: 3}
       WinterSprite: {fileID: 21300000, guid: e55605e98636ec24380c0afcc4c167d4, type: 3}
-      SpawnChance: 0.02
+      SpawnChance: 0.04
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -5499,7 +5499,7 @@ MonoBehaviour:
       ValidTerrain: 256
     - Sprite: {fileID: 21300000, guid: 40bd8511ca3807f4a86a2a98b5586822, type: 3}
       WinterSprite: {fileID: 21300000, guid: 3515f844517016c4b9ed897d280f8c9b, type: 3}
-      SpawnChance: 0.02
+      SpawnChance: 0.04
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -5547,7 +5547,7 @@ MonoBehaviour:
       ValidTerrain: 32
     - Sprite: {fileID: 21300000, guid: 5d49443466f00d04f8f8caff2f718601, type: 3}
       WinterSprite: {fileID: 21300000, guid: b8945d9f1ddadb14e86d022c8bf9bebb, type: 3}
-      SpawnChance: 0.1
+      SpawnChance: 0.15
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -5602,7 +5602,7 @@ MonoBehaviour:
       ValidTerrain: 32
     - Sprite: {fileID: 21300000, guid: d84578b1be52efa4c960d36f5af810ca, type: 3}
       WinterSprite: {fileID: 21300000, guid: d6d105e93d11d1b4182de26548aaa614, type: 3}
-      SpawnChance: 0.1
+      SpawnChance: 0.15
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -6325,7 +6325,7 @@ MonoBehaviour:
       ValidTerrain: 16
     - Sprite: {fileID: 21300000, guid: 8240e49c35639624694aa0c4ade56372, type: 3}
       WinterSprite: {fileID: 21300000, guid: 0986ccab4a01d264babb468cbe87819b, type: 3}
-      SpawnChance: 0.1
+      SpawnChance: 0.15
       Size: 0.18
       CanFlip: 0
       CanFlipWinter: 0
@@ -6413,7 +6413,7 @@ MonoBehaviour:
       ValidTerrain: 16
     - Sprite: {fileID: 21300000, guid: bb23e77e49b70204f8f5e53e88137000, type: 3}
       WinterSprite: {fileID: 21300000, guid: 9e958467580f5cb458bb965204d7df85, type: 3}
-      SpawnChance: 0.1
+      SpawnChance: 0.15
       Size: 0.18
       CanFlip: 0
       CanFlipWinter: 0
@@ -7054,7 +7054,7 @@ MonoBehaviour:
       ValidTerrain: 64
     - Sprite: {fileID: 21300000, guid: 952546e9df4cb414d9941dfa528b1a84, type: 3}
       WinterSprite: {fileID: 21300000, guid: e20b148dc0dd81b4fbe3cada4c80b131, type: 3}
-      SpawnChance: 0.12
+      SpawnChance: 0.15
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -7067,7 +7067,7 @@ MonoBehaviour:
       ValidTerrain: 2
     - Sprite: {fileID: 21300000, guid: f60d78cc6b3309a409aabd8dfe519b7e, type: 3}
       WinterSprite: {fileID: 21300000, guid: 7140caba55ad97346b7de41fb6a5c796, type: 3}
-      SpawnChance: 0.12
+      SpawnChance: 0.15
       Size: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -23348,7 +23348,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MapNuke ran into a runtime error...
+  m_Text: MapNuke caused a runtime error...
 --- !u!222 &950647921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30792,7 +30792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Oh snap!
+  m_Text: A dire portent!
 --- !u!222 &1378144401
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36313,7 +36313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are You Fucking Kidding Me
+  m_Text: OK
 --- !u!222 &1644678445
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44408,7 +44408,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 250, y: 30}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098165765
 MonoBehaviour:

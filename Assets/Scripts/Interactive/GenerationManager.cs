@@ -282,6 +282,7 @@ public class GenerationManager : MonoBehaviour
         }
 
         name = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name);
+        name = name.Replace(" Of ", " of ");
 
         if (all.Any(x => x.Node.ProvinceData.CustomName != string.Empty && (x.Node.ProvinceData.CustomName.Contains(name) || name.Contains(x.Node.ProvinceData.CustomName))))
         {

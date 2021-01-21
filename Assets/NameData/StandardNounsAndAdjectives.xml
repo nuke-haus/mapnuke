@@ -30,11 +30,12 @@
     <ID>CONCEPT</ID>
 
     <String>valor</String>
+    <String>justice</String>
+    <String>chaos</String>
     <String>wisdom</String>
     <String>solitude</String>
     <String>myths</String>
     <String>dusk</String>
-    <String>sunlight</String>
     <String>twilight</String>
     <String>iron</String>
     <String>steel</String>
@@ -55,10 +56,11 @@
     <String>faith</String>
     <String>mercy</String>
     <String>heresy</String>
+    <String>power</String>
     <String>destiny</String>
     <String>fortune</String>
     <String>unity</String>
-    <String>magic</String>
+    <String>divinity</String>
     <String>creation</String>
     <String>sacrifice</String>
   </NameData>
@@ -90,6 +92,7 @@
     <String>adventure</String>
     <String>legends</String>
     <String>clover</String>
+    <String>sunlight</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -155,6 +158,7 @@
     <String>brimstone</String>
     <String>crystal</String>
     <String>echoes</String>
+    <String>lead</String>
     <String>slate</String>
     <String>marble</String>
     <String>limestone</String>
@@ -174,6 +178,8 @@
     <ID>CONCEPT</ID>
     <Terrain>DEEPSEA</Terrain>
 
+    <String>storms</String>
+    <String>numbness</String>
     <String>darkness</String>
     <String>basalt</String>
   </NameData>
@@ -195,6 +201,9 @@
   <NameData>  <!-- legacy support for manual mountain terrain flag -->
     <ID>NOUN</ID>
     <Terrain>MOUNTAINS</Terrain>
+
+    <String>mountain</String>
+    <String>ridge</String>
     <String>peak</String>
   </NameData>
   <NameData>  
@@ -208,6 +217,7 @@
     <String>tower</String>
     <String>pillar</String>
     <String>arches</String>
+    <String>keep</String>
   </NameData>
   <NameData>  
     <ID>NOUN</ID>
@@ -300,7 +310,6 @@
     <String>bay</String>
     <String>gulf</String>
     <String>sea</String>
-    <String>shoals</String>
     <String>whirlpool</String>
     <String>tides</String>
     <String>harbor</String>
@@ -311,6 +320,7 @@
 
     <String>abyss</String>
     <String>depths</String>
+    <String>trench</String>
   </NameData>
   <NameData> <!-- adjectives for describing nouns, this one is general purpose since it has no terrain specified -->
     <ID>ADJECTIVE</ID>
@@ -318,7 +328,6 @@
     <String>virgin</String>
     <String>silver</String>
     <String>black</String>
-    <String>bloodstained</String>
     <String>bloody</String>
     <String>unholy</String>
     <String>cursed</String>
@@ -425,6 +434,7 @@
     <String>sunken</String>
     <String>tainted</String>
     <String>decaying</String>
+    <String>bloodstained</String>
     <String>foul</String>
     <String>cruel</String>
   </NameData>
@@ -437,6 +447,7 @@
     <String>ashen</String>
     <String>tainted</String>
     <String>decaying</String>
+    <String>bloodstained</String>
     <String>empty</String>
     <String>dead</String>
     <String>foul</String>
@@ -493,6 +504,7 @@
     <String>azure</String>
     <String>sapphire</String>
     <String>cerulean</String>
+    <String>freezing</String>
     <String>flooding</String>
   </NameData>
   <NameData>
@@ -524,6 +536,8 @@
     <String>king</String>
     <String>lord</String>
     <String>mother</String>
+    <String>pilgrim</String>
+    <String>sage</String>
     <String>pontiff</String>
     <String>angel</String>
     <String>mystic</String>
@@ -535,6 +549,7 @@
   <NameData>
     <ID>ANIMAL</ID>
     <Terrain>LARGEPROV</Terrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <BlockedTerrain>SEA</BlockedTerrain>
 
     <String>mammoth</String>
@@ -664,51 +679,6 @@
     <String>telkhine</String>
     <String>hydra</String>
     <String>sea serpent</String>
-  </NameData>
-  <NameData> <!-- procedurally generated jibberish names (ie. risatrisine or alcus)-->
-    <ID>NAME1</ID>
-
-    <String>al</String>
-    <String>el</String>
-    <String>il</String>
-    <String>esta</String>
-    <String>bor</String>
-    <String>sesta</String>
-    <String>sima</String>
-    <String>tor</String>
-    <String>ar</String>
-    <String>dema</String>
-    <String>ba</String>
-    <String>sa</String>
-    <String>risa</String>
-  </NameData>
-  <NameData>
-    <ID>NAME2</ID>
-
-    <String>kars</String>
-    <String>kris</String>
-    <String>kur</String>
-    <String>kus</String>
-    <String>rist</String>
-    <String>rect</String>
-    <String>rast</String>
-    <String>mal</String>
-    <String>mest</String>
-    <String>tark</String>
-    <String>sik</String>
-    <String>cust</String>
-    <String>cour</String>
-    <String>tris</String>
-  </NameData>
-  <NameData>
-    <ID>NAME3</ID>
-
-    <String>as</String>
-    <String>ar</String>
-    <String>an</String>
-    <String>en</String>
-    <String>us</String>
-    <String>ine</String>
   </NameData>
 
 </CustomNameDataCollection>

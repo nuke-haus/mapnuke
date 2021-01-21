@@ -79,7 +79,11 @@ public static class MapFileWriter
             var dom_col_b = (int)(GenerationManager.s_generation_manager.OverlayColor.b * 255f);
             var dom_col_a = (int)(GenerationManager.s_generation_manager.OverlayColor.a * 255f);
 
-            var map_stats = string.Format("Player count: {0}, Throne count: {1}, Province count: {2}", layout.NumPlayers, layout.NumThrones, layout.TotalProvinces);
+            var map_stats = string.Format("Player count: {0}, Throne count: {1}, Province count: {2}, Provinces per player: {3}", 
+                layout.NumPlayers, 
+                layout.NumThrones, 
+                layout.TotalProvinces,
+                (float)(layout.TotalProvinces / layout.NumPlayers));
 
             write(fs, "-- Basic Map Information");
             write(fs, "#dom2title " + mapname);
