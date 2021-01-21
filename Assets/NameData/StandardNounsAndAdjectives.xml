@@ -29,9 +29,12 @@
   <NameData>  <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
     <ID>CONCEPT</ID>
 
+    <String>heroes</String>
+    <String>fallen heroes</String>
     <String>valor</String>
     <String>justice</String>
     <String>chaos</String>
+    <String>woe</String>
     <String>wisdom</String>
     <String>solitude</String>
     <String>myths</String>
@@ -51,6 +54,7 @@
 
     <String>greed</String>
     <String>avarice</String>
+    <String>purity</String>
     <String>piety</String>
     <String>grace</String>
     <String>faith</String>
@@ -60,6 +64,7 @@
     <String>destiny</String>
     <String>fortune</String>
     <String>unity</String>
+    <String>harmony</String>
     <String>divinity</String>
     <String>creation</String>
     <String>sacrifice</String>
@@ -94,6 +99,9 @@
     <String>clover</String>
     <String>sunlight</String>
     <String>dew</String>
+    <String>knives</String>
+    <String>swords</String>
+    <String>daggers</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -117,6 +125,7 @@
     <String>decay</String>
     <String>hunger</String>
     <String>sacrifice</String>
+    <String>rust</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -218,8 +227,10 @@
     <String>sanctum</String>
     <String>shrine</String>
     <String>citadel</String>
+    <String>spire</String>
     <String>tower</String>
     <String>pillar</String>
+    <String>cradle</String>
     <String>arches</String>
     <String>keep</String>
   </NameData>
@@ -331,6 +342,7 @@
 
     <String>virgin</String>
     <String>silver</String>
+    <String>white</String>
     <String>black</String>
     <String>bloody</String>
     <String>unholy</String>
@@ -341,7 +353,6 @@
     <String>blighted</String>
     <String>impure</String>
     <String>starlit</String>
-    <String>starless</String>
     <String>shimmering</String>
     <String>unbroken</String>
   </NameData>
@@ -351,15 +362,19 @@
 
     <String>unseen</String>
     <String>seraphic</String>
+    <String>infernal</String>
     <String>eternal</String>
+    <String>primordial</String>
     <String>holy</String>
     <String>pure</String>
     <String>sacred</String>
+    <String>desecrated</String>
     <String>blessed</String>
     <String>hallowed</String>
     <String>divine</String>
     <String>ageless</String>
     <String>ancient</String>
+    <String>first</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -411,6 +426,7 @@
     <String>verdant</String>
     <String>blooming</String>
     <String>dry</String>
+    <String>starless</String>
     <String>rainy</String>
     <String>burnt</String>
   </NameData>
@@ -432,6 +448,7 @@
     <ID>ADJECTIVE</ID>
     <Terrain>SWAMP</Terrain>
 
+    <String>blighted</String>
     <String>festering</String>
     <String>diseased</String>
     <String>flooded</String>
@@ -446,6 +463,7 @@
     <ID>ADJECTIVE</ID>
     <Terrain>WASTE</Terrain>
 
+    <String>blighted</String>
     <String>festering</String>
     <String>diseased</String>
     <String>ashen</String>
@@ -537,26 +555,27 @@
     <String>bandit</String>
     <String>marauder</String>
     <String>bastard</String>
+    <String>devil</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
     <Terrain>THRONE</Terrain>
 
     <String>pantokrator</String>
+    <String>demon</String>
     <String>oracle</String>
     <String>bishop</String>
     <String>queen</String>
     <String>king</String>
+    <String>prince</String>
     <String>lord</String>
     <String>pilgrim</String>
     <String>sage</String>
     <String>pontiff</String>
     <String>angel</String>
     <String>mystic</String>
-    <String>giant</String>
-    <String>goliath</String>
-    <String>colossus</String>
-    <String>titan</String>
+    <String>emperor</String>
+    <String>baron</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -565,6 +584,10 @@
     <BlockedTerrain>SEA</BlockedTerrain>
 
     <String>mammoth</String>
+    <String>giant</String>
+    <String>goliath</String>
+    <String>colossus</String>
+    <String>titan</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -572,6 +595,7 @@
     <BlockedTerrain>SEA</BlockedTerrain>
 
     <String>spider</String>
+    <String>imp</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -620,7 +644,6 @@
     <String>ghoul</String>
     <String>longdead</String>
     <String>corpse</String>
-    <String>brigand</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -636,7 +659,6 @@
     <String>ghoul</String>
     <String>longdead</String>
     <String>corpse</String>
-    <String>brigand</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -668,7 +690,6 @@
     <String>rat</String>
     <String>svartalf</String>
     <String>dwarf</String>
-    <String>shade</String>
     <String>statue</String>
     <String>golem</String>
     <String>ogre</String>

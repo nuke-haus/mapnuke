@@ -4,11 +4,12 @@
 
   <NameData> <!-- fantasy pseudo-english names inspired by the first law trilogy naming conventions -->
     <ID>START_A</ID>
-
-    <String>au</String>
+    
     <String>ca</String>
     <String>da</String>
     <String>de</String>
+    <String>du</String>
+    <String>sa</String>
     <String>si</String>
   </NameData>
 
@@ -27,7 +28,7 @@
     <String>parn</String>
     <String>lisk</String>
     <String>lusk</String>
-    <String>rast</String>
+    <String>rist</String>
     <String>rost</String>
     <String>rusk</String>
     <String>tark</String>
@@ -45,12 +46,15 @@
     <String>ost</String>
     <String>ospr</String>
     <String>orm</String>
-    <String>ufr</String>
+    <String>uffr</String>
+    <String>rost</String>
     <String>costr</String>
     <String>styr</String>
     <String>skard</String>
     <String>skand</String>
     <String>stend</String>
+    <String>stond</String>
+    <String>visser</String>
   </NameData>
 
   <NameData>
@@ -97,6 +101,8 @@
     <ID>MID_B</ID>
 
     <String>de</String>
+    <String>den</String>
+    <String>dan</String>
     <String>ster</String>
     <String>sten</String>
     <String>rich</String>
