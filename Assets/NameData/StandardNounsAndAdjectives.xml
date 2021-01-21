@@ -93,6 +93,7 @@
     <String>legends</String>
     <String>clover</String>
     <String>sunlight</String>
+    <String>dew</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -102,6 +103,7 @@
     <String>regrowth</String>
     <String>whispers</String>
     <String>darkness</String>
+    <String>dew</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -149,6 +151,7 @@
     <String>mist</String>
     <String>clouds</String>
     <String>storms</String>
+    <String>ascension</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -195,6 +198,7 @@
     <String>pasture</String>
     <String>meadow</String>
     <String>hills</String>
+    <String>valley</String>
     <String>vale</String>
     <String>glen</String>
   </NameData>
@@ -524,6 +528,15 @@
 
     <String>crow</String>
     <String>raven</String>
+    <String>guardian</String>
+    <String>paladin</String>
+    <String>warden</String>
+    <String>sentinel</String>
+    <String>brigand</String>
+    <String>thief</String>
+    <String>bandit</String>
+    <String>marauder</String>
+    <String>bastard</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -535,7 +548,6 @@
     <String>queen</String>
     <String>king</String>
     <String>lord</String>
-    <String>mother</String>
     <String>pilgrim</String>
     <String>sage</String>
     <String>pontiff</String>
@@ -565,6 +577,8 @@
     <ID>ANIMAL</ID>
     <Terrain>PLAINS</Terrain>
 
+    <String>mother</String>
+    <String>martyr</String>
     <String>hound</String>
     <String>deer</String>
     <String>boar</String>
@@ -574,12 +588,14 @@
     <String>cattle</String>
     <String>goat</String>
     <String>eagle</String>
+    <String>shepherd</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
     <Terrain>FOREST</Terrain>
     <BlockedTerrain>SEA</BlockedTerrain>
 
+    <String>mother</String>
     <String>bear</String>
     <String>deer</String>
     <String>wolf</String>
@@ -591,6 +607,7 @@
     <String>crone</String>
     <String>shaman</String>
     <String>dryad</String>
+    <String>hag</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
@@ -626,11 +643,9 @@
     <Terrain>FARM</Terrain>
 
     <String>libertine</String>
-    <String>guardian</String>
-    <String>sentinel</String>
-    <String>brigand</String>
-    <String>bastard</String>
     <String>harvest</String>
+    <String>peasant</String>
+    <String>shepherd</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>
