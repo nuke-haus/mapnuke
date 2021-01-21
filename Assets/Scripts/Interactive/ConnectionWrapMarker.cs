@@ -120,7 +120,7 @@ public class ConnectionWrapMarker : MonoBehaviour
             {
                 floats.Add(rand);
 
-                jitter.AddKey(rand, UnityEngine.Random.Range(0.12f, 0.24f));
+                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.52f));
             }
         }
 
