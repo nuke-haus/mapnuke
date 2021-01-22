@@ -234,12 +234,67 @@ public static class MapFileWriter
         fs.Write(info, 0, info.Length);
     }
 
+    private static string get_output_dir()
+    {
+#if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+        return Application.persistentDataPath;
+#else
+        return Application.dataPath;
+#endif
+    }
+
+    public static void open_folder_osx(string path)
+    {
+        var valid_folder = false;
+        var mac_path = path.Replace("\\", "/"); 
+
+        if (System.IO.Directory.Exists(mac_path)) 
+        {
+            valid_folder = true;
+        }
+
+        if (!mac_path.StartsWith("\""))
+        {
+            mac_path = "\"" + mac_path;
+        }
+
+        if (!mac_path.EndsWith("\""))
+        {
+            mac_path += "\"";
+        }
+
+        var arguments = (valid_folder ? "" : "-R ") + mac_path;
+        System.Diagnostics.Process.Start("open", arguments);
+    }
+
+    public static void open_folder_other(string path)
+    {
+        var valid_folder = false;
+        var winPath = path.Replace("/", "\\");
+
+        if (System.IO.Directory.Exists(winPath)) 
+        {
+            valid_folder = true;
+        }
+
+        System.Diagnostics.Process.Start("explorer.exe", (valid_folder ? "/root," : "/select,") + winPath);
+    }
+
+    public static void open_folder(string path)
+    {
+#if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+        open_folder_osx(path);
+#else
+        open_folder_other(path);
+#endif
+    }
+
     public static void GenerateImage(string mapname, RenderTexture tex, bool is_targa = true)
     {
         var t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
-        var data_folder = Application.dataPath;
+        var data_folder = get_output_dir();
         var folder = data_folder + "/Export/";
 
         if (is_targa)
@@ -275,6 +330,7 @@ public static class MapFileWriter
             }
 
             File.WriteAllBytes(path, bytes);
+            open_folder(folder);
         }
     }
 }
