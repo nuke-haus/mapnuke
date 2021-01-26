@@ -204,6 +204,12 @@ public class Node
         Nation = n;
     }
 
+    public bool IsTouchingEnemyCapRing(Node ignore_node)
+    {
+        var ignore_nodes = ignore_node.ConnectedNodes;
+        return ConnectedNodes.Any(x => x.IsCapRing && !ignore_nodes.Contains(x) && !x.ProvinceData.IsWater);
+    }
+
     public void SetPlayerInfo(PlayerData n, ProvinceData pd)
     {
         Nation = n;

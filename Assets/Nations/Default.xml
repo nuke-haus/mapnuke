@@ -9,35 +9,45 @@
   
     <Nation>
 	
-      <Name>(EA) My Cool Nation</Name>        /// This is the name that appears in the program. 
+      <Name>(EA) My Cool Nation</Name>        
+      /// This is the name that appears in the program. 
 	  
-      <ID>69</ID>                             /// The ID of the nation. A value of -1 makes the program use the nation as a generic nation.
+      <ID>69</ID>                             
+      /// The ID of the nation. A value of -1 makes the program use the nation as a generic nation.
 	  
-      <WaterPercentage>0.2</WaterPercentage>  /// How much water does the nation get in their allotted provinces? 
-	                                          /// In a standard map layout, every nation gets a square of 16 provinces.
-											  /// This water percentage ignores the provinces used as the nation's capring or cap.
-											  /// For example, let's give a nation a capring size of 5 and a water percentage of 0.2
-											  /// 6 provinces are used for the cap/capring, so 20% of the remaining 10 provinces becomes water.
+      <WaterPercentage>0.2</WaterPercentage>  
+      /// How much water does the nation get in their allotted provinces? 
+	    /// In a standard map layout, every nation gets a square of 16 provinces.
+			/// This water percentage ignores the provinces used as the nation's capring or cap.
+			/// For example, let's give a nation a capring size of 5 and a water percentage of 0.2
+			/// 6 provinces are used for the cap/capring, so 20% of the remaining 10 provinces becomes water.
 	  
-      <Age>EARLY</Age>                        /// Which age does this nation appear in? 
-	                                          /// Possible options are: 
-										      /// ALL, EARLY, MIDDLE, LATE
+      <Age>EARLY</Age>                        
+      /// Which age does this nation appear in? 
+	    /// Possible options are: 
+			/// ALL, EARLY, MIDDLE, LATE
 	  
-      <CapRingSize>5</CapRingSize>            /// How many provinces are in the nation's capring? This value can be between 4 and 8 inclusive.
-	                                          /// Typically a value of 5 or 6 is best.
+      <CapRingSize>5</CapRingSize>            
+      /// How many provinces are in the nation's capring? This value can be between 4 and 8 inclusive.
+	    /// Typically a value of 5 or 6 is best.
 	  
-      <CapTerrain>SMALLPROV CAVE</CapTerrain> /// What terrain flag does the nation's capital get?
-	                                          /// Terrain flags can be combined together. For example, SMALLPROV FOREST gives you a small forest.
-										      /// Certain combinations should not be done since they do not exist in the game. For example, SEA SWAMP.
-										      /// The DEEPSEA flag always has to be combined with SEA in order to work properly.
-										      /// Possible flags are: 
-										      /// PLAINS, HIGHLAND, SWAMP, WASTE, FOREST, FARM, CAVE, MOUNTAINS, SEA, DEEPSEA, SMALLPROV, LARGEPROV, WARMER, COLDER
+      <CapTerrain>SMALLPROV CAVE</CapTerrain> 
+      /// What terrain flag does the nation's capital get?
+	    /// Terrain flags can be combined together. For example, SMALLPROV FOREST gives you a small forest.
+			/// Certain combinations should not be done since they do not exist in the game. For example, SEA SWAMP.
+		  /// The DEEPSEA flag always has to be combined with SEA in order to work properly.
+			/// Possible flags are: 
+			/// PLAINS, HIGHLAND, SWAMP, WASTE, FOREST, FARM, CAVE, MOUNTAINS, SEA, DEEPSEA, SMALLPROV, LARGEPROV, WARMER, COLDER
 	  
-      <TerrainData>FOREST</TerrainData>       /// TerrainData is applied to the capring provinces in random order.
-      <TerrainData>FOREST</TerrainData>       /// Make sure there are not more TerrainData entries than the size of the capring.
-      <TerrainData>PLAINS</TerrainData>       /// If you have less TerrainData entries than the capring size, the remaining provinces are assigned random terrain.
-      <TerrainData>CAVE</TerrainData>         /// In this example nation, only 4 capring provinces are given specific terrain. The 5th province will be random.
-	  
+      <TerrainData>FOREST</TerrainData>       
+      <TerrainData>FOREST</TerrainData>       
+      <TerrainData>PLAINS</TerrainData>       
+      <TerrainData>CAVE</TerrainData>         
+      /// TerrainData is applied to the capring provinces in random order.
+      /// Make sure there are not more TerrainData entries than the size of the capring.
+      /// If you have less TerrainData entries than the capring size, the remaining provinces are assigned random terrain.
+      /// In this example nation, only 4 capring provinces are given specific terrain. The 5th province will be random.
+
     </Nation>
   
   -->
@@ -181,7 +191,7 @@
   <Nation>
     <Name>(EA) Agartha</Name>
     <ID>17</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
@@ -555,7 +565,7 @@
   <Nation>
     <Name>(MA) Agartha</Name>
     <ID>54</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
@@ -840,7 +850,7 @@
   <Nation>
     <Name>(MA) Ys</Name>
     <ID>77</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.65</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA CAVE</CapTerrain>

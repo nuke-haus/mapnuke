@@ -440,7 +440,7 @@ internal static class WorldGenerator
 
                     if (total_iterations > 30)
                     {
-                        iterations = 3;
+                        iterations = 4;
                     }
 
                     var i = 0;
@@ -449,7 +449,7 @@ internal static class WorldGenerator
 
                     while (i < iterations && count < num_water)
                     {
-                        if (!cur.HasNation && !cur.IsCapRing && !cur.ProvinceData.IsWater)
+                        if (!cur.HasNation && !cur.IsCapRing && !cur.ProvinceData.IsWater && !cur.IsTouchingEnemyCapRing(n))
                         {
                             cur.ProvinceData.SetTerrainFlags(Terrain.SEA);
 
@@ -466,7 +466,6 @@ internal static class WorldGenerator
 
     private static void assign_water_terrain()
     {
-        //float num_farm = GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * 0.5f; 
         var num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() + GeneratorSettings.s_generator_settings.FarmFreq.GetRandom();
         var num_trench = GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom();
         var num_deeps = GeneratorSettings.s_generator_settings.MountainFreq.GetRandom();
@@ -475,7 +474,6 @@ internal static class WorldGenerator
         var water = m_nodes.Where(x => x.ProvinceData.IsWater && !x.HasNation && !x.IsAssignedTerrain).ToList();
 
         var dict = new Dictionary<Terrain, float>();
-        //dict.Add(Terrain.FARM, num_farm);
         dict.Add(Terrain.HIGHLAND, num_trench);
         dict.Add(Terrain.FOREST, num_forest);
         dict.Add(Terrain.CAVE, num_cave);
