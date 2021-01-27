@@ -267,7 +267,7 @@ public static class MapFileWriter
         System.Diagnostics.Process.Start("open", arguments);
     }
 
-    public static void open_folder_other(string path)
+    public static void open_folder_win(string path)
     {
         var valid_folder = false;
         var winPath = path.Replace("/", "\\");
@@ -284,8 +284,8 @@ public static class MapFileWriter
     {
 #if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
         open_folder_osx(path);
-#else
-        open_folder_other(path);
+#elif UNITY_STANDALONE_WIN
+        open_folder_win(path);
 #endif
     }
 

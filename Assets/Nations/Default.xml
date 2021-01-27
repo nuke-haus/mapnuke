@@ -226,7 +226,7 @@
   <Nation>
     <Name>(EA) Vanheim</Name>
     <ID>20</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
@@ -329,7 +329,7 @@
   <Nation>
     <Name>(EA) Berytos</Name>
     <ID>30</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -376,7 +376,7 @@
   <Nation>
     <Name>(EA) Atlantis</Name>
     <ID>36</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -389,7 +389,7 @@
   <Nation>
     <Name>(EA) R'lyeh</Name>
     <ID>37</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -402,7 +402,7 @@
   <Nation>
     <Name>(EA) Pelagia</Name>
     <ID>38</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA</CapTerrain>
@@ -415,7 +415,7 @@
   <Nation>
     <Name>(EA) Oceania</Name>
     <ID>39</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA FOREST</CapTerrain>
@@ -428,7 +428,7 @@
   <Nation>
     <Name>(EA) Therodos</Name>
     <ID>40</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA HIGHLAND</CapTerrain>
@@ -565,7 +565,7 @@
   <Nation>
     <Name>(MA) Agartha</Name>
     <ID>54</ID>
-    <WaterPercentage>0.15</WaterPercentage>
+    <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
@@ -633,7 +633,7 @@
   <Nation>
     <Name>(MA) Vanheim</Name>
     <ID>60</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
@@ -726,7 +726,7 @@
   <Nation>
     <Name>(MA) Xibalba</Name>
     <ID>68</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
@@ -754,9 +754,10 @@
     <Age>MIDDLE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
     <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
@@ -798,7 +799,7 @@
   <Nation>
     <Name>(MA) Atlantis</Name>
     <ID>73</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -811,7 +812,7 @@
   <Nation>
     <Name>(MA) R'lyeh</Name>
     <ID>74</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -824,7 +825,7 @@
   <Nation>
     <Name>(MA) Pelagia</Name>
     <ID>75</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA</CapTerrain>
@@ -837,7 +838,7 @@
   <Nation>
     <Name>(MA) Oceania</Name>
     <ID>76</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA FOREST</CapTerrain>
@@ -850,7 +851,7 @@
   <Nation>
     <Name>(MA) Ys</Name>
     <ID>77</ID>
-    <WaterPercentage>0.65</WaterPercentage>
+    <WaterPercentage>0.5</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA CAVE</CapTerrain>
@@ -920,7 +921,7 @@
   <Nation>
     <Name>(LA) Marignon</Name>
     <ID>85</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -932,7 +933,7 @@
   <Nation>
     <Name>(LA) Mictlan</Name>
     <ID>86</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>FOREST</CapTerrain>
@@ -954,7 +955,7 @@
   <Nation>
     <Name>(LA) Jomon</Name>
     <ID>89</ID>
-    <WaterPercentage>0.4</WaterPercentage>
+    <WaterPercentage>0.3</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>MOUNTAINS</CapTerrain>
@@ -1020,7 +1021,7 @@
   <Nation>
     <Name>(LA) Midgard</Name>
     <ID>95</ID>
-    <WaterPercentage>0.2</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
@@ -1088,7 +1089,7 @@
   <Nation>
     <Name>(LA) Xibalba</Name>
     <ID>101</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
@@ -1121,7 +1122,7 @@
   <Nation>
     <Name>(LA) Atlantis</Name>
     <ID>106</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -1133,7 +1134,7 @@
   <Nation>
     <Name>(LA) R'lyeh</Name>
     <ID>107</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -1146,7 +1147,7 @@
   <Nation>
     <Name>(LA) Erytheia</Name>
     <ID>108</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>

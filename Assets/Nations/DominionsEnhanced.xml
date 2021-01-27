@@ -3,7 +3,7 @@
   <Nation>
     <Name>DE - (MA) Ryugo-jo</Name>
     <ID>114</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -120,7 +120,7 @@
   <Nation>
     <Name>DE - (LA) Rotterland</Name>
     <ID>133</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>SWAMP</CapTerrain>
@@ -167,7 +167,7 @@
   <Nation>
     <Name>DE - (MA) Sawaiiki</Name>
     <ID>140</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
@@ -250,7 +250,7 @@
   <Nation>
     <Name>DE - (LA) Venedia</Name>
     <ID>166</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -264,7 +264,7 @@
   <Nation>
     <Name>DE - (LA) Dom-Dan'yel</Name>
     <ID>167</ID>
-    <WaterPercentage>0.7</WaterPercentage>
+    <WaterPercentage>0.6</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA CAVE</CapTerrain>
