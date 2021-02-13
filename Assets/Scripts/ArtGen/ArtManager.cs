@@ -18,7 +18,9 @@ public class ArtManager : MonoBehaviour
     public Material RenderMat;
     public Dropdown ArtStyleDropdown;
     public ArtConfiguration CurrentArtConfiguration;
-    public List<ArtConfiguration> ArtConfigurations;
+    public GameObject ArtConfigContainer;
+
+    private List<ArtConfiguration> m_art_configs;
     private ArtStyle m_art;
     private RenderTexture m_render_texture;
 
@@ -36,7 +38,7 @@ public class ArtManager : MonoBehaviour
     public void OnArtStyleDropdownValueChanged(Dropdown d)
     {
         var str = d.captionText.text;
-        var art_config = ArtConfigurations.FirstOrDefault(config => config.ArtConfigurationName == str);
+        var art_config = m_art_configs.FirstOrDefault(config => config.ArtConfigurationName == str);
 
         if (art_config != null)
         {
@@ -48,9 +50,11 @@ public class ArtManager : MonoBehaviour
     {
         s_art_manager = this;
         m_art = new DefaultArtStyle();
+        m_art_configs = new List<ArtConfiguration>();
 
-        foreach (var art_config in ArtConfigurations)
+        foreach (var art_config in ArtConfigContainer.GetComponentsInChildren<ArtConfiguration>())
         {
+            m_art_configs.Add(art_config);
             var data = new Dropdown.OptionData(art_config.ArtConfigurationName);
             ArtStyleDropdown.options.Add(data);
         }
