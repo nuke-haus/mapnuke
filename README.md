@@ -18,7 +18,9 @@ I made a little pocket pocket change from donations for MapNuke so i'm putting s
 
 The default art style for MapNuke is somewhat limited in its color palette so that is one restriction to bear in mind. If you do accept any of these bounties please check in with me before you invest a lot of time into your sprites so i can give pointers and whatnot. Checking in often is good, as it helps avoid situations where lots of work ends up needing adjustments. I try to be somewhat flexible but if a submission doesn't follow the rules in place or lacks a certain degree of quality then I won't accept it. Remember, these sprites are going to appear on a lot of maps people use so I'm aiming for quality over quantity.
 
-## MOUNTAINS
+You can inquire about bounties here: https://discord.gg/aZMJwSR7
+
+#### MOUNTAINS
 
 The current mountain sprites have wack shading and weird shapes.
 
@@ -28,7 +30,7 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $55 CAD.
 
-## CAVES
+#### CAVES
 
 The cave sprites suffer from the same issues as the mountains. It would be trivial to copy over the mountain sprites and reuse them as caves with a color swap but i'd like it if caves were also unique looking in their own way.
 
@@ -38,7 +40,7 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $55 CAD.
 
-## HIGHLANDS
+#### HIGHLANDS
 
 The highland sprites have weird shading and i'm not sure i like them in their current state. Maybe something more hill-like would be better. Open to ideas.
 
@@ -48,7 +50,7 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $55 CAD.
 
-## SEA
+#### SEA
 
 The sea caves and reefs are just reskinned mountain sprites and look similarly crappy. 
 
