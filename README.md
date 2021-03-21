@@ -16,7 +16,7 @@ In addition to coding the entirety of MapNuke i created all of my sprites from s
 
 I made a little pocket pocket change from donations for MapNuke so i'm putting some of it towards bounties for improved sprites. 
 
-The default art style for MapNuke is somewhat limited in its color palette so that is one restriction to bear in mind. If you do accept any of these bounties please check in with me before you invest a lot of time into your sprites so i can give pointers and whatnot. Checking in often is good, as it helps avoid situations where lots of work ends up needing adjustments. I try to be somewhat flexible but if a submission doesn't follow the rules in place or lacks a certain degree of quality then I won't accept it. Remember, these sprites are going to appear on a lot of maps people use so I'm aiming for quality over quantity.
+The default art style for MapNuke is somewhat limited in its color palette so that is one restriction to bear in mind. I tried to combine a simple color palette with nice crisp sprites. If you do accept any of these bounties please check in with me before you invest a lot of time into your sprites so i can give pointers etc... Checking in often is good, as it helps avoid situations where lots of work ends up needing adjustments. I try to be somewhat flexible but if a submission doesn't follow the rules in place or lacks a certain degree of quality then I won't accept it. Remember, these sprites are going to appear on a lot of maps people use so I'm aiming for quality over quantity.
 
 You can inquire about bounties here: https://discord.gg/aZMJwSR7
 
