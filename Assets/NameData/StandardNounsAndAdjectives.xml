@@ -42,6 +42,7 @@
     <String>myths</String>
     <String>dusk</String>
     <String>twilight</String>
+    <String>fortune</String>
     <String>iron</String>
     <String>steel</String>
     <String>brass</String>
@@ -120,6 +121,7 @@
     <ID>CONCEPT</ID>
     <Terrain>SWAMP</Terrain>
 
+    <String>misfortune</String>
     <String>misery</String>
     <String>famine</String>
     <String>despair</String>
@@ -135,6 +137,7 @@
     <ID>CONCEPT</ID>
     <Terrain>WASTE</Terrain>
 
+    <String>misfortune</String>
     <String>misery</String>
     <String>famine</String>
     <String>despair</String>
