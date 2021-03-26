@@ -75,7 +75,8 @@ __The bounty:__ $55 CAD.
 MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
 
 1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
-2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. Add your desired sprite assets. Click on art assets to look at their import settings. You can copy the settings used by existing default assets if you aren't sure what values to use here.
+2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
+3. Add your desired sprite assets in your new folder. Click on art assets to look at their import settings. You can copy the settings used by existing default assets if you aren't sure what values to use here. __Make sure your sprites have the "Art" packing tag or they will have rendering issues!__
 
 __Important note: Don't use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white.__
 
