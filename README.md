@@ -20,6 +20,8 @@ The default art style for MapNuke is somewhat limited in its color palette so th
 
 You can inquire about bounties here: https://discord.gg/aZMJwSR7
 
+---
+
 #### MOUNTAINS
 
 The current mountain sprites have wack shading and weird shapes.
@@ -29,6 +31,8 @@ __What needs work:__ All of the mount and bigmount sprites (ignoring the bigmoun
 __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. Cave sprites need to have the colored shadow at the botton so they blend nicely into the ground. The smaller mountain sprites can be totally overhauled and replaced with something else if you have any ideas. They kind of felt out of place anyhow.
 
 __The bounty:__ $55 CAD.
+
+---
 
 #### CAVES
 
@@ -40,6 +44,8 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $55 CAD.
 
+---
+
 #### HIGHLANDS
 
 The highland sprites have weird shading and i'm not sure i like them in their current state. Maybe something more hill-like would be better. Open to ideas.
@@ -49,6 +55,8 @@ __What needs work:__ All of the bigmound sprites  (ignoring the bigmoundb sprite
 __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. Highland sprites need to have the colored shadow at the botton so they blend nicely into the ground. For new sprites, try and copy the sizing scheme used in the existing mountain sprites. 
 
 __The bounty:__ $55 CAD.
+
+---
 
 #### SEA
 
@@ -60,6 +68,8 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $40 CAD.
 
+---
+
 #### LARGE PROVINCE SPRITES
 
 There are house sprites for large provinces. Some people have suggested replacing them with something more city-esque instead of it just being a single house. There's a bit of freedom here for replacing them, if you think of something better then i'm all ears.
@@ -69,6 +79,8 @@ __What needs work:__ All of the house sprites for plains, farms, wastelands, swa
 __The rules:__ Stick with the same color theme the existing sprites have and avoid adding too many shades of the same color. Less is more. There's some freedom here for how you approach the replacement. It might be possible to just have a centerpiece single city sprite instead of sprinkling houses all over the place.
 
 __The bounty:__ $55 CAD.
+
+---
 
 ### CREATING YOUR OWN ART STYLE
 
@@ -132,6 +144,8 @@ Each sprite has several parameters:
 ![Step 6](https://cdn.discordapp.com/attachments/404681432238391307/767117177982550056/d4.png)
 
 7. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
+
+---
 
 ### PROVINCE SHADERS
 
