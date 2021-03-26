@@ -60,7 +60,7 @@ __The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more
 
 __The bounty:__ $40 CAD.
 
-## LARGE PROVINCE SPRITES
+#### LARGE PROVINCE SPRITES
 
 There are house sprites for large provinces. Some people have suggested replacing them with something more city-esque instead of it just being a single house. There's a bit of freedom here for replacing them, if you think of something better then i'm all ears.
 
