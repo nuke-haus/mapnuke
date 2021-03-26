@@ -81,7 +81,7 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 3. Add your desired sprite assets in your new folder. Click on art assets to view and edit their import settings. 
 
-⚠ __Make sure your sprites have the "Art" packing tag or they will have rendering issues! If you aren't sure about something, just copy the settings used in one of the default sprites.__ ⚠ 
+⚠ __Make sure your sprites have the "Art" packing tag in their import settings or they will have rendering issues! If you aren't sure about something, just copy the settings used in one of the default sprites.__ ⚠ 
 
 ⚠ __Do not use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white.__ ⚠ 
 
