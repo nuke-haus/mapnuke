@@ -10,6 +10,66 @@
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
 
+### BOUNTIES
+
+In addition to coding the entirety of MapNuke i created all of my sprites from scratch for the default art style. For the most part i'm pretty happy with how they turned out, however there are some that need improvement and i just don't have the time/expertise to make better ones.
+
+I made a little pocket pocket change from donations for MapNuke so i'm putting some of it towards bounties for improved sprites. 
+
+The default art style for MapNuke is somewhat limited in its color palette so that is one restriction to bear in mind. I tried to combine a simple color palette with nice crisp sprites. If you do accept any of these bounties please check in with me before you invest a lot of time into your sprites so i can give pointers etc... Checking in often is good, as it helps avoid situations where lots of work ends up needing adjustments. I try to be somewhat flexible but if a submission doesn't follow the rules in place or lacks a certain degree of quality then I won't accept it. Remember, these sprites are going to appear on a lot of maps people use so I'm aiming for quality over quantity.
+
+You can inquire about bounties here: https://discord.gg/aZMJwSR7
+
+#### MOUNTAINS
+
+The current mountain sprites have wack shading and weird shapes.
+
+__What needs work:__ All of the mount and bigmount sprites (ignoring the bigmountb sprites) in _Gfx/MapArt/Default/Mountains_. In total there are 10 sprites plus another 10  winter versions of the sprites (although the winter versions can be ignored if you don't feel like doing those).
+
+__The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. Cave sprites need to have the colored shadow at the botton so they blend nicely into the ground. The smaller mountain sprites can be totally overhauled and replaced with something else if you have any ideas. They kind of felt out of place anyhow.
+
+__The bounty:__ $55 CAD.
+
+#### CAVES
+
+The cave sprites suffer from the same issues as the mountains. It would be trivial to copy over the mountain sprites and reuse them as caves with a color swap but i'd like it if caves were also unique looking in their own way.
+
+__What needs work:__ All of the cave and bigcave sprites  (ignoring the bigcaveb sprites) in _Gfx/MapArt/Default/Caves_. I'd like it if caves had the same amount of sprites as mountains, ie. 7 large sprites in various sizes plus the 3 smaller ones. In total there are 6 sprites plus another 6 winter versions of the sprites (although the winter version is easy to do since it's the same sprite but with a lighter set of colors and some snow on top). In addition there would be the 4 new large cave sprites.
+
+__The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. Cave sprites need to have the colored shadow at the botton so they blend nicely into the ground. For new sprites, try and copy the sizing scheme used in the existing mountain sprites. The smaller cave sprites can be totally overhauled and replaced with something else if you have any ideas. They kind of felt out of place anyhow.
+
+__The bounty:__ $55 CAD.
+
+#### HIGHLANDS
+
+The highland sprites have weird shading and i'm not sure i like them in their current state. Maybe something more hill-like would be better. Open to ideas.
+
+__What needs work:__ All of the bigmound sprites  (ignoring the bigmoundb sprites) in _Gfx/MapArt/Default/Highlands_. I'd like it if highlands had the same amount of sprites as mountains, ie. 7 large sprites in various sizes plus the 3 smaller ones. In total there are 3 sprites plus another 3 winter versions of the sprites (although the winter version is easy to do since it's the same sprite but with a lighter set of colors and some snow on top). In addition there would be the 4 new large highland sprites.
+
+__The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. Highland sprites need to have the colored shadow at the botton so they blend nicely into the ground. For new sprites, try and copy the sizing scheme used in the existing mountain sprites. 
+
+__The bounty:__ $55 CAD.
+
+#### SEA
+
+The sea caves and reefs are just reskinned mountain sprites and look similarly crappy. 
+
+__What needs work:__ All of the bigseacave and bigseareef sprites in _Gfx/MapArt/Default/Sea_. In total there are 6 sprites plus another 6 winter versions of the sprites (although the winter version is easy to do since it's the same sprite but with a lighter set of colors and some snow on top). My kelp sprites are also kind of lame, if you can think of a better version of those i'm all ears (and i'd increase the bounty accordingly if you were to redo them).
+
+__The rules:__ Try and keep the same color scheme. You can introduce 1 or 2 more shades of the same color but it's best to not go overboard. Less is more. These sprites need to have the colored water shadow at the botton so they blend nicely into the sea texture. 
+
+__The bounty:__ $40 CAD.
+
+## LARGE PROVINCE SPRITES
+
+There are house sprites for large provinces. Some people have suggested replacing them with something more city-esque instead of it just being a single house. There's a bit of freedom here for replacing them, if you think of something better then i'm all ears.
+
+__What needs work:__ All of the house sprites for plains, farms, wastelands, swamps, forests. In total there are 10 sprites plus another 10 winter versions of the sprites (although the winter version is easy to do since it's the same sprite but with some snow on top). 
+
+__The rules:__ Stick with the same color theme the existing sprites have and avoid adding too many shades of the same color. Less is more. There's some freedom here for how you approach the replacement. It might be possible to just have a centerpiece single city sprite instead of sprinkling houses all over the place.
+
+__The bounty:__ $55 CAD.
+
 ### CREATING YOUR OWN ART STYLE
 
 MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
