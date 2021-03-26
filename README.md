@@ -76,11 +76,16 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
 2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
-3. Add your desired sprite assets in your new folder. Click on art assets to look at their import settings. You can copy the settings used by existing default assets if you aren't sure what values to use here. __Make sure your sprites have the "Art" packing tag or they will have rendering issues!__
 
-__Important note: Don't use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white.__
+![Step 2](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
 
-![Step 3](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
+3. Add your desired sprite assets in your new folder. Click on art assets to view and edit their import settings. 
+
+__⚠ Make sure your sprites have the "Art" packing tag or they will have rendering issues! If you aren't sure about something, just copy the settings used in one of the default sprites. ⚠ 
+
+⚠ Do not use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white. ⚠ __
+
+![Step 3](https://cdn.discordapp.com/attachments/668838745516015625/824808363518066719/Untitled.png)
 
 4. Create the folders you'd like to store your materials in. For example, the default materials are stored in _Gfx/Materials/Default_. Follow a similar naming convention to what you did in step 2 here. Import any textures being used for the province materials (if applicable) into this folder. You can examine the default materials which use a noise shader to see how those are done. You'll want to use a different shader if you're doing a texture-based material.
 
