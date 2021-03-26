@@ -10,6 +10,8 @@
 5. Right click a province node or connection node to open the editor panel for that node.
 6. Once you are happy with the map, click the export button. Maps are exported to the data folder.
 
+---
+
 ### BOUNTIES
 
 In addition to coding the entirety of MapNuke i created all of my sprites from scratch for the default art style. For the most part i'm pretty happy with how they turned out, however there are some that need improvement and i just don't have the time/expertise to make better ones.
