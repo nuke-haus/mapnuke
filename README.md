@@ -86,35 +86,38 @@ __The bounty:__ $55 CAD.
 
 ### CREATING YOUR OWN ART STYLE
 
-MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
+MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own.
 
-1. Install Unity Hub and fork this repository using SourceTree or something similar. Download Unity version __2019.2.11f1__ through the Unity Hub then open the MapNuke project using that version selected.
+1. Fork this repository on HitHub. 
+2. Clone your forked repository using SourceTree or some other source control app. 
+3. Install Unity Hub. 
+4. Download Unity version __2019.2.11f1__ through the Unity Hub then open the MapNuke project using that Unity version.
 
-⚠ __Older or newer versions of Unity will not be compatible with this project! Make sure you have version 2019.2.11f1.__ ⚠ 
+⚠ __Only Unity 2019.2.11f1 is currently compatible with this project! Using any other version will cause issues.__ ⚠ 
 
-2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
+5. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
 
-![Step 2](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
+![Step 5](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
 
-3. Add your desired sprite assets in your new folder. Click on art assets to view and edit their import settings. 
+6. Add your desired sprite assets in your new folder. Click on art assets to view and edit their import settings. 
 
 ⚠ __Make sure your sprites have the "Art" packing tag in their import settings or they will have rendering issues! If you aren't sure about something, just copy the settings used in one of the default sprites.__ ⚠ 
 
 ⚠ __Do not use a perfectly white color (ie. a color with 100% red, green, and blue) in your sprite. It will cause issues. Dominions 5 uses that color to track province positions. If you need to use white in your sprite, make it an off-white.__ ⚠ 
 
-![Step 3](https://cdn.discordapp.com/attachments/668838745516015625/824808363518066719/Untitled.png)
+![Step 6](https://cdn.discordapp.com/attachments/668838745516015625/824808363518066719/Untitled.png)
 
-4. Create the folders you'd like to store your materials in. For example, the default materials are stored in _Gfx/Materials/Default_. Follow a similar naming convention to what you did in step 2 here. Import any textures being used for the province materials (if applicable) into this folder. You can examine the default materials which use a noise shader to see how those are done. You'll want to use a different shader if you're doing a texture-based material.
+7. Create the folders you'd like to store your materials in. For example, the default materials are stored in _Gfx/Materials/Default_. Follow a similar naming convention to what you did in step 2 here. Import any textures being used for the province materials (if applicable) into this folder. You can examine the default materials which use a noise shader to see how those are done. You'll want to use a different shader if you're doing a texture-based material.
 
-![Step 4](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
+![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
 
-5. Open the main scene (if it's not already open) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
+8. Open the main scene (if it's not already open) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
 
-![Step 5](https://cdn.discordapp.com/attachments/404681432238391307/767117174317514803/d1.png)
+![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/767117174317514803/d1.png)
 
-6. Click on the newly made art style object and examine its properties. You'll see a collection of values you can modify.
+9. Click on the newly made art style object and examine its properties. You'll see a collection of values you can modify.
 
-![Step 6](https://cdn.discordapp.com/attachments/404681432238391307/767117176833441813/d3.png)
+![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/767117176833441813/d3.png)
 
 It's a bit complex so i'll try to describe what the values for each terrain type do:
 
@@ -144,11 +147,11 @@ Each sprite has several parameters:
 
 * __Valid Terrain__ - What type of terrain flag is required for this sprite to get used? Certain provinces (ie. wasteland) use this to specify special sprites for hotter/colder province modifiers. Examine the default art style to understand this better.
 
-6. Add your materials from step 3 to the material list.
+10. Add your materials from step 3 to the material list.
 
-![Step 6](https://cdn.discordapp.com/attachments/404681432238391307/767117177982550056/d4.png)
+![Step 10](https://cdn.discordapp.com/attachments/404681432238391307/767117177982550056/d4.png)
 
-7. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
+11. Click the play button and test your art style out. It should appear in the art style dropdown list next to the nation picker menu.
 
 ---
 
