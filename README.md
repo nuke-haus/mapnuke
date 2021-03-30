@@ -88,7 +88,7 @@ __The bounty:__ $55 CAD.
 
 MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own.
 
-1. Fork this repository on HitHub. 
+1. Fork this repository on GitHub. 
 2. Clone your forked repository using SourceTree or some other source control app. 
 3. Install Unity Hub. 
 4. Download Unity version __2019.2.11f1__ through the Unity Hub then open the MapNuke project using that Unity version.
