@@ -88,7 +88,10 @@ __The bounty:__ $55 CAD.
 
 MapNuke now allows you to add your own custom art styles. The sprites and materials used by the map generator are dictated by the art style. Here's a step by step guide for adding your own art style.
 
-1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository then open the unity project.
+1. Install Unity Hub and fork this repository using SourceTree or something similar. Download the version of unity required by this repository (2019.2.11f1) then open the unity project.
+
+⚠ __Make sure you're using Unity 2019.2.11f1. Older or newer versions of Unity will not be compatible with this project!__ ⚠ 
+
 2. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
 
 ![Step 2](https://cdn.discordapp.com/attachments/404681432238391307/767117175877402654/d2.png)
