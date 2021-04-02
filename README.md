@@ -185,6 +185,8 @@ The UV scale of your material needs to be set to a specific value in order for y
 - 2048x2048 ---> 0.048828125
 - 4096x4096 ---> 0.0244140625
 
+Don't ask me how I figured these numbers out. They just work.
+
 Your texture import settings should look something like:
 
 ![Texture Import](https://cdn.discordapp.com/attachments/404681432238391307/793258263511695360/import.png)
