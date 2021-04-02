@@ -177,7 +177,7 @@ __Custom/Texture__
 
 ![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
 
-This shader is useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. Make sure your texture is a high enough resolution so that patterns are harder to spot. I'd recommend at least 1024x1024 pixels. The default UV scale for the shader is __1.5625__. This value will give you a 1:1 scale for your texture. If you don't care about pixel-perfect textures you can mess with this scale.
+This shader is useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. Make sure your texture is a high enough resolution so that patterns are harder to spot. I'd recommend at least 1024x1024 pixels. The default UV scale for the shader is __3.125__. This value will give you a 1:1 scale for your texture. If you don't care about pixel-perfect textures you can mess with this scale.
 
 Your texture import settings should look something like:
 
