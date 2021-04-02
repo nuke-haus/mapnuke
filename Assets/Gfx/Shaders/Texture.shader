@@ -2,7 +2,7 @@
 {
     Properties
     {
-        _ScaleUV("Scale UV", float) = 1.5
+        _ScaleUV("Scale UV", float) = 3.125
         _Tex ("Texture", 2D) = "white" {}
     }
  
