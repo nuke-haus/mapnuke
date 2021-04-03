@@ -161,7 +161,7 @@ Custom art styles can specify which materials each province type uses. There are
 
 ---
 
-__Custom/Perlin3, Custom/Perlin4, Custom/Perlin5__
+#### Custom/Perlin3, Custom/Perlin4, Custom/Perlin5
 
 ![Perlin Noise](https://cdn.discordapp.com/attachments/404681432238391307/793239502092894228/perlin.png)
 
@@ -177,7 +177,7 @@ These use stencil buffers to create a shoreline effect in bodies of water (and r
 
 ---
 
-__Custom/Texture1024, Custom/Texture2048, Custom/Texture4096__
+#### Custom/Texture1024, Custom/Texture2048, Custom/Texture4096
 
 ![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
 
@@ -202,7 +202,7 @@ Use point filtering if you want crisp pixel art and bilinear/trilinear filtering
 
 ---
 
-__Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4__
+#### Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4
 
 ![Texture Blend](https://cdn.discordapp.com/attachments/404681432238391307/793239504118480896/texblend.png)
 
