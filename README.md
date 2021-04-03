@@ -171,7 +171,7 @@ There are some special perlin noise shaders used in niche cases:
 - Custom/Perlin6write
 - Custom/Perlin5read
 
-These use stencil buffers to create a shoreline effect in bodies of water (and rivers). 
+These use stencil buffers to create a shoreline effect in bodies of water (and rivers). The materials for sea provinces would use the Perlin5write shader and the shorelines would use the Perlin5read shader.
 
 __Custom/Texture1024, Custom/Texture2048, Custom/Texture4096__
 
@@ -180,6 +180,15 @@ __Custom/Texture1024, Custom/Texture2048, Custom/Texture4096__
 These shaders are useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. The size of your texture needs to match the shader, ie. Custom/Texture2048 should be used with a texture that is 2048x2048 pixels. 
 
 I recommend using 2048x2048 as your texture resolution. 1024x1024 is a bit low and 4096x4096 is a bit overkill.
+
+There are some special texture shaders used in niche cases:
+
+- Custom/Texture1024read
+- Custom/Texture1024write
+- Custom/Texture2048write
+- Custom/Texture4096write
+
+These use stencil buffers to create a shoreline effect in bodies of water (and rivers). The materials for sea provinces and rivers would use the TextureXXXXwrite shader and the shorelines would use the Texture1024read shader.
 
 Your texture import settings should look something like:
 
