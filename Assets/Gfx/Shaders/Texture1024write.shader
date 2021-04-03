@@ -1,14 +1,23 @@
-﻿Shader "Custom/Texture2048"
+﻿Shader "Custom/Texture1024write"
 {
     Properties
     {
-        _ScaleUV("Scale UV", float) = 0.048828125
+        _ScaleUV("Scale UV", float) = 0.09765625
         _Tex ("Texture", 2D) = "white" {}
+
+        [IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 1
     }
  
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+
+        Stencil
+        {
+            Ref[_StencilRef]
+            Comp Always
+            Pass Replace
+        }
  
         Pass
         {

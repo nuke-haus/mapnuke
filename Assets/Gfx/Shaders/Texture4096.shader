@@ -1,4 +1,4 @@
-﻿Shader "Custom/Texture"
+﻿Shader "Custom/Texture4096"
 {
     Properties
     {
