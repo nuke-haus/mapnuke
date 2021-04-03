@@ -173,11 +173,13 @@ There are some special perlin noise shaders used in niche cases:
 
 These use stencil buffers to create a shoreline effect in bodies of water (and rivers). 
 
-__Custom/Texture__
+__Custom/Texture1024, Custom/Texture2048, Custom/Texture4096__
 
 ![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
 
-This shader is useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. Make sure your texture is a high enough resolution so that patterns are harder to spot. I'd recommend at least 1024x1024 pixels. The default UV scale for the shader is __1.5625__. This value will give you a 1:1 scale for your texture. If you don't care about pixel-perfect textures you can mess with this scale.
+These shaders are useful for just basic textures. In many cases it's probably preferable to use this shader since handmade textures are always nicer than basic perlin noise. The size of your texture needs to match the shader, ie. Custom/Texture2048 should be used with a texture that is 2048x2048 pixels. 
+
+I recommend using 2048x2048 as your texture resolution. 1024x1024 is a bit low and 4096x4096 is a bit overkill.
 
 Your texture import settings should look something like:
 
