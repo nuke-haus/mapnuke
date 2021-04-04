@@ -111,7 +111,7 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
 
-8. Open the main scene (if it's not already open) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
+8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
 
 ![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/767117174317514803/d1.png)
 
@@ -159,7 +159,9 @@ Each sprite has several parameters:
 
 Custom art styles can specify which materials each province type uses. There are several custom shaders included with MapNuke you can make use of in your custom materials.
 
-__Custom/Perlin3, Custom/Perlin4, Custom/Perlin5__
+---
+
+#### Custom/Perlin3, Custom/Perlin4, Custom/Perlin5
 
 ![Perlin Noise](https://cdn.discordapp.com/attachments/404681432238391307/793239502092894228/perlin.png)
 
@@ -173,7 +175,9 @@ There are some special perlin noise shaders used in niche cases:
 
 These use stencil buffers to create a shoreline effect in bodies of water (and rivers). The materials for sea provinces would use the Perlin5write shader and the shorelines would use the Perlin5read shader.
 
-__Custom/Texture1024, Custom/Texture2048, Custom/Texture4096__
+---
+
+#### Custom/Texture1024, Custom/Texture2048, Custom/Texture4096
 
 ![Texture](https://cdn.discordapp.com/attachments/404681432238391307/793239505951129660/tex.png)
 
@@ -196,7 +200,9 @@ Your texture import settings should look something like:
 
 Use point filtering if you want crisp pixel art and bilinear/trilinear filtering if you want antialiasing.
 
-__Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4__
+---
+
+#### Custom/TexBlend2, Custom/TexBlend3, Custom/TexBlend4
 
 ![Texture Blend](https://cdn.discordapp.com/attachments/404681432238391307/793239504118480896/texblend.png)
 
