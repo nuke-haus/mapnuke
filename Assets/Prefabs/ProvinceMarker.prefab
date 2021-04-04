@@ -440,7 +440,7 @@ MonoBehaviour:
   MeshFilter: {fileID: 33873325489972138}
   MeshCollider: {fileID: 64156643490342904}
   MeshObj: {fileID: 1893265653092448}
-  sprite_group: {fileID: 9048428495290917637}
+  SpriteGroup: {fileID: 9048428495290917637}
   TextOutlines:
   - {fileID: 1142337024079669442}
   - {fileID: 5284362514650262484}
@@ -941,6 +941,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4902117906146576766, guid: 77afb74915850e1448432187c2ddba28,
+        type: 3}
+      propertyPath: MeshSpritePrefab
+      value: 
+      objectReference: {fileID: 7668577416502492493, guid: c8b23f222700ae24882fa6c354596912,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77afb74915850e1448432187c2ddba28, type: 3}
 --- !u!4 &9048428495290917636 stripped

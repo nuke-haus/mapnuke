@@ -41,7 +41,7 @@ public class ProvinceMarker : MonoBehaviour
     public MeshCollider MeshCollider;
     public GameObject MeshObj;
 
-    public SpriteGroup sprite_group;
+    public SpriteGroup SpriteGroup;
 
     public List<TextMesh> TextOutlines;
     private ProvinceWidget m_widget;
@@ -812,7 +812,7 @@ public class ProvinceMarker : MonoBehaviour
             }
         }
 
-        sprite_group.Clear();
+        SpriteGroup.Clear();
     }
 
     public List<SpriteMarker> PlaceSprites()
@@ -853,7 +853,7 @@ public class ProvinceMarker : MonoBehaviour
                     var pos = m_poly_center;
                     m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f));
                     pos.z = -3;
-                    sprite_group.PlaceSprite(ps, pos);
+                    SpriteGroup.PlaceSprite(ps, pos);
 
                     break;
                 }
@@ -865,7 +865,7 @@ public class ProvinceMarker : MonoBehaviour
 
         foreach (var ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
-            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !ps.PlaceAtLeastOne || !m_sprite_points.Any())
+            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !m_sprite_points.Any())
             {
                 continue;
             }
@@ -876,28 +876,31 @@ public class ProvinceMarker : MonoBehaviour
         {
             return new List<SpriteMarker>();
         }
+
+        var sprite_items = new List<NativeObjectPlacer.Item>();
+        var sprite_size = new List<float>();
+
+        foreach (var s in sprites)
         {
-            var sprite_items = new List<NativeObjectPlacer.Item>();
-            var sprite_size = new List<float>();
-            foreach (var s in sprites)
+            sprite_items.Add(new NativeObjectPlacer.Item
             {
-                sprite_items.Add(new NativeObjectPlacer.Item
-                {
-                    size = s.Size,
-                    spawn_chance = s.SpawnChance,
-                    extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
-                });
-            }
-            var already_placed = new List<Vector3>();
-            already_placed.AddRange(sprite_group.SpritePos());
-            var objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
-            for (var i = 0; i < objs.Count; ++i)
-            {
-                sprite_group.PlaceSprite(sprites[objs[i]], m_sprite_points[i]);
-            }
-            m_sprite_points.Clear();
+                size = s.Size,
+                spawn_chance = s.SpawnChance,
+                place_at_least_1 = s.PlaceAtLeastOne == true ? 1 : 0,
+                extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
+            });
         }
 
+        var already_placed = new List<Vector3>();
+        already_placed.AddRange(SpriteGroup.SpritePos());
+        var objs = NativeObjectPlacer.Invoke(sprite_items, m_sprite_points, m_poly, already_placed);
+
+        for (var i = 0; i < objs.Count; ++i)
+        {
+            SpriteGroup.PlaceSprite(sprites[objs[i]], m_sprite_points[i]);
+        }
+
+        m_sprite_points.Clear();
         var all = new List<SpriteMarker>();
 
         foreach (var m in m_wraps)
@@ -905,7 +908,7 @@ public class ProvinceMarker : MonoBehaviour
             all.AddRange(m.PlaceSprites());
         }
 
-        sprite_group.Build(CaptureCam.Bounds());
+        SpriteGroup.Build(CaptureCam.Bounds());
 
         return all;
     }
@@ -1058,7 +1061,7 @@ public class ProvinceMarker : MonoBehaviour
 
     private void assign_mat(Season s = Season.SUMMER)
     {
-        sprite_group.SetSeason(s);
+        SpriteGroup.SetSeason(s);
         if (s == Season.SUMMER)
         {
             if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.DEEPSEA))

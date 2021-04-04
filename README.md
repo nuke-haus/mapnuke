@@ -111,7 +111,7 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
 
-8. Open the main scene (if it's not already open) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
+8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
 
 ![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/767117174317514803/d1.png)
 
