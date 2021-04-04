@@ -12,7 +12,7 @@ public struct NativeObjectPlacer : IJob
     {
         public float size;
         public float spawn_chance;
-        // Substitute for booleans since burst compile doesn't like booleans.
+        public int place_at_least_1;
         public int extra_border_dist;
     }
 
@@ -158,7 +158,11 @@ public struct NativeObjectPlacer : IJob
 
     private void Place(int pick)
     {
-        if (n_in == 0) return;
+        if (n_in == 0)
+        {
+            return;
+        }
+        
         var pos = points[n_in - 1];
 
         if (item[pick].extra_border_dist != 0)
@@ -188,7 +192,10 @@ public struct NativeObjectPlacer : IJob
     {
         for (var i = 0; i < item.Length; ++i) // guarantee that we have at least 1 of each valid sprite
         {
-            Place(i);
+            if (item[i].place_at_least_1 == 1)
+            {
+                Place(i);
+            }
         }
 
         while (n_in > 0) // randomly sprinkle sprites
