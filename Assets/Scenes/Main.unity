@@ -19806,7 +19806,7 @@ GameObject:
   - component: {fileID: 770065741}
   - component: {fileID: 770065740}
   m_Layer: 5
-  m_Name: OldLogPanelNotUsed
+  m_Name: OldLogPanel_NotUsed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19827,7 +19827,7 @@ RectTransform:
   - {fileID: 775280201}
   - {fileID: 816853979}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21878,7 +21878,7 @@ RectTransform:
   - {fileID: 1108150085}
   - {fileID: 2098165764}
   m_Father: {fileID: 1689708518}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27393,7 +27393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Please holler at n\xFCke on twitter or discord and share this error log!"
+  m_Text: Please holler at nuke on twitter or discord and share this error log!
 --- !u!222 &1206683084
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37205,8 +37205,8 @@ RectTransform:
   - {fileID: 2122145807}
   - {fileID: 1828134023}
   - {fileID: 541892323}
-  - {fileID: 770065739}
   - {fileID: 885212158}
+  - {fileID: 770065739}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
