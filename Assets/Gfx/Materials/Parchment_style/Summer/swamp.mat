@@ -64,19 +64,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex1:
-        m_Texture: {fileID: 2800000, guid: 0e908b8179b3c51469326043608f3d7a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ccf770c8cacfd746abc5ca908b8e4e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex2:
-        m_Texture: {fileID: 2800000, guid: 700b3b5102aea5d469eed755599b7ce5, type: 3}
+        m_Texture: {fileID: 2800000, guid: d41772e20fcca87499ddf85f937fd74c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex3:
-        m_Texture: {fileID: 2800000, guid: 776b49652b782274a96448d01629235b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 373507a372825ec4cb38cf441ae9bd36, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex4:
-        m_Texture: {fileID: 2800000, guid: 776b49652b782274a96448d01629235b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 373507a372825ec4cb38cf441ae9bd36, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -98,7 +98,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Saturation: 0.39
-    - _ScaleUV: 0.02441406
+    - _ScaleUV: 0.09765625
     - _ScaleX: 1
     - _ScaleY: 0.35
     - _SmoothnessTextureChannel: 0

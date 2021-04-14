@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
-        m_Texture: {fileID: 2800000, guid: aa58dcd7259b099498b05724c6eb019a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43ae1662442be394aa9527cac5a59ee0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex1:
@@ -98,7 +98,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Saturation: 0.39
-    - _ScaleUV: 0
+    - _ScaleUV: 0.09765625
     - _ScaleX: 1
     - _ScaleY: 0.35
     - _SmoothnessTextureChannel: 0
