@@ -15916,8 +15916,8 @@ MonoBehaviour:
       ValidWinterColors: []
   ShallowRiver:
     ConnectionSprites:
-    - Sprite: {fileID: 21300000, guid: 2650fab25acdec845b1872fc4ba43d0b, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 2650fab25acdec845b1872fc4ba43d0b, type: 3}
+    - Sprite: {fileID: 21300000, guid: 2ec7580805a0b2948b7c3db8f4db6dba, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 2ec7580805a0b2948b7c3db8f4db6dba, type: 3}
       SpawnChance: 1
       Size: 0.08
       CanFlip: 1
@@ -15928,8 +15928,8 @@ MonoBehaviour:
       ValidWinterColors: []
   DeepRiver:
     ConnectionSprites:
-    - Sprite: {fileID: 21300000, guid: a79bd6bd4c9b9b94da242f7efa49256e, type: 3}
-      WinterSprite: {fileID: 21300000, guid: a79bd6bd4c9b9b94da242f7efa49256e, type: 3}
+    - Sprite: {fileID: 21300000, guid: dc45faae7ed901c4185f0b5ac38f133d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: dc45faae7ed901c4185f0b5ac38f133d, type: 3}
       SpawnChance: 1
       Size: 0.08
       CanFlip: 0
