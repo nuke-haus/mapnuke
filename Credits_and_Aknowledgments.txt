@@ -1,0 +1,12 @@
+Background texture effect: 
+https://www.flickr.com/photos/chorando/
+The vast majority of the sprites are taken from K.M. Alexander free map brushes:
+https://kmalexander.com/home/
+
+
+Special thanks to Nuke for making Mapnuke and giving a framework for Custom Artstyles, but also for his precious help with using Unity and mapnuke, 
+to Lucid for his input and help with graphics design software and, 
+and to Naaira for his frequent input and help with devising out new sprites.
+
+Dominion contact info:
+Isitaris
