@@ -15355,7 +15355,7 @@ MonoBehaviour:
       PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
-      ValidTerrain: 0
+      ValidTerrain: -1
     - Sprite: {fileID: 21300000, guid: 75e8c0a009dd21b4aab69b1643884ab1, type: 3}
       WinterSprite: {fileID: 21300000, guid: 75e8c0a009dd21b4aab69b1643884ab1, type: 3}
       SpawnChance: 1
@@ -15366,7 +15366,7 @@ MonoBehaviour:
       PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
-      ValidTerrain: 0
+      ValidTerrain: -1
     - Sprite: {fileID: 21300000, guid: f6bf2d6e8fdad7b42b14b1b9a84f1851, type: 3}
       WinterSprite: {fileID: 21300000, guid: f6bf2d6e8fdad7b42b14b1b9a84f1851, type: 3}
       SpawnChance: 1
@@ -15377,7 +15377,7 @@ MonoBehaviour:
       PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
-      ValidTerrain: 0
+      ValidTerrain: -1
     - Sprite: {fileID: 21300000, guid: eae8c187618eff947a935f91654e72b1, type: 3}
       WinterSprite: {fileID: 21300000, guid: eae8c187618eff947a935f91654e72b1, type: 3}
       SpawnChance: 0.1
@@ -15388,7 +15388,7 @@ MonoBehaviour:
       PlaceAtLeastOne: 1
       ValidColors: []
       ValidWinterColors: []
-      ValidTerrain: 0
+      ValidTerrain: -1
   Forest:
     CullChance: 0
     ProvinceEdgeThreshold: 0.1
