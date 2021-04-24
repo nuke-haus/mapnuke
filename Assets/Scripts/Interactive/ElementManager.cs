@@ -23,7 +23,7 @@ public class ElementManager : MonoBehaviour
     public List<ConnectionMarker> m_connections;
     public float m_size_y = 1.60f;
     public float m_size_x = 2.56f;
-    private readonly float m_edge_tolerance = 0.35f; // use 0.5f for testing purposes.
+    private readonly float m_edge_tolerance = 0.38f; // use 0.5f for near-perfect grid 
 
     public float Y
     {
