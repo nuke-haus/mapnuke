@@ -15264,9 +15264,64 @@ MonoBehaviour:
       ValidWinterColors: []
       ValidTerrain: 4096
   DeepSea:
-    CullChance: 0.85
-    ProvinceEdgeThreshold: 0.18
-    MapSprites: []
+    CullChance: 0
+    ProvinceEdgeThreshold: 0.13
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 6d34d9400e55aec4abba4ef4aad7b416, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6d34d9400e55aec4abba4ef4aad7b416, type: 3}
+      SpawnChance: 1
+      Size: 0.01
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2048
+    - Sprite: {fileID: 21300000, guid: c63e43fc7bfc73649b7097cd27e5a98b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c63e43fc7bfc73649b7097cd27e5a98b, type: 3}
+      SpawnChance: 1
+      Size: 0.01
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2048
+    - Sprite: {fileID: 21300000, guid: c77f82345ef6e33438b66f7f174f43aa, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c77f82345ef6e33438b66f7f174f43aa, type: 3}
+      SpawnChance: 1
+      Size: 0.01
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 3072
+    - Sprite: {fileID: 21300000, guid: 70ffc164e9d6b5e4e94132305d6f636f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 70ffc164e9d6b5e4e94132305d6f636f, type: 3}
+      SpawnChance: 1
+      Size: 0.01
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2048
+    - Sprite: {fileID: 21300000, guid: a1d1f85d35249d6428a4fdc039f501ff, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a1d1f85d35249d6428a4fdc039f501ff, type: 3}
+      SpawnChance: 1
+      Size: 0.01
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2048
   Farm:
     CullChance: 0.1
     ProvinceEdgeThreshold: 0.3
