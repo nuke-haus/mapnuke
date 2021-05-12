@@ -75,18 +75,18 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 1
     - _Threshold1: 0.08
-    - _Threshold2: 0.01
-    - _Threshold3: 0.22
-    - _Threshold4: 0.92
+    - _Threshold2: 0.3
+    - _Threshold3: 0.4
+    - _Threshold4: 0.7
     - _UVSec: 0
-    - _X: 1
+    - _X: 10
     - _Y: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.8745098, g: 0.9529412, b: 1, a: 1}
-    - _Color2: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
-    - _Color3: {r: 0.5647059, g: 0.72156864, b: 0.8, a: 1}
-    - _Color4: {r: 0.6745098, g: 0.8039216, b: 0.8784314, a: 1}
+    - _Color2: {r: 0.73333335, g: 0.9579154, b: 0.9811321, a: 1}
+    - _Color3: {r: 0.627451, g: 0.8773585, b: 0.82074696, a: 1}
+    - _Color4: {r: 0.7764706, g: 0.9568988, b: 0.9716981, a: 1}
     - _Color5: {r: 0.8745098, g: 0.9529412, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
