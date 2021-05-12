@@ -299,7 +299,6 @@ internal static class WorldGenerator
 
         var tertiary = new List<Connection>();
         var starts = new List<Connection>();
-        //List<Connection> invalid = m_connections.Where(x => x.ConnectionType != ConnectionType.STANDARD || x.Node1.HasNation || x.Node2.HasNation || x.IsTouchingSea || x.IsInsideCapRing).ToList();
 
         foreach (var n in water)
         {

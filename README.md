@@ -117,7 +117,7 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 9. Click on the newly made art style object and examine its properties. You'll see a collection of values you can modify.
 
-![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/767117176833441813/d3.png)
+![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/829712550139658290/Untitled.png)
 
 It's a bit complex so i'll try to describe what the values for each terrain type do:
 
