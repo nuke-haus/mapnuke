@@ -90,11 +90,6 @@ public class ArtManager : MonoBehaviour
         return CurrentArtConfiguration.GetConnectionSprite(flags);
     }
 
-    public ConnectionSprite GetMountainSpecSprite()
-    {
-        return CurrentArtConfiguration.GetMountainSpecSprite();
-    }
-
     public IEnumerator GenerateElements(List<ProvinceMarker> provs, List<ConnectionMarker> conns, NodeLayoutData layout, float x, float y)
     {
         setup_cam(x, y);

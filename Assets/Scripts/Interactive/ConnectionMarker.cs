@@ -314,7 +314,6 @@ public class ConnectionMarker : MonoBehaviour
 
             var last = new Vector3(-900, -900, 0);
             var cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            var bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
             if (cs == null)
             {
@@ -322,17 +321,21 @@ public class ConnectionMarker : MonoBehaviour
             }
 
             var ct = 0;
-
-            make_sprite(PolyBorder.P1, cs, Vector3.zero);
-            make_sprite(PolyBorder.P1, bottom, new Vector3(0, 0.01f));
+            make_sprite(PolyBorder.P1, cs, Vector3.zero); // draw a sprite at both endpoints
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
-            make_sprite(PolyBorder.P2, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
 
             foreach (var pt in PolyBorder.OrderedFinePoints)
             {
-                if (Vector3.Distance(last, pt) < cs.Size && ct < PolyBorder.OrderedFinePoints.Count - 3)
+                if (Vector3.Distance(pt, PolyBorder.P2) < cs.Size) // if near to the endpoint, find the mid point between end point and current point and draw 1 sprite
+                {
+                    Vector3 midpoint = (last + PolyBorder.P2) / 2; 
+                    make_sprite(midpoint, cs, Vector3.zero);
+                    break;
+                }
+
+                if (Vector3.Distance(pt, last) < cs.Size) // still too close to the last placed sprite, keep searching
                 {
                     ct++;
                     continue;
@@ -342,10 +345,7 @@ public class ConnectionMarker : MonoBehaviour
                 last = pt;
 
                 make_sprite(pt, cs, Vector3.zero);
-                make_sprite(pt, bottom, new Vector3(0, 0.01f));
-
                 cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             }
         }
         else if (m_connection.ConnectionType == ConnectionType.MOUNTAINPASS)
@@ -357,71 +357,51 @@ public class ConnectionMarker : MonoBehaviour
 
             var last = new Vector3(-900, -900, 0);
             var cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            var bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             var other = PolyBorder.Reversed();
 
-            make_sprite(PolyBorder.P1, cs, Vector3.zero);
-            make_sprite(PolyBorder.P1, bottom, new Vector3(0, 0.01f));
+            make_sprite(PolyBorder.P1, cs, Vector3.zero); // draw a sprite at both endpoints
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
             make_sprite(PolyBorder.P2, cs, Vector3.zero);
-            make_sprite(PolyBorder.P2, bottom, new Vector3(0, 0.01f));
             cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
 
-            make_sprite(other.OrderedFinePoints[0], cs, Vector3.zero);
-            make_sprite(other.OrderedFinePoints[0], bottom, new Vector3(0, 0.01f));
-            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
-            make_sprite(other.OrderedFinePoints[1], cs, Vector3.zero);
-            make_sprite(other.OrderedFinePoints[1], bottom, new Vector3(0, 0.01f));
-            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
-            make_sprite(other.OrderedFinePoints[2], cs, Vector3.zero);
-            make_sprite(other.OrderedFinePoints[2], bottom, new Vector3(0, 0.01f));
-            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
+            var first_quarter = Mathf.RoundToInt(PolyBorder.OrderedFinePoints.Count * 0.3f);
+            var last_quarter = Mathf.RoundToInt(PolyBorder.OrderedFinePoints.Count * 0.7f);
+            var gap_distance = Vector3.Distance(PolyBorder.OrderedFinePoints[first_quarter], PolyBorder.OrderedFinePoints[last_quarter]);
 
-            var endpt = other.OrderedFinePoints[2];
-            cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-            var is_mountain = true;
-
-            foreach (var pt in PolyBorder.OrderedFinePoints)
+            if (gap_distance < ArtManager.s_art_manager.CurrentArtConfiguration.MinimumMountainPassGapSize)
             {
-                if (Vector3.Distance(pt, endpt) < 0.05f)
+                first_quarter = Mathf.RoundToInt(PolyBorder.OrderedFinePoints.Count * 0.2f);
+                last_quarter = Mathf.RoundToInt(PolyBorder.OrderedFinePoints.Count * 0.8f);
+            }
+
+            for (int i = 0; i < PolyBorder.OrderedFinePoints.Count; i++)
+            {
+                var pt = PolyBorder.OrderedFinePoints[i];
+                var is_mountain = i < first_quarter || i > last_quarter;
+
+                if (Vector3.Distance(pt, PolyBorder.P2) < cs.Size) // if near to the endpoint, find the mid point between end point and current point and draw 1 sprite
                 {
+                    Vector3 midpoint = (last + PolyBorder.P2) / 2;
+                    make_sprite(midpoint, cs, Vector3.zero);
                     break;
                 }
 
-                if (Vector3.Distance(last, pt) < cs.Size)
+                if (Vector3.Distance(pt, last) < cs.Size) // still too close to the last placed sprite, keep searching
                 {
                     continue;
                 }
 
                 last = pt;
+                make_sprite(pt, cs, Vector3.zero);
 
-                if (!is_mountain)
-                {
-                    make_sprite(pt, cs, new Vector3(0, 0.01f));
-                }
-                else
-                {
-                    make_sprite(pt, cs, Vector3.zero);
-                    make_sprite(pt, bottom, new Vector3(0, 0.01f));
-                }
-
-                if (Vector3.Distance(pt, endpt) < 0.6f)
-                {
-                    cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
-                    is_mountain = false;
-                }
-                else
+                if (is_mountain)
                 {
                     cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAIN);
-                    is_mountain = true;
                 }
-
-                bottom = ArtManager.s_art_manager.GetMountainSpecSprite();
+                else
+                {
+                    cs = ArtManager.s_art_manager.GetConnectionSprite(ConnectionType.MOUNTAINPASS);
+                }
             }
         }
         else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
@@ -668,7 +648,9 @@ public class ConnectionMarker : MonoBehaviour
 
         if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
-            m_poly = get_contour(PolyBorder, 0.02f, 0.08f);
+            m_poly = get_contour(PolyBorder, 
+                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverWidth,
+                ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverWidth);
 
             ConstructPoly();
             draw_river_shore();
@@ -679,27 +661,17 @@ public class ConnectionMarker : MonoBehaviour
         }
         else if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
+            var distance = Vector3.Distance(m_pos1, m_pos2);
+            var scaled_reduction = distance * ArtManager.s_art_manager.CurrentArtConfiguration.RoadShortening;
             var dir = (m_pos2 - m_pos1).normalized;
-            var p1 = m_pos1 + dir * 0.4f;
-            var p2 = m_pos2 - dir * 0.4f;
+            var p1 = m_pos1 + dir * scaled_reduction;
+            var p2 = m_pos2 - dir * scaled_reduction;
+            var road_line = new PolyBorder(p1, p2, m_connection, true);
 
-            if (Vector3.Distance(m_pos1, m_pos2) > 3f)
-            {
-                p1 = m_pos1 + dir * 0.6f;
-                p2 = m_pos2 - dir * 0.6f;
-            }
+            m_culling_points = road_line.OrderedPoints;
+            m_poly = road_line.OrderedFinePoints;
 
-            if (Vector3.Distance(p1, p2) < 0.5f)
-            {
-                p1 = m_pos1 + dir * 0.3f;
-                p2 = m_pos2 - dir * 0.3f;
-            }
-
-            var fake = new PolyBorder(p1, p2, m_connection);
-            m_culling_points = fake.OrderedPoints;
-            m_poly = fake.OrderedFinePoints;
-
-            draw_road(fake);
+            draw_road(road_line);
         }
 
         var border = PolyBorder.GetFullLengthBorder();
@@ -754,7 +726,8 @@ public class ConnectionMarker : MonoBehaviour
             if (ct < 10)
             {
                 floats.Add(rand);
-                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.52f));
+                jitter.AddKey(rand, UnityEngine.Random.Range(ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRoadWidth, 
+                    ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRoadWidth));
             }
         }
 
@@ -772,7 +745,11 @@ public class ConnectionMarker : MonoBehaviour
         var g = GameObject.Instantiate(InnerStrokePrefab);
         m_stroke = g.GetComponent<InnerStroke>();
         m_stroke.UpdateArtStyle();
-        m_stroke.DrawStroke(m_poly, new Vector3(0, 0, -0.9f), false, 0.03f, 0.06f);
+        m_stroke.DrawStroke(m_poly, 
+            new Vector3(0, 0, -0.9f), 
+            false, 
+            ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverShoreWidth, 
+            ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverShoreWidth);
     }
 
     private void draw_shore()
@@ -788,7 +765,11 @@ public class ConnectionMarker : MonoBehaviour
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
             m_stroke.UpdateArtStyle();
-            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), Vector3.zero);
+            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), 
+                Vector3.zero, 
+                true, 
+                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumSeaShoreWidth, 
+                ArtManager.s_art_manager.CurrentArtConfiguration.MaximumSeaShoreWidth);
         }
     }
 

@@ -7,13 +7,40 @@ using UnityEngine;
 /// </summary>
 public class ArtConfiguration : MonoBehaviour
 {
-    [Header("Basic Info")]
+    [Header("Parameters")]
     public string ArtConfigurationName;
+    [Range(0.1f, 2.0f)]
+    public float MinimumMountainPassGapSize = 0.5f;
+    [Range(0.01f, 0.2f)]
+    public float MinimumRiverWidth = 0.02f;
+    [Range(0.01f, 0.2f)]
+    public float MaximumRiverWidth = 0.08f;
+    [Range(0.01f, 0.16f)]
+    public float MinimumRiverShoreWidth = 0.03f;
+    [Range(0.01f, 0.16f)]
+    public float MaximumRiverShoreWidth = 0.06f;
+    [Range(0.01f, 0.5f)]
+    public float MinimumSeaShoreWidth = 0.1f;
+    [Range(0.01f, 0.5f)]
+    public float MaximumSeaShoreWidth = 0.2f;
+    [Range(0.01f, 0.8f)]
+    public float MinimumRoadWidth = 0.30f;
+    [Range(0.01f, 0.8f)]
+    public float MaximumRoadWidth = 0.50f;
+    [Range(0f, 0.4f)]
+    public float RoadShortening = 0.2f;
+    [Range(0f, 0.12f)]
+    public float RoadMaximumJitter = 0.09f;
+    [Range(0f, 0.32f)]
+    public float ProvinceBorderMaximumJitter = 0.16f;
+    [Range(1f, 4f)]
+    public float ProvinceSizeX = 2.56f;
+    [Range(1f, 4f)]
+    public float ProvinceSizeY = 1.60f;
 
     [Header("Province Sprite Sets")]
     public MapSpriteSet Plains;
     public MapSpriteSet Sea;
-    public MapSpriteSet DeepSea;
     public MapSpriteSet Farm;
     public MapSpriteSet Swamp;
     public MapSpriteSet Cave;
@@ -26,9 +53,8 @@ public class ArtConfiguration : MonoBehaviour
     public ConnectionSpriteSet Road;
     public ConnectionSpriteSet Mountain;
     public ConnectionSpriteSet MountainPass;
-    public ConnectionSpriteSet ShallowRiver;
-    public ConnectionSpriteSet DeepRiver;
-    public ConnectionSpriteSet MountainSpecial;
+    public ConnectionSpriteSet RiverHorizontal;
+    public ConnectionSpriteSet RiverVertical;
 
     [Header("Summer Province Mesh Materials")]
     public Material MatSwamp;
@@ -68,20 +94,11 @@ public class ArtConfiguration : MonoBehaviour
     public Material MatWinterRiverShore;
     public Material MatWinterRoad;
 
-    public ConnectionSprite GetMountainSpecSprite()
-    {
-        return MountainSpecial.GetSprite();
-    }
-
     public float GetCullChance(Terrain flags)
     {
         if (flags.IsFlagSet(Terrain.SEA))
         {
             return Sea.CullChance;
-        }
-        else if (flags.IsFlagSet(Terrain.DEEPSEA))
-        {
-            return DeepSea.CullChance;
         }
         else if (flags.IsFlagSet(Terrain.FARM))
         {
@@ -119,11 +136,6 @@ public class ArtConfiguration : MonoBehaviour
 
     public MapSpriteSet GetMapSpriteSet(Terrain flags)
     {
-        /*if (flags.IsFlagSet(Terrain.DEEPSEA)) // removing this for now
-        {
-            return DeepSea;
-        }
-        else */
         if (flags.IsFlagSet(Terrain.SEA))
         {
             return Sea;
@@ -167,10 +179,6 @@ public class ArtConfiguration : MonoBehaviour
         if (flags.IsFlagSet(Terrain.SEA))
         {
             return Sea.GetSprite(flags);
-        }
-        else if (flags.IsFlagSet(Terrain.DEEPSEA))
-        {
-            return DeepSea.GetSprite(flags);
         }
         else if (flags.IsFlagSet(Terrain.FARM))
         {
@@ -222,11 +230,11 @@ public class ArtConfiguration : MonoBehaviour
         }
         else if (t == ConnectionType.SHALLOWRIVER)
         {
-            return ShallowRiver.GetSprite();
+            return RiverHorizontal.GetSprite();
         }
         else if (t == ConnectionType.RIVER)
         {
-            return DeepRiver.GetSprite();
+            return RiverVertical.GetSprite();
         }
 
         return null;

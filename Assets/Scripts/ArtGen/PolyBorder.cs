@@ -32,16 +32,8 @@ public class PolyBorder
         OrderedPoints = new List<Vector3>();
         OrderedFinePoints = new List<Vector3>();
 
-        if (is_road)
-        {
-            calc_points(true);
-            apply_jitter(0.04f);
-        }
-        else
-        {
-            calc_points();
-            apply_jitter(0.02f);
-        }
+        calc_points(is_road);
+        apply_jitter(0.02f);
     }
 
     public List<Vector3> GetFullLengthBorder()
@@ -129,12 +121,12 @@ public class PolyBorder
     private void calc_points(bool is_road = false) // create several knots randomly shifted between p1 and p2
     {
         var dist = Vector3.Distance(P1, P2);
-        var latdist = dist * 0.16f;
+        var latdist = dist * ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderMaximumJitter;
         var maxknots = Mathf.Max(Mathf.FloorToInt(dist / 0.30f), 2);
 
         if (is_road)
         {
-            latdist = dist * 0.06f;
+            latdist = dist * ArtManager.s_art_manager.CurrentArtConfiguration.RoadMaximumJitter;
             maxknots++;
         }
 

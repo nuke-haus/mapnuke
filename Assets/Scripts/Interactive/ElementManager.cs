@@ -21,15 +21,13 @@ public class ElementManager : MonoBehaviour
     public List<GameObject> m_generated;
     public List<ProvinceMarker> m_provinces;
     public List<ConnectionMarker> m_connections;
-    public float m_size_y = 1.60f;
-    public float m_size_x = 2.56f;
     private readonly float m_edge_tolerance = 0.38f; // use 0.5f for near-perfect grid 
 
     public float Y
     {
         get
         {
-            return m_size_y;
+            return ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeY;
         }
     }
 
@@ -37,7 +35,7 @@ public class ElementManager : MonoBehaviour
     {
         get
         {
-            return m_size_x;
+            return ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeX;
         }
     }
 
@@ -116,8 +114,8 @@ public class ElementManager : MonoBehaviour
         m_provinces = new List<ProvinceMarker>();
         m_connections = new List<ConnectionMarker>();
 
-        var min = Vector3.zero - new Vector3(m_size_x, m_size_y);
-        var max = new Vector3(m_size_x * (layout.X - 1), m_size_y * (layout.Y - 1));
+        var min = Vector3.zero - new Vector3(X, Y);
+        var max = new Vector3(X * (layout.X - 1), Y * (layout.Y - 1));
         var min_top = new Vector3(min.x, max.y);
         var max_bot = new Vector3(max.x, min.y);
         var dist_up = Vector3.Distance(min, min_top);
@@ -127,8 +125,8 @@ public class ElementManager : MonoBehaviour
 
         foreach (var n in nodes) // create basic provinces
         {
-            var pos = new Vector3(n.X * m_size_x, n.Y * m_size_y, 0);
-            var randpos = pos - new Vector3(m_edge_tolerance * m_size_x + (UnityEngine.Random.Range(0f, m_size_x - (m_edge_tolerance * 2 * m_size_x))), m_edge_tolerance * m_size_y + (UnityEngine.Random.Range(0f, m_size_y - (m_edge_tolerance * 2 * m_size_y))));
+            var pos = new Vector3(n.X * X, n.Y * Y, 0);
+            var randpos = pos - new Vector3(m_edge_tolerance * X + (UnityEngine.Random.Range(0f, X - (m_edge_tolerance * 2 * X))), m_edge_tolerance * Y + (UnityEngine.Random.Range(0f, Y - (m_edge_tolerance * 2 * Y))));
 
             var marker_obj = GameObject.Instantiate(ProvinceMarker);
             marker_obj.transform.position = randpos;
@@ -367,7 +365,7 @@ public class ElementManager : MonoBehaviour
 
         number_provinces();
 
-        yield return StartCoroutine(ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * m_size_x, layout.Y * m_size_y));
+        yield return StartCoroutine(ArtManager.s_art_manager.GenerateElements(m_provinces, m_connections, layout, layout.X * X, layout.Y * Y));
     }
 
     private void adjust_province_positions() // we need to ensure that no province centers are on the same horizontal line
