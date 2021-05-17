@@ -119,6 +119,7 @@
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
     <None Include="Assets\Nations\Default.xml" />
+    <None Include="Assets\Gfx\Shaders\ProvinceBorder.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5write.shader" />
     <None Include="Assets\Gfx\Shaders\Test2.shader" />

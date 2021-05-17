@@ -30,6 +30,7 @@ public class ConnectionMarker : MonoBehaviour
     private InnerStroke m_stroke;
     private PolyBorder m_border;
     private List<Vector3> m_poly;
+    private List<Vector3> m_full_contour;
     private List<Vector3> m_culling_points;
     private Vector3 m_pos1;
     private Vector3 m_pos2;
@@ -264,11 +265,6 @@ public class ConnectionMarker : MonoBehaviour
 
         m_sprites = new List<SpriteMarker>();
         var all = new List<SpriteMarker>();
-
-        /*foreach (var m in m_wraps)
-        {
-            //all.AddRange(m.PlaceSprites());
-        }*/
 
         if (PolyBorder != null)
         {
@@ -598,6 +594,7 @@ public class ConnectionMarker : MonoBehaviour
         wrap.UpdateArtStyle();
         wrap.SetParent(this);
         wrap.CreatePoly(m_poly, pb, offset);
+
         obj.transform.position = obj.transform.position + offset;
 
         m_wraps.Add(wrap);
@@ -652,6 +649,18 @@ public class ConnectionMarker : MonoBehaviour
                 ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverWidth,
                 ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverWidth);
 
+            m_full_contour = new List<Vector3>();
+            m_full_contour.AddRange(m_poly);
+            m_full_contour.Add(m_poly[0]);
+
+            var key_start = new Keyframe(0f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
+            var key_end = new Keyframe(1f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
+            BorderLine.widthCurve = new AnimationCurve(key_start, key_end);
+            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.positionCount = m_full_contour.Count;
+            BorderLine.SetPositions(m_full_contour.ToArray());
+
             ConstructPoly();
             draw_river_shore();
 
@@ -682,13 +691,22 @@ public class ConnectionMarker : MonoBehaviour
             fix.Add(new Vector3(v.x, v.y, -0.8f));
         }
 
+        var border_scale = 1f;
+
+        if ((m_connection.Node1.ProvinceData.IsWater && !m_connection.Node2.ProvinceData.IsWater) ||
+            (!m_connection.Node1.ProvinceData.IsWater && m_connection.Node2.ProvinceData.IsWater))
+        {
+            border_scale = 2f;
+        }
+
         var arr = fix.ToArray();
-
-        BorderLine.positionCount = arr.Length;
-        BorderLine.SetPositions(arr);
-
+        var key1 = new Keyframe(0f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * border_scale);
+        var key2 = new Keyframe(1f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * border_scale);
+        BorderLine.widthCurve = new AnimationCurve(key1, key2);
         BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
         BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+        BorderLine.positionCount = arr.Length;
+        BorderLine.SetPositions(arr);
 
         SetSeason(GenerationManager.s_generation_manager.Season);
     }

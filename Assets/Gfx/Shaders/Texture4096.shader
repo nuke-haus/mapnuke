@@ -4,11 +4,19 @@
     {
         _ScaleUV("Scale UV", float) = 0.0244140625
         _Tex ("Texture", 2D) = "white" {}
+        [IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 10
     }
  
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+
+        Stencil
+        {
+            Ref[_StencilRef]
+            Comp Always
+            Pass Replace
+        }
  
         Pass
         {

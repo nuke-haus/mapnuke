@@ -33,9 +33,6 @@
  
         Pass
         {
-			//Blend Zero One
-			//ZWrite Off
-
             CGPROGRAM
             #pragma vertex vert_img
             #pragma fragment frag

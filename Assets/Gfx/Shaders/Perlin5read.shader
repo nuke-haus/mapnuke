@@ -28,7 +28,6 @@
 		{
 			Ref [_StencilRef]
 			Comp Equal
-			//Pass Replace
 		}
  
         Pass

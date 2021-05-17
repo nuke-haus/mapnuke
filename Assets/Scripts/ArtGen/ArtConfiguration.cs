@@ -11,10 +11,10 @@ public class ArtConfiguration : MonoBehaviour
     public string ArtConfigurationName;
     [Range(0.1f, 2.0f)]
     public float MinimumMountainPassGapSize = 0.5f;
-    [Range(0.01f, 0.2f)]
+    [Range(0.02f, 0.2f)]
     public float MinimumRiverWidth = 0.02f;
-    [Range(0.01f, 0.2f)]
-    public float MaximumRiverWidth = 0.08f;
+    [Range(0.02f, 0.2f)]
+    public float MaximumRiverWidth = 0.07f;
     [Range(0.01f, 0.16f)]
     public float MinimumRiverShoreWidth = 0.03f;
     [Range(0.01f, 0.16f)]
@@ -37,6 +37,8 @@ public class ArtConfiguration : MonoBehaviour
     public float ProvinceSizeX = 2.56f;
     [Range(1f, 4f)]
     public float ProvinceSizeY = 1.60f;
+    [Range(0.01f, 0.2f)]
+    public float ProvinceBorderWidth = 0.14f;
 
     [Header("Province Sprite Sets")]
     public MapSpriteSet Plains;

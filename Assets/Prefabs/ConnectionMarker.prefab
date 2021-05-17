@@ -163,8 +163,6 @@ MonoBehaviour:
     type: 3}
   InnerStrokePrefab: {fileID: 1671950800918644053, guid: af38db911668ec84e903d4b9ee39e8e3,
     type: 3}
-  sprite_group_prefab: {fileID: 4902117906146576766, guid: 77afb74915850e1448432187c2ddba28,
-    type: 3}
 --- !u!61 &61920518501300852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,13 +356,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.14
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.21000862
+        value: 0.21422803
         inSlope: 0
         outSlope: 0
         tangentMode: 0

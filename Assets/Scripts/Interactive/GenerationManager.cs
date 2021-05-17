@@ -546,7 +546,7 @@ public class GenerationManager : MonoBehaviour
 
     public void OnBorderColorUpdate()
     {
-        var red = 255f;
+        var red = 0f;
         var green = 0f;
         var blue = 0f;
         var a = 55f;

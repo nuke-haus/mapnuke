@@ -13,11 +13,19 @@
         _Tex1 ("Tex1", 2D) = "white" {}
         _Tex2 ("Tex2", 2D) = "white" {}
         _Tex3 ("Tex3", 2D) = "white" {}
+        [IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 10
     }
  
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+
+        Stencil
+        {
+            Ref[_StencilRef]
+            Comp Always
+            Pass Replace
+        }
  
         Pass
         {

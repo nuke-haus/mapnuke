@@ -12,6 +12,7 @@
 		_Color1 ("Color1", Color) = (1,1,1,1)
 		_Color2 ("Color2", Color) = (1,1,1,1)
 		_Color3 ("Color3", Color) = (1,1,1,1)
+        [IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 10
     }
  
     SubShader
@@ -19,6 +20,13 @@
         Tags {"Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent"}
         ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha
+
+        Stencil
+        {
+            Ref[_StencilRef]
+            Comp Always
+            Pass Replace
+        }
  
         Pass
         {

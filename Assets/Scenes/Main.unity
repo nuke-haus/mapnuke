@@ -1164,7 +1164,7 @@ GameObject:
   m_Layer: 0
   m_Name: Pendleton
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1209,6 +1209,7 @@ MonoBehaviour:
   ProvinceBorderMaximumJitter: 0.16
   ProvinceSizeX: 2.56
   ProvinceSizeY: 1.6
+  ProvinceBorderWidth: 0.12
   Plains:
     CullChance: 0.85
     ProvinceEdgeThreshold: 0.14
@@ -4213,7 +4214,7 @@ MonoBehaviour:
   ArtConfigurationName: Default Map Art
   MinimumMountainPassGapSize: 0.5
   MinimumRiverWidth: 0.02
-  MaximumRiverWidth: 0.08
+  MaximumRiverWidth: 0.07
   MinimumRiverShoreWidth: 0.03
   MaximumRiverShoreWidth: 0.06
   MinimumSeaShoreWidth: 0.1
@@ -4225,6 +4226,7 @@ MonoBehaviour:
   ProvinceBorderMaximumJitter: 0.16
   ProvinceSizeX: 2.56
   ProvinceSizeY: 1.6
+  ProvinceBorderWidth: 0.15
   Plains:
     CullChance: 0.75
     ProvinceEdgeThreshold: 0.14
@@ -8813,7 +8815,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 90
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -10081,7 +10083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 55
+  m_Text: 200
 --- !u!222 &208389942
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14691,7 +14693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 85
 --- !u!222 &523030349
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19390,7 +19392,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 55
+  m_Text: 200
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -27319,7 +27321,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 85
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -32260,7 +32262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 80
 --- !u!222 &1499071324
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37350,7 +37352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 90
 --- !u!222 &1755598890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41773,7 +41775,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 80
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -42219,7 +42221,7 @@ GameObject:
   m_Layer: 0
   m_Name: Parchment
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -42264,6 +42266,7 @@ MonoBehaviour:
   ProvinceBorderMaximumJitter: 0.16
   ProvinceSizeX: 2.56
   ProvinceSizeY: 1.6
+  ProvinceBorderWidth: 0.12
   Plains:
     CullChance: 0.95
     ProvinceEdgeThreshold: 0.15
