@@ -119,8 +119,8 @@ public class ConnectionWrapMarker : MonoBehaviour
             if (ct < 10)
             {
                 floats.Add(rand);
-
-                jitter.AddKey(rand, UnityEngine.Random.Range(0.32f, 0.52f));
+                jitter.AddKey(rand, UnityEngine.Random.Range(ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRoadWidth,
+                    ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRoadWidth));
             }
         }
 
@@ -144,6 +144,11 @@ public class ConnectionWrapMarker : MonoBehaviour
         m_stroke = g.GetComponent<InnerStroke>();
         m_stroke.UpdateArtStyle();
         m_stroke.DrawStroke(m_poly, offset + new Vector3(0f, 0f, -0.9f), false, 0.03f, 0.06f);
+        m_stroke.DrawStroke(m_poly,
+            new Vector3(0, 0, -0.9f),
+            false,
+            ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverShoreWidth,
+            ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverShoreWidth);
     }
 
     private void draw_shore(Vector3 offset)
@@ -159,7 +164,11 @@ public class ConnectionWrapMarker : MonoBehaviour
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
             m_stroke.UpdateArtStyle();
-            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), offset);
+            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(),
+                offset,
+                true,
+                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumSeaShoreWidth,
+                ArtManager.s_art_manager.CurrentArtConfiguration.MaximumSeaShoreWidth);
         }
     }
 
