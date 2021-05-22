@@ -9,7 +9,7 @@
  
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue" = "Geometry"}
 
         Stencil
         {

@@ -19,9 +19,9 @@ public class ArtConfiguration : MonoBehaviour
     public float MinimumRiverShoreWidth = 0.03f;
     [Range(0.01f, 0.16f)]
     public float MaximumRiverShoreWidth = 0.06f;
-    [Range(0.01f, 0.5f)]
+    [Range(0.01f, 2.0f)]
     public float MinimumSeaShoreWidth = 0.1f;
-    [Range(0.01f, 0.5f)]
+    [Range(0.01f, 2.0f)]
     public float MaximumSeaShoreWidth = 0.2f;
     [Range(0.01f, 0.8f)]
     public float MinimumRoadWidth = 0.30f;

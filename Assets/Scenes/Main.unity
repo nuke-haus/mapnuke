@@ -3645,7 +3645,7 @@ MonoBehaviour:
   MatPlains: {fileID: 2100000, guid: 9d39fde727720b4438060b538a185d0b, type: 2}
   MatSea: {fileID: 2100000, guid: aae80c880ed034b4da8a5721672e96e9, type: 2}
   MatDeepSea: {fileID: 2100000, guid: 92bcb5ccb12646e499b48ac900c6722b, type: 2}
-  MatShore: {fileID: 2100000, guid: 7055416788e90d94d9f1f7e67d45f26e, type: 2}
+  MatShore: {fileID: 0}
   MatWinterSwamp: {fileID: 2100000, guid: dd995c4deb1f61641b2fb9063b8c39e0, type: 2}
   MatWinterForest: {fileID: 2100000, guid: 6ea4fc393bef6d249b0070c70ebe4ce8, type: 2}
   MatWinterWaste: {fileID: 2100000, guid: 1434722f8de4f814b8037cabc85f135a, type: 2}
@@ -42252,20 +42252,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArtConfigurationName: Parchment
-  MinimumMountainPassGapSize: 0
-  MinimumRiverWidth: 0.02
-  MaximumRiverWidth: 0.08
+  MinimumMountainPassGapSize: 0.2
+  MinimumRiverWidth: 0.03
+  MaximumRiverWidth: 0.05
   MinimumRiverShoreWidth: 0.03
   MaximumRiverShoreWidth: 0.06
-  MinimumSeaShoreWidth: 0.1
-  MaximumSeaShoreWidth: 0.2
+  MinimumSeaShoreWidth: 1
+  MaximumSeaShoreWidth: 1
   MinimumRoadWidth: 0.3
   MaximumRoadWidth: 0.5
-  RoadShortening: 0.2
+  RoadShortening: 0
   RoadMaximumJitter: 0.09
   ProvinceBorderMaximumJitter: 0.16
-  ProvinceSizeX: 2.56
-  ProvinceSizeY: 1.6
+  ProvinceSizeX: 4
+  ProvinceSizeY: 2
   ProvinceBorderWidth: 0.12
   Plains:
     CullChance: 0.95
@@ -42574,7 +42574,7 @@ MonoBehaviour:
       ValidTerrain: 128
     - Sprite: {fileID: 21300000, guid: 6d34d9400e55aec4abba4ef4aad7b416, type: 3}
       WinterSprite: {fileID: 21300000, guid: 6d34d9400e55aec4abba4ef4aad7b416, type: 3}
-      SpawnChance: 100
+      SpawnChance: 1
       Size: 0.2
       CanFlip: 1
       CanFlipWinter: 0
@@ -42585,7 +42585,7 @@ MonoBehaviour:
       ValidTerrain: 4
     - Sprite: {fileID: 21300000, guid: c63e43fc7bfc73649b7097cd27e5a98b, type: 3}
       WinterSprite: {fileID: 21300000, guid: c63e43fc7bfc73649b7097cd27e5a98b, type: 3}
-      SpawnChance: 100
+      SpawnChance: 1
       Size: 0.18
       CanFlip: 1
       CanFlipWinter: 0
@@ -42596,7 +42596,7 @@ MonoBehaviour:
       ValidTerrain: 4
     - Sprite: {fileID: 21300000, guid: c77f82345ef6e33438b66f7f174f43aa, type: 3}
       WinterSprite: {fileID: 21300000, guid: c77f82345ef6e33438b66f7f174f43aa, type: 3}
-      SpawnChance: 100
+      SpawnChance: 1
       Size: 0.16
       CanFlip: 1
       CanFlipWinter: 0
@@ -42607,7 +42607,7 @@ MonoBehaviour:
       ValidTerrain: 4
     - Sprite: {fileID: 21300000, guid: 70ffc164e9d6b5e4e94132305d6f636f, type: 3}
       WinterSprite: {fileID: 21300000, guid: 70ffc164e9d6b5e4e94132305d6f636f, type: 3}
-      SpawnChance: 100
+      SpawnChance: 1
       Size: 0.15
       CanFlip: 1
       CanFlipWinter: 0
@@ -42618,7 +42618,7 @@ MonoBehaviour:
       ValidTerrain: 4
     - Sprite: {fileID: 21300000, guid: a1d1f85d35249d6428a4fdc039f501ff, type: 3}
       WinterSprite: {fileID: 21300000, guid: a1d1f85d35249d6428a4fdc039f501ff, type: 3}
-      SpawnChance: 100
+      SpawnChance: 1
       Size: 0.15
       CanFlip: 1
       CanFlipWinter: 0
@@ -43050,8 +43050,8 @@ MonoBehaviour:
     CullChance: 0
     ProvinceEdgeThreshold: 0.14
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: a852710a1426d594083f738e59e77c22, type: 3}
-      WinterSprite: {fileID: 21300000, guid: a852710a1426d594083f738e59e77c22, type: 3}
+    - Sprite: {fileID: 21300000, guid: d31801c088789d543b60c78e00a71115, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d31801c088789d543b60c78e00a71115, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43061,8 +43061,8 @@ MonoBehaviour:
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 2985159085c77a440b05b4106d38c6e2, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 2985159085c77a440b05b4106d38c6e2, type: 3}
+    - Sprite: {fileID: 21300000, guid: 3ed2ffbd2fee0034ea47daa05d3cb33a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3ed2ffbd2fee0034ea47daa05d3cb33a, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43072,8 +43072,8 @@ MonoBehaviour:
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 218b3f8cb43002242a8868d275fb171a, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 218b3f8cb43002242a8868d275fb171a, type: 3}
+    - Sprite: {fileID: 21300000, guid: 6fecc5ed6f985f44c949953fb585e76c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6fecc5ed6f985f44c949953fb585e76c, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43083,8 +43083,8 @@ MonoBehaviour:
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 903e378194f5cce49bc106615a5c6f1e, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 903e378194f5cce49bc106615a5c6f1e, type: 3}
+    - Sprite: {fileID: 21300000, guid: 3945118bdaa80144ebc2c45c980af437, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3945118bdaa80144ebc2c45c980af437, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43094,8 +43094,8 @@ MonoBehaviour:
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: a7b3de68ebe77984183e53055db46191, type: 3}
-      WinterSprite: {fileID: 21300000, guid: a7b3de68ebe77984183e53055db46191, type: 3}
+    - Sprite: {fileID: 21300000, guid: dd45e9add48840447b0e8f982b8ca993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: dd45e9add48840447b0e8f982b8ca993, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43105,8 +43105,8 @@ MonoBehaviour:
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
-    - Sprite: {fileID: 21300000, guid: 787b8517521646144a7e5238e49c6d75, type: 3}
-      WinterSprite: {fileID: 21300000, guid: 787b8517521646144a7e5238e49c6d75, type: 3}
+    - Sprite: {fileID: 21300000, guid: 3f888bda281fd2d4598b844aecfd1c3d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3f888bda281fd2d4598b844aecfd1c3d, type: 3}
       SpawnChance: 1
       Size: 0.05
       CanFlip: 0
@@ -43549,8 +43549,8 @@ MonoBehaviour:
   MatFarm: {fileID: 2100000, guid: 0d4214f93d8cb2b409710730f9b23c5a, type: 2}
   MatPlains: {fileID: 2100000, guid: d3ca08d6890111143a6b1012b4faae5b, type: 2}
   MatSea: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
-  MatDeepSea: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
-  MatShore: {fileID: 2100000, guid: 2937fb368deebfe43aae9298a57e4d39, type: 2}
+  MatDeepSea: {fileID: 2100000, guid: 0903afa5a8264344e9a99720b0dbd0f0, type: 2}
+  MatShore: {fileID: 2100000, guid: 4c0011bcc0016544b93e95d3975d0dd9, type: 2}
   MatWinterSwamp: {fileID: 2100000, guid: 0cd478492abb89c46a5aff33c67c4f72, type: 2}
   MatWinterForest: {fileID: 2100000, guid: 4edf8bdacae26434baec767e78c12b7d, type: 2}
   MatWinterWaste: {fileID: 2100000, guid: 4edf8bdacae26434baec767e78c12b7d, type: 2}
@@ -43561,7 +43561,7 @@ MonoBehaviour:
   MatWinterPlains: {fileID: 2100000, guid: 4edf8bdacae26434baec767e78c12b7d, type: 2}
   MatWinterSea: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
   MatWinterDeepSea: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
-  MatWinterShore: {fileID: 2100000, guid: c52ed36f971c07a438ce6de5060b9cc6, type: 2}
+  MatWinterShore: {fileID: 2100000, guid: a191d919560f19a4686218ebdd832af4, type: 2}
   MatRiver: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
   MatDeepRiver: {fileID: 2100000, guid: 2b1195d2fd06a5b4c99df0f47998a75c, type: 2}
   MatRiverShore: {fileID: 2100000, guid: 644b2c5eec879b64e86021eb9dbbd87d, type: 2}
