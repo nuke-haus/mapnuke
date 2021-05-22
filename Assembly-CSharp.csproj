@@ -129,7 +129,6 @@
     <None Include="Assets\Gfx\Shaders\Texture1024write.shader" />
     <None Include="Assets\Nations\DominionsEnhanced.xml" />
     <None Include="Assets\Gfx\Shaders\Texture4096write.shader" />
-    <None Include="Assets\Gfx\Shaders\Texture4096read.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend3.shader" />
     <None Include="Assets\Gfx\Shaders\Texture2048read.shader" />
     <None Include="Assets\NameData\GeneratedNameData.xml" />
