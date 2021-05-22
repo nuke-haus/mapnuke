@@ -1,4 +1,4 @@
-﻿Shader "Custom/AIMERIC_seashoreMask"
+﻿Shader "Custom/TextureSeaShoreWriteStencil"
 {
     Properties
     {
@@ -17,8 +17,6 @@
                     Ref 10
                     Comp NotEqual
                     Pass IncrSat
-                    //WriteMask 1
-                    //Pass Invert // 10 is 1010 in bit, writemask takes the last bit (0) and invert it: in short sets the stencil buffer to 1
                 }
 
                 CGPROGRAM
@@ -28,7 +26,7 @@
 
                 fixed4 frag(v2f_img i) : SV_Target
                 {
-                    return fixed4(0,1,0,1); //debug: (0,1,0,1) opaque green
+                    return fixed4(0,1,0,1); //debug: opaque green ; set Queue to Overlay if want to visualise
                 }
 
                 ENDCG
@@ -50,13 +48,13 @@
 
                 fixed4 frag(v2f_img i) : SV_Target
                 {
-                    return fixed4(1,0,0,1); //debug: (1,0,0,0) opaque red
+                    return fixed4(1,0,0,1); //debug: opaque red
                 }
 
                 ENDCG
             }
 
-            /*Pass //test
+            /*Pass //debug test
             {
                 Stencil
                 {
@@ -71,7 +69,7 @@
 
                 fixed4 frag(v2f_img i) : SV_Target
                 {
-                    return fixed4(0,0,1,1); //debug: (1,0,0,0) opaque blue
+                    return fixed4(0,0,1,1); //debug: (1,0,0,0) blue
                 }
 
                 ENDCG

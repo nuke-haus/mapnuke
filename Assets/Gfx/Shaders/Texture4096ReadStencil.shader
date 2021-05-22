@@ -1,20 +1,17 @@
-﻿Shader "Custom/AIMERIC_seashoreTextureDraw"
+﻿Shader "Custom/Texture4096ReadStencil"
 {
     Properties
     {
         _ScaleUV("Scale UV", float) = 0.0244140625
         _Tex_Sea("TextureSea", 2D) = "white" {}
         _Tex_Shore("TextureShore", 2D) = "white" {}
-        //_Tex_River("TextureRiver", 2D) = "white" {}
-
-        //[IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 1
     }
 
         SubShader
         {
          
-            Tags{ "RenderType" = "Opaque" "Queue" = "Overlay"}//Overlay""}
-            //Blend SrcAlpha OneMinusSrcAlpha
+            Tags{ "RenderType" = "Opaque" "Queue" = "Overlay"}
+
             Pass
             {
                 Stencil
