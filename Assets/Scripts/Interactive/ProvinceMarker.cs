@@ -851,7 +851,9 @@ public class ProvinceMarker : MonoBehaviour
                 if (ps.Size < m_center_size)
                 {
                     var pos = m_poly_center;
-                    m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f));
+                    // m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f)); 
+                    // this also removes horizontal sprites, not ideal so i'm removing this bit of logic
+                    m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f));
                     pos.z = -3;
                     SpriteGroup.PlaceSprite(ps, pos);
 
