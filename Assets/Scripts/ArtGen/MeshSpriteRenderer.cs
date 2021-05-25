@@ -88,30 +88,30 @@ public class MeshSpriteRenderer : MonoBehaviour
         var mf = GetComponent<MeshFilter>();
         mf.mesh = m;
         var mr = GetComponent<MeshRenderer>();
-        mr.material = mat;
+        mr.material = m_mat;
     }
 
-    private static bool init_atlas_material = false;
+    private static bool INIT_ATLAS_MATERIAL = false;
     public Material atlas_material;
-    private static Material mat;
-    private static Texture2D set_texture;
+    private static Material m_mat;
+    private static Texture2D m_set_texture;
 
     private void InitMaterial(Texture2D t)
     {
         // TODO(johan): This is a hack and only works when all sprites comes from the same atlas, make proper fix! 
-        if (init_atlas_material)
+        if (INIT_ATLAS_MATERIAL)
         {
-            if (t != set_texture)
+            /*if (t != set_texture)
             {
                 Debug.LogWarning("Trying to write wrong texture.");
-            }
+            }*/
             return;
         }
 
-        init_atlas_material = true;
-        set_texture = t;
-        mat = Instantiate(atlas_material);
-        mat.mainTexture = t;
+        INIT_ATLAS_MATERIAL = true;
+        m_set_texture = t;
+        m_mat = Instantiate(atlas_material);
+        m_mat.mainTexture = t;
     }
 
     public MeshRenderer Mesh => GetComponent<MeshRenderer>();
