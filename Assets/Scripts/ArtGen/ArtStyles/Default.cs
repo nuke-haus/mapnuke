@@ -58,10 +58,10 @@ public class DefaultArtStyle : ArtStyle
             m.ClearTriangles();
         }
 
-        foreach (var pm in provs)
+        /*foreach (var pm in provs)
         {
             pm.UpdateConnections();
-        }
+        }*/
 
         calc_triangles(m_all_conns);
 
