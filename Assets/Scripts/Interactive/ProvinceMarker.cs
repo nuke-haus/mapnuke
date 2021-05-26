@@ -332,7 +332,7 @@ public class ProvinceMarker : MonoBehaviour
         m_connections.Add(m);
     }
 
-    public void UpdateConnections()
+    /*public void UpdateConnections()
     {
         if (IsDummy)
         {
@@ -344,7 +344,7 @@ public class ProvinceMarker : MonoBehaviour
             var center = get_weighted_center(m.Endpoint1, m.Endpoint2, m.Prov1.Node, m.Prov2.Node);
             m.gameObject.transform.position = center;
         }
-    }
+    }*/
 
     public void UpdateLinked()
     {
@@ -867,7 +867,7 @@ public class ProvinceMarker : MonoBehaviour
 
         foreach (var ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
-            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece || !m_sprite_points.Any())
+            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece)
             {
                 continue;
             }
