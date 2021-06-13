@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: sea
-  m_Shader: {fileID: 4800000, guid: 4ef4bbc74aea0f549abdb261b56c1b00, type: 3}
+  m_Shader: {fileID: 4800000, guid: dcd6d230df4b38a42a240cde2791d741, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -60,6 +60,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
+        m_Texture: {fileID: 2800000, guid: 9ccf770c8cacfd746abc5ca908b8e4e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex_River:
+        m_Texture: {fileID: 2800000, guid: 9ccf770c8cacfd746abc5ca908b8e4e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex_Sea:
+        m_Texture: {fileID: 2800000, guid: 9ccf770c8cacfd746abc5ca908b8e4e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex_Shore:
         m_Texture: {fileID: 2800000, guid: 9ccf770c8cacfd746abc5ca908b8e4e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

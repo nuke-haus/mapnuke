@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\WorldGen\GeneratorSettings.cs" />
     <Compile Include="Assets\Scripts\WorldGen\Node.cs" />
     <Compile Include="Assets\Scripts\WorldGen\WorldGenerator.cs" />
+    <None Include="Assets\Gfx\Shaders\Texture4096ReadStencil.shader" />
     <None Include="Assets\Gfx\Shaders\Texture1024read.shader" />
     <None Include="Assets\Gfx\Shaders\Texture2048write.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
@@ -131,6 +132,7 @@
     <None Include="Assets\Gfx\Shaders\TexBlend3.shader" />
     <None Include="Assets\Gfx\Shaders\Texture2048read.shader" />
     <None Include="Assets\NameData\GeneratedNameData.xml" />
+    <None Include="Assets\Gfx\Shaders\TextureSeaShoreWriteStencil.shader" />
     <None Include="Assets\Gfx\Shaders\Texture4096.shader" />
     <None Include="Assets\Layouts\Hoard.xml" />
     <None Include="Assets\Gfx\Shaders\TexBlend4.shader" />
