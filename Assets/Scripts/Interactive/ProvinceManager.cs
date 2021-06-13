@@ -157,6 +157,21 @@ public class ProvinceManager : MonoBehaviour
                         dummies.Add(linked);
                     }
                 }
+
+                // very specific case where the province is indirectly connected to the 0,0 corner province
+                var corner_dummy = pm.ConnectedProvinces.Find(x => x.IsDummy && x.Node.X == 0 && x.Node.Y == 0);
+                if (corner_dummy != null && !provs.Contains(corner_dummy))
+                {
+                    dummies.Add(corner_dummy);
+
+                    if (corner_dummy.LinkedProvinces != null && corner_dummy.LinkedProvinces.Any())
+                    {
+                        foreach (var linked in corner_dummy.LinkedProvinces)
+                        {
+                            provs.Add(linked);
+                        }
+                    }
+                }
             }
         }
 
