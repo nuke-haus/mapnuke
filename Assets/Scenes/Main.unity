@@ -37392,7 +37392,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 3d3098b12a383194b9553d235409302f, type: 3}
       WinterSprite: {fileID: 21300000, guid: 3d3098b12a383194b9553d235409302f, type: 3}
       SpawnChance: 0.001
-      Size: 0.3
+      Size: 0.34
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -37404,7 +37404,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 698e839a1ed8da5479f7c34ab833257a, type: 3}
       WinterSprite: {fileID: 21300000, guid: 698e839a1ed8da5479f7c34ab833257a, type: 3}
       SpawnChance: 0.001
-      Size: 0.3
+      Size: 0.34
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
