@@ -40,6 +40,10 @@ public class ArtConfiguration : MonoBehaviour
     [Range(0.01f, 0.2f)]
     public float ProvinceBorderWidth = 0.14f;
 
+    public Color DominionOverlayColor = new Color(1f, 1f, 0.1176f, 0.1490f);
+    public Color LandBorderColor = new Color(0.3529f, 0.3333f, 0.3137f, 0.7843f);
+    public Color SeaBorderColor = new Color(0.2941f, 0.4509f, 0.5686f, 0.6078f);
+
     [Header("Province Sprite Sets")]
     public MapSpriteSet Plains;
     public MapSpriteSet Sea;

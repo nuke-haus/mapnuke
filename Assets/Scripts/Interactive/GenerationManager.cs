@@ -35,13 +35,16 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] HideableButtons;
     public InputField[] OverlayFields;
     public InputField[] BorderFields;
+    public InputField[] SeaBorderFields;
     public InputField LoggerText;
     public Image OverlayPreview;
     public Image BorderPreview;
+    public Image SeaBorderPreview;
     public MeshRenderer province_id_mesh_prefab;
 
     private GameObject province_id_map_container;
     private Color m_border_color = new Color();
+    private Color m_sea_border_color = new Color();
     private Color m_overlay_color = new Color();
     private bool m_generic_starts = false;
     private bool m_cluster_water = true;
@@ -57,6 +60,7 @@ public class GenerationManager : MonoBehaviour
     private CustomNameFormatCollection m_name_formats;
 
     public Color BorderColor => m_border_color;
+    public Color SeaBorderColor => m_sea_border_color;
     public Color OverlayColor => m_overlay_color;
 
     public Season Season
@@ -92,6 +96,7 @@ public class GenerationManager : MonoBehaviour
         update_nations();
         hide_controls();
         OnBorderColorUpdate();
+        OnSeaBorderColorUpdate();
         OnOverlayColorUpdate();
     }
 
@@ -522,6 +527,32 @@ public class GenerationManager : MonoBehaviour
         //LogScreen.SetActive(false);
     }
 
+    public void UpdateColors(Color overlay, Color land_border, Color sea_border)
+    {
+        m_overlay_color = overlay;
+        m_border_color = land_border;
+        m_sea_border_color = sea_border;
+
+        OverlayPreview.color = m_overlay_color;
+        BorderPreview.color = m_border_color;
+        SeaBorderPreview.color = m_sea_border_color;
+
+        OverlayFields[0].text = Mathf.RoundToInt(m_overlay_color.r * 255f).ToString();
+        OverlayFields[1].text = Mathf.RoundToInt(m_overlay_color.g * 255f).ToString();
+        OverlayFields[2].text = Mathf.RoundToInt(m_overlay_color.b * 255f).ToString();
+        OverlayFields[3].text = Mathf.RoundToInt(m_overlay_color.a * 255f).ToString();
+
+        BorderFields[0].text = Mathf.RoundToInt(m_border_color.r * 255f).ToString();
+        BorderFields[1].text = Mathf.RoundToInt(m_border_color.g * 255f).ToString();
+        BorderFields[2].text = Mathf.RoundToInt(m_border_color.b * 255f).ToString();
+        BorderFields[3].text = Mathf.RoundToInt(m_border_color.a * 255f).ToString();
+
+        SeaBorderFields[0].text = Mathf.RoundToInt(m_sea_border_color.r * 255f).ToString();
+        SeaBorderFields[1].text = Mathf.RoundToInt(m_sea_border_color.g * 255f).ToString();
+        SeaBorderFields[2].text = Mathf.RoundToInt(m_sea_border_color.b * 255f).ToString();
+        SeaBorderFields[3].text = Mathf.RoundToInt(m_sea_border_color.a * 255f).ToString();
+    }
+
     public void OnOverlayColorUpdate()
     {
         var red = 255f;
@@ -564,6 +595,28 @@ public class GenerationManager : MonoBehaviour
         m_border_color = new Color(red, green, blue, a);
 
         BorderPreview.color = m_border_color;
+    }
+
+    public void OnSeaBorderColorUpdate()
+    {
+        var red = 0f;
+        var green = 0f;
+        var blue = 0f;
+        var a = 55f;
+
+        float.TryParse(SeaBorderFields[0].text, out red);
+        float.TryParse(SeaBorderFields[1].text, out green);
+        float.TryParse(SeaBorderFields[2].text, out blue);
+        float.TryParse(SeaBorderFields[3].text, out a);
+
+        red = Mathf.Clamp(red, 0f, 255f) / 255f;
+        green = Mathf.Clamp(green, 0f, 255f) / 255f;
+        blue = Mathf.Clamp(blue, 0f, 255f) / 255f;
+        a = Mathf.Clamp(a, 0f, 255f) / 255f;
+
+        m_sea_border_color = new Color(red, green, blue, a);
+
+        SeaBorderPreview.color = m_sea_border_color;
     }
 
     public void OnCluster()

@@ -44,6 +44,9 @@ public class ArtManager : MonoBehaviour
         {
             CurrentArtConfiguration = art_config;
         }
+
+        // update the border colors based on the art style parameters
+        GenerationManager.s_generation_manager.UpdateColors(art_config.DominionOverlayColor, art_config.LandBorderColor, art_config.SeaBorderColor);
     }
 
     private void Awake()

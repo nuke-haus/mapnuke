@@ -14,6 +14,8 @@ public class ConnectionMarker : MonoBehaviour
     public Material MatWinterSea;
     public Material MatWinterDeepSea;
     public Material MatWinterRoad;
+    public Material MatLandBorder;
+    public Material MatSeaBorder;
 
     public MeshRenderer Mesh;
     public MeshFilter MeshFilter;
@@ -703,10 +705,21 @@ public class ConnectionMarker : MonoBehaviour
         var key1 = new Keyframe(0f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * border_scale);
         var key2 = new Keyframe(1f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * border_scale);
         BorderLine.widthCurve = new AnimationCurve(key1, key2);
-        BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
-        BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
+
+        if (m_connection.IsSeaConnection)
+        {
+            BorderLine.materials = new Material[] { MatSeaBorder };
+            BorderLine.startColor = GenerationManager.s_generation_manager.SeaBorderColor;
+            BorderLine.endColor = GenerationManager.s_generation_manager.SeaBorderColor;
+        }
+        else
+        {
+            BorderLine.materials = new Material[] { MatLandBorder };
+            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+        }
 
         SetSeason(GenerationManager.s_generation_manager.Season);
     }

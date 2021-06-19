@@ -151,6 +151,8 @@ MonoBehaviour:
   MatWinterSea: {fileID: 2100000, guid: ca6654f4a202f3b47ba570124715db84, type: 2}
   MatWinterDeepSea: {fileID: 2100000, guid: a5f47c0d597aaf244b6132d2b55a1ba0, type: 2}
   MatWinterRoad: {fileID: 2100000, guid: 2981e4e7fd39ee747961e5983e378d52, type: 2}
+  MatLandBorder: {fileID: 2100000, guid: 6b9aeb3f8a402d0458fc9535c551a9f8, type: 2}
+  MatSeaBorder: {fileID: 2100000, guid: 0567b7576e0bab64ab7548abc2287df9, type: 2}
   Mesh: {fileID: 23866332821471166}
   MeshFilter: {fileID: 33930507840506106}
   MeshObj: {fileID: 1413024173514438}
