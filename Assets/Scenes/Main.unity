@@ -38223,36 +38223,60 @@ MonoBehaviour:
       ValidTerrain: 2
     - Sprite: {fileID: 21300000, guid: d31801c088789d543b60c78e00a71115, type: 3}
       WinterSprite: {fileID: 21300000, guid: d31801c088789d543b60c78e00a71115, type: 3}
-      SpawnChance: 0.1
-      Size: 0.2
+      SpawnChance: 0.7
+      Size: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
-      PlaceAtLeastOne: 1
+      PlaceAtLeastOne: 0
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 3ed2ffbd2fee0034ea47daa05d3cb33a, type: 3}
       WinterSprite: {fileID: 21300000, guid: 3ed2ffbd2fee0034ea47daa05d3cb33a, type: 3}
-      SpawnChance: 0.1
-      Size: 0.2
+      SpawnChance: 0.7
+      Size: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
-      PlaceAtLeastOne: 1
+      PlaceAtLeastOne: 0
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
       ValidTerrain: 0
     - Sprite: {fileID: 21300000, guid: 6fecc5ed6f985f44c949953fb585e76c, type: 3}
       WinterSprite: {fileID: 21300000, guid: 6fecc5ed6f985f44c949953fb585e76c, type: 3}
-      SpawnChance: 0.1
-      Size: 0.2
+      SpawnChance: 0.7
+      Size: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
-      PlaceAtLeastOne: 1
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 3945118bdaa80144ebc2c45c980af437, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3945118bdaa80144ebc2c45c980af437, type: 3}
+      SpawnChance: 0.7
+      Size: 0.3
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: dd45e9add48840447b0e8f982b8ca993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: dd45e9add48840447b0e8f982b8ca993, type: 3}
+      SpawnChance: 0.7
+      Size: 0.3
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
