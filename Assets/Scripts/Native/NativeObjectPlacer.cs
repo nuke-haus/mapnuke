@@ -14,6 +14,7 @@ public struct NativeObjectPlacer : IJob
         public float spawn_chance;
         public int place_at_least_1;
         public int extra_border_dist;
+        public int cull_nearby_points;
     }
 
     public static List<int> Invoke(List<Item> item, List<Vector3> points, List<Vector3> border, List<Vector3> already_placed_items)
@@ -180,7 +181,10 @@ public struct NativeObjectPlacer : IJob
             }
         }
 
-        RemovePointsNear(pos, item[pick].size);
+        if (item[pick].cull_nearby_points == 1)
+        {
+            RemovePointsNear(pos, item[pick].size);
+        }
 
         pos.z = -3f;
         item_types[n_v] = pick;

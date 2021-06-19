@@ -851,10 +851,14 @@ public class ProvinceMarker : MonoBehaviour
                 if (ps.Size < m_center_size)
                 {
                     var pos = m_poly_center;
-                    // m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f || Mathf.Abs(pos.y - x.y) < 0.2f)); 
-                    // this also removes horizontal sprites, not ideal so i'm removing this bit of logic
-                    m_sprite_points = m_sprite_points.Where(x => !(Vector3.Distance(x, pos) < ps.Size * 0.5f));
-                    pos.z = -3;
+
+                    if (ps.CullSpritePositions)
+                    {
+                        pos.z = -10; // sprite points are at z = -10 so we need to match that
+                        m_sprite_points = m_sprite_points.Where(x => (Vector3.Distance(x, pos) > (ps.Size * 0.4f)));
+                    }
+                    
+                    pos.z = -3; // sprite placement is at z = -3
                     SpriteGroup.PlaceSprite(ps, pos);
 
                     break;
@@ -890,6 +894,7 @@ public class ProvinceMarker : MonoBehaviour
                 spawn_chance = s.SpawnChance,
                 place_at_least_1 = s.PlaceAtLeastOne == true ? 1 : 0,
                 extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
+                cull_nearby_points = s.CullSpritePositions == true ? 1 : 0
             });
         }
 
