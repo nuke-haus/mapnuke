@@ -119,6 +119,7 @@
     <None Include="Assets\Gfx\Shaders\Texture2048.shader" />
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
+    <None Include="Assets\Layouts\WildMagicExperiment.xml" />
     <None Include="Assets\Nations\Default.xml" />
     <None Include="Assets\Gfx\Shaders\ProvinceBorder.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend2.shader" />
