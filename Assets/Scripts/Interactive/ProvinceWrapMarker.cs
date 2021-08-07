@@ -389,13 +389,16 @@ public class ProvinceWrapMarker : MonoBehaviour
                 continue;
             }
 
-            var remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.Size).ToList();
-
-            foreach (var p in remove)
+            if (ps.CullSpritePositions)
             {
-                m_sprite_points.Remove(p);
-            }
+                var remove = m_sprite_points.Where(x => Vector3.Distance(x, pos) < ps.CullingRadius).ToList();
 
+                foreach (var p in remove)
+                {
+                    m_sprite_points.Remove(p);
+                }
+            }
+          
             pos.z = -3f;
 
             var g = GameObject.Instantiate(MapSpritePrefab);

@@ -48,6 +48,7 @@ public class MapSprite
 
     public float SpawnChance;
     public float Size;
+    public float CullingRadius;
     public bool CanFlip;
     public bool CanFlipWinter;
     public bool IsCenterpiece;
