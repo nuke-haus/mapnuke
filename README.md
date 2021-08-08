@@ -127,7 +127,7 @@ It's a bit complex so i'll try to describe what the values for each terrain type
 
 * __Cull Chance__ - A value between 0 and 1. Higher values will result in less sprite density on the province. Try generating a map using a value of 0 and then with a value of 0.99 if you want to see the difference it makes.
 
-* __Province Edge Threshold__ - How close to the edge of the province can sprites be? This helps stop sprites from overlapping. 
+* __Province Edge Threshold__ - How close to the edge of the province can sprites be? This helps stop sprites from overlapping over borders into other provinces. 
 
 Each sprite has several parameters:
 
