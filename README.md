@@ -111,13 +111,17 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
 
-8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the ArtManager in the scene browser. Duplicate the existing default art style and rename it to your art style's name.
+8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the Prefabs folder in the project browser. 
 
-![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/767117174317514803/d1.png)
+![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/873943812781793320/Untitled.png)
 
-9. Click on the newly made art style object and examine its properties. You'll see a collection of values you can modify.
+Duplicate the Default art style prefab and rename it (in this example, the newly created prefab is MyArtStyle). Click and drag your new prefab into the ArtStyles in the scene browser.
 
-![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/829712550139658290/Untitled.png)
+![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/873943811498332180/dsg.png)
+
+9. Click on the newly made art style prefab and examine its properties. You'll see a collection of values you can modify.
+
+![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/873954882351149136/dfffff.png)
 
 It's a bit complex so i'll try to describe what the values for each terrain type do:
 
@@ -130,6 +134,12 @@ Each sprite has several parameters:
 * __Sprite__ - The sprite to use in summer. Use transparent_pixel.png for your summer sprite if you don't want anything to render in summer.
 
 * __Winter Sprite__ - The sprite to use in winter. Use transparent_pixel.png for your winter sprite if you don't want anything to render in winter.
+
+* __Size__ - How large the sprite is. This value is used to determine if it's too close to the edge of the province or overlaps another sprite.
+
+* __Culling Radius__ - This value is used to remove potential sprite placement positions near the sprite. This helps with reducing overlap between sprites.
+
+* __Cull Sprite Positions__ - This boolean value determines whether a sprite should ever cull nearby sprite positions.
 
 * __Spawn Chance__ - Value between 0 and 1, 0 being nonexistent and 1 being very common.
 
