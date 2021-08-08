@@ -1,0 +1,2934 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6383681537977468293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6383681537977468294}
+  - component: {fileID: 6383681537977468295}
+  m_Layer: 0
+  m_Name: Pendleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6383681537977468294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383681537977468293}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6383681537977468295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383681537977468293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993218e11bfe4384db0a3a0e4b403d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArtConfigurationName: Pendleton
+  MinimumMountainPassGapSize: 0
+  MinimumRiverWidth: 0.02
+  MaximumRiverWidth: 0.08
+  MinimumRiverShoreWidth: 0.03
+  MaximumRiverShoreWidth: 0.06
+  MinimumSeaShoreWidth: 0.1
+  MaximumSeaShoreWidth: 0.2
+  MinimumRoadWidth: 0.3
+  MaximumRoadWidth: 0.5
+  RoadShortening: 0.2
+  RoadMaximumJitter: 0.09
+  ProvinceBorderMaximumJitter: 0.16
+  ProvinceSizeX: 2.56
+  ProvinceSizeY: 1.6
+  ProvinceBorderWidth: 0.12
+  DominionOverlayColor: {r: 1, g: 1, b: 0.1176, a: 0.149}
+  LandBorderColor: {r: 0.41509432, g: 0.33971164, b: 0.26432893, a: 0.7843}
+  SeaBorderColor: {r: 0.19953722, g: 0.49521935, b: 0.7169812, a: 0.6078}
+  Plains:
+    CullChance: 0.85
+    ProvinceEdgeThreshold: 0.14
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: efd0c1c031a454f418e401c970be6acc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 00aa3a6e01433184c873d8995ac5582e, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: ad093ad9774234247adc2227b15e877a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: edf58632ccd89624e8efa59528485eba, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 52de9b06331026b4ba93484dbde4c993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 69e41f99770240046916ac5d848c6869, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: b7f6fb123fcd53243b6b1be4f7f03565, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 509a76b1db8877942a8eb83f68e0a04f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 17a81591690c29a4e9a2b46fc0aa1e6f, type: 3}
+      SpawnChance: 1
+      Size: 0.04
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 9d5d693fedda9aa4db78102e96fc6945, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.654902, g: 0.9137255, b: 0.96862745, a: 1}
+      - {r: 0.38039216, g: 0.8156863, b: 0.93333334, a: 1}
+      - {r: 0.3372549, g: 0.6431373, b: 0.83137256, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: bb1e4ad89557881408ce1ac1a1ec2cdf, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 0.08
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 46d2e4052f3a1d8489a49a2381f3f441, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 0.08
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 35738a08af0a2734eb4b2d51db9105ce, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.08
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 620831ac193e3344c8af959c57ad9e45, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
+      SpawnChance: 0.08
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 7363825003d9f694a91534f6add2b32a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3678310dcad889d44872e2a4cf568d2a, type: 3}
+      SpawnChance: 0.02
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: efd0c1c031a454f418e401c970be6acc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 0.8
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.8, g: 0.9607843, b: 0.9843137, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: ad093ad9774234247adc2227b15e877a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 0.8
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.8, g: 0.9607843, b: 0.9843137, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 52de9b06331026b4ba93484dbde4c993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.8
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.7019608, g: 0.9725491, b: 0.2509804, a: 1}
+      - {r: 0.4901961, g: 0.74509805, b: 0.21568629, a: 1}
+      - {r: 0.40784317, g: 0.6627451, b: 0.19215688, a: 1}
+      ValidWinterColors:
+      - {r: 0.8, g: 0.9607843, b: 0.9843137, a: 1}
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: d21a7af76cd912e479bc06ccde64ea51, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 215551ca75644d041ba05fbbf3a50a64, type: 3}
+      SpawnChance: 0.02
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Sea:
+    CullChance: 0.85
+    ProvinceEdgeThreshold: 0.18
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 83549d05990c7304c8f04bb8646dce8d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 41415a621b7b8a44daa3738a265aa868, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 7bb447bb244345b44b7690e096726e20, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 0e9022f0f25a56b48bbb172d1639ac3f, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: d4a75e44be61f194e8a1f0025ed680d1, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 218afa2858415cb47923e5bb019f2c4b, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: f7b1b54638fe1c3408841a5450e9887f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 176e61e5303d71e4189a9a907a5d5069, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: b597af43dd4de06429a82f753a09613b, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: b597af43dd4de06429a82f753a09613b, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 480147cff98134d4e90e6367029bcf58, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: ccb5e8a183708034ca4a831681606475, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 3b577554eb709034ba689a098baf550f, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 0.05
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 5a11256cf0a5525469fa9711ed1e7925, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 0.05
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: af2707aa0c3b241409a9ad607222c9e3, type: 3}
+      SpawnChance: 0.05
+      Size: 0.4
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors: []
+      ValidTerrain: 4
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3d1dad47d7d2876459611760b0048459, type: 3}
+      SpawnChance: 0.1
+      Size: 0.3
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors: []
+      ValidTerrain: 4
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b4674b36ce61a584e8d68ddaf9ec6745, type: 3}
+      SpawnChance: 0.1
+      Size: 0.3
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors: []
+      ValidTerrain: 4
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a442baf393faabc4cb792e133f39bb09, type: 3}
+      SpawnChance: 0.1
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors: []
+      ValidTerrain: 4
+    - Sprite: {fileID: 21300000, guid: 42d5a4913b56fbe4b8883a60bc93500b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 44646bec044ed6b46b0610c0d2af8ad2, type: 3}
+      SpawnChance: 0.1
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0, g: 0, b: 0, a: 0}
+      ValidWinterColors: []
+      ValidTerrain: 4
+    - Sprite: {fileID: 21300000, guid: 1ec342ac35c3f44418fd33eeb02f2602, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1788d596f118dbf43b51ffead904fa97, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 0009d7eee503d3c468e59f2a5aa42647, type: 3}
+      WinterSprite: {fileID: 21300000, guid: bf09fedf2768d5946897c5f9582cf2f0, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: c182d536f6ec19a42854cf984981cf74, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 252f83bc553a0fc42a1a04b6adedc4a9, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: e673834a61f95444dbcbdd7caaaaf8c9, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c6002ccf096279d48be0073f6f4b6b36, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 5f004e2a9296bad4288ba8999821ad33, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 26a2b92cc20c1c848b9ba30e84c33487, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: ba8158ce65a9d754385b366a64f5aec3, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 244a534d19f31f94083d377586a80b27, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: bd969cee47b87094ca420df1e7bba80e, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+  Farm:
+    CullChance: 0.45
+    ProvinceEdgeThreshold: 0.17
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 261937c45392cb6489bc1fd4ac68d1e1, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c2f2ec001a4a3624c9e1863a23ec691b, type: 3}
+      SpawnChance: 0.5
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.74575156, g: 0.85882354, b: 0.18039213, a: 1}
+      - {r: 0.6516339, g: 0.75686276, b: 0.12549017, a: 1}
+      - {r: 0.27058825, g: 0.6509804, b: 0.050980393, a: 1}
+      ValidWinterColors:
+      - {r: 0.85882354, g: 0.73333335, b: 0.57254905, a: 1}
+      - {r: 0.75686276, g: 0.6666667, b: 0.5176471, a: 1}
+      - {r: 0.6509804, g: 0.57254905, b: 0.44313726, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: 49002a5f391e2fe4dafb049a522b7262, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8fab3ce7269aa034cba0cbabd3140663, type: 3}
+      SpawnChance: 0.2
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.6779085, g: 0.85882354, b: 0.18039213, a: 1}
+      - {r: 0.4622222, g: 0.75686276, b: 0.12549017, a: 1}
+      - {r: 0.2709804, g: 0.6509804, b: 0.050980378, a: 1}
+      ValidWinterColors:
+      - {r: 0.85882354, g: 0.73333335, b: 0.57254905, a: 1}
+      - {r: 0.75686276, g: 0.6666667, b: 0.5176471, a: 1}
+      - {r: 0.6509804, g: 0.57254905, b: 0.44313726, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: 6099afb90e9f0334db29501461126982, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 51095602447b07c49961a473ae89fc73, type: 3}
+      SpawnChance: 0.5
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.85882354, g: 0.73333335, b: 0.18039216, a: 1}
+      - {r: 0.75686276, g: 0.6666667, b: 0.1254902, a: 1}
+      - {r: 0.6509804, g: 0.57254905, b: 0.050980393, a: 1}
+      ValidWinterColors:
+      - {r: 0.85882354, g: 0.73333335, b: 0.57254905, a: 1}
+      - {r: 0.75686276, g: 0.6666667, b: 0.5176471, a: 1}
+      - {r: 0.6509804, g: 0.57254905, b: 0.44313726, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: d77ab7f52af677a47b14c643102b4ddd, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 12ffd6cce38a29a4488febb73e8d343c, type: 3}
+      SpawnChance: 0.02
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 261937c45392cb6489bc1fd4ac68d1e1, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 0.4
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.5017388, g: 0.671, b: 0.2236667, a: 1}
+      - {r: 0.38200003, g: 0.573, b: 0.21734485, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: 49002a5f391e2fe4dafb049a522b7262, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 0.3
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.958, g: 0.81801826, b: 0.20122372, a: 1}
+      - {r: 0.895, g: 0.788342, b: 0.14839375, a: 1}
+      - {r: 0.818, g: 0.7194458, b: 0.064060226, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: 6099afb90e9f0334db29501461126982, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.3
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.986, g: 0.84192693, b: 0.207105, a: 1}
+      - {r: 0.881, g: 0.7760104, b: 0.1460725, a: 1}
+      - {r: 0.804, g: 0.7071326, b: 0.06296384, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 256
+    - Sprite: {fileID: 21300000, guid: 58b024a3f7852874caebcbab2102f515, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 66a2b5029247d114196c7411c79bf97d, type: 3}
+      SpawnChance: 0.02
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Swamp:
+    CullChance: 0.5
+    ProvinceEdgeThreshold: 0.15
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 51c0f28f68378744ab94302417ee97c7, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 0.5
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 64a6e77552b73e7448653af55b4d106e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 0.5
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: ab17955473b451a4288771e9e01e64e3, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.5
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: cf8ab133914c8924c878e61742c623a2, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9a5461581a3ed4a4a927fd287a735212, type: 3}
+      SpawnChance: 0.1
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 11256042ff4906440a6bee48205a215f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a80f43628f7f7b244907b8c07731af7a, type: 3}
+      SpawnChance: 0.25
+      Size: 0.22
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: fd0b44eedd3d8c44989e9caeaa98142a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 4093b57503c6bda45a86c382e5d80432, type: 3}
+      SpawnChance: 0.25
+      Size: 0.22
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 67491144dee634e4e9d0df83da51e138, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1258f2084d08a424fad5ea94c41864e3, type: 3}
+      SpawnChance: 0.15
+      Size: 0.22
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 04ede74e13d5ae04eac1f27315f903f2, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d6c6d3982867444409be56bdb7be06fb, type: 3}
+      SpawnChance: 0.15
+      Size: 0.22
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: dfadb2e91acd3a046bf3905f6b99fc62, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 2749adadd3eca2643a8168022ccc2b6d, type: 3}
+      SpawnChance: 0.1
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: fb1a46b45459191449871dcc56551b86, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 0.5
+      Size: 0.3
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 5bbc632eb2666b344b01d9b5feb273cc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d563b48957002c74fa08a4eb9f05f014, type: 3}
+      SpawnChance: 0.25
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: fb1a46b45459191449871dcc56551b86, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 0.4
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 6e9c9cd001a4e39408ea02a88c4d64e9, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 0.4
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 52a020f251a4bcf4bb86f805afbf27fc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.4
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: df42fab236125b14d9f673e70a783085, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
+      SpawnChance: 0.3
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: efd0c1c031a454f418e401c970be6acc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 00aa3a6e01433184c873d8995ac5582e, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
+      - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
+      - {r: 0.101960786, g: 0.20784314, b: 0.18039216, a: 1}
+      ValidWinterColors:
+      - {r: 0.39607844, g: 0.4745098, b: 0.39607844, a: 1}
+      - {r: 0.39215687, g: 0.42745098, b: 0.43137255, a: 1}
+      - {r: 0.29411766, g: 0.38431373, b: 0.38431373, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: ad093ad9774234247adc2227b15e877a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: edf58632ccd89624e8efa59528485eba, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
+      - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
+      - {r: 0.101960786, g: 0.20784314, b: 0.18039216, a: 1}
+      ValidWinterColors:
+      - {r: 0.39607844, g: 0.4745098, b: 0.39607844, a: 1}
+      - {r: 0.39215687, g: 0.42745098, b: 0.43137255, a: 1}
+      - {r: 0.29411766, g: 0.38431373, b: 0.38431373, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 52de9b06331026b4ba93484dbde4c993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 69e41f99770240046916ac5d848c6869, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
+      - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
+      - {r: 0.101960786, g: 0.20784314, b: 0.18039216, a: 1}
+      ValidWinterColors:
+      - {r: 0.39607844, g: 0.4745098, b: 0.39607844, a: 1}
+      - {r: 0.39215687, g: 0.42745098, b: 0.43137255, a: 1}
+      - {r: 0.29411766, g: 0.38431373, b: 0.38431373, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: b7f6fb123fcd53243b6b1be4f7f03565, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.3137255, g: 0.5058824, b: 0.43137255, a: 1}
+      - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
+      - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
+      ValidWinterColors:
+      - {r: 0.39607844, g: 0.4745098, b: 0.39607844, a: 1}
+      - {r: 0.39215687, g: 0.42745098, b: 0.43137255, a: 1}
+      - {r: 0.29411766, g: 0.38431373, b: 0.38431373, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 509a76b1db8877942a8eb83f68e0a04f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 17a81591690c29a4e9a2b46fc0aa1e6f, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
+      - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
+      - {r: 0.47058824, g: 0.4627451, b: 0.11764706, a: 1}
+      ValidWinterColors:
+      - {r: 0.72156864, g: 0.7529412, b: 0.5529412, a: 1}
+      - {r: 0.8, g: 0.83137256, b: 0.7254902, a: 1}
+      - {r: 0.62352943, g: 0.61960787, b: 0.43137255, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 9d5d693fedda9aa4db78102e96fc6945, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b7f6fb123fcd53243b6b1be4f7f03565, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.24705882, g: 0.40784314, b: 0.38431373, a: 1}
+      - {r: 0.17254902, g: 0.32156864, b: 0.2627451, a: 1}
+      - {r: 0.101960786, g: 0.20784314, b: 0.18039216, a: 1}
+      ValidWinterColors:
+      - {r: 0.39607844, g: 0.4745098, b: 0.39607844, a: 1}
+      - {r: 0.39215687, g: 0.42745098, b: 0.43137255, a: 1}
+      - {r: 0.29411766, g: 0.38431373, b: 0.38431373, a: 1}
+      ValidTerrain: 32
+    - Sprite: {fileID: 21300000, guid: 9d5d693fedda9aa4db78102e96fc6945, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 509a76b1db8877942a8eb83f68e0a04f, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5019608, g: 0.5568628, b: 0.22352941, a: 1}
+      - {r: 0.5764706, g: 0.6509804, b: 0.3764706, a: 1}
+      - {r: 0.47058824, g: 0.4627451, b: 0.11764706, a: 1}
+      ValidWinterColors:
+      - {r: 0.72156864, g: 0.7529412, b: 0.5529412, a: 1}
+      - {r: 0.8, g: 0.83137256, b: 0.7254902, a: 1}
+      - {r: 0.62352943, g: 0.61960787, b: 0.43137255, a: 1}
+      ValidTerrain: 32
+  Cave:
+    CullChance: 0.7
+    ProvinceEdgeThreshold: 0.2
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 3e6bdf12dddd96041a2eb182b3d9f81d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 7f106b2940419e547bf8358020175043, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: c321de70efea8064dbd9460f769d0e03, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a8a88d86199c45c4990174e20e9d8faf, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 7f220391898289945893dc3d5968b1c6, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 43fbddca61ce53b46afad35947cd1573, type: 3}
+      SpawnChance: 0.6
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 802fa3f452cd2cf47b977333ed07eb88, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 859a98df91cef7c47a7221988ae717ca, type: 3}
+      SpawnChance: 0.6
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: e7c6b864c3fbc27488380f95a5c98d98, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 95d560c49583c1040aff8b0f2399c761, type: 3}
+      SpawnChance: 0.1
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 9969ab5959e25394781040a45d87851c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 36ec18673f6e5d24c81c378a3e9d204a, type: 3}
+      SpawnChance: 0.1
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 52bfd544d34171a4992f2d1fcb1e1e40, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1fb6bf350d5b2a240a7976cd9c632909, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 81e3291f9b2c325459cfba48ccc1f68c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3a88f18ff95ee1143b019bd9d4cb4c05, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: a25bfebb590133c4d9968ab7688f9e99, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ce501172c11afc34382e1d0447e02c74, type: 3}
+      SpawnChance: 1
+      Size: 1.6
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: a676e058c5353634c93be13657bde295, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b18e0c15fa30bde4989bd73730d05363, type: 3}
+      SpawnChance: 1
+      Size: 2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 0d3504780e50e924695dee64f0bb18d4, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 562ca8537a94d394793305fb97068f04, type: 3}
+      SpawnChance: 0.5
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: e1ff5f44aab204e429d19a83f30504ae, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1a1a163b6f7b3be47b2e87266e3b99dc, type: 3}
+      SpawnChance: 0.8
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: ca33795295a666b4b8c4fb774bc546d0, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 463c3cd6ed8906c419ba396293f8ed40, type: 3}
+      SpawnChance: 0.8
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 57ef2ef238648ac4db80168fdc124e83, type: 3}
+      WinterSprite: {fileID: 21300000, guid: bdf8e043314f0644189979954b54522b, type: 3}
+      SpawnChance: 0.8
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 2b487f955d4ac7d4387433b69f395ca2, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 09de6b33ff117ad4db6687ea6cc3e8f9, type: 3}
+      SpawnChance: 0.5
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 2c402b3302a5ba44da48b9abb7786dda, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3590fe6bb0811c547bfc41a6b9119213, type: 3}
+      SpawnChance: 0.5
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 2177d44e7a204f44ea6fdb40834971bc, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 0c9dd529a0b9c2749aa4dd0cd025f4ea, type: 3}
+      SpawnChance: 0.8
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: f6940ea1866034c4e8ca27b513c37b49, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 4b9f0e14c7e7dd044bfdc532cca19171, type: 3}
+      SpawnChance: 0.8
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: 54f96aa032a299d41b2bfad0cb28771d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3eea95a4a016a654ca38d08c7facb8a0, type: 3}
+      SpawnChance: 0.8
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4096
+    - Sprite: {fileID: 21300000, guid: dd173bc72e5acbe47ba26b9ae8011f24, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ad3bc77086710524987e9b43b96c6ee8, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: a0a0041eaf850e345bcb214ced1268d6, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 2f988aed884f3a34f901d41dba5e374a, type: 3}
+      SpawnChance: 1
+      Size: 1.6
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 486e819d98c4d8148913bda7bf67a15a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 0822b95fa179aae4c920922e637acaf3, type: 3}
+      SpawnChance: 1
+      Size: 2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Forest:
+    CullChance: 0.2
+    ProvinceEdgeThreshold: 0.12
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 9fba082d1f379bb499487320de292156, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 79068f2bda007c44d823eaef79dec64f, type: 3}
+      SpawnChance: 0.6
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 3b1c1bcbf0978e640beb22da2cfd72ff, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 44cb3bf09a4435241a4a97c571a953cb, type: 3}
+      SpawnChance: 0.8
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: ee9659a1c7e5ac54a850a15bd47a9dba, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6d42e514356b38d46a73e8c8af0caec2, type: 3}
+      SpawnChance: 0.6
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 0f7aea1f34e85814089f4cdabc28ffcf, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1bc1547c134a2a5438ca7824bfd1841c, type: 3}
+      SpawnChance: 0.4
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 75992f50b798a99498ace0d6ee346dd8, type: 3}
+      WinterSprite: {fileID: 21300000, guid: abae52a5147221f4a85f21b6bf7a4839, type: 3}
+      SpawnChance: 0.5
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 4088d41a82407534f9dca29c44bf71fa, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5d21fe15fb6381340813a3d12ff28bcf, type: 3}
+      SpawnChance: 0.6
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: c302044817f302b4da090105a9f983a3, type: 3}
+      WinterSprite: {fileID: 21300000, guid: dc6bfa4cae64c4b479982aee3dd38d0a, type: 3}
+      SpawnChance: 0.2
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: ab340cc78b3927f4fa77e40210bbfc61, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 2150ff3e1d2785a4cbd8f36fae6c5f06, type: 3}
+      SpawnChance: 0.1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 8d6611c7d32963746b18a26e0b60bac1, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 59cef95afc25c7743911cd89122d748b, type: 3}
+      SpawnChance: 0.03
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 9d5d693fedda9aa4db78102e96fc6945, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
+      - {r: 0.22745098, g: 0.34117648, b: 0.12941177, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 509a76b1db8877942a8eb83f68e0a04f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
+      - {r: 0.22745098, g: 0.34117648, b: 0.12941177, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: b7f6fb123fcd53243b6b1be4f7f03565, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 1
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
+      - {r: 0.22745098, g: 0.34117648, b: 0.12941177, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: 52de9b06331026b4ba93484dbde4c993, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
+      - {r: 0.22745098, g: 0.34117648, b: 0.12941177, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: ad093ad9774234247adc2227b15e877a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.02
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 0.5137255, g: 0.7411765, b: 0.3019608, a: 1}
+      - {r: 0.3254902, g: 0.43529412, b: 0.14509805, a: 1}
+      - {r: 0.22745098, g: 0.34117648, b: 0.12941177, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 128
+    - Sprite: {fileID: 21300000, guid: ab318c7293609a0478671cd3119786aa, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9487a3ffc5a846d49a5857a06e908e6a, type: 3}
+      SpawnChance: 0.03
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Highland:
+    CullChance: 0.7
+    ProvinceEdgeThreshold: 0.2
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 9568a6a5850d03b4e85eddf815956fb9, type: 3}
+      WinterSprite: {fileID: 21300000, guid: aab1dffbfc58ec64498716689ed9da7f, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 8d73e62605a7a7444aa46671325f62a8, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 46ec4c8e9d768bb47b74500f5c9f6614, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: f9a620127cc119649afb433393791a17, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3f39b8b629e75d04bab528233efe243e, type: 3}
+      SpawnChance: 0.2
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: dbec4575513cd5046b85b769efb1798e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 25e061a8cae96f64bb5165b90f071fdc, type: 3}
+      SpawnChance: 0.1
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 7054c736f10dd6740bed88b52c6ce86f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9be4d83f56423ed4cb8370afb0d4b012, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: c19ce0bf94a04964694f123e902c1109, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 1aa6b6fafd3d429408a3797833e22b58, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: f0214d874c3064944966ecbb7f3072c6, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 4310d0a1a4e0d874a9a5a602e3b6a812, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 1a0a6e5315c7e5e4d8b04f4449d111a5, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 11c393b20d6ad964b87108d276064b04, type: 3}
+      SpawnChance: 1
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: c171f6a8328c7e24284fe2782045af8d, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ac5bd798aebe8ec459c59fa89ac9707b, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 617f84c0e5204b64bad3239071a35812, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 175ed076649236a469e8bcf71fef4102, type: 3}
+      SpawnChance: 1
+      Size: 1.4
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 7c19ac3d60f65fe4782c45ddf2dbd2d3, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 484b367ea095b214aa35c425816cebcf, type: 3}
+      SpawnChance: 1
+      Size: 2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: f383649a6058c314c8e95afe551c7e4a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8093c1dce9e0a0244a3fbe6902d99f9b, type: 3}
+      SpawnChance: 0.1
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: ef21529e0df916c4db456b6e12b962d8, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5927b8d3558fb61488cdee9ca11bb931, type: 3}
+      SpawnChance: 1
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 3dd5722d9db44e042a9b56a440cd4ea0, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ac09d274d314da34f86f7f4984873bd5, type: 3}
+      SpawnChance: 1
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: c5eca4c6c7903434cab1d72c20e3fb4a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 516343cdd40f8e74bb3442b4f3ac11f9, type: 3}
+      SpawnChance: 0.5
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
+      SpawnChance: 0.6
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 16
+    - Sprite: {fileID: 21300000, guid: 0e998dddc0d1bba438ec738ada0dfe27, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 950558a871a76e749bf0dfa6eb2a51a2, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 03b508125fba93f45912ed7da78037bd, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e785a616baf14834ebd19e6109f960e8, type: 3}
+      SpawnChance: 1
+      Size: 1.4
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 622f384fe0e7ca84db22ff4c3550207a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a525ab01a7482ce44b333a2217db2223, type: 3}
+      SpawnChance: 1
+      Size: 2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 0
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Mountains:
+    CullChance: 0.2
+    ProvinceEdgeThreshold: 0.2
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 7511f6b38db608d4e8ead1ca11e2d3f9, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 20eeb5fdc19213442b098a6e8f996900, type: 3}
+      SpawnChance: 0.5
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 326ebe4b70a543843a63b0aa82e78a28, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d18545abf8bb3ae4ebda54c69bc57f31, type: 3}
+      SpawnChance: 0.5
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 0949ed141bde68b4fb009666f156abb0, type: 3}
+      WinterSprite: {fileID: 21300000, guid: eb120d5081b46814d94ebd7df8560a37, type: 3}
+      SpawnChance: 0.5
+      Size: 0.25
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: b490865cf5091344d8485e8f3eb96a60, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d0fb48a9413958d4384667e5a3ce7539, type: 3}
+      SpawnChance: 0.1
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: c439dedb645f7de42867b96d96df1d3f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 40d30401106b71e48966f50494764cb0, type: 3}
+      SpawnChance: 0.7
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 849381d1d0d8a784797f1ce78aa70536, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e90adc8b5dcb1a74fb38670e45daa901, type: 3}
+      SpawnChance: 0.9
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 16e58fbd9ab4a9246bd52b0e8320b440, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 30d5019cbe814c740a4f62246e8c4838, type: 3}
+      SpawnChance: 0.7
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: db2160566b4b0d946b006aa3c5b4bfcf, type: 3}
+      WinterSprite: {fileID: 21300000, guid: eca312aac56422a40a9ef3a103ff5772, type: 3}
+      SpawnChance: 0.7
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 9d347da6d042f204b8b29cc915da5d4c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 376842e6ba5f45c4994eb665675e77b9, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 5be8f2fa6f065ae43912c97147cdfba2, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a0d388e5923a1ab429d8ccc83c2d4785, type: 3}
+      SpawnChance: 1
+      Size: 1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: eed26401fe26c4b4783bb225b73a0b8f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ebfdd65791759d04c81085be07577235, type: 3}
+      SpawnChance: 1
+      Size: 1.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: e06d43545c047744f91ecc67d44c7305, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5ad34b8665d09a5488c055e10da6c485, type: 3}
+      SpawnChance: 1
+      Size: 1.4
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 12afc3b7d3e009042a4b3023e5fc4c26, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9aa76041c8a9ef3439a342e98ada40eb, type: 3}
+      SpawnChance: 1
+      Size: 1.6
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 441e762dab6e29c4792344fc7fca1c2f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: be3f396f49e8b7f4aaf34f1bab597de9, type: 3}
+      SpawnChance: 1
+      Size: 1.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 656d240d810c7c24a885dd5b42979d2c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c83578c95d83e90408c6ec3d4dcec456, type: 3}
+      SpawnChance: 1
+      Size: 2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: dab606b700dfda64e876f06ab6db6620, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 76c099f0b9c0f084e8be25c4fa0ae322, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: a2d35cc02a0bb884f885e51a70431bd7, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 26723707c0ab4114496efa6546da6b8d, type: 3}
+      SpawnChance: 0.15
+      Size: 0.18
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 71d5dcb2cfcc21f4ba875f7aeb42b6de, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6f7c09fc23448b34fb4f11db7e55f500, type: 3}
+      SpawnChance: 0.5
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: fb24c50f30e2ec6479965d21e54f0c44, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 864efe5ce45ad1e4790c09e61b449779, type: 3}
+      SpawnChance: 0.5
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 05438458412d227429d426d0d837a8ba, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 41e7212cfc9b68b41ac902637b212f1b, type: 3}
+      SpawnChance: 0.5
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 1
+      Size: 0.06
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: 265d08e2122760c4a8ef6f45bdfa81b3, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 5a61b381a51114a41b902f0fb367f486, type: 3}
+      SpawnChance: 0.5
+      Size: 0.22
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 4194304
+    - Sprite: {fileID: 21300000, guid: cf43a204b56eb5949b4d9c412495d75c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 19328e479677f40498f1d88574a6e86b, type: 3}
+      SpawnChance: 1
+      Size: 0.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: ff8b761c28f66224e8ca3404e415f9dd, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 122dae11407b4ed4ba84a4c6c9336e2b, type: 3}
+      SpawnChance: 1
+      Size: 1.4
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 14137cbae63cbe147b3c102779d82cea, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b68f5772fb98afd438e281b7056b6041, type: 3}
+      SpawnChance: 1
+      Size: 1.8
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 1
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 2
+  Waste:
+    CullChance: 0.98
+    ProvinceEdgeThreshold: 0.15
+    MapSprites:
+    - Sprite: {fileID: 21300000, guid: 80ead2f41d2a0394b968ac7c840fbf19, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidWinterColors: []
+      ValidTerrain: 536870912
+    - Sprite: {fileID: 21300000, guid: 1be94333b0fba4540955009d194860ee, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidWinterColors: []
+      ValidTerrain: 536870912
+    - Sprite: {fileID: 21300000, guid: 6f250af8d337dda4e864cd3d63a273fb, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidWinterColors: []
+      ValidTerrain: 536870912
+    - Sprite: {fileID: 21300000, guid: 2749f34b3fb981145beba3c0365737d7, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 969bd3cb1c3034a409dfbc98bdbb3e37, type: 3}
+      SpawnChance: 0.3
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: eeeba57d19f54b4499a7e8905a85a79c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b5aa689feb4437049b359d32cf3bb2fe, type: 3}
+      SpawnChance: 0.3
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: d206e5ecc94962f42a54a7ac12571bb1, type: 3}
+      WinterSprite: {fileID: 21300000, guid: b301910e8eef62f4f90d9515ec65dcc2, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: fcdc58989c28b214d9c910bca7910fc8, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8436d8ca52f927d48b650147be82f2d8, type: 3}
+      SpawnChance: 0.8
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 78c93f5b407bf9e4db1e739af81b9979, type: 3}
+      WinterSprite: {fileID: 21300000, guid: fbf4a40b45c5e7c45a7749d7ea89a0b3, type: 3}
+      SpawnChance: 0.8
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 06b1289e0cafaed4e83861ab726753e2, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a913a35e5a0dfaa45981f988f381f484, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: bf71570e8259cb9489ac91c8966fa1ef, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 2eb99264dc55b1044bb0e8e7f6b8e591, type: 3}
+      SpawnChance: 0.12
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: ac98fa6c0994f2949ac2213432926332, type: 3}
+      WinterSprite: {fileID: 21300000, guid: bd9c188e2d819c649af84dd936505a7d, type: 3}
+      SpawnChance: 0.12
+      Size: 0.2
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidWinterColors:
+      - {r: 1, g: 1, b: 1, a: 1}
+      ValidTerrain: 2
+    - Sprite: {fileID: 21300000, guid: 7f00496e1554d6b46aaa4ce938a66bb0, type: 3}
+      WinterSprite: {fileID: 21300000, guid: fc57cf51c97ea4b4bb28fc441594371e, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 08d538d2315a1a842b61eb50ccb48f8a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e62913365e4fefd44a3efc54a18d1b0f, type: 3}
+      SpawnChance: 1
+      Size: 0.12
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 702781283a8e4304a9a63b20c494f208, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6c6205da9d0b9de47ab6bc9856f758ec, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 426c14dcd898a574391e49c4abb090cd, type: 3}
+      WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
+      SpawnChance: 1
+      Size: 0.14
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 6751b3ac28cdfd446b3ec39f02d6d320, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
+      SpawnChance: 1
+      Size: 0.14
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 1047c799b3b8ba74bac0be4c7e04ceea, type: 3}
+      WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
+      SpawnChance: 0.8
+      Size: 0.14
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+    - Sprite: {fileID: 21300000, guid: 729bad49a4f06994184d8114127eed65, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a86656f03b0769246b51e385b4fea06a, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 64
+  Road:
+    ConnectionSprites:
+    - Sprite: {fileID: 21300000, guid: 58a62974567c3b04c83703bdd772c9ca, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6cee3e8bee61a07419864172697cee08, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: f16ba6a07a71f244c9caf24225ba35f9, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 4b85545b397258249a2b1d3d8bb9acd8, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: f7ccc3859b45fe84c83f87dc8d3b0625, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 55b0190fea68d014a9cf0645aa595e2c, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 71e4c39d7b8664e41844b7b022ae376c, type: 3}
+      WinterSprite: {fileID: 21300000, guid: a1ca7f867335bab46bc719b51650a7df, type: 3}
+      SpawnChance: 1
+      Size: 0.03
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+  Mountain:
+    ConnectionSprites:
+    - Sprite: {fileID: 21300000, guid: 93a92fec4aebb2c46a5c7d27936c646b, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 034ffe93f87502243a8a4818cb0a4648, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 77dd03277fadb0e488abf71026695057, type: 3}
+      WinterSprite: {fileID: 21300000, guid: f1e31ea946b87754b803da97ae4734f2, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: b1f2ad6d9b17243469a2fcaa684db5f7, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 6c5899072aaaa044190ac8fe6553592f, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 9e25685a10cca21409c5056be69f4a32, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 9dab9b84d7c11d442a827767072b1ed4, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: cf40f7a6fd159ea4faa914e2443e85d5, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8f46f5d6269b2d741981bad9b4cc6ca7, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: c1d6da258e2b68a4ba4a319f1d93df92, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 63fc1f664217db240bb3db83002874ec, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 47d7354e6141de7489d3d3d88992c70a, type: 3}
+      WinterSprite: {fileID: 21300000, guid: d0c06d1081719e44796e52570941824c, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 9b6b70022516432499b77c4ff2a81f21, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 34f6544634588fd429e58288a6ba04d2, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: 7b88748750831514e9cdb8e5055ab7aa, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 3d1e84474f505bc478598bc6892dcdfc, type: 3}
+      SpawnChance: 1
+      Size: 0.1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+  MountainPass:
+    ConnectionSprites:
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 3e1433a0528363c4e9241bba62b865b1, type: 3}
+      SpawnChance: 1
+      Size: 0.05
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: b1b725b9d9ef0124eab8e2aec0a1e49a, type: 3}
+      SpawnChance: 1
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: ef02f7180365f9a429691ccfed48b2e1, type: 3}
+      SpawnChance: 0
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: 1b8781a722ceeb2489e2498db7342a89, type: 3}
+      SpawnChance: 0
+      Size: 0.08
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: abb9294d178f3dc4ca3ac3620c88d0c2, type: 3}
+      SpawnChance: 0
+      Size: 0.07
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 0}
+      WinterSprite: {fileID: 21300000, guid: f67638d2787c2224b87d97784f99f684, type: 3}
+      SpawnChance: 0
+      Size: 0.07
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+  RiverHorizontal:
+    ConnectionSprites:
+    - Sprite: {fileID: 21300000, guid: a3b61d4663688804f92fb3d11dc35f7e, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 42811b2c91d8c2f40b8783b0c43a02bf, type: 3}
+      SpawnChance: 1
+      Size: 1
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: a3cd2948a9a6eb649b01c8b0c2c2eb58, type: 3}
+      WinterSprite: {fileID: 21300000, guid: ef456302910c7c04aa6ce0b4e557ce42, type: 3}
+      SpawnChance: 1
+      Size: 1
+      CullingRadius: 0
+      CanFlip: 1
+      CanFlipWinter: 1
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+  RiverVertical:
+    ConnectionSprites:
+    - Sprite: {fileID: 21300000, guid: 92570faa77337b64c99cec08aafbda9f, type: 3}
+      WinterSprite: {fileID: 21300000, guid: 8e88c8187355854439743afa9a90d9ee, type: 3}
+      SpawnChance: 1
+      Size: 1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+    - Sprite: {fileID: 21300000, guid: cb9845732c80d3f4a82dd0ff00b647a1, type: 3}
+      WinterSprite: {fileID: 21300000, guid: df51b09c4a4e02a4db2ab83ca9e8f65e, type: 3}
+      SpawnChance: 1
+      Size: 1
+      CullingRadius: 0
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+  MatSwamp: {fileID: 2100000, guid: f0847052ad0f6ab41b6066d74bc4a46a, type: 2}
+  MatForest: {fileID: 2100000, guid: 564ca4701072211458b63a22710fa8b3, type: 2}
+  MatWaste: {fileID: 2100000, guid: d2a9e0c049ed8b941aa494c6600cc365, type: 2}
+  MatMountain: {fileID: 2100000, guid: 68d581070ecdfbe44904ce5cdb5a7355, type: 2}
+  MatHighland: {fileID: 2100000, guid: e6ec74fb3818aba408ac9c7ab75c02ab, type: 2}
+  MatCave: {fileID: 2100000, guid: c1ee0233f2dcb884f939eeb75b89579b, type: 2}
+  MatFarm: {fileID: 2100000, guid: c4e0598a7ef509f49b36dd6ed5d451a2, type: 2}
+  MatPlains: {fileID: 2100000, guid: 9d39fde727720b4438060b538a185d0b, type: 2}
+  MatSea: {fileID: 2100000, guid: aae80c880ed034b4da8a5721672e96e9, type: 2}
+  MatDeepSea: {fileID: 2100000, guid: 92bcb5ccb12646e499b48ac900c6722b, type: 2}
+  MatShore: {fileID: 2100000, guid: 7055416788e90d94d9f1f7e67d45f26e, type: 2}
+  MatWinterSwamp: {fileID: 2100000, guid: dd995c4deb1f61641b2fb9063b8c39e0, type: 2}
+  MatWinterForest: {fileID: 2100000, guid: 6ea4fc393bef6d249b0070c70ebe4ce8, type: 2}
+  MatWinterWaste: {fileID: 2100000, guid: 1434722f8de4f814b8037cabc85f135a, type: 2}
+  MatWinterMountain: {fileID: 2100000, guid: 4840d9c92a341e34095a71fe00384c7f, type: 2}
+  MatWinterHighland: {fileID: 2100000, guid: 64d886cd624b619468256dda2496043c, type: 2}
+  MatWinterCave: {fileID: 2100000, guid: 4163634561c3b144fb631a62e04ea596, type: 2}
+  MatWinterFarm: {fileID: 2100000, guid: fae47b1ee684b3e4090e3e8d5f54ad14, type: 2}
+  MatWinterPlains: {fileID: 2100000, guid: 4d616066dfb7dc24cbcf711370273fbd, type: 2}
+  MatWinterSea: {fileID: 2100000, guid: 0307ca55b8b8cf44185035840d9f3a2a, type: 2}
+  MatWinterDeepSea: {fileID: 2100000, guid: d81e2b5266e79ea44a3be24948f6769e, type: 2}
+  MatWinterShore: {fileID: 2100000, guid: b3f70025d4301ad4788d72983c5067d8, type: 2}
+  MatRiver: {fileID: 2100000, guid: 79272ef797b9a614ba1f58af687b8da0, type: 2}
+  MatDeepRiver: {fileID: 2100000, guid: 79272ef797b9a614ba1f58af687b8da0, type: 2}
+  MatRiverShore: {fileID: 2100000, guid: 7055416788e90d94d9f1f7e67d45f26e, type: 2}
+  MatRoad: {fileID: 2100000, guid: 63087e3f2a72ba0418d2bc21ffd46193, type: 2}
+  MatWinterRiver: {fileID: 2100000, guid: 1b9cacc1e8cb1e442a9c85adef0fc775, type: 2}
+  MatWinterDeepRiver: {fileID: 2100000, guid: 41c377b78b9123941bf833fa4efc1b03, type: 2}
+  MatWinterRiverShore: {fileID: 2100000, guid: 644b2c5eec879b64e86021eb9dbbd87d, type: 2}
+  MatWinterRoad: {fileID: 2100000, guid: 9f84789cfe1d15e46844b25161dd1372, type: 2}
