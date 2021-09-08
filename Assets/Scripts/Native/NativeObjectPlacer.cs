@@ -11,6 +11,7 @@ public struct NativeObjectPlacer : IJob
     public struct Item
     {
         public float size;
+        public float cull_radius;
         public float spawn_chance;
         public int place_at_least_1;
         public int extra_border_dist;
@@ -176,14 +177,14 @@ public struct NativeObjectPlacer : IJob
         {
             if (Vector3.Distance(points_res[i], pos) < item[pick].size)
             {
-                RemoveItem(pos);
+                RemoveItem(pos); // position is too close to an existing item, delete it
                 return;
             }
         }
 
         if (item[pick].cull_nearby_points == 1)
         {
-            RemovePointsNear(pos, item[pick].size);
+            RemovePointsNear(pos, item[pick].cull_radius);
         }
 
         pos.z = -3f;

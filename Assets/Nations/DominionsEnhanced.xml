@@ -145,7 +145,7 @@
     <Name>DE - (LA) Great Arrada</Name>
     <ID>135</ID>
     <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
+    <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>

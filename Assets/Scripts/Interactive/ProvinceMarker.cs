@@ -852,10 +852,10 @@ public class ProvinceMarker : MonoBehaviour
                 {
                     var pos = m_poly_center;
 
-                    if (ps.CullSpritePositions)
+                    if (ps.CullSpritePositions) // cull nearby sprite positions
                     {
                         pos.z = -10; // sprite points are at z = -10 so we need to match that
-                        m_sprite_points = m_sprite_points.Where(x => (Vector3.Distance(x, pos) > (ps.Size * 0.4f)));
+                        m_sprite_points = m_sprite_points.Where(x => Vector3.Distance(x, pos) > ps.CullingRadius);
                     }
                     
                     pos.z = -3; // sprite placement is at z = -3
@@ -891,6 +891,7 @@ public class ProvinceMarker : MonoBehaviour
             sprite_items.Add(new NativeObjectPlacer.Item
             {
                 size = s.Size,
+                cull_radius = s.CullingRadius,
                 spawn_chance = s.SpawnChance,
                 place_at_least_1 = s.PlaceAtLeastOne == true ? 1 : 0,
                 extra_border_dist = s.ValidTerrain == Terrain.LARGEPROV ? 1 : 0,
