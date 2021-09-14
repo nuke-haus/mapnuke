@@ -41114,6 +41114,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 7547828379577206902, guid: 81beba07d8156f4479b6476a7ddd5f63,
         type: 3}
       propertyPath: Plains.MapSprites.Array.data[0].CullingRadius
@@ -43444,11 +43445,8 @@ PrefabInstance:
       propertyPath: Sea.MapSprites.Array.data[5].CanFlip
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7547828379577206902, guid: 81beba07d8156f4479b6476a7ddd5f63,
-        type: 3}
-      propertyPath: ArtConfigurationName
-      value: Parchment
-      objectReference: {fileID: 0}
+=======
+>>>>>>> nuke/master
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81beba07d8156f4479b6476a7ddd5f63, type: 3}
 --- !u!1001 &8867287635913858900
