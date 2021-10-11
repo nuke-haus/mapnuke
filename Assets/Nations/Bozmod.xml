@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Nation>
+    <Name>BZ - (MA) Diamedulla</Name>
+    <ID>169</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FARM</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Cangobia</Name>
+    <ID>170</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Edranor</Name>
+    <ID>171</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Krieg</Name>
+    <ID>172</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>CAVE</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Tortuga (Land)</Name>
+    <ID>190</ID>
+    <WaterPercentage>0.3</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Tortuga (Island)</Name>
+    <ID>190</ID>
+    <WaterPercentage>0.2</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>SEA HIGHLAND</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>BZ - (MA) Phlegra 4A</Name>
+    <ID>232</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>MOUNTAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+</NationCollection>
