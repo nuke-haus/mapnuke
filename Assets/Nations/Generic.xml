@@ -80,7 +80,7 @@
   <Nation>
     <Name>Island Start</Name>
     <ID>-1</ID>
-    <WaterPercentage>0.6</WaterPercentage>
+    <WaterPercentage>0.4</WaterPercentage>
     <Age>ALL</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -93,7 +93,7 @@
   <Nation>
     <Name>Underwater Start</Name>
     <ID>-1</ID>
-    <WaterPercentage>0.6</WaterPercentage>
+    <WaterPercentage>0.4</WaterPercentage>
     <Age>ALL</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA</CapTerrain>
