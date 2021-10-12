@@ -152,7 +152,10 @@ public struct NativeObjectPlacer : IJob
     {
         for (var i = n_in - 1; i >= 0; --i)
         {
-            if (CheckBorder(points[i], 0.38f)) return points[i];
+            if (CheckBorder(points[i], 0.38f)) // DONT DO THIS
+            {
+                return points[i];
+            }
         }
 
         return new Vector3(-100000, 0, 0);

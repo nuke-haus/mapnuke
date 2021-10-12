@@ -117,6 +117,7 @@
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
     <None Include="Assets\NameData\StandardNounsAndAdjectives.xml" />
     <None Include="Assets\Gfx\Shaders\Texture2048.shader" />
+    <None Include="Assets\Nations\Bozmod.xml" />
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
     <None Include="Assets\Nations\Default.xml" />
