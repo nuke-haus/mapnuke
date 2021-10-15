@@ -146,6 +146,7 @@
     <None Include="Assets\Gfx\Shaders\Sprites-DepthTest.shader" />
     <None Include="Assets\Nations\Generic.xml" />
     <None Include="Assets\Layouts\Example.xml" />
+    <None Include="Assets\Layouts\Hexagonal.xml" />
     <None Include="Assets\Gfx\Shaders\Texture1024.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Repo/Public/MapNuke/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
