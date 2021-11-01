@@ -97,7 +97,6 @@
     <Compile Include="Assets\Scripts\Interactive\ProvinceWidget.cs" />
     <Compile Include="Assets\Scripts\Interactive\ProvinceWrapMarker.cs" />
     <Compile Include="Assets\Scripts\Interactive\SettingsManager.cs" />
-    <Compile Include="Assets\Scripts\LargeAtlasPolicy.cs" />
     <Compile Include="Assets\Scripts\List.cs" />
     <Compile Include="Assets\Scripts\MeshRendererSortingLayersEditor.cs" />
     <Compile Include="Assets\Scripts\Native\NativeCullNearby.cs" />
