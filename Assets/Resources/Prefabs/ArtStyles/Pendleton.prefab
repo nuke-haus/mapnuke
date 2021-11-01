@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArtConfigurationName: Pendleton
+  IsDefault: 0
+  IsHiddenFromUser: 0
   MinimumMountainPassGapSize: 0
   MinimumRiverWidth: 0.02
   MaximumRiverWidth: 0.08
@@ -70,7 +72,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 00aa3a6e01433184c873d8995ac5582e, type: 3}
       SpawnChance: 1
       Size: 0.04
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -89,7 +91,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: edf58632ccd89624e8efa59528485eba, type: 3}
       SpawnChance: 1
       Size: 0.04
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -108,7 +110,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 69e41f99770240046916ac5d848c6869, type: 3}
       SpawnChance: 1
       Size: 0.04
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -127,7 +129,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -146,7 +148,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 17a81591690c29a4e9a2b46fc0aa1e6f, type: 3}
       SpawnChance: 1
       Size: 0.04
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -165,7 +167,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -184,7 +186,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 0.08
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -197,7 +199,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 0.08
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -210,7 +212,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.08
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -223,7 +225,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
       SpawnChance: 0.08
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -236,7 +238,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3678310dcad889d44872e2a4cf568d2a, type: 3}
       SpawnChance: 0.02
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -249,7 +251,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 0.8
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -266,7 +268,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 0.8
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -283,7 +285,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.8
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -300,7 +302,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 215551ca75644d041ba05fbbf3a50a64, type: 3}
       SpawnChance: 0.02
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -317,7 +319,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 41415a621b7b8a44daa3738a265aa868, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.6
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -330,7 +332,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 0e9022f0f25a56b48bbb172d1639ac3f, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.6
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -343,7 +345,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 218afa2858415cb47923e5bb019f2c4b, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.6
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -356,7 +358,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 176e61e5303d71e4189a9a907a5d5069, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.6
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -369,7 +371,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -382,7 +384,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -395,7 +397,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -408,7 +410,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -421,7 +423,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 0.05
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -434,7 +436,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 0.05
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -447,7 +449,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: af2707aa0c3b241409a9ad607222c9e3, type: 3}
       SpawnChance: 0.05
       Size: 0.4
-      CullingRadius: 0
+      CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -461,7 +463,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3d1dad47d7d2876459611760b0048459, type: 3}
       SpawnChance: 0.1
       Size: 0.3
-      CullingRadius: 0
+      CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -475,7 +477,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b4674b36ce61a584e8d68ddaf9ec6745, type: 3}
       SpawnChance: 0.1
       Size: 0.3
-      CullingRadius: 0
+      CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -489,7 +491,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a442baf393faabc4cb792e133f39bb09, type: 3}
       SpawnChance: 0.1
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -503,7 +505,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 44646bec044ed6b46b0610c0d2af8ad2, type: 3}
       SpawnChance: 0.1
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -517,7 +519,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1788d596f118dbf43b51ffead904fa97, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -530,7 +532,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: bf09fedf2768d5946897c5f9582cf2f0, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -543,7 +545,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 252f83bc553a0fc42a1a04b6adedc4a9, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -556,7 +558,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c6002ccf096279d48be0073f6f4b6b36, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -569,7 +571,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 26a2b92cc20c1c848b9ba30e84c33487, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -582,7 +584,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 244a534d19f31f94083d377586a80b27, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -595,7 +597,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -612,7 +614,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c2f2ec001a4a3624c9e1863a23ec691b, type: 3}
       SpawnChance: 0.5
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -631,7 +633,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 8fab3ce7269aa034cba0cbabd3140663, type: 3}
       SpawnChance: 0.2
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -650,7 +652,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 51095602447b07c49961a473ae89fc73, type: 3}
       SpawnChance: 0.5
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -669,7 +671,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 12ffd6cce38a29a4488febb73e8d343c, type: 3}
       SpawnChance: 0.02
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -682,7 +684,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 0.4
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.01
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -699,7 +701,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 0.3
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -716,7 +718,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.3
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -733,7 +735,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 66a2b5029247d114196c7411c79bf97d, type: 3}
       SpawnChance: 0.02
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -750,7 +752,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 0.5
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -763,7 +765,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 0.5
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -776,7 +778,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.5
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -789,7 +791,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9a5461581a3ed4a4a927fd287a735212, type: 3}
       SpawnChance: 0.1
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -802,7 +804,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a80f43628f7f7b244907b8c07731af7a, type: 3}
       SpawnChance: 0.25
       Size: 0.22
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -815,7 +817,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 4093b57503c6bda45a86c382e5d80432, type: 3}
       SpawnChance: 0.25
       Size: 0.22
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -828,7 +830,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1258f2084d08a424fad5ea94c41864e3, type: 3}
       SpawnChance: 0.15
       Size: 0.22
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -841,7 +843,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: d6c6d3982867444409be56bdb7be06fb, type: 3}
       SpawnChance: 0.15
       Size: 0.22
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -854,7 +856,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 2749adadd3eca2643a8168022ccc2b6d, type: 3}
       SpawnChance: 0.1
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -867,7 +869,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 0.5
       Size: 0.3
-      CullingRadius: 0
+      CullingRadius: 0.15
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -880,7 +882,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: d563b48957002c74fa08a4eb9f05f014, type: 3}
       SpawnChance: 0.25
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -893,7 +895,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 0.4
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -906,7 +908,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 0.4
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -919,7 +921,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.4
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -932,7 +934,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
       SpawnChance: 0.3
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -945,7 +947,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 00aa3a6e01433184c873d8995ac5582e, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -964,7 +966,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: edf58632ccd89624e8efa59528485eba, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -983,7 +985,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 69e41f99770240046916ac5d848c6869, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -1002,7 +1004,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 383826a8257065740a1ca864d9097f89, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -1021,7 +1023,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 17a81591690c29a4e9a2b46fc0aa1e6f, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -1040,7 +1042,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b7f6fb123fcd53243b6b1be4f7f03565, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -1059,7 +1061,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 509a76b1db8877942a8eb83f68e0a04f, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -1082,7 +1084,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 7f106b2940419e547bf8358020175043, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1095,7 +1097,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a8a88d86199c45c4990174e20e9d8faf, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1108,7 +1110,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 43fbddca61ce53b46afad35947cd1573, type: 3}
       SpawnChance: 0.6
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1121,7 +1123,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 859a98df91cef7c47a7221988ae717ca, type: 3}
       SpawnChance: 0.6
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1134,7 +1136,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 95d560c49583c1040aff8b0f2399c761, type: 3}
       SpawnChance: 0.1
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1147,7 +1149,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 36ec18673f6e5d24c81c378a3e9d204a, type: 3}
       SpawnChance: 0.1
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1160,7 +1162,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1fb6bf350d5b2a240a7976cd9c632909, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1173,7 +1175,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3a88f18ff95ee1143b019bd9d4cb4c05, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1186,7 +1188,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ce501172c11afc34382e1d0447e02c74, type: 3}
       SpawnChance: 1
       Size: 1.6
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1199,7 +1201,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b18e0c15fa30bde4989bd73730d05363, type: 3}
       SpawnChance: 1
       Size: 2
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1212,7 +1214,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 562ca8537a94d394793305fb97068f04, type: 3}
       SpawnChance: 0.5
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1225,7 +1227,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1a1a163b6f7b3be47b2e87266e3b99dc, type: 3}
       SpawnChance: 0.8
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1238,7 +1240,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 463c3cd6ed8906c419ba396293f8ed40, type: 3}
       SpawnChance: 0.8
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1251,7 +1253,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: bdf8e043314f0644189979954b54522b, type: 3}
       SpawnChance: 0.8
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1264,7 +1266,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 09de6b33ff117ad4db6687ea6cc3e8f9, type: 3}
       SpawnChance: 0.5
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1277,7 +1279,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3590fe6bb0811c547bfc41a6b9119213, type: 3}
       SpawnChance: 0.5
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1290,7 +1292,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 0c9dd529a0b9c2749aa4dd0cd025f4ea, type: 3}
       SpawnChance: 0.8
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1303,7 +1305,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 4b9f0e14c7e7dd044bfdc532cca19171, type: 3}
       SpawnChance: 0.8
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1316,7 +1318,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3eea95a4a016a654ca38d08c7facb8a0, type: 3}
       SpawnChance: 0.8
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1329,7 +1331,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1342,7 +1344,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1355,7 +1357,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1368,7 +1370,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1381,7 +1383,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1394,7 +1396,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ad3bc77086710524987e9b43b96c6ee8, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1407,7 +1409,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 2f988aed884f3a34f901d41dba5e374a, type: 3}
       SpawnChance: 1
       Size: 1.6
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1420,7 +1422,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 0822b95fa179aae4c920922e637acaf3, type: 3}
       SpawnChance: 1
       Size: 2
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1437,7 +1439,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 79068f2bda007c44d823eaef79dec64f, type: 3}
       SpawnChance: 0.6
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1450,7 +1452,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 44cb3bf09a4435241a4a97c571a953cb, type: 3}
       SpawnChance: 0.8
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1463,7 +1465,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 6d42e514356b38d46a73e8c8af0caec2, type: 3}
       SpawnChance: 0.6
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1476,7 +1478,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1bc1547c134a2a5438ca7824bfd1841c, type: 3}
       SpawnChance: 0.4
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1489,7 +1491,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: abae52a5147221f4a85f21b6bf7a4839, type: 3}
       SpawnChance: 0.5
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.01
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1502,7 +1504,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 5d21fe15fb6381340813a3d12ff28bcf, type: 3}
       SpawnChance: 0.6
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.015
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1515,7 +1517,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: dc6bfa4cae64c4b479982aee3dd38d0a, type: 3}
       SpawnChance: 0.2
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1528,7 +1530,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 2150ff3e1d2785a4cbd8f36fae6c5f06, type: 3}
       SpawnChance: 0.1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1541,7 +1543,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 59cef95afc25c7743911cd89122d748b, type: 3}
       SpawnChance: 0.03
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1554,7 +1556,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1571,7 +1573,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1588,7 +1590,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 1
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1605,7 +1607,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1622,7 +1624,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.02
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1639,7 +1641,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9487a3ffc5a846d49a5857a06e908e6a, type: 3}
       SpawnChance: 0.03
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1656,7 +1658,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: aab1dffbfc58ec64498716689ed9da7f, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1669,7 +1671,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 46ec4c8e9d768bb47b74500f5c9f6614, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1682,7 +1684,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3f39b8b629e75d04bab528233efe243e, type: 3}
       SpawnChance: 0.2
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1695,7 +1697,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 25e061a8cae96f64bb5165b90f071fdc, type: 3}
       SpawnChance: 0.1
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1708,7 +1710,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9be4d83f56423ed4cb8370afb0d4b012, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1721,7 +1723,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1aa6b6fafd3d429408a3797833e22b58, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1734,7 +1736,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 4310d0a1a4e0d874a9a5a602e3b6a812, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1747,7 +1749,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 11c393b20d6ad964b87108d276064b04, type: 3}
       SpawnChance: 1
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1760,7 +1762,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ac5bd798aebe8ec459c59fa89ac9707b, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1773,7 +1775,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 175ed076649236a469e8bcf71fef4102, type: 3}
       SpawnChance: 1
       Size: 1.4
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1786,7 +1788,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 484b367ea095b214aa35c425816cebcf, type: 3}
       SpawnChance: 1
       Size: 2
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1799,7 +1801,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 8093c1dce9e0a0244a3fbe6902d99f9b, type: 3}
       SpawnChance: 0.1
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1812,7 +1814,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 5927b8d3558fb61488cdee9ca11bb931, type: 3}
       SpawnChance: 1
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1825,7 +1827,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ac09d274d314da34f86f7f4984873bd5, type: 3}
       SpawnChance: 1
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1838,7 +1840,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 516343cdd40f8e74bb3442b4f3ac11f9, type: 3}
       SpawnChance: 0.5
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1851,7 +1853,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1864,7 +1866,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1877,7 +1879,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1890,7 +1892,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
       SpawnChance: 0.6
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1903,7 +1905,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1916,7 +1918,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1929,7 +1931,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1942,7 +1944,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -1955,7 +1957,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 950558a871a76e749bf0dfa6eb2a51a2, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1968,7 +1970,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e785a616baf14834ebd19e6109f960e8, type: 3}
       SpawnChance: 1
       Size: 1.4
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1981,7 +1983,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a525ab01a7482ce44b333a2217db2223, type: 3}
       SpawnChance: 1
       Size: 2
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -1998,7 +2000,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 20eeb5fdc19213442b098a6e8f996900, type: 3}
       SpawnChance: 0.5
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2011,7 +2013,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: d18545abf8bb3ae4ebda54c69bc57f31, type: 3}
       SpawnChance: 0.5
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2024,7 +2026,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: eb120d5081b46814d94ebd7df8560a37, type: 3}
       SpawnChance: 0.5
       Size: 0.25
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2037,7 +2039,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: d0fb48a9413958d4384667e5a3ce7539, type: 3}
       SpawnChance: 0.1
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2050,7 +2052,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 40d30401106b71e48966f50494764cb0, type: 3}
       SpawnChance: 0.7
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2063,7 +2065,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e90adc8b5dcb1a74fb38670e45daa901, type: 3}
       SpawnChance: 0.9
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2076,7 +2078,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 30d5019cbe814c740a4f62246e8c4838, type: 3}
       SpawnChance: 0.7
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2089,7 +2091,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: eca312aac56422a40a9ef3a103ff5772, type: 3}
       SpawnChance: 0.7
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2102,7 +2104,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 376842e6ba5f45c4994eb665675e77b9, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2115,7 +2117,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a0d388e5923a1ab429d8ccc83c2d4785, type: 3}
       SpawnChance: 1
       Size: 1
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2128,7 +2130,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ebfdd65791759d04c81085be07577235, type: 3}
       SpawnChance: 1
       Size: 1.2
-      CullingRadius: 0
+      CullingRadius: 0.6
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2141,7 +2143,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 5ad34b8665d09a5488c055e10da6c485, type: 3}
       SpawnChance: 1
       Size: 1.4
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2154,7 +2156,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9aa76041c8a9ef3439a342e98ada40eb, type: 3}
       SpawnChance: 1
       Size: 1.6
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2167,7 +2169,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: be3f396f49e8b7f4aaf34f1bab597de9, type: 3}
       SpawnChance: 1
       Size: 1.8
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2180,7 +2182,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c83578c95d83e90408c6ec3d4dcec456, type: 3}
       SpawnChance: 1
       Size: 2
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2193,7 +2195,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 76c099f0b9c0f084e8be25c4fa0ae322, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2206,7 +2208,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 26723707c0ab4114496efa6546da6b8d, type: 3}
       SpawnChance: 0.15
       Size: 0.18
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2219,7 +2221,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 6f7c09fc23448b34fb4f11db7e55f500, type: 3}
       SpawnChance: 0.5
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2232,7 +2234,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 864efe5ce45ad1e4790c09e61b449779, type: 3}
       SpawnChance: 0.5
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2245,7 +2247,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 41e7212cfc9b68b41ac902637b212f1b, type: 3}
       SpawnChance: 0.5
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2258,7 +2260,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2271,7 +2273,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2284,7 +2286,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 1
       Size: 0.06
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2297,7 +2299,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 5a61b381a51114a41b902f0fb367f486, type: 3}
       SpawnChance: 0.5
       Size: 0.22
-      CullingRadius: 0
+      CullingRadius: 0.12
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2310,7 +2312,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9758aba9ad5ec6042bd30bd2838b437c, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2323,7 +2325,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2336,7 +2338,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 19328e479677f40498f1d88574a6e86b, type: 3}
       SpawnChance: 1
       Size: 0.8
-      CullingRadius: 0
+      CullingRadius: 0.5
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2349,7 +2351,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 122dae11407b4ed4ba84a4c6c9336e2b, type: 3}
       SpawnChance: 1
       Size: 1.4
-      CullingRadius: 0
+      CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2362,7 +2364,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b68f5772fb98afd438e281b7056b6041, type: 3}
       SpawnChance: 1
       Size: 1.8
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 1
@@ -2379,7 +2381,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2393,7 +2395,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2407,7 +2409,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2421,7 +2423,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 969bd3cb1c3034a409dfbc98bdbb3e37, type: 3}
       SpawnChance: 0.3
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2434,7 +2436,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b5aa689feb4437049b359d32cf3bb2fe, type: 3}
       SpawnChance: 0.3
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2447,7 +2449,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b301910e8eef62f4f90d9515ec65dcc2, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2460,7 +2462,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 8436d8ca52f927d48b650147be82f2d8, type: 3}
       SpawnChance: 0.8
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2473,7 +2475,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: fbf4a40b45c5e7c45a7749d7ea89a0b3, type: 3}
       SpawnChance: 0.8
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2486,7 +2488,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a913a35e5a0dfaa45981f988f381f484, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2499,7 +2501,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 2eb99264dc55b1044bb0e8e7f6b8e591, type: 3}
       SpawnChance: 0.12
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2514,7 +2516,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: bd9c188e2d819c649af84dd936505a7d, type: 3}
       SpawnChance: 0.12
       Size: 0.2
-      CullingRadius: 0
+      CullingRadius: 0.1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2529,7 +2531,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: fc57cf51c97ea4b4bb28fc441594371e, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2542,7 +2544,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e62913365e4fefd44a3efc54a18d1b0f, type: 3}
       SpawnChance: 1
       Size: 0.12
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2555,7 +2557,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 6c6205da9d0b9de47ab6bc9856f758ec, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2568,7 +2570,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: c7c23922184fd8a4dad907692b118792, type: 3}
       SpawnChance: 1
       Size: 0.14
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2581,7 +2583,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3c0b1ec127869f44fbd522621d226de7, type: 3}
       SpawnChance: 1
       Size: 0.14
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2594,7 +2596,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: e6198c385827b544eaf9ac8ae44206fd, type: 3}
       SpawnChance: 0.8
       Size: 0.14
-      CullingRadius: 0
+      CullingRadius: 0.08
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2607,7 +2609,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a86656f03b0769246b51e385b4fea06a, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.06
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2622,7 +2624,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 6cee3e8bee61a07419864172697cee08, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2634,7 +2636,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 4b85545b397258249a2b1d3d8bb9acd8, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2646,7 +2648,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 55b0190fea68d014a9cf0645aa595e2c, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2658,7 +2660,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: a1ca7f867335bab46bc719b51650a7df, type: 3}
       SpawnChance: 1
       Size: 0.03
-      CullingRadius: 0
+      CullingRadius: 0.02
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2672,7 +2674,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 034ffe93f87502243a8a4818cb0a4648, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2684,7 +2686,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: f1e31ea946b87754b803da97ae4734f2, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.04
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2696,7 +2698,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 6c5899072aaaa044190ac8fe6553592f, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2708,7 +2710,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 9dab9b84d7c11d442a827767072b1ed4, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2720,7 +2722,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 8f46f5d6269b2d741981bad9b4cc6ca7, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2732,7 +2734,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 63fc1f664217db240bb3db83002874ec, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2744,7 +2746,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: d0c06d1081719e44796e52570941824c, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2756,7 +2758,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 34f6544634588fd429e58288a6ba04d2, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2768,7 +2770,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3d1e84474f505bc478598bc6892dcdfc, type: 3}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2782,7 +2784,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 3e1433a0528363c4e9241bba62b865b1, type: 3}
       SpawnChance: 1
       Size: 0.05
-      CullingRadius: 0
+      CullingRadius: 0.03
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2794,7 +2796,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: b1b725b9d9ef0124eab8e2aec0a1e49a, type: 3}
       SpawnChance: 1
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2806,7 +2808,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ef02f7180365f9a429691ccfed48b2e1, type: 3}
       SpawnChance: 0
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2818,7 +2820,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 1b8781a722ceeb2489e2498db7342a89, type: 3}
       SpawnChance: 0
       Size: 0.08
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2830,7 +2832,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: abb9294d178f3dc4ca3ac3620c88d0c2, type: 3}
       SpawnChance: 0
       Size: 0.07
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2842,7 +2844,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: f67638d2787c2224b87d97784f99f684, type: 3}
       SpawnChance: 0
       Size: 0.07
-      CullingRadius: 0
+      CullingRadius: 0.05
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2856,7 +2858,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 42811b2c91d8c2f40b8783b0c43a02bf, type: 3}
       SpawnChance: 1
       Size: 1
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2868,7 +2870,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: ef456302910c7c04aa6ce0b4e557ce42, type: 3}
       SpawnChance: 1
       Size: 1
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 1
       CanFlipWinter: 1
       IsCenterpiece: 0
@@ -2882,7 +2884,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: 8e88c8187355854439743afa9a90d9ee, type: 3}
       SpawnChance: 1
       Size: 1
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -2894,7 +2896,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 21300000, guid: df51b09c4a4e02a4db2ab83ca9e8f65e, type: 3}
       SpawnChance: 1
       Size: 1
-      CullingRadius: 0
+      CullingRadius: 1
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0

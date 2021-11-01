@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Nation>
-    <Name>Plains Start</Name>
+    <Name>Generic Plains</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -12,7 +12,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Forest Start</Name>
+    <Name>Generic Forest</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -23,7 +23,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Cave Start</Name>
+    <Name>Generic Cave</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -34,7 +34,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Mountain Start</Name>
+    <Name>Generic Mountain</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -45,7 +45,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Highland Start</Name>
+    <Name>Generic Highland</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -56,7 +56,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Wasteland Start</Name>
+    <Name>Generic Wasteland</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -67,7 +67,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Swamp Start</Name>
+    <Name>Generic Swamp</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
@@ -78,7 +78,7 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>Island Start</Name>
+    <Name>Generic Island</Name>
     <ID>-1</ID>
     <WaterPercentage>0.2</WaterPercentage>
     <Age>ALL</Age>
@@ -91,7 +91,7 @@
     <TerrainData>SEA DEEPSEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>Underwater Start</Name>
+    <Name>Generic Water</Name>
     <ID>-1</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>ALL</Age>

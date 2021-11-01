@@ -709,7 +709,7 @@ public class GenerationManager : MonoBehaviour
 
     private void populate_nations(Dropdown d, int i)
     {
-        var list = AllNationData.AllNations.Where(x => (x.Age == m_age || m_age == Age.ALL) && x.ID != -1);
+        var list = AllNationData.AllNations.Where(x => (x.Age == m_age || m_age == Age.ALL) || x.ID == -1);
 
         if (m_generic_starts)
         {

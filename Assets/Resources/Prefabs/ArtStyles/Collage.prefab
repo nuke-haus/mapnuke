@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArtConfigurationName: Collage
   IsDefault: 0
-  IsHiddenFromUser: 0
+  IsHiddenFromUser: 1
   MinimumMountainPassGapSize: 0.5
   MinimumRiverWidth: 0.02
   MaximumRiverWidth: 0.07
