@@ -48,6 +48,7 @@ public class GenerationManager : MonoBehaviour
     private Color m_overlay_color = new Color();
     private bool m_generic_starts = false;
     private bool m_cluster_water = true;
+    private bool m_cluster_islands = false;
     private bool m_teamplay = false;
     private int m_player_count = 9;
     private Age m_age = Age.EARLY;
@@ -219,7 +220,7 @@ public class GenerationManager : MonoBehaviour
         m_season = Season.SUMMER;
 
         // create the conceptual nodes and connections first
-        WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, NatStarts.isOn, m_nations, layout);
+        WorldGenerator.GenerateWorld(m_teamplay, m_cluster_water, m_cluster_islands, NatStarts.isOn, m_nations, layout);
         var conns = WorldGenerator.GetConnections();
         var nodes = WorldGenerator.GetNodes();
 
@@ -624,6 +625,11 @@ public class GenerationManager : MonoBehaviour
         m_cluster_water = !m_cluster_water;
     }
 
+    public void OnClusterIslands()
+    {
+        m_cluster_islands = !m_cluster_islands;
+    }
+
     public void OnGeneric()
     {
         m_generic_starts = !m_generic_starts;
@@ -785,8 +791,7 @@ public class GenerationManager : MonoBehaviour
 
     private void load_nation_data()
     {
-        var data_folder = Application.dataPath;
-        var folder = data_folder + "/Nations/";
+        var folder = Application.dataPath + "/Nations/";
 
         foreach (var file in Directory.GetFiles(folder))
         {
@@ -806,6 +811,8 @@ public class GenerationManager : MonoBehaviour
 
             AllNationData.AddNations(result);
         }
+
+        AllNationData.SortNations();
     }
 
     private void load_name_data()

@@ -66,6 +66,24 @@ public class NationData
         }
     }
 
+    [XmlIgnore]
+    public bool IsIsland
+    {
+        get
+        {
+            var water_ring = true;
+            foreach (var terrain in TerrainData)
+            {
+                if (!terrain.IsFlagSet(Terrain.SEA))
+                {
+                    water_ring = false;
+                    break;
+                }
+            }
+            return !CapTerrain.IsFlagSet(Terrain.SEA) && water_ring;
+        }
+    }
+
     public NationData()
     {
 
@@ -86,6 +104,11 @@ public class NationData
 public static class AllNationData
 {
     public static List<NationData> AllNations;
+
+    public static void SortNations()
+    {
+        AllNations.Sort((x, y) => x.Name.CompareTo(y.Name));
+    }
 
     public static void AddNations(NationCollection coll)
     {

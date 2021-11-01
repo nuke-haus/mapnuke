@@ -221,7 +221,7 @@
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-	<TerrainData>SEA</TerrainData>
+	  <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Vanheim</Name>

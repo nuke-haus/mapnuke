@@ -138,9 +138,10 @@ public struct NativeObjectPlacer : IJob
 
     private bool CheckBorder(Vector3 v, float d)
     {
+        var vector = new Vector3(v.x, v.y, 0f);
         for (var i = 0; i < border.Length; ++i)
         {
-            if (Vector3.Distance(new Vector3(v.x, v.y, 0f), border[i]) < d)
+            if (Vector3.Distance(vector, border[i]) < d)
             {
                 return false;
             }
@@ -152,7 +153,7 @@ public struct NativeObjectPlacer : IJob
     {
         for (var i = n_in - 1; i >= 0; --i)
         {
-            if (CheckBorder(points[i], 0.38f)) // DONT DO THIS
+            if (CheckBorder(points[i], 0.38f)) //TODO: Should this be the sprite size instead of .38?
             {
                 return points[i];
             }

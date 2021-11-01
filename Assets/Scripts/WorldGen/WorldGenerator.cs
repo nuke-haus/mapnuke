@@ -11,18 +11,20 @@ internal static class WorldGenerator
     private static bool m_nat_starts = true;
     private static bool m_teamplay = false;
     private static bool m_cluster_water = true;
+    private static bool m_cluster_islands = false;
     private static NodeLayoutData m_layout;
     private static List<Node> m_nodes;
     private static List<Node> m_starts;
     private static List<Connection> m_connections;
     private static List<PlayerData> m_nations;
 
-    public static void GenerateWorld(bool teamplay, bool cluster_water, bool nat_starts, List<PlayerData> picks, NodeLayoutData layout)
+    public static void GenerateWorld(bool teamplay, bool cluster_water, bool cluster_islands, bool nat_starts, List<PlayerData> picks, NodeLayoutData layout)
     {
         m_nations = picks;
         m_nat_starts = nat_starts;
         m_teamplay = teamplay;
         m_cluster_water = cluster_water;
+        m_cluster_islands = cluster_islands;
         m_layout = layout;
 
         generate_nodes();
@@ -1165,17 +1167,17 @@ internal static class WorldGenerator
         {
             var water = new List<PlayerData>();
 
-            foreach (var d in scrambled)
+            foreach (var player in scrambled)
             {
-                if (d.NationData.WaterPercentage >= 0.5f) // Only water nations with a lot of water should be clustered together 
+                if (player.NationData.WaterPercentage >= 0.3f || (player.NationData.IsIsland && m_cluster_islands)) 
                 {
-                    water.Add(d);
+                    water.Add(player);
                 }
             }
 
-            foreach (var d in water)
+            foreach (var player in water)
             {
-                scrambled.Remove(d);
+                scrambled.Remove(player);
             }
 
             create_basic_nodes(m_layout, scrambled, water);
