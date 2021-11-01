@@ -93,7 +93,7 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 3. Install Unity Hub. 
 4. Download Unity version __2019.2.11f1__ through the Unity Hub then open the MapNuke project using that Unity version.
 
-⚠ __Only Unity 2019.2.11f1 is currently compatible with this project! Using any other version will cause issues.__ ⚠ 
+⚠ __Only Unity 2019.2.11f1 is compatible with this project! Using any other version will cause issues.__ ⚠ 
 
 5. Create the folders you'd like to store your art assets in. For example, the default art assets are stored in _Gfx/MapArt/Default_. Your folder will be named something like _Gfx/MapArt/MyArtStyle_. 
 
@@ -111,15 +111,11 @@ MapNuke now allows you to add your own custom art styles. The sprites and materi
 
 ![Step 7](https://cdn.discordapp.com/attachments/404681432238391307/767117179451342928/d5.png)
 
-8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the Prefabs folder in the project browser. 
+8. Open the main scene (File -> Open Scene -> Scenes -> Main) and navigate to the Resources/Prefabs/ArtStyles folder in the project browser. Duplicate the Default art style prefab and rename it (in this example, the newly created prefab is MyArtStyle). 
 
-![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/873943812781793320/Untitled.png)
+![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/904876855335735337/Untitled.png)
 
-Duplicate the Default art style prefab and rename it (in this example, the newly created prefab is MyArtStyle). Click and drag your new prefab into the ArtStyles in the scene browser.
-
-![Step 8](https://cdn.discordapp.com/attachments/404681432238391307/873943811498332180/dsg.png)
-
-9. Click on the newly made art style prefab and examine its properties. You'll see a collection of values you can modify.
+9. Double click on the newly made art style prefab and examine its properties. You'll see a collection of art configuration properties you can modify.
 
 ![Step 9](https://cdn.discordapp.com/attachments/404681432238391307/873954882351149136/dfffff.png)
 
