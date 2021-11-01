@@ -79,6 +79,11 @@ public class ArtManager : MonoBehaviour
 
         foreach (var art_config in ArtConfigContainer.GetComponentsInChildren<ArtConfiguration>())
         {
+            if (art_config.IsHiddenFromUser)
+            {
+                continue;
+            }
+
             if (CurrentArtConfiguration == null && art_config.IsDefault)
             {
                 CurrentArtConfiguration = art_config;
