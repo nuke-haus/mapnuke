@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,13 +42,13 @@ public class ArtManager : MonoBehaviour
         var str = d.captionText.text;
         var art_config = m_art_configs.FirstOrDefault(config => config.ArtConfigurationName == str);
 
-        if (art_config != null)
+        if (art_config != null && GenerationManager.s_generation_manager != null)
         {
             CurrentArtConfiguration = art_config;
-        }
 
-        // update the border colors based on the art style parameters
-        GenerationManager.s_generation_manager.UpdateColors(art_config.DominionOverlayColor, art_config.LandBorderColor, art_config.SeaBorderColor);
+            // update the border colors based on the art style parameters
+            GenerationManager.s_generation_manager.UpdateColors(art_config.DominionOverlayColor, art_config.LandBorderColor, art_config.SeaBorderColor);
+        }
     }
 
     private void Awake()
@@ -55,14 +57,41 @@ public class ArtManager : MonoBehaviour
         m_art = new DefaultArtStyle();
         m_art_configs = new List<ArtConfiguration>();
 
+        var folder = Application.dataPath + "/Resources/Prefabs/ArtStyles/";
+
+        foreach (var file in Directory.GetFiles(folder))
+        {
+            if (file.Contains(".meta"))
+            {
+                continue;
+            }
+
+            var full_path = Path.GetFullPath(file).TrimEnd(Path.DirectorySeparatorChar);
+            var filename = Path.GetFileName(full_path).Replace(".prefab", string.Empty); 
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/ArtStyles/" + filename);
+            GameObject prefab_instance = GameObject.Instantiate(prefab);
+
+            prefab_instance.transform.parent = ArtConfigContainer.transform;
+        }
+
+        var count = 0;
+        var index = 0;
+
         foreach (var art_config in ArtConfigContainer.GetComponentsInChildren<ArtConfiguration>())
         {
+            if (CurrentArtConfiguration == null && art_config.IsDefault)
+            {
+                CurrentArtConfiguration = art_config;
+                index = count;
+            }
+
+            count++;
             m_art_configs.Add(art_config);
             var data = new Dropdown.OptionData(art_config.ArtConfigurationName);
             ArtStyleDropdown.options.Add(data);
         }
 
-        ArtStyleDropdown.value = 0;
+        ArtStyleDropdown.value = index;
     }
 
     public bool JustChangedSeason

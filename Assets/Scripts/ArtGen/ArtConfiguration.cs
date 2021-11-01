@@ -9,6 +9,7 @@ public class ArtConfiguration : MonoBehaviour
 {
     [Header("Parameters")]
     public string ArtConfigurationName;
+    public bool IsDefault = false;
     [Range(0.1f, 2.0f)]
     public float MinimumMountainPassGapSize = 0.5f;
     [Range(0.02f, 0.2f)]

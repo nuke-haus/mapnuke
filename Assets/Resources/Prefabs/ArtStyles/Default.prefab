@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArtConfigurationName: Default Map Art
+  IsDefault: 1
   MinimumMountainPassGapSize: 0.5
   MinimumRiverWidth: 0.02
   MaximumRiverWidth: 0.07
