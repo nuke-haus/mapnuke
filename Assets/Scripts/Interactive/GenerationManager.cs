@@ -164,11 +164,6 @@ public class GenerationManager : MonoBehaviour
 
     public void OnGenerate()
     {
-        if (ElementManager.s_element_manager.GeneratedObjects.Any())
-        {
-            ElementManager.s_element_manager.WipeGeneratedObjects();
-        }
-
         var picks = new List<PlayerData>();
 
         foreach (var obj in m_content)
@@ -178,7 +173,7 @@ public class GenerationManager : MonoBehaviour
             var data = AllNationData.AllNations.FirstOrDefault(x => x.Name == str);
             var pd = new PlayerData(data, np.TeamNum);
 
-            if (data == null || (picks.Any(x => x.NationData.Name == data.Name) && !m_generic_starts))
+            if (data == null || (picks.Any(x => x.NationData.Name == data.Name && x.NationData.ID > -1) && !m_generic_starts))
             {
                 GetComponent<AudioSource>().PlayOneShot(DenyAudio);
                 return;
@@ -188,6 +183,11 @@ public class GenerationManager : MonoBehaviour
         }
 
         m_nations = picks;
+
+        if (ElementManager.s_element_manager.GeneratedObjects.Any())
+        {
+            ElementManager.s_element_manager.WipeGeneratedObjects();
+        }
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
         var layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
