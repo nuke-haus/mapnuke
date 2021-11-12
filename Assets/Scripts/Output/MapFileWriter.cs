@@ -107,9 +107,9 @@ public static class MapFileWriter
 
             write(fs, "\n-- Player Start Location Data");
 
-            foreach (var d in nations)
+            if (!nations.Any(nat => nat.NationData.ID == -1)) 
             {
-                if (d.NationData.ID > -1)
+                foreach (var d in nations)
                 {
                     write(fs, "#allowedplayer " + d.NationData.ID);
                 }
