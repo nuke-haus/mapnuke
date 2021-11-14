@@ -140,6 +140,7 @@
     <None Include="Assets\Gfx\Shaders\Perlin5read.shader" />
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
     <None Include="Assets\NameFormats\StandardFormats.xml" />
+    <None Include="Assets\Layouts\Diagonal.xml" />
     <None Include="Assets\NameFormats\GeneratedNameFormats.xml" />
     <None Include="Assets\Layouts\Compact.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
