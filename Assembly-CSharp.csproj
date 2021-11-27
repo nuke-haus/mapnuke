@@ -124,6 +124,7 @@
     <None Include="Assets\Gfx\Shaders\ProvinceBorder.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5write.shader" />
+    <None Include="Assets\Layouts\Knifefight.xml" />
     <None Include="Assets\Gfx\Shaders\Test2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin3.shader" />
     <None Include="Assets\Gfx\Shaders\Texture1024write.shader" />

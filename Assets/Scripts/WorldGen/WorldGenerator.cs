@@ -439,9 +439,14 @@ internal static class WorldGenerator
                 {
                     var iterations = UnityEngine.Random.Range(1, 3);
 
-                    if (total_iterations > 30)
+                    if (UnityEngine.Random.Range(0, 10) == 0)
                     {
-                        iterations = 4;
+                        iterations = UnityEngine.Random.Range(1, 4);
+                    }
+
+                    if (total_iterations > 100)
+                    {
+                        break;
                     }
 
                     var i = 0;
