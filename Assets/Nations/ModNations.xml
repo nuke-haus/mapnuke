@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This xml file contains all mod nations that aren't part of a mod bundle of some kind -->
+  <Nation>
+    <Name>MOD - (EA) Omniscience</Name>
+    <ID>249</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>MOD - (MA) Omniscience</Name>
+    <ID>249</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>MOD - (LA) Omniscience</Name>
+    <ID>249</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+</NationCollection>
