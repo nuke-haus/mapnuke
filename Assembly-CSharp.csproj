@@ -47,6 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.2.11f1</UnityVersion>
@@ -115,16 +116,19 @@
     <None Include="Assets\Gfx\Shaders\Texture1024read.shader" />
     <None Include="Assets\Gfx\Shaders\Texture2048write.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin4.shader" />
-    <None Include="Assets\NameData\StandardNounsAndAdjectives.xml" />
     <None Include="Assets\Gfx\Shaders\Texture2048.shader" />
     <None Include="Assets\Nations\Bozmod.xml" />
+    <None Include="Assets\NameData\FirstLawNameSegments.xml" />
     <None Include="Assets\Gfx\Shaders\Test.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin6write.shader" />
     <None Include="Assets\Nations\Default.xml" />
     <None Include="Assets\Gfx\Shaders\ProvinceBorder.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend2.shader" />
+    <None Include="Assets\NameFormats\StandardNameFormats.xml" />
+    <None Include="Assets\Nations\ModNations.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5write.shader" />
     <None Include="Assets\Layouts\Knifefight.xml" />
+    <None Include="Assets\NameData\StandardNameSegments.xml" />
     <None Include="Assets\Gfx\Shaders\Test2.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin3.shader" />
     <None Include="Assets\Gfx\Shaders\Texture1024write.shader" />
@@ -133,19 +137,17 @@
     <None Include="Assets\Gfx\Shaders\Texture4096read.shader" />
     <None Include="Assets\Gfx\Shaders\TexBlend3.shader" />
     <None Include="Assets\Gfx\Shaders\Texture2048read.shader" />
-    <None Include="Assets\NameData\GeneratedNameData.xml" />
     <None Include="Assets\Gfx\Shaders\TextureSeaShoreWriteStencil.shader" />
     <None Include="Assets\Gfx\Shaders\Texture4096.shader" />
     <None Include="Assets\Layouts\Hoard.xml" />
     <None Include="Assets\Gfx\Shaders\TexBlend4.shader" />
     <None Include="Assets\Gfx\Shaders\Perlin5read.shader" />
     <None Include="Assets\Layouts\DefaultLayouts.xml" />
-    <None Include="Assets\NameFormats\StandardFormats.xml" />
     <None Include="Assets\Layouts\Diagonal.xml" />
-    <None Include="Assets\NameFormats\GeneratedNameFormats.xml" />
     <None Include="Assets\Layouts\Compact.xml" />
     <None Include="Assets\Gfx\Shaders\Perlin5.shader" />
     <None Include="Assets\Gfx\Shaders\Sprites-DepthTest.shader" />
+    <None Include="Assets\NameFormats\FirstLawNameFormats.xml" />
     <None Include="Assets\Nations\Generic.xml" />
     <None Include="Assets\Layouts\Example.xml" />
     <None Include="Assets\Layouts\Hexagonal.xml" />

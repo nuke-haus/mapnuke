@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomNameDataCollection>
+
+  <!-- fantasy pseudo-english names inspired by the first law trilogy naming conventions -->
+  <!-- OLD EMPIRE -->
+  <NameData> 
+    <ID>START_OLDEMPIRE_A</ID>
+    
+    <String>a</String>
+    <String>au</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID_OLDEMPIRE_A</ID>
+    
+    <String>lc</String>
+    <String>rd</String>
+    <String>st</String>
+    <String>str</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_OLDEMPIRE_A</ID>
+    
+    <String>is</String>
+    <String>ium</String>
+    <String>ius</String>
+    <String>um</String>
+    <String>us</String>
+  </NameData>
+
+  <NameData> 
+    <ID>STARTMID_OLDEMPIRE_A</ID>
+    
+    <String>ost</String>
+    <String>dard</String>
+    <String>darm</String>
+    <String>gord</String>
+    <String>gond</String>
+    <String>stond</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_OLDEMPIRE_B</ID>
+    
+    <String>e</String>
+    <String>i</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID_OLDEMPIRE_B</ID>
+
+    <String>sp</String>
+    <String>st</String>
+    <String>p</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID2_OLDEMPIRE_B</ID>
+    
+    <String>a</String>
+    <String>e</String>
+    <String>i</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_OLDEMPIRE_B</ID>
+    
+    <String>dium</String>
+    <String>dius</String>
+    <String>dra</String>
+    <String>rda</String>
+    <String>rdia</String>
+    <String>rdium</String>
+    <String>rdius</String>
+    <String>rdus</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_OLDEMPIRE_C</ID>
+    
+    <String>cal</String>
+    <String>car</String>
+    <String>dar</String>
+    <String>gor</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_OLDEMPIRE_C</ID>
+    
+    <String>cis</String>
+    <String>cus</String>
+    <String>cius</String>
+    <String>dium</String>
+    <String>dius</String>
+  </NameData>
+
+  <!-- STARIKLAND -->
+  <NameData> 
+    <ID>START_STARIK_A</ID>
+
+    <String>rost</String>
+    <String>rondst</String>
+    <String>randst</String>
+    <String>anderst</String>
+    <String>averst</String>
+    <String>avonst</String>
+    <String>avonbr</String>
+    <String>dunbr</String>
+    <String>donbr</String>
+    <String>donst</String>
+    <String>valb</String>
+    <String>valbr</String>
+    <String>velbr</String>
+    <String>vanbr</String>
+    <String>vonbr</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_STARIK_A</ID>
+
+    <String>od</String>
+    <String>ock</String>
+    <String>eck</String>
+  </NameData>
+
+  <!-- THE UNION -->
+  <NameData> 
+    <ID>START_UNION_A</ID>
+
+    <String>ar</String>
+    <String>ad</String>
+    <String>or</String>
+    <String>dar</String>
+    <String>ran</String>
+    <String>ren</String>
+    <String>ur</String>
+    <String>sta</String>
+    <String>star</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID_UNION_A</ID>
+
+    <String>de</String>
+    <String>den</String>
+    <String>dan</String>
+    <String>ster</String>
+    <String>sten</String>
+    <String>rich</String>
+    <String>rik</String>
+    <String>red</String>
+    <String>then</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_UNION_A</ID>
+
+    <String>grad</String>
+    <String>land</String>
+    <String>stad</String>
+    <String>strad</String>
+    <String>hold</String>
+    <String>holm</String>
+    <String>horm</String>
+    <String>thorm</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_UNION_B</ID>
+
+    <String>hust</String>
+    <String>ost</String>
+    <String>olst</String>
+    <String>orst</String>
+    <String>rost</String>
+    <String>ull</String>
+    <String>ust</String>
+    <String>urst</String>
+    <String>ulst</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID_UNION_B</ID>
+
+    <String>an</String>
+    <String>en</String>
+    <String>er</String>
+  </NameData>
+
+  <!-- THE NORTH -->
+  <NameData> 
+    <ID>START_NORTH_A</ID>
+
+    <String>os</String>
+    <String>oss</String>
+    <String>ost</String>
+    <String>uff</String>
+    <String>uss</String>
+    <String>ust</String>
+    <String>urst</String>
+  </NameData>
+
+  <NameData> 
+    <ID>MID_OPTIONAL_NORTH_A</ID>
+
+    <String>er</String>
+    <String>en</String>
+    <String>an</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_NORTH_A</ID>
+
+    <String>rith</String>
+    <String>rad</String>
+    <String>red</String>
+    <String>rud</String>
+    <String>rung</String>
+    <String>rand</String>
+  </NameData>
+
+  <!-- STYRIA -->
+  <NameData> 
+    <ID>START_STYRIA_A</ID>
+
+    <String>etr</String>
+    <String>estr</String>
+    <String>ospr</String>
+    <String>ostr</String>
+    <String>styr</String>
+    <String>costr</String>
+    <String>mur</String>
+    <String>misser</String>
+    <String>vesser</String>
+    <String>visser</String>
+    <String>vissel</String>
+    <String>visr</String>
+    <String>jadr</String>
+    <String>sipr</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_STYRIA_A</ID>
+
+    <String>a</String>
+    <String>ani</String>
+    <String>is</String>
+    <String>ia</String>
+    <String>ine</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_STYRIA_B</ID>
+
+    <String>aff</String>
+    <String>corr</String>
+    <String>nic</String>
+    <String>sic</String>
+    <String>sip</String>
+    <String>salv</String>
+    <String>miss</String>
+    <String>viss</String>
+    <String>mess</String>
+    <String>vess</String>
+    <String>etris</String>
+    <String>ospris</String>
+    <String>jadris</String>
+    <String>muris</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_STYRIA_B</ID>
+
+    <String>anti</String>
+    <String>ante</String>
+    <String>anta</String>
+    <String>antia</String>
+    <String>ani</String>
+    <String>elia</String>
+    <String>enia</String>
+    <String>inia</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_STYRIA_C</ID>
+
+    <String>caspr</String>
+    <String>capr</String>
+    <String>cost</String>
+    <String>coron</String>
+    <String>sipr</String>
+    <String>sis</String>
+    <String>vis</String>
+    <String>mur</String>
+    <String>jadr</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_STYRIA_C</ID>
+
+    <String>ille</String>
+    <String>inne</String>
+    <String>inia</String>
+    <String>elia</String>
+    <String>etta</String>
+  </NameData>
+
+  <!-- GURKHUL -->
+  <NameData> 
+    <ID>START_GURKHUL_A</ID>
+
+    <String>sa</String>
+    <String>sha</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_GURKHUL_A</ID>
+
+    <String>mshir</String>
+    <String>shir</String>
+    <String>mir</String>
+    <String>ffa</String>
+    <String>fayn</String>
+    <String>nta</String>
+    <String>ntah</String>
+    <String>bhul</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_GURKHUL_B</ID>
+
+    <String>ka</String>
+    <String>kha</String>
+    <String>da</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_GURKHUL_B</ID>
+
+    <String>mir</String>
+    <String>dir</String>
+    <String>fir</String>
+    <String>leppa</String>
+    <String>wah</String>
+    <String>nta</String>
+    <String>ntah</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_GURKHUL_C</ID>
+
+    <String>gurk</String>
+    <String>nak</String>
+    <String>kark</String>
+    <String>sark</String>
+    <String>surk</String>
+    <String>shamk</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_GURKHUL_C</ID>
+
+    <String>hul</String>
+    <String>har</String>
+    <String>hir</String>
+    <String>hant</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_GURKHUL_D</ID>
+
+    <String>yul</String>
+    <String>sul</String>
+    <String>gul</String>
+    <String>shul</String>
+    <String>ghul</String>
+    <String>khul</String>
+    <String>khal</String>
+  </NameData>
+
+  <NameData> 
+    <ID>END_GURKHUL_D</ID>
+
+    <String>juk</String>
+    <String>kar</String>
+    <String>kur</String>
+    <String>dur</String>
+    <String>dir</String>
+  </NameData>
+
+  <NameData> 
+    <ID>START_GURKHUL_OPTIONAL_AB</ID>
+
+    <String></String>
+    <String>ul-</String>
+  </NameData>
+
+</CustomNameDataCollection>

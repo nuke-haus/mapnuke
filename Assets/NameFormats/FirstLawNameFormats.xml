@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomNameFormatCollection>
+
+  <!-- fantasy pseudo-english names inspired by the first law trilogy naming conventions -->
+  <!-- OLD EMPIRE -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_OLDEMPIRE_A</Segment>
+    <Segment>MID_OLDEMPIRE_A</Segment>
+    <Segment>END_OLDEMPIRE_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>STARTMID_OLDEMPIRE_A</Segment>
+    <Segment>END_OLDEMPIRE_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_OLDEMPIRE_B</Segment>
+    <Segment>MID_OLDEMPIRE_B</Segment>
+    <Segment>MID2_OLDEMPIRE_B</Segment>
+    <Segment>END_OLDEMPIRE_B</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_OLDEMPIRE_C</Segment>
+    <Segment>END_OLDEMPIRE_C</Segment>
+  </NameFormat>
+
+  <!-- STARIKLAND -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_STARIK_A</Segment>
+    <Segment>END_STARIK_A</Segment>
+  </NameFormat>
+
+  <!-- THE UNION -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <Segment>START_UNION_A</Segment>
+    <Segment>MID_UNION_A</Segment>
+    <Segment>END_UNION_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <Segment>START_UNION_B</Segment>
+    <Segment>MID_UNION_B</Segment>
+    <Segment>END_UNION_A</Segment>
+  </NameFormat>
+
+  <!-- THE NORTH -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <Segment>START_NORTH_A</Segment>
+    <Segment>END_NORTH_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <Segment>START_NORTH_A</Segment>
+    <Segment>MID_OPTIONAL_NORTH_A</Segment>
+    <Segment>END_NORTH_A</Segment>
+  </NameFormat>
+
+  <!-- STYRIA -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_STYRIA_A</Segment>
+    <Segment>END_STYRIA_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_STYRIA_B</Segment>
+    <Segment>END_STYRIA_B</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <Segment>START_STYRIA_C</Segment>
+    <Segment>END_STYRIA_C</Segment>
+  </NameFormat>
+
+  <!-- GURKHUL -->
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>START_GURKHUL_OPTIONAL_AB</Segment>
+    <Segment>START_GURKHUL_A</Segment>
+    <Segment>END_GURKHUL_A</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>START_GURKHUL_OPTIONAL_AB</Segment>
+    <Segment>START_GURKHUL_B</Segment>
+    <Segment>END_GURKHUL_B</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>START_GURKHUL_C</Segment>
+    <Segment>END_GURKHUL_C</Segment>
+  </NameFormat>
+
+  <NameFormat> 
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>START_GURKHUL_D</Segment>
+    <Segment>END_GURKHUL_D</Segment>
+  </NameFormat>
+ 
+</CustomNameFormatCollection>

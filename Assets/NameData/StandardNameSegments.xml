@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CustomNameDataCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <!-- Basic stuff to use for putting spaces/punctuation/etc in names -->
+<CustomNameDataCollection>
+
+  <!-- Basic stuff to use for putting spaces/punctuation/etc in names -->
   <NameData> 
     <ID>SPACE</ID>
     <String> </String>
@@ -25,8 +26,10 @@
     <ID>S</ID>
     <String>s</String>
   </NameData>
-              <!-- Actual string collections to use for generating names -->
-  <NameData>  <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
+
+  <!-- Actual string collections to use for generating names -->
+  <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
+  <NameData>  
     <ID>CONCEPT</ID>
 
     <String>heroes</String>
@@ -90,6 +93,7 @@
     <String>flame</String>
     <String>fire</String>
     <String>ashes</String>
+    <String>cinders</String>
     <String>embers</String>
     <String>warmth</String>
   </NameData>
@@ -220,7 +224,7 @@
     <String>vale</String>
     <String>glen</String>
   </NameData>
-  <NameData>  <!-- legacy support for manual mountain terrain flag -->
+  <NameData>  <!-- legacy support for manual mountain Terrain flag -->
     <ID>NOUN</ID>
     <Terrain>MOUNTAINS</Terrain>
 
@@ -245,6 +249,7 @@
     <String>cradle</String>
     <String>arches</String>
     <String>keep</String>
+    <String>library</String>
   </NameData>
   <NameData>  
     <ID>NOUN</ID>
@@ -354,7 +359,7 @@
     <String>depths</String>
     <String>trench</String>
   </NameData>
-  <NameData> <!-- adjectives for describing nouns, this one is general purpose since it has no terrain specified -->
+  <NameData> <!-- adjectives for describing nouns, this one is general purpose since it has no Terrain specified -->
     <ID>ADJECTIVE</ID>
 
     <String>virgin</String>
@@ -385,7 +390,6 @@
     <String>primordial</String>
     <String>holy</String>
     <String>sacred</String>
-    <String>desecrated</String>
     <String>diabolic</String>
     <String>blessed</String>
     <String>hallowed</String>
@@ -505,7 +509,7 @@
     <String>bountiful</String>
     <String>royal</String>
     <String>regal</String>
-    <String>budding</String>
+    <String>shining</String>
     <String>golden</String>
     <String>noble</String>
     <String>glimmering</String>
@@ -521,6 +525,8 @@
     <String>majestic</String>
     <String>windswept</String>
     <String>mossy</String>
+    <String>broken</String>
+    <String>sundered</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -559,7 +565,7 @@
     <String>blackened</String>
   </NameData>
              <!-- animals. i kind of cheated and mixed in stuff that isn't animals. -->
-  <NameData> <!-- since no terrain is specified, these names are used for all terrain types -->
+  <NameData> <!-- since no Terrain is specified, these names are used for all Terrain types -->
     <ID>ANIMAL</ID>
     <BlockedTerrain>CAVE</BlockedTerrain>
     <BlockedTerrain>SEA</BlockedTerrain>
