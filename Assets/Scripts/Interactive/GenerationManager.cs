@@ -50,6 +50,7 @@ public class GenerationManager : MonoBehaviour
     private bool m_cluster_water = true;
     private bool m_cluster_islands = false;
     private bool m_teamplay = false;
+    private bool m_is_for_dom6 = false;
     private int m_player_count = 9;
     private Age m_age = Age.EARLY;
     private Season m_season = Season.SUMMER;
@@ -313,12 +314,6 @@ public class GenerationManager : MonoBehaviour
     {
         LoadingScreen.SetActive(true);
 
-        if (show_log)
-        {
-            //LogScreen.SetActive(true); 
-            //ClearLog();
-        }
-
         yield return null;
         yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
         var start_time = Time.realtimeSinceStartup;
@@ -330,18 +325,11 @@ public class GenerationManager : MonoBehaviour
         Debug.LogFormat("Generation time: {0}", total_time);
 
         LoadingScreen.SetActive(false);
-        //LogScreen.SetActive(false);
     }
 
     private IEnumerator perform_async(System.Action function, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
-
-        if (show_log)
-        {
-            //LogScreen.SetActive(true); 
-            //ClearLog();
-        }
 
         yield return null;
         yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
@@ -380,8 +368,9 @@ public class GenerationManager : MonoBehaviour
         ArtManager.s_art_manager.ChangeSeason(m_season);
     }
 
-    public void ShowOutputWindow()
+    public void ShowOutputWindow(bool is_for_dom6)
     {
+        m_is_for_dom6 = is_for_dom6;
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         if (!OutputWindow.activeSelf)
@@ -402,7 +391,7 @@ public class GenerationManager : MonoBehaviour
         OutputWindow.SetActive(false);
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
-        StartCoroutine(output_async(str));
+        StartCoroutine(output_async(m_is_for_dom6, str));
     }
 
     private void MakeProvinceIdTexture(ProvinceMarker pm, Vector3 offset, Transform t)
@@ -460,15 +449,9 @@ public class GenerationManager : MonoBehaviour
         return province_ids;
     }
 
-    private IEnumerator output_async(string str, bool show_log = false)
+    private IEnumerator output_async(bool is_for_dom6, string str, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
-
-        if (show_log)
-        {
-            //LogScreen.SetActive(true); 
-            //ClearLog();
-        }
 
         yield return null;
         yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
@@ -491,14 +474,9 @@ public class GenerationManager : MonoBehaviour
 
         mgr.ShowLabels(false);
 
-        if (m_season == Season.SUMMER)
-        {
-            m_season = Season.WINTER;
-        }
-        else
-        {
-            m_season = Season.SUMMER;
-        }
+        m_season = m_season == Season.SUMMER
+            ? Season.WINTER
+            : Season.SUMMER;
 
         do_season_change();
 
@@ -511,21 +489,25 @@ public class GenerationManager : MonoBehaviour
 
         MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter image
 
-        if (m_season == Season.SUMMER)
-        {
-            m_season = Season.WINTER;
-        }
-        else
-        {
-            m_season = Season.SUMMER;
-        }
+        m_season = m_season == Season.SUMMER
+            ? Season.WINTER
+            : Season.SUMMER;
 
         do_season_change();
+
+        yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
+        yield return new WaitForEndOfFrame();
+
+        if (is_for_dom6)
+        {
+            // dom6 requires we generate a lot more files
+
+
+        }
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
 
         LoadingScreen.SetActive(false);
-        //LogScreen.SetActive(false);
     }
 
     public void UpdateColors(Color overlay, Color land_border, Color sea_border)
