@@ -26,6 +26,12 @@ public class Connection
         private set;
     }
 
+    public ConnectionType LockedConnectionType
+    {
+        get;
+        private set;
+    }
+
     public bool Diagonal
     {
         get;
@@ -162,6 +168,18 @@ public class Connection
     public void SetConnection(ConnectionType c)
     {
         ConnectionType = c;
+    }
+
+    public void LockConnectionData(bool is_locked)
+    {
+        if (is_locked)
+        {
+            LockedConnectionType = ConnectionType;
+        }
+        else
+        {
+            ConnectionType = LockedConnectionType;
+        }
     }
 
     public float DistanceTo(Connection c)

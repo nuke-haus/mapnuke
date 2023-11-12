@@ -330,7 +330,13 @@ public static class MapFileWriter
             }
 
             File.WriteAllBytes(path, bytes);
-            open_folder(folder);
         }
+    }
+
+    public static void OpenFolder()
+    {
+        var data_folder = get_output_dir();
+        var folder = data_folder + "/Export/";
+        open_folder(folder);
     }
 }

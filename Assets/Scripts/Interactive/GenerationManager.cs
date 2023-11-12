@@ -58,8 +58,21 @@ public class GenerationManager : MonoBehaviour
     private List<GameObject> m_content;
     private List<PlayerData> m_nations;
     private NodeLayoutCollection m_layouts;
+    private NodeLayoutData m_layout;
     private CustomNameDataCollection m_name_data;
     private CustomNameFormatCollection m_name_formats;
+    private Terrain[] m_dom6_terrains =
+        {
+            Terrain.PLAINS,
+            Terrain.SEA,
+            Terrain.DEEPSEA,
+            Terrain.HIGHLAND,
+            Terrain.SWAMP,
+            Terrain.WASTE,
+            Terrain.FOREST,
+            Terrain.FARM,
+            Terrain.CAVE
+        };
 
     public Color BorderColor => m_border_color;
     public Color SeaBorderColor => m_sea_border_color;
@@ -212,12 +225,13 @@ public class GenerationManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
-
+        
         if (layout == null)
         {
             layout = m_layouts.Layouts.FirstOrDefault(x => x.NumPlayers == m_player_count);
         }
 
+        m_layout = layout;
         m_season = Season.SUMMER;
 
         // create the conceptual nodes and connections first
@@ -344,15 +358,6 @@ public class GenerationManager : MonoBehaviour
 
     public void OnSeasonChanged()
     {
-        if (m_season == Season.SUMMER)
-        {
-            m_season = Season.WINTER;
-        }
-        else
-        {
-            m_season = Season.SUMMER;
-        }
-
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         StartCoroutine(perform_async(() => do_season_change()));
@@ -365,6 +370,10 @@ public class GenerationManager : MonoBehaviour
 
     private void do_season_change()
     {
+        m_season = m_season == Season.SUMMER
+            ? Season.WINTER
+            : Season.SUMMER;
+
         ArtManager.s_art_manager.ChangeSeason(m_season);
     }
 
@@ -420,7 +429,7 @@ public class GenerationManager : MonoBehaviour
         province_id_map_container = new GameObject("ProvinceIdMapContainer");
         var tr = province_id_map_container.transform;
 
-        foreach (var prov in mgr.m_provinces)
+        foreach (var prov in mgr.Provinces)
         {
             MakeProvinceIdTexture(prov, offset, tr);
         }
@@ -474,40 +483,75 @@ public class GenerationManager : MonoBehaviour
 
         mgr.ShowLabels(false);
 
-        m_season = m_season == Season.SUMMER
-            ? Season.WINTER
-            : Season.SUMMER;
-
         do_season_change();
 
         yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
-        yield return new WaitForEndOfFrame(); 
+        yield return new WaitForEndOfFrame();
+        yield return null;
 
         ArtManager.s_art_manager.CaptureCam.Render(); 
 
-        yield return new WaitForEndOfFrame(); 
+        yield return new WaitForEndOfFrame();
+        yield return null;
 
         MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter image
-
-        m_season = m_season == Season.SUMMER
-            ? Season.WINTER
-            : Season.SUMMER;
 
         do_season_change();
 
         yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
         yield return new WaitForEndOfFrame();
+        yield return null;
 
         if (is_for_dom6)
         {
-            // dom6 requires we generate a lot more files
+            // Dom6 requires we generate a lot more files for each province type
+            // We don't want province shapes to change while we generate all of these different outputs
+            ArtManager.s_art_manager.LockProvinceShapes(true);
+            mgr.LockMapData(true);
 
+            foreach (Terrain t in m_dom6_terrains)
+            {
+                mgr.OverrideAllProvinceTerrain(t);
 
+                Resources.UnloadUnusedAssets();
+                yield return new WaitForEndOfFrame();
+                yield return null;
+                yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+                yield return new WaitForEndOfFrame();
+                yield return null;
+
+                string enum_name = t.ToString().ToLower();
+
+                MapFileWriter.GenerateImage(str + "_" + enum_name, mgr.Texture); // summer image
+
+                do_season_change();
+
+                yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
+                yield return new WaitForEndOfFrame();
+                yield return null;
+
+                MapFileWriter.GenerateImage(str + "_" + enum_name + "_winter", mgr.Texture); // winter image
+
+                do_season_change();
+
+                yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
+                yield return new WaitForEndOfFrame();
+                yield return null;
+            }
+
+            ArtManager.s_art_manager.LockProvinceShapes(false);
+            mgr.LockMapData(false);
+
+            Resources.UnloadUnusedAssets();
+            yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+            yield return new WaitForEndOfFrame();
         }
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
 
         LoadingScreen.SetActive(false);
+
+        MapFileWriter.OpenFolder();
     }
 
     public void UpdateColors(Color overlay, Color land_border, Color sea_border)

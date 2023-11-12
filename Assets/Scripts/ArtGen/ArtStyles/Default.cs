@@ -53,17 +53,16 @@ public class DefaultArtStyle : ArtStyle
 
         conns.AddRange(linked);
 
-        foreach (var m in m_all_conns)
+        // Only recalculate triangles if we aren't generating dom6 map output
+        if (!ArtManager.s_art_manager.IsLockingProvinceShapes)
         {
-            m.ClearTriangles();
+            foreach (var m in m_all_conns)
+            {
+                m.ClearTriangles();
+            }
+
+            calc_triangles(m_all_conns);
         }
-
-        /*foreach (var pm in provs)
-        {
-            pm.UpdateConnections();
-        }*/
-
-        calc_triangles(m_all_conns);
 
         foreach (var cm in conns)
         {

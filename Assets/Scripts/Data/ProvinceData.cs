@@ -120,4 +120,13 @@ public class ProvinceData
     {
         Terrain = Terrain | flag;
     }
+
+    public ProvinceData Clone()
+    {
+        ProvinceData clone = new ProvinceData();
+        clone.SetTerrainFlags(Terrain);
+        clone.SetCustomName(CustomName);
+        clone.SetID(ID);
+        return clone;
+    }
 }

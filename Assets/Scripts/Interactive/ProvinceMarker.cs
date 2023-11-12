@@ -138,6 +138,11 @@ public class ProvinceMarker : MonoBehaviour
         }
     }
 
+    public void LockProvinceData(bool is_locked)
+    {
+        m_node.LockProvinceData(is_locked);
+    }
+
     public void UpdateArtStyle()
     {
         var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;

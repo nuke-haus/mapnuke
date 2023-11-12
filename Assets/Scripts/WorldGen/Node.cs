@@ -84,6 +84,12 @@ public class Node
         private set;
     }
 
+    public ProvinceData LockedProvinceData
+    {
+        get;
+        private set;
+    }
+
     public List<Node> ConnectedNodes
     {
         get
@@ -202,6 +208,18 @@ public class Node
     public Node(int x, int y, ProvinceData pd, PlayerData n) : this(x, y, pd)
     {
         Nation = n;
+    }
+
+    public void LockProvinceData(bool is_locked)
+    {
+        if (is_locked)
+        {
+            LockedProvinceData = ProvinceData.Clone();
+        }
+        else
+        {
+            ProvinceData = LockedProvinceData.Clone();
+        }
     }
 
     public bool IsTouchingEnemyCapRing(Node ignore_node)

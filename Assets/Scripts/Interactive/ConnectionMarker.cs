@@ -31,6 +31,7 @@ public class ConnectionMarker : MonoBehaviour
     private List<ConnectionWrapMarker> m_wraps;
     private InnerStroke m_stroke;
     private PolyBorder m_border;
+    private PolyBorder m_road;
     private List<Vector3> m_poly;
     private List<Vector3> m_full_contour;
     private List<Vector3> m_culling_points;
@@ -194,6 +195,11 @@ public class ConnectionMarker : MonoBehaviour
         {
             return m_p2;
         }
+    }
+
+    public void LockConnectionData(bool is_locked)
+    {
+        m_connection.LockConnectionData(is_locked);
     }
 
     public void UpdateArtStyle()
@@ -489,6 +495,12 @@ public class ConnectionMarker : MonoBehaviour
 
     public void CreatePolyBorder()
     {
+        if (m_border != null && ArtManager.s_art_manager.IsLockingProvinceShapes)
+        {
+            // We don't want the province to have new border shapes if the manager is locking provinces (usually for map output purposes)
+            return;
+        }
+
         m_border = new PolyBorder(m_tri_centers[0] + transform.position, m_tri_centers[1] + transform.position, Connection);
     }
 
@@ -638,7 +650,7 @@ public class ConnectionMarker : MonoBehaviour
             m_culling_points = new List<Vector3>();
         }
 
-        if (PolyBorder == null)
+        if (m_border == null)
         {
             return;
         }
@@ -647,9 +659,13 @@ public class ConnectionMarker : MonoBehaviour
 
         if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
         {
-            m_poly = get_contour(PolyBorder, 
-                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverWidth,
-                ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverWidth);
+            if (!ArtManager.s_art_manager.IsLockingProvinceShapes)
+            {
+                // Only regenerate the polyborder if the province shape isn't locked
+                m_poly = get_contour(PolyBorder,
+                    ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRiverWidth,
+                    ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRiverWidth);
+            }
 
             m_full_contour = new List<Vector3>();
             m_full_contour.AddRange(m_poly);
@@ -677,12 +693,17 @@ public class ConnectionMarker : MonoBehaviour
             var dir = (m_pos2 - m_pos1).normalized;
             var p1 = m_pos1 + dir * scaled_reduction;
             var p2 = m_pos2 - dir * scaled_reduction;
-            var road_line = new PolyBorder(p1, p2, m_connection, true);
 
-            m_culling_points = road_line.OrderedPoints;
-            m_poly = road_line.OrderedFinePoints;
+            if (!ArtManager.s_art_manager.IsLockingProvinceShapes)
+            {
+                // Only regenerate the road shape if the province shape isn't locked
+                m_road = new PolyBorder(p1, p2, m_connection, true);
+            }
+                
+            m_culling_points = m_road.OrderedPoints;
+            m_poly = m_road.OrderedFinePoints;
 
-            draw_road(road_line);
+            draw_road(m_road);
         }
 
         var border = PolyBorder.GetFullLengthBorder();

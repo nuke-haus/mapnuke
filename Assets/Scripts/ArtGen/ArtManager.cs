@@ -25,6 +25,7 @@ public class ArtManager : MonoBehaviour
     private List<ArtConfiguration> m_art_configs;
     private ArtStyle m_art;
     private RenderTexture m_render_texture;
+    private bool m_lock_province_shapes = false;
 
     public RenderTexture Texture
     {
@@ -36,6 +37,16 @@ public class ArtManager : MonoBehaviour
             return m_render_texture;
         }
     }
+
+    public bool JustChangedSeason
+    {
+        get
+        {
+            return m_art.JustChangedSeason;
+        }
+    }
+
+    public bool IsLockingProvinceShapes => m_lock_province_shapes;
 
     public void OnArtStyleDropdownValueChanged(Dropdown d)
     {
@@ -99,12 +110,9 @@ public class ArtManager : MonoBehaviour
         ArtStyleDropdown.value = index;
     }
 
-    public bool JustChangedSeason
+    public void LockProvinceShapes(bool is_locked)
     {
-        get
-        {
-            return m_art.JustChangedSeason;
-        }
+        m_lock_province_shapes = is_locked;
     }
 
     public void ChangeSeason(Season s)

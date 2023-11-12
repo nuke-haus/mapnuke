@@ -18,56 +18,85 @@ public class ElementManager : MonoBehaviour
     public GameObject ConnectionWidget;
     public MapBorder MapBorder;
 
-    public List<GameObject> m_generated;
-    public List<ProvinceMarker> m_provinces;
-    public List<ConnectionMarker> m_connections;
+    private List<GameObject> m_generated;
+    private List<ProvinceMarker> m_provinces;
+    private List<ConnectionMarker> m_connections;
     private readonly float m_edge_tolerance = 0.38f; // use 0.5f for near-perfect grid 
 
-    public float Y
-    {
-        get
-        {
-            return ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeY;
-        }
-    }
-
-    public float X
-    {
-        get
-        {
-            return ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeX;
-        }
-    }
-
-    public List<GameObject> GeneratedObjects
-    {
-        get
-        {
-            return m_generated;
-        }
-    }
-
-    public List<ProvinceMarker> Provinces
-    {
-        get
-        {
-            return m_provinces;
-        }
-    }
-
-    public RenderTexture Texture
-    {
-        get
-        {
-            return ArtManager.s_art_manager.Texture;
-        }
-    }
+    public float Y => ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeY;
+    public float X => ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceSizeX;
+    public List<GameObject> GeneratedObjects => m_generated;
+    public List<ProvinceMarker> Provinces => m_provinces;
+    public List<ConnectionMarker> Connections => m_connections;
+    public RenderTexture Texture => ArtManager.s_art_manager.Texture;
 
     private void Start()
     {
         s_element_manager = this;
 
         m_generated = new List<GameObject>();
+    }
+
+    public void LockMapData(bool is_locked)
+    {
+        foreach (ProvinceMarker m in m_provinces)
+        {
+            m.LockProvinceData(is_locked);
+        }
+        foreach (ConnectionMarker m in m_connections)
+        {
+            m.LockConnectionData(is_locked);
+        }
+    }
+
+    public void OverrideAllProvinceTerrain(Terrain t)
+    {
+        if (t.IsFlagSet(Terrain.DEEPSEA))
+        {
+            t |= Terrain.SEA;
+        }
+
+        foreach (ProvinceMarker province in m_provinces)
+        {
+            // We need to account for some existing modifiers when we override the province terrain
+            Terrain desired_terrain = t;
+            if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.MANYSITES))
+            {
+                desired_terrain.SetFlags(Terrain.MANYSITES, true);
+            }
+
+            if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.THRONE))
+            {
+                desired_terrain.SetFlags(Terrain.THRONE, true);
+            }
+
+            if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV))
+            {
+                desired_terrain.SetFlags(Terrain.LARGEPROV, true);
+            }
+            else if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.SMALLPROV))
+            {
+                desired_terrain.SetFlags(Terrain.SMALLPROV, true);
+            }
+
+            province.Node.ProvinceData.SetTerrainFlags(desired_terrain);
+        }
+
+        // For water provinces we need only standard connections
+        if (t.IsFlagSet(Terrain.SEA))
+        {
+            foreach (ConnectionMarker m in m_connections)
+            {
+                m.Connection.SetConnection(ConnectionType.STANDARD);
+            }
+        }
+        else
+        {
+            foreach (ConnectionMarker m in m_connections)
+            {
+                m.Connection.SetConnection(m.Connection.LockedConnectionType);
+            }
+        }
     }
 
     public void ShowLabels(bool on)
