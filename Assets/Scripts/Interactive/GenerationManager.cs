@@ -463,6 +463,8 @@ public class GenerationManager : MonoBehaviour
     {
         switch (terrain)
         {
+            case Terrain.CAVE:
+                return "cave";
             case Terrain.PLAINS:
                 return "plain";
             case Terrain.FARM:

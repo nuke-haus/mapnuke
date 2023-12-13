@@ -842,7 +842,7 @@ public class ProvinceMarker : MonoBehaviour
 
         var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
-        if (!set.MapSprites.Any())
+        if (!set.MapSprites.Any() || (m_node.ProvinceData.IsCaveWall && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
             return new List<SpriteMarker>();
         }

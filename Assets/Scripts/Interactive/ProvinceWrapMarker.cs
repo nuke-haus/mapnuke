@@ -348,6 +348,11 @@ public class ProvinceWrapMarker : MonoBehaviour
 
     public List<SpriteMarker> PlaceSprites()
     {
+        if (m_node.ProvinceData.IsCaveWall && ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            return m_sprites;
+        }
+
         var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
 
         if (!set.MapSprites.Any())
