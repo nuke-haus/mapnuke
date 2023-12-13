@@ -28,6 +28,7 @@ public class ProvinceManager : MonoBehaviour
     public Toggle Colder;
     public Toggle Warmer;
     public Toggle MoreSites;
+    public Toggle HasCaveEntrance;
     public Toggle Throne;
     public InputField Name;
     private ProvinceMarker m_current;
@@ -118,7 +119,9 @@ public class ProvinceManager : MonoBehaviour
 
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
         m_current.Node.ProvinceData.SetCustomName(Name.text);
+        m_current.Node.ProvinceData.SetHasCaveEntrance(HasCaveEntrance.isOn);
         m_current.UpdateColor();
+        m_current.UpdateSprite();
         m_current.UpdateLinked();
         m_current.ValidateConnections();
 
@@ -229,7 +232,7 @@ public class ProvinceManager : MonoBehaviour
         m_current = p;
 
         clear_checkboxes();
-        update_checkboxes(p.Node.ProvinceData.Terrain);
+        update_checkboxes(p.Node.ProvinceData.Terrain, p.Node.ProvinceData.HasCaveEntrance);
         update_name(p.Node.ProvinceData.CustomName);
 
         GetComponent<AudioSource>().PlayOneShot(Audio);
@@ -269,9 +272,10 @@ public class ProvinceManager : MonoBehaviour
         Small.isOn = false;
         Colder.isOn = false;
         Warmer.isOn = false;
+        HasCaveEntrance.isOn = false;
     }
 
-    private void update_checkboxes(Terrain flags)
+    private void update_checkboxes(Terrain flags, bool has_cave_entrance)
     {
         var plains = true;
 
@@ -344,5 +348,7 @@ public class ProvinceManager : MonoBehaviour
         {
             Warmer.isOn = true;
         }
+
+        HasCaveEntrance.isOn = has_cave_entrance;
     }
 }

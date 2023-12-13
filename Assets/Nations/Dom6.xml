@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--EARLY-->
+  <Nation>
+    <Name>(EA) Pyrene</Name>
+    <ID>14</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Muspelheim</Name>
+    <ID>34</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <!--MIDDLE-->
+  <Nation>
+    <Name>(MA) Pyrene</Name>
+    <ID>62</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Nidavangr</Name>
+    <ID>81</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <!--LATE-->
+  <Nation>
+    <Name>(LA) Feminie</Name>
+    <ID>119</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Piconye</Name>
+    <ID>120</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Andramania</Name>
+    <ID>121</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+ 
+</NationCollection>

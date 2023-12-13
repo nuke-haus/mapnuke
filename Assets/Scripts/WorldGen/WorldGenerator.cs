@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 /// <summary>
 /// This class handles the creation of all conceptual parts of the world.
@@ -51,6 +53,8 @@ internal static class WorldGenerator
         generate_farms(valid);
         generate_sized(valid);
         generate_thrones();
+        generate_cave_entrances();
+        generate_cave_terrain();
         cleanup_connections();
     }
 
@@ -573,6 +577,170 @@ internal static class WorldGenerator
         }
     }
 
+
+    private static void generate_cave_walls()
+    {
+        var valid_cave_nodes = m_nodes.Where(x => !x.HasNation && !x.ProvinceData.HasCaveEntrance).ToList();
+        var num_underworld_caves = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.UnderworldCaveFreq * valid_cave_nodes.Count);
+        var current_caves_count = valid_cave_nodes.Count;
+
+        foreach (var node in valid_cave_nodes)
+        {
+            node.ProvinceData.SetIsCaveWall(false);
+        }
+
+        while (current_caves_count > num_underworld_caves && valid_cave_nodes.Any())
+        {
+            var node = valid_cave_nodes.GetRandom();
+            node.ProvinceData.SetIsCaveWall(true);
+
+            valid_cave_nodes.Remove(node);
+
+            current_caves_count--;
+        }
+    }
+
+    private static void generate_cave_terrain()
+    {
+        var cave_entrance_nodes = m_nodes.Where(x => x.ProvinceData.HasCaveEntrance).ToList();
+        var cap_nodes = m_nodes.Where(x => x.HasNation).ToList();
+
+        foreach (var node in cap_nodes)
+        {
+            node.ProvinceData.SetIsCaveWall(true);
+        }
+
+        generate_cave_walls();
+
+        int attempt_count = 0;
+        while (!cave_entrances_are_valid(cave_entrance_nodes) && attempt_count < 20)
+        {
+            generate_cave_walls();
+            attempt_count++;
+        }
+
+        if (attempt_count == 20)
+        {
+            Debug.LogWarning("Generating valid caves took too long, settling with imperfect results");
+        }
+
+        var non_cave_wall_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall).ToList();
+        non_cave_wall_nodes.Shuffle();
+
+        var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cave_wall_nodes.Count);
+        var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.SwampFreq.GetRandom() * non_cave_wall_nodes.Count);
+        var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom() * non_cave_wall_nodes.Count);
+        var count = 0;
+
+        while (count < num_forests)
+        {
+            var node = non_cave_wall_nodes[0];
+            non_cave_wall_nodes.RemoveAt(0);
+
+            node.ProvinceData.CaveTerrain.SetFlags(Terrain.FOREST, true);
+
+            count++;
+        }
+
+        count = 0;
+
+        while (count < num_swamps)
+        {
+            var node = non_cave_wall_nodes[0];
+            non_cave_wall_nodes.RemoveAt(0);
+
+            node.ProvinceData.CaveTerrain.SetFlags(Terrain.SWAMP, true);
+
+            count++;
+        }
+
+        count = 0;
+
+        while (count < num_highlands)
+        {
+            var node = non_cave_wall_nodes[0];
+            non_cave_wall_nodes.RemoveAt(0);
+
+            node.ProvinceData.CaveTerrain.SetFlags(Terrain.HIGHLAND, true);
+
+            count++;
+        }
+    }
+
+    private static bool cave_entrances_are_valid(List<Node> cave_entrance_nodes)
+    {
+        var skip_nodes = new List<Node>();
+        foreach (var cave_node in cave_entrance_nodes)
+        {
+            if (skip_nodes.Contains(cave_node))
+            {
+                continue;
+            }
+
+            var node_list = new List<Node>() { cave_node };
+            var nodes_to_process = cave_node.ConnectedNodes.Where(node => !node.HasNation && !node.ProvinceData.IsCaveWall);
+
+            while (nodes_to_process.Any())
+            {
+                var node = nodes_to_process[0];
+                node_list.Add(node);
+                nodes_to_process.RemoveAt(0);
+                nodes_to_process.AddRange(node.ConnectedNodes.Where(connected_node => !node_list.Contains(connected_node) && !connected_node.HasNation && !connected_node.ProvinceData.IsCaveWall));
+            }
+
+            if (node_list.Count(node => node.ProvinceData.HasCaveEntrance) < 2)
+            {
+                return false;
+            }
+
+            skip_nodes.AddRange(node_list.Where(node => node.ProvinceData.HasCaveEntrance));
+        }
+
+        return true;
+    }
+
+    private static void generate_cave_entrances()
+    {
+        var valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.IsCapRing).ToList();
+        var max = Mathf.Max(1, GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer);
+        var dict = new Dictionary<Node, List<Node>>();
+
+        foreach (var n in m_starts)
+        {
+            var nodes = new List<Node>();
+
+            foreach (var conn in n.ConnectedNodes)
+            {
+                foreach (var t in conn.ConnectedNodes.Where(x => !x.IsCapRing && !x.HasNation))
+                {
+                    nodes.Add(t);
+                }
+            }
+
+            nodes.Shuffle();
+            dict.Add(n, nodes);
+        }
+
+        foreach (var pair in dict)
+        {
+            int count = 0;
+
+            foreach (var node in pair.Value)
+            {
+                if (!node.ProvinceData.HasCaveEntrance)
+                {
+                    count++;
+                    node.ProvinceData.SetHasCaveEntrance(true);
+                }
+
+                if (count >= max)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
     private static void generate_thrones()
     {
         var num_water = m_starts.Where(x => x.Nation.NationData.WaterPercentage > 0.3f).Count();
@@ -883,6 +1051,8 @@ internal static class WorldGenerator
         {
             if (n.HasNation) // capring logic
             {
+                bool did_place_cave_gate = false;
+
                 if (!m_nat_starts && !n.Nation.NationData.CapTerrain.HasFlag(Terrain.SEA))
                 {
                     n.ProvinceData.SetTerrainFlags(Terrain.PLAINS);
@@ -902,11 +1072,23 @@ internal static class WorldGenerator
 
                     if (c.Node1 == n)
                     {
+                        if (!did_place_cave_gate && n.Nation.NationData.HasCaveEntranceInCapRing)
+                        {
+                            did_place_cave_gate = true;
+                            c.Node2.ProvinceData.SetHasCaveEntrance(true);
+                        }
+
                         c.Node2.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node2.SetAssignedTerrain(true);
                     }
                     else
                     {
+                        if (!did_place_cave_gate && n.Nation.NationData.HasCaveEntranceInCapRing)
+                        {
+                            did_place_cave_gate = true;
+                            c.Node1.ProvinceData.SetHasCaveEntrance(true);
+                        }
+
                         c.Node1.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node1.SetAssignedTerrain(true);
                     }

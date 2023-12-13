@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ProvinceWidget : MonoBehaviour
 {
+    public Sprite NormalSprite;
+    public Sprite CaveEntranceSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
     public List<TextMesh> TextOutlines;
@@ -43,6 +45,7 @@ public class ProvinceWidget : MonoBehaviour
             };
         }
 
+        UpdateSprite(n);
         UpdateLabel(n);
         UpdateColor(n);
     }
@@ -60,6 +63,11 @@ public class ProvinceWidget : MonoBehaviour
         }
 
         return new Color(0.9f, 0.9f, 0.8f); //default is plains
+    }
+
+    public void UpdateSprite(Node n)
+    {
+        Renderer.sprite = n.ProvinceData.HasCaveEntrance ? CaveEntranceSprite : NormalSprite;
     }
 
     public void UpdateColor(Node n)

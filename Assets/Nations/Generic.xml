@@ -27,6 +27,7 @@
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
@@ -38,6 +39,7 @@
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>ALL</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>

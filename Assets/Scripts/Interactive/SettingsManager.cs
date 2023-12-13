@@ -37,6 +37,8 @@ public class SettingsManager : MonoBehaviour
     public InputField CliffPassMin;
     public InputField CliffPassMax;
     public InputField ProcNameChance;
+    public InputField NumCaveEntrances;
+    public InputField UnderworldCaveFreq;
 
     public Toggle ClassicMountains;
 
@@ -89,6 +91,8 @@ public class SettingsManager : MonoBehaviour
         CliffPassMin.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MinInt.ToString();
         CliffPassMax.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MaxInt.ToString();
         ProcNameChance.text = (GeneratorSettings.s_generator_settings.CustomNameFreq * 100).ToString();
+        NumCaveEntrances.text = GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer.ToString();
+        UnderworldCaveFreq.text = GeneratorSettings.s_generator_settings.UnderworldCaveFreq.ToString();
     }
 
     public void ResetSettings()
@@ -108,6 +112,8 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.SmallFreq.Reset();
         GeneratorSettings.s_generator_settings.SwampFreq.Reset();
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
+        GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = 1;
+        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.5f;
 
         update_textboxes();
         update_labels();
@@ -115,8 +121,6 @@ public class SettingsManager : MonoBehaviour
 
     public void ApplyChanges() // user clicks accept
     {
-        //Click();
-
         GeneratorSettings.s_generator_settings.CaveFreq.Update(get_float(CaveMin), get_float(CaveMax));
         GeneratorSettings.s_generator_settings.CliffFreq.Update(get_float(CliffMin), get_float(CliffMax));
         GeneratorSettings.s_generator_settings.CliffPassFreq.Update(get_float(CliffPassMin), get_float(CliffPassMax));
@@ -134,6 +138,8 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.WasteFreq.Update(get_float(WasteMin), get_float(WasteMax));
         GeneratorSettings.s_generator_settings.CustomNameFreq = get_float(ProcNameChance);
         GeneratorSettings.s_generator_settings.UseClassicMountains = ClassicMountains.isOn;
+        GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = get_int(NumCaveEntrances);
+        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = get_float(UnderworldCaveFreq);
         
         gameObject.SetActive(false);
     }
@@ -237,6 +243,11 @@ public class SettingsManager : MonoBehaviour
         if (!pass)
         {
             Debug.LogError("Failed to parse value: " + f.text);
+        }
+
+        if (res > 100)
+        {
+            res = 100;
         }
 
         return ((float)res) / 100f;

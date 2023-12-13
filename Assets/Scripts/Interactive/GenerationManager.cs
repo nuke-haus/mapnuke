@@ -65,7 +65,7 @@ public class GenerationManager : MonoBehaviour
         {
             Terrain.PLAINS,
             Terrain.SEA,
-            Terrain.DEEPSEA,
+            Terrain.SEA | Terrain.FOREST,
             Terrain.HIGHLAND,
             Terrain.SWAMP,
             Terrain.WASTE,
@@ -458,6 +458,30 @@ public class GenerationManager : MonoBehaviour
         return province_ids;
     }
 
+    // Dom6 expects a certain filename for each terrain
+    private string get_terrain_name(Terrain terrain)
+    {
+        switch (terrain)
+        {
+            case Terrain.PLAINS:
+                return "plain";
+            case Terrain.FARM:
+                return "farm";
+            case Terrain.FOREST:
+                return "forest";
+            case Terrain.HIGHLAND:
+                return "highland";
+            case Terrain.SWAMP:
+                return "swamp";
+            case Terrain.WASTE:
+                return "waste";
+            case Terrain.SEA:
+                return "sea";
+            default:
+                return "kelp"; // sea and forest
+        }
+    }
+
     private IEnumerator output_async(bool is_for_dom6, string str, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
@@ -469,7 +493,7 @@ public class GenerationManager : MonoBehaviour
         var layout = WorldGenerator.GetLayout();
         var province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
 
-        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+        MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids, is_for_dom6);
 
         yield return null;
 
@@ -512,6 +536,7 @@ public class GenerationManager : MonoBehaviour
             foreach (Terrain t in m_dom6_terrains)
             {
                 mgr.OverrideAllProvinceTerrain(t);
+                ArtManager.s_art_manager.OnOverrideProvinceTerrain(t == Terrain.CAVE);
 
                 Resources.UnloadUnusedAssets();
                 yield return new WaitForEndOfFrame();
@@ -520,25 +545,29 @@ public class GenerationManager : MonoBehaviour
                 yield return new WaitForEndOfFrame();
                 yield return null;
 
-                string enum_name = t.ToString().ToLower();
+                string enum_name = get_terrain_name(t);
 
                 MapFileWriter.GenerateImage(str + "_" + enum_name, mgr.Texture); // summer image
 
-                do_season_change();
+                if (t != Terrain.CAVE) // underworld layer does not need winter sprites
+                {
+                    do_season_change();
 
-                yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
-                yield return new WaitForEndOfFrame();
-                yield return null;
+                    yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
+                    yield return new WaitForEndOfFrame();
+                    yield return null;
 
-                MapFileWriter.GenerateImage(str + "_" + enum_name + "_winter", mgr.Texture); // winter image
+                    MapFileWriter.GenerateImage(str + "_" + enum_name + "w", mgr.Texture); // winter image
 
-                do_season_change();
+                    do_season_change();
+                }
 
                 yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
                 yield return new WaitForEndOfFrame();
                 yield return null;
             }
 
+            ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
             ArtManager.s_art_manager.LockProvinceShapes(false);
             mgr.LockMapData(false);
 

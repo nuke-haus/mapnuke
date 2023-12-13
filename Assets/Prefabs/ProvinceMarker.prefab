@@ -434,6 +434,8 @@ MonoBehaviour:
     type: 3}
   MapSpritePrefab: {fileID: 1046635996423882, guid: ba1efdff4df0d574288077580a093a23,
     type: 3}
+  NormalSprite: {fileID: 21300000, guid: aac66ae2914811a4fa89c3c0c3a8edf1, type: 3}
+  CaveEntranceSprite: {fileID: 21300000, guid: 9b2380e324983f944945dac7e167a7d9, type: 3}
   Renderer: {fileID: 212424617286562402}
   Text: {fileID: 102400257190412448}
   Mesh: {fileID: 23798304006021742}

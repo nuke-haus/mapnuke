@@ -34,6 +34,8 @@ public class ProvinceMarker : MonoBehaviour
     public GameObject WrapMarkerPrefab;
     public GameObject MapSpritePrefab;
 
+    public Sprite NormalSprite;
+    public Sprite CaveEntranceSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
     public MeshRenderer Mesh;
@@ -280,6 +282,7 @@ public class ProvinceMarker : MonoBehaviour
         m_node = n;
         m_connections = new List<ConnectionMarker>();
 
+        UpdateSprite();
         UpdateLabel();
         UpdateColor();
         UpdateLinked();
@@ -384,6 +387,11 @@ public class ProvinceMarker : MonoBehaviour
         }
 
         m_widget.transform.position = transform.position + new Vector3(500f, 0f, 0f);
+    }
+
+    public void UpdateSprite()
+    {
+        Renderer.sprite = m_node.ProvinceData.HasCaveEntrance ? CaveEntranceSprite : NormalSprite;
     }
 
     public void UpdateColor()

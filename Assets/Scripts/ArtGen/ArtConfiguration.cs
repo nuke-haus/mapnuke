@@ -57,12 +57,24 @@ public class ArtConfiguration : MonoBehaviour
     public MapSpriteSet Mountains;
     public MapSpriteSet Waste;
 
+    [Header("Underworld Province Sprite Sets")]
+    public MapSpriteSet UnderworldCave;
+    public MapSpriteSet UnderworldSwamp;
+    public MapSpriteSet UnderworldForest;
+    public MapSpriteSet UnderworldHighland;
+
     [Header("Connection Sprite Sets")]
     public ConnectionSpriteSet Road;
     public ConnectionSpriteSet Mountain;
     public ConnectionSpriteSet MountainPass;
     public ConnectionSpriteSet RiverHorizontal;
     public ConnectionSpriteSet RiverVertical;
+
+    [Header("Underworld Province Mesh Materials")]
+    public Material MatUnderworldSwamp;
+    public Material MatUnderworldForest;
+    public Material MatUnderworldHighland;
+    public Material MatUnderworldCave;
 
     [Header("Summer Province Mesh Materials")]
     public Material MatSwamp;
@@ -139,6 +151,46 @@ public class ArtConfiguration : MonoBehaviour
         else // plains
         {
             return Plains.CullChance;
+        }
+    }
+
+    public MapSpriteSet GetUnderworldSpriteSet(Terrain flags)
+    {
+        if (flags.IsFlagSet(Terrain.SWAMP))
+        {
+            return UnderworldSwamp;
+        }
+        else if (flags.IsFlagSet(Terrain.FOREST))
+        {
+            return UnderworldForest;
+        }
+        else if (flags.IsFlagSet(Terrain.HIGHLAND))
+        {
+            return UnderworldHighland;
+        }
+        else
+        {
+            return UnderworldCave;
+        }
+    }
+
+    public ProvinceSprite GetUnderworldSprite(Terrain flags)
+    {
+        if (flags.IsFlagSet(Terrain.SWAMP))
+        {
+            return UnderworldSwamp.GetSprite(flags);
+        }
+        else if (flags.IsFlagSet(Terrain.FOREST))
+        {
+            return UnderworldForest.GetSprite(flags);
+        }
+        else if (flags.IsFlagSet(Terrain.HIGHLAND))
+        {
+            return UnderworldHighland.GetSprite(flags);
+        }
+        else
+        {
+            return UnderworldCave.GetSprite(flags);
         }
     }
 

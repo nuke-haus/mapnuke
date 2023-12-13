@@ -48,6 +48,9 @@ public class NationData
     [XmlElement("Age")]
     public Age Age;
 
+    [XmlElement("HasCaveEntranceInCapRing")]
+    public bool HasCaveEntranceInCapRing;
+
     [XmlElement("CapRingSize")]
     public int CapRingSize;
 
@@ -107,7 +110,7 @@ public static class AllNationData
 
     public static void SortNations()
     {
-        AllNations.Sort((x, y) => x.Name.CompareTo(y.Name));
+        AllNations.Sort((x, y) => x.ID.CompareTo(y.ID));
     }
 
     public static void AddNations(NationCollection coll)

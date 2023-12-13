@@ -26,6 +26,7 @@ public class ArtManager : MonoBehaviour
     private ArtStyle m_art;
     private RenderTexture m_render_texture;
     private bool m_lock_province_shapes = false;
+    private bool m_override_underworld = false;
 
     public RenderTexture Texture
     {
@@ -46,6 +47,7 @@ public class ArtManager : MonoBehaviour
         }
     }
 
+    public bool IsUsingUnderworldTerrain => m_override_underworld;
     public bool IsLockingProvinceShapes => m_lock_province_shapes;
 
     public void OnArtStyleDropdownValueChanged(Dropdown d)
@@ -115,6 +117,11 @@ public class ArtManager : MonoBehaviour
         m_lock_province_shapes = is_locked;
     }
 
+    public void OnOverrideProvinceTerrain(bool is_underworld)
+    {
+        m_override_underworld = is_underworld;
+    }
+
     public void ChangeSeason(Season s)
     {
         m_art.ChangeSeason(s);
@@ -122,11 +129,21 @@ public class ArtManager : MonoBehaviour
 
     public ProvinceSprite GetProvinceSprite(Terrain flags)
     {
+        if (m_override_underworld)
+        {
+            return CurrentArtConfiguration.GetUnderworldSprite(flags);
+        }
+
         return CurrentArtConfiguration.GetMapSprite(flags);
     }
 
     public MapSpriteSet GetMapSpriteSet(Terrain flags)
     {
+        if (m_override_underworld) 
+        {
+            return CurrentArtConfiguration.GetUnderworldSpriteSet(flags);
+        }
+
         return CurrentArtConfiguration.GetMapSpriteSet(flags);
     }
 

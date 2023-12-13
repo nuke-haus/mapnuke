@@ -17,7 +17,8 @@ public class GeneratorSettings
     public FloatRange WasteFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange MountainFreq = new FloatRange(0.05f, 0.07f);
     public FloatRange HighlandFreq = new FloatRange(0.04f, 0.06f);
-    public FloatRange CaveFreq = new FloatRange(0.05f, 0.07f);
+    // public FloatRange CaveFreq = new FloatRange(0.05f, 0.07f); // This is for Dom5, In Dom6 we want caves to only exist on their own layer
+    public FloatRange CaveFreq = new FloatRange(0.0f, 0.0f);
     public FloatRange FarmFreq = new FloatRange(0.14f, 0.16f);
     public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
     public FloatRange LakeFreq = new FloatRange(0.02f, 0.06f);
@@ -32,6 +33,8 @@ public class GeneratorSettings
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
 
     public float CustomNameFreq = 0.05f;
+    public float UnderworldCaveFreq = 0.5f;
+    public int NumCaveEntrancesPerPlayer = 1;
 
     public bool UseClassicMountains = true;
 }

@@ -31,7 +31,17 @@ public enum Terrain
 /// </summary>
 public class ProvinceData
 {
+    // Dom6 has a new cave layer we need to support for those maps, it doesn't fit into the Terrain enum though 
+    public static readonly long Dom6CaveWall = 68719476736;
+    public static readonly long Dom6Cave = 576460752303423488;
+
     public Terrain Terrain
+    {
+        get;
+        private set;
+    }
+
+    public Terrain CaveTerrain
     {
         get;
         private set;
@@ -44,6 +54,18 @@ public class ProvinceData
     }
 
     public string CustomName 
+    {
+        get;
+        private set;
+    }
+
+    public bool HasCaveEntrance
+    {
+        get;
+        private set;
+    }
+
+    public bool IsCaveWall
     {
         get;
         private set;
@@ -94,6 +116,7 @@ public class ProvinceData
 
     public ProvinceData()
     {
+        CaveTerrain = Terrain.PLAINS;
         Terrain = Terrain.PLAINS;
         ID = -1;
         CustomName = string.Empty;
@@ -101,9 +124,20 @@ public class ProvinceData
 
     public ProvinceData(Terrain t)
     {
+        CaveTerrain = Terrain.PLAINS;
         Terrain = t;
         ID = -1;
         CustomName = string.Empty;
+    }
+
+    public void SetHasCaveEntrance(bool has_entrance)
+    {
+        HasCaveEntrance = has_entrance;
+    }
+
+    public void SetIsCaveWall(bool is_cave_wall)
+    {
+        IsCaveWall = is_cave_wall;  
     }
 
     public void SetCustomName(string name)

@@ -26,6 +26,9 @@
       /// Which age does this nation appear in? 
 	    /// Possible options are: 
 			/// ALL, EARLY, MIDDLE, LATE
+
+      <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>                        
+      /// Does the nation have a cave entrance in one of their capring provinces? (Only for Dom6) 
 	  
       <CapRingSize>5</CapRingSize>            
       /// How many provinces are in the nation's capring? This value can be between 4 and 8 inclusive.
@@ -193,6 +196,7 @@
     <ID>17</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -344,6 +348,7 @@
     <ID>31</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -567,6 +572,7 @@
     <ID>54</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -728,6 +734,7 @@
     <ID>68</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -968,6 +975,7 @@
     <ID>90</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -1091,6 +1099,7 @@
     <ID>101</ID>
     <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>

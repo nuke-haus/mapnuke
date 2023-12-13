@@ -60,6 +60,13 @@ public class ElementManager : MonoBehaviour
         {
             // We need to account for some existing modifiers when we override the province terrain
             Terrain desired_terrain = t;
+
+            if (t == Terrain.CAVE)
+            {
+                desired_terrain = Terrain.PLAINS; // We don't use CAVE for the underworld flags, it's a bit confusing so bear with me
+                desired_terrain.SetFlags(province.Node.LockedProvinceData.CaveTerrain, true);
+            }
+
             if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.MANYSITES))
             {
                 desired_terrain.SetFlags(Terrain.MANYSITES, true);
@@ -82,8 +89,8 @@ public class ElementManager : MonoBehaviour
             province.Node.ProvinceData.SetTerrainFlags(desired_terrain);
         }
 
-        // For water provinces we need only standard connections
-        if (t.IsFlagSet(Terrain.SEA))
+        // For water and cave provinces we need only standard connections
+        if (t.IsFlagSet(Terrain.SEA) || t == Terrain.CAVE)
         {
             foreach (ConnectionMarker m in m_connections)
             {
