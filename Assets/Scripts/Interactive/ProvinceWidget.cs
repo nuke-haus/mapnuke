@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProvinceWidget : MonoBehaviour
 {
     public Sprite NormalSprite;
+    public Sprite CaveWallSprite;
     public Sprite CaveEntranceSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
@@ -67,7 +68,18 @@ public class ProvinceWidget : MonoBehaviour
 
     public void UpdateSprite(Node n)
     {
-        Renderer.sprite = n.ProvinceData.HasCaveEntrance ? CaveEntranceSprite : NormalSprite;
+        if (n.ProvinceData.HasCaveEntrance)
+        {
+            Renderer.sprite = CaveEntranceSprite;
+        }
+        else if (n.ProvinceData.IsCaveWall)
+        {
+            Renderer.sprite = CaveWallSprite;
+        }
+        else
+        {
+            Renderer.sprite = NormalSprite;
+        }
     }
 
     public void UpdateColor(Node n)

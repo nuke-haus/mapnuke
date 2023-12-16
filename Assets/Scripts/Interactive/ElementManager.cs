@@ -72,7 +72,7 @@ public class ElementManager : MonoBehaviour
                 desired_terrain.SetFlags(Terrain.MANYSITES, true);
             }
 
-            if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.THRONE))
+            if (province.Node.LockedProvinceData.Terrain.IsFlagSet(Terrain.THRONE) && t != Terrain.CAVE)
             {
                 desired_terrain.SetFlags(Terrain.THRONE, true);
             }

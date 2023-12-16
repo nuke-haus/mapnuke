@@ -2970,7 +2970,7 @@ MonoBehaviour:
     CullChance: 0.5
     ProvinceEdgeThreshold: 0.1
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
+    - Sprite: {fileID: 21300000, guid: f6940ea1866034c4e8ca27b513c37b49, type: 3}
       WinterSprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
       SpawnChance: 1
       Size: 1
@@ -2987,7 +2987,7 @@ MonoBehaviour:
     CullChance: 0.5
     ProvinceEdgeThreshold: 0.1
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
+    - Sprite: {fileID: 21300000, guid: 2177d44e7a204f44ea6fdb40834971bc, type: 3}
       WinterSprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
       SpawnChance: 1
       Size: 1
@@ -3004,7 +3004,7 @@ MonoBehaviour:
     CullChance: 0.5
     ProvinceEdgeThreshold: 0.1
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
+    - Sprite: {fileID: 21300000, guid: f6940ea1866034c4e8ca27b513c37b49, type: 3}
       WinterSprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
       SpawnChance: 1
       Size: 1
@@ -3021,7 +3021,7 @@ MonoBehaviour:
     CullChance: 0.5
     ProvinceEdgeThreshold: 0.1
     MapSprites:
-    - Sprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
+    - Sprite: {fileID: 21300000, guid: dab7e4d360a1a3c4bb720618e729857e, type: 3}
       WinterSprite: {fileID: 21300000, guid: acc749255ac5c5340a27cbae39ee7d09, type: 3}
       SpawnChance: 1
       Size: 1
@@ -3320,11 +3320,13 @@ MonoBehaviour:
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
-  MatUnderworldSwamp: {fileID: 2100000, guid: eeaa8e67bf2776d469488333f90dba70, type: 2}
-  MatUnderworldForest: {fileID: 2100000, guid: c1ee0233f2dcb884f939eeb75b89579b, type: 2}
-  MatUnderworldHighland: {fileID: 2100000, guid: 6cc23965055c2c8439cb87c0f334f890,
+  MatUnderworldSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
+  MatUnderworldForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
+  MatUnderworldHighland: {fileID: 2100000, guid: 35efbc1f749ad1f40a0873f7085ecba6,
     type: 2}
-  MatUnderworldCave: {fileID: 2100000, guid: 4163634561c3b144fb631a62e04ea596, type: 2}
+  MatUnderworldCave: {fileID: 2100000, guid: 6cc23965055c2c8439cb87c0f334f890, type: 2}
+  MatUnderworldImpassable: {fileID: 2100000, guid: d6c3602522938b04491b1083299e3fec,
+    type: 2}
   MatSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
   MatForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
   MatWaste: {fileID: 2100000, guid: d6c3602522938b04491b1083299e3fec, type: 2}

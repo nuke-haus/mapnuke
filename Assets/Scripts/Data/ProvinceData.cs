@@ -124,7 +124,6 @@ public class ProvinceData
 
     public ProvinceData(Terrain t)
     {
-        CaveTerrain = Terrain.PLAINS;
         Terrain = t;
         ID = -1;
         CustomName = string.Empty;
@@ -145,9 +144,19 @@ public class ProvinceData
         CustomName = name.Trim();
     }
 
+    public void SetCaveTerrainFlags(Terrain flags)
+    {
+        CaveTerrain = flags;
+    }
+
     public void SetTerrainFlags(Terrain flags)
     {
         Terrain = flags;
+    }
+
+    public void AddCaveTerrainFlag(Terrain flag)
+    {
+        CaveTerrain = CaveTerrain | flag;
     }
 
     public void AddTerrainFlag(Terrain flag)
@@ -158,9 +167,12 @@ public class ProvinceData
     public ProvinceData Clone()
     {
         ProvinceData clone = new ProvinceData();
+        clone.SetCaveTerrainFlags(CaveTerrain);
         clone.SetTerrainFlags(Terrain);
         clone.SetCustomName(CustomName);
         clone.SetID(ID);
+        clone.SetIsCaveWall(IsCaveWall);
+        clone.SetHasCaveEntrance(HasCaveEntrance);
         return clone;
     }
 }

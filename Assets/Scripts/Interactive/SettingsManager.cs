@@ -113,7 +113,8 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.SwampFreq.Reset();
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
         GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = 1;
-        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.5f;
+        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.25f;
+        GeneratorSettings.s_generator_settings.CustomNameFreq = 0.05f;
 
         update_textboxes();
         update_labels();

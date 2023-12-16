@@ -75,6 +75,7 @@ public class ArtConfiguration : MonoBehaviour
     public Material MatUnderworldForest;
     public Material MatUnderworldHighland;
     public Material MatUnderworldCave;
+    public Material MatUnderworldImpassable;
 
     [Header("Summer Province Mesh Materials")]
     public Material MatSwamp;

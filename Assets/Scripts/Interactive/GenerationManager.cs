@@ -562,20 +562,22 @@ public class GenerationManager : MonoBehaviour
                     MapFileWriter.GenerateImage(str + "_" + enum_name + "w", mgr.Texture); // winter image
 
                     do_season_change();
-                }
 
-                yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
-                yield return new WaitForEndOfFrame();
-                yield return null;
+                    yield return new WaitUntil(() => ArtManager.s_art_manager.JustChangedSeason);
+                    yield return new WaitForEndOfFrame();
+                    yield return null;
+                }
             }
 
             ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
-            ArtManager.s_art_manager.LockProvinceShapes(false);
             mgr.LockMapData(false);
 
             Resources.UnloadUnusedAssets();
             yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
             yield return new WaitForEndOfFrame();
+            yield return null;
+
+            ArtManager.s_art_manager.LockProvinceShapes(false);
         }
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);

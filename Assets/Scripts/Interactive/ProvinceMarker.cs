@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,12 @@ using UnityEngine;
 /// </summary>
 public class ProvinceMarker : MonoBehaviour
 {
+    public Material MatUnderworldWall;
+    public Material MatUnderworldNormal;
+    public Material MatUnderworldForest;
+    public Material MatUnderworldSwamp;
+    public Material MatUnderworldHighland;
+
     public Material MatSwamp;
     public Material MatForest;
     public Material MatWaste;
@@ -148,6 +155,12 @@ public class ProvinceMarker : MonoBehaviour
     public void UpdateArtStyle()
     {
         var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        MatUnderworldWall = art_config.MatUnderworldImpassable;
+        MatUnderworldForest = art_config.MatUnderworldForest;
+        MatUnderworldHighland = art_config.MatUnderworldHighland;
+        MatUnderworldNormal = art_config.MatUnderworldCave;
+        MatUnderworldSwamp = art_config.MatUnderworldSwamp;
 
         MatSwamp = art_config.MatSwamp;
         MatForest = art_config.MatForest;
@@ -391,7 +404,12 @@ public class ProvinceMarker : MonoBehaviour
 
     public void UpdateSprite()
     {
-        Renderer.sprite = m_node.ProvinceData.HasCaveEntrance ? CaveEntranceSprite : NormalSprite;
+        if (m_widget == null)
+        {
+            return;
+        }
+
+        m_widget.SetNode(m_node);
     }
 
     public void UpdateColor()
@@ -1170,7 +1188,31 @@ public class ProvinceMarker : MonoBehaviour
             }
         }
 
-        Mesh.material.color = get_node_color(m_node);//SetColor("_Color", get_node_color(m_node));
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            if (m_node.ProvinceData.IsCaveWall)
+            {
+                Mesh.material = MatUnderworldWall;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.FOREST))
+            {
+                Mesh.material = MatUnderworldForest;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SWAMP))
+            {
+                Mesh.material = MatUnderworldSwamp;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.HIGHLAND))
+            {
+                Mesh.material = MatUnderworldHighland;
+            }
+            else
+            {
+                Mesh.material = MatUnderworldNormal;
+            }
+        }
+
+        Mesh.material.color = get_node_color(m_node);
 
         if (m_wraps != null)
         {

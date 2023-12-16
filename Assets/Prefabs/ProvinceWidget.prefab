@@ -403,7 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3881f3f41094d47409cb562674225094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalSprite: {fileID: 21300000, guid: aac66ae2914811a4fa89c3c0c3a8edf1, type: 3}
+  NormalSprite: {fileID: 21300000, guid: 2bb77666ae7a2f94ca1b252bf2f7d197, type: 3}
+  CaveWallSprite: {fileID: 21300000, guid: aac66ae2914811a4fa89c3c0c3a8edf1, type: 3}
   CaveEntranceSprite: {fileID: 21300000, guid: 9b2380e324983f944945dac7e167a7d9, type: 3}
   Renderer: {fileID: 3679542901046797633}
   Text: {fileID: 8220256454887567701}

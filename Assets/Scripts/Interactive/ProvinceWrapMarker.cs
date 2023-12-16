@@ -8,6 +8,12 @@ using UnityEngine;
 /// </summary>
 public class ProvinceWrapMarker : MonoBehaviour
 {
+    public Material MatUnderworldWall;
+    public Material MatUnderworldNormal;
+    public Material MatUnderworldForest;
+    public Material MatUnderworldSwamp;
+    public Material MatUnderworldHighland;
+
     public Material MatSwamp;
     public Material MatForest;
     public Material MatWaste;
@@ -72,6 +78,12 @@ public class ProvinceWrapMarker : MonoBehaviour
     public void UpdateArtStyle()
     {
         var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
+
+        MatUnderworldWall = art_config.MatUnderworldImpassable;
+        MatUnderworldForest = art_config.MatUnderworldForest;
+        MatUnderworldHighland = art_config.MatUnderworldHighland;
+        MatUnderworldNormal = art_config.MatUnderworldCave;
+        MatUnderworldSwamp = art_config.MatUnderworldSwamp;
 
         MatSwamp = art_config.MatSwamp;
         MatForest = art_config.MatForest;
@@ -304,6 +316,30 @@ public class ProvinceWrapMarker : MonoBehaviour
             else
             {
                 Mesh.material = MatWinterPlains;
+            }
+        }
+
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            if (m_node.ProvinceData.IsCaveWall)
+            {
+                Mesh.material = MatUnderworldWall;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.FOREST))
+            {
+                Mesh.material = MatUnderworldForest;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SWAMP))
+            {
+                Mesh.material = MatUnderworldSwamp;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.HIGHLAND))
+            {
+                Mesh.material = MatUnderworldHighland;
+            }
+            else
+            {
+                Mesh.material = MatUnderworldNormal;
             }
         }
     }
