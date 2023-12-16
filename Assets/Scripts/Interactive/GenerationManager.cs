@@ -578,6 +578,10 @@ public class GenerationManager : MonoBehaviour
             yield return null;
 
             ArtManager.s_art_manager.LockProvinceShapes(false);
+
+            MapFileWriter.GenerateCaveLayerText(str + "_cave", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+
+            yield return null;
         }
 
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);

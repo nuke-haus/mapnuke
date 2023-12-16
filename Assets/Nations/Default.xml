@@ -196,7 +196,6 @@
     <ID>17</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -348,7 +347,6 @@
     <ID>31</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -572,7 +570,6 @@
     <ID>54</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -734,7 +731,6 @@
     <ID>68</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -975,7 +971,6 @@
     <ID>90</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
@@ -1099,7 +1094,6 @@
     <ID>101</ID>
     <WaterPercentage>0.15</WaterPercentage>
     <Age>LATE</Age>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>  
     <CapRingSize>5</CapRingSize>
     <CapTerrain>CAVE</CapTerrain>
     <TerrainData>CAVE</TerrainData>
