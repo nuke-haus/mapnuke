@@ -691,12 +691,12 @@ internal static class WorldGenerator
             Debug.LogWarning("Generating valid caves took too long, settling with imperfect results");
         }
 
-        var non_cap_nodes = m_nodes.Where(x => !x.HasNation).ToList();
+        var non_cap_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall).ToList();
         non_cap_nodes.Shuffle();
 
         var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cap_nodes.Count);
-        var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // underground swamps are more akin to farms
-        var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom() * non_cap_nodes.Count);
+        var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); 
+        var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // crystal caves and drip caves should be a bit more common
         var count = 0;
 
         while (count < num_forests)
@@ -710,7 +710,6 @@ internal static class WorldGenerator
         }
 
         count = 0;
-
         while (count < num_swamps)
         {
             var node = non_cap_nodes[0];
@@ -722,7 +721,6 @@ internal static class WorldGenerator
         }
 
         count = 0;
-
         while (count < num_highlands)
         {
             var node = non_cap_nodes[0];

@@ -3320,12 +3320,12 @@ MonoBehaviour:
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
-  MatUnderworldSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
-  MatUnderworldForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
-  MatUnderworldHighland: {fileID: 2100000, guid: 35efbc1f749ad1f40a0873f7085ecba6,
+  MatUnderworldSwamp: {fileID: 2100000, guid: 9192857724138f04489c24ef9ef83bec, type: 2}
+  MatUnderworldForest: {fileID: 2100000, guid: 51e5a7b9eac73e0439e0b7d568510198, type: 2}
+  MatUnderworldHighland: {fileID: 2100000, guid: 9a140889cedcfd2459dd70f4e3ec7d6b,
     type: 2}
-  MatUnderworldCave: {fileID: 2100000, guid: 6cc23965055c2c8439cb87c0f334f890, type: 2}
-  MatUnderworldImpassable: {fileID: 2100000, guid: d6c3602522938b04491b1083299e3fec,
+  MatUnderworldCave: {fileID: 2100000, guid: caa5e5cccff21db41ab9c6a5eafa9174, type: 2}
+  MatUnderworldImpassable: {fileID: 2100000, guid: 235c5544ac89fbc4aa1299ababd240c0,
     type: 2}
   MatSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
   MatForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
