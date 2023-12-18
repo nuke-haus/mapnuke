@@ -464,7 +464,7 @@ public class GenerationManager : MonoBehaviour
         switch (terrain)
         {
             case Terrain.CAVE:
-                return "cave";
+                return "plane2"; // we need to use this name for cave plane
             case Terrain.PLAINS:
                 return "plain";
             case Terrain.FARM:
@@ -579,7 +579,7 @@ public class GenerationManager : MonoBehaviour
 
             ArtManager.s_art_manager.LockProvinceShapes(false);
 
-            MapFileWriter.GenerateCaveLayerText(str + "_cave", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+            MapFileWriter.GenerateCaveLayerText(str + "_plane2", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
 
             yield return null;
         }
