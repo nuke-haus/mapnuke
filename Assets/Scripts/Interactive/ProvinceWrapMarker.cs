@@ -389,7 +389,13 @@ public class ProvinceWrapMarker : MonoBehaviour
             return m_sprites;
         }
 
-        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+        Terrain terrain = m_node.ProvinceData.Terrain;
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            terrain = m_node.ProvinceData.CaveTerrain;
+        }
+
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(terrain);
 
         if (!set.MapSprites.Any())
         {
@@ -406,7 +412,7 @@ public class ProvinceWrapMarker : MonoBehaviour
         while (m_sprite_points.Any())
         {
             var pos = m_sprite_points[0];
-            var ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
+            var ps = set.GetSprite(terrain);
 
             if (ps == null)
             {
@@ -416,7 +422,7 @@ public class ProvinceWrapMarker : MonoBehaviour
 
             while (UnityEngine.Random.Range(0f, 1f) > ps.SpawnChance)
             {
-                ps = ArtManager.s_art_manager.GetProvinceSprite(m_node.ProvinceData.Terrain);
+                ps = set.GetSprite(terrain);
 
                 if (ps == null)
                 {
@@ -460,7 +466,14 @@ public class ProvinceWrapMarker : MonoBehaviour
         var mins = get_mins();
         var maxs = get_maxs();
         var cur = new Vector3(mins.x, mins.y);
-        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+
+        Terrain terrain = m_node.ProvinceData.Terrain;
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            terrain = m_node.ProvinceData.CaveTerrain;
+        }
+
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(terrain);
 
         while (cur.x < maxs.x)
         {

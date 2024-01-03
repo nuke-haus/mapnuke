@@ -826,7 +826,7 @@ public class GenerationManager : MonoBehaviour
                 np.Initialize();
                 np.SetTeamplay(m_teamplay);
 
-                populate_nations(np.NationDropdown, i);
+                populate_nations(np.NationDropdown, 0);
 
                 rt.localPosition = new Vector3(0, -17 - (i * 34), 0);
                 rt.sizeDelta = new Vector2(0, 34);
@@ -840,7 +840,7 @@ public class GenerationManager : MonoBehaviour
                 np.Initialize();
                 np.SetTeamplay(m_teamplay);
 
-                populate_nations(np.NationDropdown, i);
+                populate_nations(np.NationDropdown, 0);
 
                 rt.SetParent(tf);
                 rt.localPosition = new Vector3(0, -17 - (i * 34), 0);

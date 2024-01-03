@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Nation>
+    <Name>Generic Cave</Name>
+    <ID>-1</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>ALL</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>CAVE</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
     <Name>Generic Plains</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
@@ -18,17 +29,6 @@
     <Age>ALL</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>Generic Cave</Name>
-    <ID>-1</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>ALL</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>

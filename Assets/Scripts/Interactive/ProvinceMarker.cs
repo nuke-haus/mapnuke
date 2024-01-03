@@ -858,7 +858,13 @@ public class ProvinceMarker : MonoBehaviour
             }
         }
 
-        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+        Terrain terrain = m_node.ProvinceData.Terrain;
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            terrain = m_node.ProvinceData.CaveTerrain;
+        }
+
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(terrain);
 
         if (!set.MapSprites.Any() || (m_node.ProvinceData.IsCaveWall && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
@@ -981,7 +987,14 @@ public class ProvinceMarker : MonoBehaviour
         var maxs = get_maxs();
         var cur = new Vector3(mins.x, mins.y);
         var roads_rivers = m_connections.Where(x => x.Connection.ConnectionType == ConnectionType.ROAD || x.Connection.ConnectionType == ConnectionType.SHALLOWRIVER);
-        var set = ArtManager.s_art_manager.GetMapSpriteSet(m_node.ProvinceData.Terrain);
+
+        Terrain terrain = m_node.ProvinceData.Terrain;
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            terrain = m_node.ProvinceData.CaveTerrain;
+        }
+
+        var set = ArtManager.s_art_manager.GetMapSpriteSet(terrain);
 
         while (cur.x < maxs.x)
         {

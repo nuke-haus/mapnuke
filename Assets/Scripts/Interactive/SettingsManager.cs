@@ -92,7 +92,7 @@ public class SettingsManager : MonoBehaviour
         CliffPassMax.text = GeneratorSettings.s_generator_settings.CliffPassFreq.MaxInt.ToString();
         ProcNameChance.text = (GeneratorSettings.s_generator_settings.CustomNameFreq * 100).ToString();
         NumCaveEntrances.text = GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer.ToString();
-        UnderworldCaveFreq.text = GeneratorSettings.s_generator_settings.UnderworldCaveFreq.ToString();
+        UnderworldCaveFreq.text = (GeneratorSettings.s_generator_settings.UnderworldCaveFreq * 100).ToString();
     }
 
     public void ResetSettings()
@@ -113,7 +113,7 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.SwampFreq.Reset();
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
         GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = 1;
-        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.25f;
+        GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.2f;
         GeneratorSettings.s_generator_settings.CustomNameFreq = 0.05f;
 
         update_textboxes();
