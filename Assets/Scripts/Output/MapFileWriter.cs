@@ -181,7 +181,10 @@ public static class MapFileWriter
                 {
                     if (is_for_dom6)
                     {
-                        terr |= Terrain.THRONE; // in dom6 the START and THRONE flags got reversed. don't ask me why, idk.
+                        if (m.Node.Nation.NationData.ID == -1)
+                        {
+                            terr |= Terrain.GENERICSTART;
+                        }
                     } 
                     else
                     {
