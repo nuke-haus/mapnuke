@@ -21,7 +21,7 @@ public class CustomNameDataCollection
     {
         var valid_data = Data.Where(x => x.ID == id &&
                                         !x.BlockedTerrain.Where(y => terrain.HasFlag(y)).Any() && 
-                                        (x.Terrain == Terrain.NOTHRONE || ((x.Terrain != Terrain.PLAINS && terrain.HasFlag(x.Terrain)) || (x.Terrain == Terrain.PLAINS && is_plains))));
+                                        (x.Terrain == Terrain.GENERICSTART || ((x.Terrain != Terrain.PLAINS && terrain.HasFlag(x.Terrain)) || (x.Terrain == Terrain.PLAINS && is_plains))));
 
         var strings = new List<string>();
 
@@ -71,7 +71,7 @@ public class CustomNameFormat
     public List<string> Strings;
 
     [XmlElement("BlockedTerrain")]
-    public List<Terrain> BlockedTerrain = new List<Terrain> { Terrain.NOTHRONE }; // filter against this value
+    public List<Terrain> BlockedTerrain = new List<Terrain> { Terrain.GENERICSTART }; // filter against this value
 
     public CustomNameFormat()
     {
@@ -87,10 +87,10 @@ public class CustomNameData
     public string ID;
 
     [XmlElement("Terrain")]
-    public Terrain Terrain = Terrain.NOTHRONE; // default nothrone flag is treated as global data that gets used on all province types
+    public Terrain Terrain = Terrain.GENERICSTART; // default nothrone flag is treated as global data that gets used on all province types
 
     [XmlElement("BlockedTerrain")]
-    public List<Terrain> BlockedTerrain = new List<Terrain> { Terrain.NOTHRONE }; // filter against this value
+    public List<Terrain> BlockedTerrain = new List<Terrain> { Terrain.GENERICSTART }; // filter against this value
 
     [XmlElement("String")]
     public List<string> Strings;
