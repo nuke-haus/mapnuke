@@ -81,9 +81,9 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 10
     - _Threshold1: 0.29
-    - _Threshold2: 0.45
-    - _Threshold3: 0.76
-    - _Threshold4: 0.91
+    - _Threshold2: 0.48
+    - _Threshold3: 0.7
+    - _Threshold4: 0.9
     - _UVSec: 0
     - _X: 1
     - _Y: 6
