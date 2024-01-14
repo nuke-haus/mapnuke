@@ -195,11 +195,13 @@
     <Name>(EA) Agartha</Name>
     <ID>17</ID>
     <WaterPercentage>0.1</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -346,11 +348,13 @@
     <Name>(EA) Xibalba</Name>
     <ID>31</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -569,10 +573,12 @@
     <Name>(MA) Agartha</Name>
     <ID>54</ID>
     <WaterPercentage>0.1</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
@@ -730,10 +736,11 @@
     <Name>(MA) Xibalba</Name>
     <ID>68</ID>
     <WaterPercentage>0.1</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
@@ -970,11 +977,13 @@
     <Name>(LA) Agartha</Name>
     <ID>90</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -1093,10 +1102,12 @@
     <Name>(LA) Xibalba</Name>
     <ID>101</ID>
     <WaterPercentage>0.15</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>

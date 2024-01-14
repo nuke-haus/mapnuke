@@ -4,9 +4,11 @@
     <Name>Generic Cave</Name>
     <ID>-1</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>ALL</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>

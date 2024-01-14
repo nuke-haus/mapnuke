@@ -134,7 +134,7 @@ public static class MapFileWriter
             {
                 if (m.Node.HasNation)
                 {
-                    if (m.Node.Nation.NationData.ID == -1)
+                    if (m.Node.Nation.NationData.ID == -1 && !m.Node.Nation.NationData.StartsUnderground)
                     {
                         if (teamplay)
                         {
@@ -145,7 +145,7 @@ public static class MapFileWriter
                             write(fs, "#start " + m.ProvinceNumber);
                         }
                     }
-                    else
+                    else if (!m.Node.Nation.NationData.StartsUnderground)
                     {
                         write(fs, "#specstart " + m.Node.Nation.NationData.ID + " " + m.ProvinceNumber);
                     }
@@ -181,7 +181,7 @@ public static class MapFileWriter
                 {
                     if (is_for_dom6)
                     {
-                        if (m.Node.Nation.NationData.ID == -1)
+                        if (m.Node.Nation.NationData.ID == -1 && !m.Node.Nation.NationData.StartsUnderground)
                         {
                             terr |= Terrain.GENERICSTART;
                         }
@@ -212,30 +212,28 @@ public static class MapFileWriter
 
             write(fs, "\n-- Province Border Data");
 
+            var cur = 0;
+            for (var cur_y = 0; cur_y < y; ++cur_y)
             {
-                var cur = 0;
-                for (var cur_y = 0; cur_y < y; ++cur_y)
+                var cur_id = 0;
+                var cur_px = 0;
+                var cur_x = 0;
+                for (; cur_x < x; ++cur_x)
                 {
-                    var cur_id = 0;
-                    var cur_px = 0;
-                    var cur_x = 0;
-                    for (; cur_x < x; ++cur_x)
+                    var nex_id = province_ids[cur];
+                    if (nex_id != cur_id)
                     {
-                        var nex_id = province_ids[cur];
-                        if (nex_id != cur_id)
+                        if (cur_id != 0)
                         {
-                            if (cur_id != 0)
-                            {
-                                write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
-                            }
-                            cur_px = 0;
+                            write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
                         }
-                        cur_id = nex_id;
-                        cur_px++;
-                        cur++;
+                        cur_px = 0;
                     }
-                    if (cur_id != 0) write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
+                    cur_id = nex_id;
+                    cur_px++;
+                    cur++;
                 }
+                if (cur_id != 0) write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
             }
 
             fs.Close();
@@ -296,6 +294,30 @@ public static class MapFileWriter
                 }
             }
 
+            write(fs, "\n-- Player Cave Start Location Data");
+
+            foreach (var m in provs)
+            {
+                if (m.Node.HasNation)
+                {
+                    if (m.Node.Nation.NationData.ID == -1 && m.Node.Nation.NationData.StartsUnderground)
+                    {
+                        if (teamplay)
+                        {
+                            write(fs, "#teamstart " + m.ProvinceNumber + " " + m.Node.Nation.TeamNum);
+                        }
+                        else
+                        {
+                            write(fs, "#start " + m.ProvinceNumber);
+                        }
+                    }
+                    else if (m.Node.Nation.NationData.StartsUnderground)
+                    {
+                        write(fs, "#specstart " + m.Node.Nation.NationData.ID + " " + m.ProvinceNumber);
+                    }
+                }
+            }
+
             write(fs, "\n-- Province Terrain Data");
 
             foreach (var m in provs)
@@ -327,30 +349,28 @@ public static class MapFileWriter
 
             write(fs, "\n-- Province Border Data");
 
+            var cur = 0;
+            for (var cur_y = 0; cur_y < y; ++cur_y)
             {
-                var cur = 0;
-                for (var cur_y = 0; cur_y < y; ++cur_y)
+                var cur_id = 0;
+                var cur_px = 0;
+                var cur_x = 0;
+                for (; cur_x < x; ++cur_x)
                 {
-                    var cur_id = 0;
-                    var cur_px = 0;
-                    var cur_x = 0;
-                    for (; cur_x < x; ++cur_x)
+                    var nex_id = province_ids[cur];
+                    if (nex_id != cur_id)
                     {
-                        var nex_id = province_ids[cur];
-                        if (nex_id != cur_id)
+                        if (cur_id != 0)
                         {
-                            if (cur_id != 0)
-                            {
-                                write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
-                            }
-                            cur_px = 0;
+                            write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
                         }
-                        cur_id = nex_id;
-                        cur_px++;
-                        cur++;
+                        cur_px = 0;
                     }
-                    if (cur_id != 0) write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
+                    cur_id = nex_id;
+                    cur_px++;
+                    cur++;
                 }
+                if (cur_id != 0) write(fs, "#pb " + (cur_x - cur_px) + " " + cur_y + " " + cur_px + " " + cur_id);
             }
 
             fs.Close();

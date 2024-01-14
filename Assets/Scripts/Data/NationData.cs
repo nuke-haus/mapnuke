@@ -51,6 +51,9 @@ public class NationData
     [XmlElement("HasCaveEntranceInCapRing")]
     public bool HasCaveEntranceInCapRing;
 
+    [XmlElement("StartsUnderground")]
+    public bool StartsUnderground;
+
     [XmlElement("CapRingSize")]
     public int CapRingSize;
 
