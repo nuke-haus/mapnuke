@@ -3077,7 +3077,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: d13785b593b6c7b46a4ce4958751bbbe, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.2
+      Size: 0.28
       CullingRadius: 0.2
       CanFlip: 0
       CanFlipWinter: 0
@@ -3090,7 +3090,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: a8c9b04503ff0e1458b8b916e2489c94, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 0.1
-      Size: 0.2
+      Size: 0.25
       CullingRadius: 0.7
       CanFlip: 0
       CanFlipWinter: 0
@@ -3103,7 +3103,7 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 0181c0d7bcbf2814d9c799be96f4283c, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 0.1
-      Size: 0.2
+      Size: 0.28
       CullingRadius: 0.8
       CanFlip: 0
       CanFlipWinter: 0
@@ -3461,13 +3461,13 @@ MonoBehaviour:
       ValidTerrain: 0
   UnderworldHighland:
     CullChance: 0.7
-    ProvinceEdgeThreshold: 0.1
+    ProvinceEdgeThreshold: 0.15
     MapSprites:
     - Sprite: {fileID: 21300000, guid: ff3582f2384d23342b9f3afffaf968f2, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.2
-      CullingRadius: 0.2
+      Size: 0.3
+      CullingRadius: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3479,8 +3479,8 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 9f41f33eaefa11f438216c092ebb6b39, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.2
-      CullingRadius: 0.2
+      Size: 0.3
+      CullingRadius: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3492,8 +3492,8 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: a1fe8911bfc0ffe4e8a18f71f82c0bf2, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.2
-      CullingRadius: 0.2
+      Size: 0.3
+      CullingRadius: 0.3
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
