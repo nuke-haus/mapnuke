@@ -21,6 +21,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_OLDEMPIRE_B</Segment>
     <Segment>MID_OLDEMPIRE_B</Segment>
     <Segment>MID2_OLDEMPIRE_B</Segment>
@@ -30,6 +31,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_OLDEMPIRE_C</Segment>
     <Segment>END_OLDEMPIRE_C</Segment>
   </NameFormat>
@@ -38,6 +40,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_STARIK_A</Segment>
     <Segment>END_STARIK_A</Segment>
   </NameFormat>
@@ -47,6 +50,7 @@
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
     <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_UNION_A</Segment>
     <Segment>MID_UNION_A</Segment>
     <Segment>END_UNION_A</Segment>
@@ -56,6 +60,7 @@
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
     <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_UNION_B</Segment>
     <Segment>MID_UNION_B</Segment>
     <Segment>END_UNION_A</Segment>
@@ -89,6 +94,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_STYRIA_A</Segment>
     <Segment>END_STYRIA_A</Segment>
   </NameFormat>
@@ -96,6 +102,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_STYRIA_B</Segment>
     <Segment>END_STYRIA_B</Segment>
   </NameFormat>
@@ -103,6 +110,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_STYRIA_C</Segment>
     <Segment>END_STYRIA_C</Segment>
   </NameFormat>

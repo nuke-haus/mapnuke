@@ -294,6 +294,16 @@ public static class MapFileWriter
                 }
             }
 
+            write(fs, "\n-- Province Cave Custom Name Data");
+
+            foreach (var m in provs)
+            {
+                if (m.Node.ProvinceData.CaveCustomName != string.Empty)
+                {
+                    write(fs, "#landname " + m.ProvinceNumber + " \"" + m.Node.ProvinceData.CaveCustomName + "\"");
+                }
+            }
+
             write(fs, "\n-- Player Cave Start Location Data");
 
             foreach (var m in provs)

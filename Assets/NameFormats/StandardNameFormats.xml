@@ -42,4 +42,16 @@
     <Segment>CONCEPT</Segment>
   </NameFormat>
 
+  <NameFormat>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>CAVESTART</Segment>
+    <Segment>CAVEEND</Segment>
+  </NameFormat>
+
 </CustomNameFormatCollection>

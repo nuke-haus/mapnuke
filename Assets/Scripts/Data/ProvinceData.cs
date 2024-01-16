@@ -59,6 +59,12 @@ public class ProvinceData
         private set;
     }
 
+    public string CaveCustomName
+    {
+        get;
+        private set;
+    }
+
     public bool HasCaveEntrance
     {
         get;
@@ -120,6 +126,7 @@ public class ProvinceData
         Terrain = Terrain.PLAINS;
         ID = -1;
         CustomName = string.Empty;
+        CaveCustomName = string.Empty;
     }
 
     public ProvinceData(Terrain t)
@@ -127,6 +134,7 @@ public class ProvinceData
         Terrain = t;
         ID = -1;
         CustomName = string.Empty;
+        CaveCustomName = string.Empty;
     }
 
     public void SetHasCaveEntrance(bool has_entrance)
@@ -142,6 +150,11 @@ public class ProvinceData
     public void SetCustomName(string name)
     {
         CustomName = name.Trim();
+    }
+
+    public void SetCaveCustomName(string name)
+    {
+        CaveCustomName = name.Trim();
     }
 
     public void SetCaveTerrainFlags(Terrain flags)
@@ -170,6 +183,7 @@ public class ProvinceData
         clone.SetCaveTerrainFlags(CaveTerrain);
         clone.SetTerrainFlags(Terrain);
         clone.SetCustomName(CustomName);
+        clone.SetCaveCustomName(CaveCustomName);
         clone.SetID(ID);
         clone.SetIsCaveWall(IsCaveWall);
         clone.SetHasCaveEntrance(HasCaveEntrance);

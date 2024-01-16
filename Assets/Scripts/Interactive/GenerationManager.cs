@@ -252,6 +252,7 @@ public class GenerationManager : MonoBehaviour
         yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
 
         set_province_names(mgr.Provinces);
+        set_province_cave_names(mgr.Provinces);
 
         ProvinceManager.s_province_manager.SetLayout(layout);
         ConnectionManager.s_connection_manager.SetLayout(layout);
@@ -260,6 +261,26 @@ public class GenerationManager : MonoBehaviour
         foreach (var obj in HideableButtons)
         {
             obj.SetActive(true);
+        }
+    }
+
+    private void set_province_cave_names(List<ProvinceMarker> provinces)
+    {
+        foreach (var province in provinces)
+        {
+            if (!province.Node.ProvinceData.IsCaveWall)
+            {
+                var name = generate_cave_name(provinces, province);
+                var count = 0;
+
+                while (name == string.Empty && count < 20)
+                {
+                    name = generate_cave_name(provinces, province);
+                    count++;
+                }
+
+                province.Node.ProvinceData.SetCaveCustomName(name);
+            }
         }
     }
 
@@ -276,7 +297,44 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    private string generate_custom_name(List<ProvinceMarker> all, ProvinceMarker marker)
+    private string generate_cave_name(List<ProvinceMarker> all, ProvinceMarker marker)
+    {
+        var format = m_name_formats.GetRandom(Terrain.CAVE);
+        var name = string.Empty;
+
+        foreach (var id in format.Strings)
+        {
+            var str = m_name_data.GetRandomCaveString(id, marker.Node.ProvinceData.CaveTerrain);
+
+            if (str == null)
+            {
+                Debug.LogError($"Unable to find custom name data with id: {id}, terrain: {marker.Node.ProvinceData.CaveTerrain}");
+            }
+            else
+            {
+                if (id == "SPACE")
+                {
+                    name += " ";
+                }
+                else
+                {
+                    name += str;
+                }
+            }
+        }
+
+        name = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name);
+        name = name.Replace(" Of ", " of ");
+
+        if (all.Any(x => x.Node.ProvinceData.CaveCustomName != string.Empty && (x.Node.ProvinceData.CaveCustomName.Contains(name) || name.Contains(x.Node.ProvinceData.CaveCustomName))))
+        {
+            return string.Empty;
+        }
+
+        return name;
+    }
+
+    private string generate_custom_name(List<ProvinceMarker> all, ProvinceMarker marker, bool is_cave = false)
     {
         var format = m_name_formats.GetRandom(marker.Node.ProvinceData.Terrain);
         var name = string.Empty;

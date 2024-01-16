@@ -32,6 +32,7 @@ public class ProvinceManager : MonoBehaviour
     public Toggle HasCaveProvince;
     public Toggle Throne;
     public InputField Name;
+    public InputField CaveName;
     private ProvinceMarker m_current;
     private NodeLayoutData m_layout;
 
@@ -125,6 +126,7 @@ public class ProvinceManager : MonoBehaviour
 
         m_current.Node.ProvinceData.SetTerrainFlags(flags);
         m_current.Node.ProvinceData.SetCustomName(Name.text);
+        m_current.Node.ProvinceData.SetCaveCustomName(CaveName.text);
         m_current.Node.ProvinceData.SetHasCaveEntrance(HasCaveEntrance.isOn);
         m_current.Node.ProvinceData.SetIsCaveWall(!HasCaveProvince.isOn);
         m_current.UpdateColor();
@@ -240,7 +242,7 @@ public class ProvinceManager : MonoBehaviour
 
         clear_checkboxes();
         update_checkboxes(p.Node.ProvinceData.Terrain, p.Node.ProvinceData.HasCaveEntrance, !p.Node.ProvinceData.IsCaveWall);
-        update_name(p.Node.ProvinceData.CustomName);
+        update_name(p.Node.ProvinceData);
 
         GetComponent<AudioSource>().PlayOneShot(Audio);
     }
@@ -258,9 +260,10 @@ public class ProvinceManager : MonoBehaviour
         }
     }
 
-    private void update_name(string name)
+    private void update_name(ProvinceData data)
     {
-        Name.text = name;
+        Name.text = data.CustomName;
+        CaveName.text = data.CaveCustomName;
     }
 
     private void clear_checkboxes()

@@ -27,6 +27,34 @@
     <String>s</String>
   </NameData>
 
+  <!-- Dom6 has a cave layer so we need dedicated cave naming -->
+  <NameData>  
+      <ID>CAVESTART</ID>
+
+      <String>nether</String>
+      <String>under</String>
+      <String>earthen</String>
+      <String>silver</String>
+      <String>black</String>
+      <String>boulder</String>
+      <String>stone</String>
+      <String>chasm</String>
+      <String>shade</String>
+      <String>shadow</String>
+      <String>iron</String>
+      <String>steel</String>
+      <String>shale</String>
+  </NameData>
+  <NameData>  
+      <ID>CAVEEND</ID>
+
+      <String>home</String>
+      <String>dark</String>
+      <String>hall</String>
+      <String>breach</String>
+      <String>crag</String>
+  </NameData>
+
   <!-- Actual string collections to use for generating names -->
   <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
   <NameData>  
@@ -180,12 +208,50 @@
 
     <String>darkness</String>
     <String>brimstone</String>
-    <String>crystal</String>
     <String>echoes</String>
+    <String>shadows</String>
+    <String>whispers</String>
+    <String>dreams</String>
     <String>lead</String>
     <String>slate</String>
     <String>marble</String>
+    <String>bedrock</String>
+    <String>shale</String>
     <String>limestone</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>CAVE HIGHLAND</Terrain>
+
+    <String>brilliance</String>
+    <String>radiance</String>
+    <String>crystal</String>
+    <String>reflections</String>
+    <String>diamonds</String>
+    <String>jewels</String>
+    <String>gems</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>CAVE SWAMP</Terrain>
+
+    <String>misery</String>
+    <String>despair</String>
+    <String>sorrow</String>
+    <String>mud</String>
+    <String>silt</String>
+    <String>clay</String>
+    <String>moss</String>
+  </NameData>
+  <NameData>  
+    <ID>CONCEPT</ID>
+    <Terrain>CAVE FOREST</Terrain>
+
+    <String>respite</String>
+    <String>decay</String>
+    <String>fungus</String>
+    <String>life</String>
+    <String>creation</String>
   </NameData>
   <NameData>  
     <ID>CONCEPT</ID>
@@ -224,7 +290,7 @@
     <String>vale</String>
     <String>glen</String>
   </NameData>
-  <NameData>  <!-- legacy support for manual mountain Terrain flag -->
+  <NameData>  <!-- legacy support for mountain flag -->
     <ID>NOUN</ID>
     <Terrain>MOUNTAINS</Terrain>
 
@@ -330,13 +396,44 @@
 
     <String>cavern</String>
     <String>caves</String>
+    <String>chamber</String>
     <String>chambers</String>
+    <String>catacomb</String>
     <String>catacombs</String>
+    <String>mausoleum</String>
     <String>halls</String>
-    <String>mines</String>
-    <String>quarry</String>
+    <String>abyss</String>
+    <String>tunnel</String>
+    <String>hollow</String>
     <String>tomb</String>
     <String>hole</String>
+    <String>pit</String>
+    <String>maw</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>CAVE SWAMP</Terrain>
+
+    <String>retreat</String>
+    <String>grotto</String>
+    <String>pools</String>
+    <String>springs</String>
+    <String>spring</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>CAVE HIGHLAND</Terrain>
+
+    <String>mines</String>
+    <String>quarry</String>
+    <String>forge</String>
+  </NameData>
+  <NameData>  
+    <ID>NOUN</ID>
+    <Terrain>CAVE FOREST</Terrain>
+
+    <String>sanctuary</String>
+    <String>alcove</String>
   </NameData>
   <NameData>  
     <ID>NOUN</ID>
@@ -374,7 +471,7 @@
     <String>desecrated</String>
     <String>defiled</String>
     <String>blighted</String>
-    <String>impure</String>
+    <String>pale</String>
     <String>starlit</String>
     <String>shimmering</String>
     <String>unbroken</String>
@@ -498,7 +595,7 @@
     <String>dead</String>
     <String>foul</String>
     <String>cruel</String>
-    <String>pale</String>
+    <String>hexed</String>
     <String>ancient</String>
   </NameData>
   <NameData>
@@ -533,17 +630,46 @@
     <Terrain>CAVE</Terrain>
     <BlockedTerrain>SEA</BlockedTerrain>
 
-    <String>sunken</String>
+    <String>broken</String>
     <String>collapsed</String>
-    <String>flooded</String>
+    <String>endless</String>
     <String>lightless</String>
-    <String>sunless</String>
     <String>dusk</String>
     <String>veiled</String>
-    <String>mossy</String>
     <String>hollow</String>
     <String>obsidian</String>
+    <String>sundered</String>
+    <String>somber</String>
+    <String>sunless</String>
+    <String>silent</String>
     <String>stygian</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>CAVE SWAMP</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>flooded</String>
+    <String>mossy</String>
+    <String>sunken</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>CAVE HIGHLAND</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>glimmering</String>
+    <String>shining</String>
+    <String>singing</String>
+  </NameData>
+  <NameData>
+    <ID>ADJECTIVE</ID>
+    <Terrain>CAVE FOREST</Terrain>
+    <BlockedTerrain>SEA</BlockedTerrain>
+
+    <String>noble</String>
+    <String>bountiful</String>
+    <String>fertile</String>
   </NameData>
   <NameData>
     <ID>ADJECTIVE</ID>
@@ -724,10 +850,13 @@
     <String>dwarf</String>
     <String>statue</String>
     <String>golem</String>
+    <String>olm</String>
+    <String>zotz</String>
+    <String>toad</String>
+    <String>troll</String>
     <String>gnome</String>
     <String>ogre</String>
     <String>cyclops</String>
-    <String>mushroom</String>
   </NameData>
   <NameData>
     <ID>ANIMAL</ID>

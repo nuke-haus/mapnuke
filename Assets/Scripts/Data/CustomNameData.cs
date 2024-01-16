@@ -17,6 +17,28 @@ public class CustomNameDataCollection
         Data.AddRange(n.Data);
     }
 
+    public string GetRandomCaveString(string id, Terrain terrain)
+    {
+        var cave_terrain = Terrain.CAVE | terrain;
+        var valid_data = Data.Where(x => x.ID == id &&
+                                        !x.BlockedTerrain.Where(y => cave_terrain.HasFlag(y)).Any() &&
+                                        (x.Terrain == Terrain.GENERICSTART || ((x.Terrain != Terrain.PLAINS && cave_terrain.IsFlagSet(x.Terrain) && x.Terrain.IsFlagSet(Terrain.CAVE)))));
+
+        var strings = new List<string>();
+
+        if (!valid_data.Any())
+        {
+            return null;
+        }
+
+        foreach (var data in valid_data)
+        {
+            strings.AddRange(data.Strings);
+        }
+
+        return strings.GetRandom();
+    }
+
     public string GetRandomString(string id, Terrain terrain, bool is_plains) 
     {
         var valid_data = Data.Where(x => x.ID == id &&
