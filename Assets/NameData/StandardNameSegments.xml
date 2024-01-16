@@ -102,6 +102,7 @@
       <String>Earth Wound</String>
       <String>The Opal Halls</String>
       <String>Sapphire Maze</String>
+      <String>Tobuscus</String>
       <String>Devil's Labyrinth</String>
   </NameData>
 
@@ -299,7 +300,6 @@
 
     <String>respite</String>
     <String>decay</String>
-    <String>fungus</String>
     <String>life</String>
     <String>creation</String>
   </NameData>
