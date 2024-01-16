@@ -6,6 +6,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>START_OLDEMPIRE_A</Segment>
     <Segment>MID_OLDEMPIRE_A</Segment>
     <Segment>END_OLDEMPIRE_A</Segment>
@@ -14,6 +15,7 @@
   <NameFormat> 
     <BlockedTerrain>SEA</BlockedTerrain>
     <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
     <Segment>STARTMID_OLDEMPIRE_A</Segment>
     <Segment>END_OLDEMPIRE_A</Segment>
   </NameFormat>
