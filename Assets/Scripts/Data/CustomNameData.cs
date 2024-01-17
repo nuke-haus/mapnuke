@@ -79,7 +79,13 @@ public class CustomNameFormatCollection
 
     public CustomNameFormat GetRandom(Terrain terrain)
     {
-        var valid = Data.Where(x => !x.BlockedTerrain.Where(y => terrain.HasFlag(y)).Any());
+        var valid = Data.Where(x => !x.CaveOnly && !x.BlockedTerrain.Where(y => terrain.HasFlag(y)).Any());
+
+        if (terrain == Terrain.CAVE)
+        {
+            valid = Data.Where(x => x.CaveOnly);
+        }
+
         return valid.GetRandom();
     }
 }
@@ -91,6 +97,9 @@ public class CustomNameFormat
 {
     [XmlElement("Segment")]
     public List<string> Strings;
+
+    [XmlElement("CaveOnly")]
+    public bool CaveOnly;
 
     [XmlElement("BlockedTerrain")]
     public List<Terrain> BlockedTerrain = new List<Terrain> { Terrain.GENERICSTART }; // filter against this value
