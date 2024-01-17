@@ -274,7 +274,7 @@ public class GenerationManager : MonoBehaviour
                 province.Node.ProvinceData.SetCustomName(generate_custom_name(provinces, province));
             }
 
-            if (!province.Node.ProvinceData.IsCaveWall && name_chance > UnityEngine.Random.Range(0f, 1f))
+            if (!province.Node.HasNation && !province.Node.ProvinceData.IsCaveWall && name_chance > UnityEngine.Random.Range(0f, 1f))
             {
                 province.Node.ProvinceData.SetCaveCustomName(generate_cave_name(provinces, province));
             }
