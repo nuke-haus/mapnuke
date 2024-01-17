@@ -6,10 +6,11 @@
     <Name>(EA) Pyrene</Name>
     <ID>14</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>

@@ -149,10 +149,12 @@
     <Name>(EA) Abysia</Name>
     <ID>13</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
@@ -201,7 +203,7 @@
     <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -578,7 +580,7 @@
     <Age>MIDDLE</Age>
     <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
@@ -586,12 +588,14 @@
     <Name>(MA) Abysia</Name>
     <ID>55</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Caelum</Name>
@@ -982,20 +986,22 @@
     <Age>LATE</Age>
     <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Abysia</Name>
     <ID>91</ID>
     <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Caelum</Name>

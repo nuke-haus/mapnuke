@@ -109,7 +109,6 @@ public static class MapFileWriter
                 }
             }
 
-
             write(fs, "\n-- Province Custom Name Data");
 
             foreach (var m in provs)
@@ -120,7 +119,7 @@ public static class MapFileWriter
                 }
             }
 
-            write(fs, "\n-- Player Start Location Data");
+            /*write(fs, "\n-- Allowed Player Data");
 
             if (!nations.Any(nat => nat.NationData.ID == -1)) 
             {
@@ -128,7 +127,9 @@ public static class MapFileWriter
                 {
                     write(fs, "#allowedplayer " + d.NationData.ID);
                 }
-            }
+            }*/
+
+            write(fs, "\n-- Player Start Location Data");
 
             foreach (var m in provs)
             {
@@ -349,11 +350,6 @@ public static class MapFileWriter
                 foreach (var c in m.Node.Connections)
                 {
                     write(fs, "#neighbour " + c.Node1.ID + " " + c.Node2.ID);
-
-                    /*if (c.ConnectionType != ConnectionType.STANDARD && c.ConnectionType != ConnectionType.SHALLOWRIVER)
-                    {
-                        write(fs, "#neighbourspec " + c.Node1.ID + " " + c.Node2.ID + " " + (int)c.ConnectionType);
-                    }*/
                 }
             }
 
