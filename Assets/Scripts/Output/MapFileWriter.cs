@@ -53,7 +53,7 @@ public static class MapFileWriter
     public static void GenerateText(string mapname, NodeLayoutData layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay, int[] province_ids, bool is_for_dom6)
     {
         var data_folder = Application.dataPath;
-        var folder = data_folder + "/Export/";
+        var folder = data_folder + "/Export/" + mapname + "/";
         var path = folder + mapname + ".map";
 
         if (!Directory.Exists(folder))
@@ -240,10 +240,10 @@ public static class MapFileWriter
         }
     }
 
-    public static void GenerateCaveLayerText(string mapname, NodeLayoutData layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay, int[] province_ids)
+    public static void GenerateCaveLayerText(string foldername, string mapname, NodeLayoutData layout, ElementManager mgr, List<PlayerData> nations, Vector2 mins, Vector2 maxs, List<ProvinceMarker> provs, bool teamplay, int[] province_ids)
     {
         var data_folder = Application.dataPath;
-        var folder = data_folder + "/Export/";
+        var folder = data_folder + "/Export/" + foldername + "/";
         var path = folder + mapname + ".map";
 
         if (!Directory.Exists(folder))
@@ -336,7 +336,7 @@ public static class MapFileWriter
 
                 if (!m.Node.ProvinceData.IsCaveWall)
                 {
-                    terr = ProvinceData.Dom6Cave + (long)m.Node.ProvinceData.CaveTerrain;
+                    terr = ProvinceData.Dom6Cave + (long)Terrain.CAVE + (long)m.Node.ProvinceData.CaveTerrain;
                 }
 
                 write(fs, "#terrain " + m.ProvinceNumber + " " + terr);
@@ -468,13 +468,13 @@ public static class MapFileWriter
 #endif
     }
 
-    public static void GenerateImage(string mapname, RenderTexture tex, bool is_targa = true)
+    public static void GenerateImage(string foldername, string mapname, RenderTexture tex, bool is_targa = true)
     {
         var t = new Texture2D(tex.width, tex.height, TextureFormat.RGB24, false);
         t.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 
         var data_folder = get_output_dir();
-        var folder = data_folder + "/Export/";
+        var folder = data_folder + "/Export/" + foldername + "/";
 
         if (is_targa)
         {

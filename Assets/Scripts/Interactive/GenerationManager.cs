@@ -252,7 +252,6 @@ public class GenerationManager : MonoBehaviour
         yield return StartCoroutine(mgr.GenerateElements(nodes, conns, layout));
 
         set_province_names(mgr.Provinces);
-        set_province_cave_names(mgr.Provinces);
 
         ProvinceManager.s_province_manager.SetLayout(layout);
         ConnectionManager.s_connection_manager.SetLayout(layout);
@@ -261,26 +260,6 @@ public class GenerationManager : MonoBehaviour
         foreach (var obj in HideableButtons)
         {
             obj.SetActive(true);
-        }
-    }
-
-    private void set_province_cave_names(List<ProvinceMarker> provinces)
-    {
-        foreach (var province in provinces)
-        {
-            if (!province.Node.ProvinceData.IsCaveWall)
-            {
-                var name = generate_cave_name(provinces, province);
-                var count = 0;
-
-                while (name == string.Empty && count < 20)
-                {
-                    name = generate_cave_name(provinces, province);
-                    count++;
-                }
-
-                province.Node.ProvinceData.SetCaveCustomName(name);
-            }
         }
     }
 
@@ -293,6 +272,11 @@ public class GenerationManager : MonoBehaviour
             if (!province.Node.HasNation && name_chance > UnityEngine.Random.Range(0f, 1f))
             {
                 province.Node.ProvinceData.SetCustomName(generate_custom_name(provinces, province));
+            }
+
+            if (!province.Node.ProvinceData.IsCaveWall && name_chance > UnityEngine.Random.Range(0f, 1f))
+            {
+                province.Node.ProvinceData.SetCaveCustomName(generate_cave_name(provinces, province));
             }
         }
     }
@@ -557,13 +541,13 @@ public class GenerationManager : MonoBehaviour
 
         yield return null;
 
-        MapFileWriter.GenerateImage(str, mgr.Texture); // summer image
+        MapFileWriter.GenerateImage(str, str, mgr.Texture); // summer image
 
         mgr.ShowLabels(true);
 
         yield return null;
 
-        MapFileWriter.GenerateImage(str + "_with_labels", mgr.Texture, false); // labeled image
+        MapFileWriter.GenerateImage(str, str + "_with_labels", mgr.Texture, false); // labeled image
 
         mgr.ShowLabels(false);
 
@@ -578,7 +562,7 @@ public class GenerationManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return null;
 
-        MapFileWriter.GenerateImage(str + "_winter", mgr.Texture); // winter image
+        MapFileWriter.GenerateImage(str, str + "_winter", mgr.Texture); // winter image
 
         do_season_change();
 
@@ -607,7 +591,7 @@ public class GenerationManager : MonoBehaviour
 
                 string enum_name = get_terrain_name(t);
 
-                MapFileWriter.GenerateImage(str + "_" + enum_name, mgr.Texture); // summer image
+                MapFileWriter.GenerateImage(str, str + "_" + enum_name, mgr.Texture); // summer image
 
                 if (t != Terrain.CAVE) // underworld layer does not need winter sprites
                 {
@@ -617,7 +601,7 @@ public class GenerationManager : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                     yield return null;
 
-                    MapFileWriter.GenerateImage(str + "_" + enum_name + "w", mgr.Texture); // winter image
+                    MapFileWriter.GenerateImage(str, str + "_" + enum_name + "w", mgr.Texture); // winter image
 
                     do_season_change();
 
@@ -637,7 +621,7 @@ public class GenerationManager : MonoBehaviour
 
             ArtManager.s_art_manager.LockProvinceShapes(false);
 
-            MapFileWriter.GenerateCaveLayerText(str + "_plane2", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+            MapFileWriter.GenerateCaveLayerText(str, str + "_plane2", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
 
             yield return null;
         }

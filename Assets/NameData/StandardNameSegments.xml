@@ -58,6 +58,7 @@
   <NameData>  
       <ID>CAVEALT</ID>
 
+      <String>jome</String>
       <String>haltbreigh</String>
       <String>golgoth</String>
       <String>darkrock</String>
@@ -76,7 +77,7 @@
       <String>jeskyne</String>
       <String>haverno</String>
       <String>gupha</String>
-      <String>outmond</String>
+      <String>oudmond</String>
       <String>greathand</String>
       <String>crease</String>
       <String>Black Well</String>
@@ -85,7 +86,7 @@
       <String>Lost Hope</String>
       <String>The Low Places</String>
       <String>Pit Of The Damned</String>
-      <String>The Buried Blade</String>
+      <String>Tomb of Bayaz</String>
       <String>Titan's Cairn</String>
       <String>hardgrave</String>
       <String>fellstone</String>
@@ -102,7 +103,13 @@
       <String>Earth Wound</String>
       <String>The Opal Halls</String>
       <String>Sapphire Maze</String>
+      <String>Dordonne</String>
       <String>Tobuscus</String>
+      <String>Keln</String>
+      <String>Godgrave</String>
+      <String>Kebelus</String>
+      <String>Sundered Barrow</String>
+      <String>Prison Of Stone</String>
       <String>Devil's Labyrinth</String>
   </NameData>
 
