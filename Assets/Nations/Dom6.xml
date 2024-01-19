@@ -32,13 +32,14 @@
     <Name>(MA) Pyrene</Name>
     <ID>62</ID>
     <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS SMALLPROV</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Nidavangr</Name>

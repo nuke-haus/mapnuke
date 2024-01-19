@@ -34,18 +34,18 @@
       /// How many provinces are in the nation's capring? This value can be between 4 and 8 inclusive.
 	    /// Typically a value of 5 or 6 is best.
 	  
-      <CapTerrain>SMALLPROV CAVE</CapTerrain> 
+      <CapTerrain>SMALLPROV FOREST</CapTerrain> 
       /// What terrain flag does the nation's capital get?
 	    /// Terrain flags can be combined together. For example, SMALLPROV FOREST gives you a small forest.
 			/// Certain combinations should not be done since they do not exist in the game. For example, SEA SWAMP.
 		  /// The DEEPSEA flag always has to be combined with SEA in order to work properly.
 			/// Possible flags are: 
-			/// PLAINS, HIGHLAND, SWAMP, WASTE, FOREST, FARM, CAVE, MOUNTAINS, SEA, DEEPSEA, SMALLPROV, LARGEPROV, WARMER, COLDER
+			/// PLAINS, HIGHLAND, SWAMP, WASTE, FOREST, FARM, MOUNTAINS, SEA, DEEPSEA, SMALLPROV, LARGEPROV, WARMER, COLDER
 	  
       <TerrainData>FOREST</TerrainData>       
       <TerrainData>FOREST</TerrainData>       
       <TerrainData>PLAINS</TerrainData>       
-      <TerrainData>CAVE</TerrainData>         
+      <TerrainData>SWAMP</TerrainData>         
       /// TerrainData is applied to the capring provinces in random order.
       /// Make sure there are not more TerrainData entries than the size of the capring.
       /// If you have less TerrainData entries than the capring size, the remaining provinces are assigned random terrain.
@@ -68,37 +68,36 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Ermor</Name>
+    <Name>(EA) Mekone</Name>
     <ID>6</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Ulm</Name>
+    <Name>(EA) Pangaea</Name>
     <ID>7</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
+    <TerrainData>SMALLPROV FOREST</TerrainData>
+    <TerrainData>SMALLPROV FOREST</TerrainData>
     <TerrainData>HIGHLAND</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Marverni</Name>
+    <Name>(EA) Ermor</Name>
     <ID>8</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
@@ -113,114 +112,8 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) T'ien Chi</Name>
-    <ID>10</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Machaka</Name>
-    <ID>11</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Mictlan</Name>
-    <ID>12</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Abysia</Name>
-    <ID>13</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>EARLY</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Caelum</Name>
-    <ID>14</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) C'tis</Name>
-    <ID>15</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>SWAMP</CapTerrain>
-    <TerrainData>LARGEPROV WASTE</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>LARGEPROV</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Pangaea</Name>
-    <ID>16</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>SMALLPROV FOREST</TerrainData>
-    <TerrainData>SMALLPROV FOREST</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Agartha</Name>
-    <ID>17</ID>
-    <WaterPercentage>0.1</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>EARLY</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Tir Na N'og</Name>
-    <ID>18</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>HIGHLAND</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
     <Name>(EA) Fomoria</Name>
-    <ID>19</ID>
+    <ID>10</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
@@ -231,54 +124,103 @@
 	  <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Vanheim</Name>
-    <ID>20</ID>
+    <Name>(EA) Tir Na N'og</Name>
+    <ID>11</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Marverni</Name>
+    <ID>12</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Ulm</Name>
+    <ID>13</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Agartha</Name>
+    <ID>15</ID>
+    <WaterPercentage>0.1</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>EARLY</Age>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Abysia</Name>
+    <ID>16</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Hinnom</Name>
+    <ID>17</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Ubar</Name>
+    <ID>18</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+	  <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Ur</Name>
+    <ID>19</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
-    <CapRingSize>6</CapRingSize>
-    <CapTerrain>HIGHLAND</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-	<TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Helheim</Name>
-    <ID>21</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Niefelheim</Name>
-    <ID>22</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Rus</Name>
-    <ID>24</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>LARGEPROV</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>CAVE</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>LARGEPROV SWAMP</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Kailasa</Name>
-    <ID>25</ID>
+    <ID>20</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -289,7 +231,7 @@
   </Nation>
   <Nation>
     <Name>(EA) Lanka</Name>
-    <ID>26</ID>
+    <ID>21</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -299,8 +241,19 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(EA) T'ien Chi</Name>
+    <ID>22</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(EA) Yomi</Name>
-    <ID>27</ID>
+    <ID>23</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -311,44 +264,30 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Hinnom</Name>
-    <ID>28</ID>
+    <Name>(EA) Caelum</Name>
+    <ID>24</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
+    <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Ur</Name>
-    <ID>29</ID>
+    <Name>(EA) Mictlan</Name>
+    <ID>25</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>LARGEPROV</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>LARGEPROV SWAMP</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Berytos</Name>
-    <ID>30</ID>
-    <WaterPercentage>0.1</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>6</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>LARGEPROV WASTE</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>LARGEPROV</TerrainData>
-	<TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Xibalba</Name>
-    <ID>31</ID>
+    <ID>26</ID>
     <WaterPercentage>0</WaterPercentage>
     <StartsUnderground>true</StartsUnderground>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
@@ -360,57 +299,87 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Mekone</Name>
-    <ID>32</ID>
+    <Name>(EA) C'tis</Name>
+    <ID>27</ID>
     <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Machaka</Name>
+    <ID>28</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Berytos</Name>
+    <ID>29</ID>
+    <WaterPercentage>0.1</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+	  <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Vanheim</Name>
+    <ID>30</ID>
+    <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+	<TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(EA) Ubar</Name>
+    <Name>(EA) Helheim</Name>
+    <ID>31</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Rus</Name>
+    <ID>32</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) Niefelheim</Name>
     <ID>33</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
-    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-	<TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) Atlantis</Name>
-    <ID>36</ID>
-    <WaterPercentage>0.4</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>SEA DEEPSEA</CapTerrain>
-    <TerrainData>SEA DEEPSEA</TerrainData>
-    <TerrainData>SEA DEEPSEA</TerrainData>
-    <TerrainData>SEA FOREST</TerrainData>
-    <TerrainData>SEA</TerrainData>
-    <TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(EA) R'lyeh</Name>
-    <ID>37</ID>
-    <WaterPercentage>0.4</WaterPercentage>
-    <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>SEA DEEPSEA</CapTerrain>
-    <TerrainData>SEA DEEPSEA</TerrainData>
-    <TerrainData>SEA FOREST</TerrainData>
-    <TerrainData>SEA</TerrainData>
-    <TerrainData>SEA</TerrainData>
-    <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Pelagia</Name>
-    <ID>38</ID>
+    <ID>40</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -423,7 +392,7 @@
   </Nation>
   <Nation>
     <Name>(EA) Oceania</Name>
-    <ID>39</ID>
+    <ID>41</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -436,7 +405,7 @@
   </Nation>
   <Nation>
     <Name>(EA) Therodos</Name>
-    <ID>40</ID>
+    <ID>42</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
@@ -448,8 +417,34 @@
     <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Arcoscephale</Name>
+    <Name>(EA) Atlantis</Name>
     <ID>43</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(EA) R'lyeh</Name>
+    <ID>44</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Arcoscephale</Name>
+    <ID>50</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -460,8 +455,42 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(MA) Phlegra</Name>
+    <ID>51</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Pangaea</Name>
+    <ID>52</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>SMALLPROV FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Asphodel</Name>
+    <ID>53</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(MA) Ermor</Name>
-    <ID>44</ID>
+    <ID>54</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -472,7 +501,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Sceleria</Name>
-    <ID>45</ID>
+    <ID>55</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -483,7 +512,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Pythium</Name>
-    <ID>46</ID>
+    <ID>56</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -494,7 +523,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Man</Name>
-    <ID>47</ID>
+    <ID>57</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -505,7 +534,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Eriu</Name>
-    <ID>48</ID>
+    <ID>58</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -516,192 +545,66 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
+    <Name>(MA) Agartha</Name>
+    <ID>59</ID>
+    <WaterPercentage>0.1</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>MIDDLE</Age>
+    <CapRingSize>4</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(MA) Ulm</Name>
-    <ID>49</ID>
+    <ID>60</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>HIGHLAND</CapTerrain>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Marignon</Name>
-    <ID>50</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Mictlan</Name>
-    <ID>51</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) T'ien Chi</Name>
-    <ID>52</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Machaka</Name>
-    <ID>53</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>CAVE</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Agartha</Name>
-    <ID>54</ID>
-    <WaterPercentage>0.1</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>MIDDLE</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Abysia</Name>
-    <ID>55</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>MIDDLE</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Caelum</Name>
-    <ID>56</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) C'tis</Name>
-    <ID>57</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>SWAMP</CapTerrain>
-    <TerrainData>LARGEPROV SWAMP</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Pangaea</Name>
-    <ID>58</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>SMALLPROV FOREST</TerrainData>
-    <TerrainData>SMALLPROV FOREST</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Asphodel</Name>
-    <ID>59</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Vanheim</Name>
-    <ID>60</ID>
-    <WaterPercentage>0.1</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>6</CapRingSize>
-    <CapTerrain>HIGHLAND</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-	<TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Jotunheim</Name>
     <ID>61</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Vanarus</Name>
-    <ID>62</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) Bandar Log</Name>
+    <Name>(MA) Abysia</Name>
     <ID>63</ID>
     <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
+    <CapTerrain>WASTE</CapTerrain>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Shinuyama</Name>
+    <Name>(MA) Ashdod</Name>
     <ID>64</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>CAVE</TerrainData>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Ashdod</Name>
+    <Name>(MA) Na'Ba</Name>
     <ID>65</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
@@ -725,8 +628,65 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Nazca</Name>
+    <Name>(MA) Ind</Name>
     <ID>67</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Bandar Log</Name>
+    <ID>68</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) T'ien Chi</Name>
+    <ID>69</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Shinuyama</Name>
+    <ID>70</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Caelum</Name>
+    <ID>71</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Nazca</Name>
+    <ID>72</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -737,8 +697,19 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(MA) Mictlan</Name>
+    <ID>73</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(MA) Xibalba</Name>
-    <ID>68</ID>
+    <ID>74</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <StartsUnderground>true</StartsUnderground>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
@@ -750,12 +721,24 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Phlegra</Name>
-    <ID>69</ID>
+    <Name>(MA) C'tis</Name>
+    <ID>75</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>LARGEPROV SWAMP</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Machaka</Name>
+    <ID>76</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
@@ -763,7 +746,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Phaeacia (Land)</Name>
-    <ID>70</ID>
+    <ID>77</ID>
     <WaterPercentage>0.3</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>6</CapRingSize>
@@ -776,7 +759,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Phaeacia (Island)</Name>
-    <ID>70</ID>
+    <ID>77</ID>
     <WaterPercentage>0.2</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -788,49 +771,48 @@
     <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Ind</Name>
-    <ID>71</ID>
+    <Name>(MA) Vanheim</Name>
+    <ID>78</ID>
+    <WaterPercentage>0.1</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>HIGHLAND SMALLPROV</TerrainData>
+	  <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) Vanarus</Name>
+    <ID>79</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>CAVE</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Na'Ba</Name>
-    <ID>72</ID>
+    <Name>(MA) Jotunheim</Name>
+    <ID>80</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
-    <TerrainData>LARGEPROV WASTE</TerrainData>
+    <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Atlantis</Name>
-    <ID>73</ID>
-    <WaterPercentage>0.4</WaterPercentage>
+    <Name>(MA) Ys</Name>
+    <ID>85</ID>
+    <WaterPercentage>0.3</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>SEA DEEPSEA</CapTerrain>
-    <TerrainData>SEA DEEPSEA</TerrainData>
-    <TerrainData>SEA DEEPSEA</TerrainData>
+    <CapTerrain>SEA</CapTerrain>
     <TerrainData>SEA FOREST</TerrainData>
-    <TerrainData>SEA</TerrainData>
-    <TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(MA) R'lyeh</Name>
-    <ID>74</ID>
-    <WaterPercentage>0.4</WaterPercentage>
-    <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>SEA DEEPSEA</CapTerrain>
-    <TerrainData>SEA DEEPSEA</TerrainData>
     <TerrainData>SEA FOREST</TerrainData>
     <TerrainData>SEA</TerrainData>
     <TerrainData>SEA</TerrainData>
@@ -838,7 +820,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Pelagia</Name>
-    <ID>75</ID>
+    <ID>86</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -851,7 +833,7 @@
   </Nation>
   <Nation>
     <Name>(MA) Oceania</Name>
-    <ID>76</ID>
+    <ID>87</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
@@ -863,13 +845,26 @@
     <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(MA) Ys</Name>
-    <ID>77</ID>
-    <WaterPercentage>0.3</WaterPercentage>
+    <Name>(MA) Atlantis</Name>
+    <ID>88</ID>
+    <WaterPercentage>0.4</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>SEA CAVE</CapTerrain>
-    <TerrainData>SEA CAVE</TerrainData>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA DEEPSEA</TerrainData>
+    <TerrainData>SEA FOREST</TerrainData>
+    <TerrainData>SEA</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(MA) R'lyeh</Name>
+    <ID>89</ID>
+    <WaterPercentage>0.4</WaterPercentage>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SEA DEEPSEA</CapTerrain>
+    <TerrainData>SEA DEEPSEA</TerrainData>
     <TerrainData>SEA FOREST</TerrainData>
     <TerrainData>SEA</TerrainData>
     <TerrainData>SEA</TerrainData>
@@ -877,7 +872,7 @@
   </Nation>
   <Nation>
     <Name>(LA) Arcoscephale</Name>
-    <ID>80</ID>
+    <ID>95</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -888,8 +883,30 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
+    <Name>(LA) Phlegra</Name>
+    <ID>96</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Pangaea</Name>
+    <ID>97</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(LA) Pythium</Name>
-    <ID>81</ID>
+    <ID>98</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -901,7 +918,7 @@
   </Nation>
   <Nation>
     <Name>(LA) Lemuria</Name>
-    <ID>82</ID>
+    <ID>99</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -912,21 +929,34 @@
   </Nation>
   <Nation>
     <Name>(LA) Man</Name>
-    <ID>83</ID>
+    <ID>100</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
+    <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Ulm</Name>
-    <ID>84</ID>
+    <ID>101</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Agartha</Name>
+    <ID>102</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>LATE</Age>
+    <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
@@ -934,7 +964,7 @@
   </Nation>
   <Nation>
     <Name>(LA) Marignon</Name>
-    <ID>85</ID>
+    <ID>103</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
@@ -945,19 +975,65 @@
     <TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
-    <Name>(LA) Mictlan</Name>
-    <ID>86</ID>
-    <WaterPercentage>0.1</WaterPercentage>
+    <Name>(LA) Abysia</Name>
+    <ID>104</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Ragha</Name>
+    <ID>105</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(LA) Caelum</Name>
+    <ID>106</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>MOUNTAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Gath</Name>
+    <ID>107</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>WASTE</CapTerrain>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Patala</Name>
+    <ID>108</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>SWAMP</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(LA) T'ien Chi</Name>
-    <ID>87</ID>
+    <ID>109</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -968,7 +1044,7 @@
   </Nation>
   <Nation>
     <Name>(LA) Jomon</Name>
-    <ID>89</ID>
+    <ID>110</ID>
     <WaterPercentage>0.3</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -978,136 +1054,20 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(LA) Agartha</Name>
-    <ID>90</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>LATE</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Abysia</Name>
-    <ID>91</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <StartsUnderground>true</StartsUnderground>
-    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
-    <Age>LATE</Age>
-    <CapRingSize>4</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Caelum</Name>
-    <ID>92</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>LARGEPROV</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) C'tis</Name>
-    <ID>93</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Pangaea</Name>
-    <ID>94</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Midgard</Name>
-    <ID>95</ID>
+    <Name>(LA) Mictlan</Name>
+    <ID>111</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>LATE</Age>
-    <CapRingSize>6</CapRingSize>
-    <CapTerrain>HIGHLAND</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
-	<TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Utgard</Name>
-    <ID>96</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>FOREST</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Bogarus</Name>
-    <ID>97</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Patala</Name>
-    <ID>98</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>CAVE</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>CAVE</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Gath</Name>
-    <ID>99</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>WASTE</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>FOREST</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Ragha</Name>
-    <ID>100</ID>
-    <WaterPercentage>0</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>LARGEPROV SWAMP</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Xibalba</Name>
-    <ID>101</ID>
-    <WaterPercentage>0.15</WaterPercentage>
+    <ID>112</ID>
+    <WaterPercentage>0.1</WaterPercentage>
     <StartsUnderground>true</StartsUnderground>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
@@ -1118,19 +1078,53 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
-    <Name>(LA) Phlegra</Name>
-    <ID>102</ID>
+    <Name>(LA) C'tis</Name>
+    <ID>113</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <CapTerrain>WASTE</CapTerrain>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Midgard</Name>
+    <ID>115</ID>
+    <WaterPercentage>0.1</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>6</CapRingSize>
+    <CapTerrain>HIGHLAND</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>HIGHLAND SMALLPROV</TerrainData>
+	  <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Bogarus</Name>
+    <ID>116</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Utgard</Name>
+    <ID>117</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>FOREST</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Vaettiheim</Name>
-    <ID>103</ID>
+    <ID>118</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -1140,8 +1134,20 @@
     <TerrainData>FOREST</TerrainData>
   </Nation>
   <Nation>
+    <Name>(LA) Erytheia</Name>
+    <ID>125</ID>
+    <WaterPercentage>0.5</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SEA</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(LA) Atlantis</Name>
-    <ID>106</ID>
+    <ID>126</ID>
     <WaterPercentage>0.5</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -1153,7 +1159,7 @@
   </Nation>
   <Nation>
     <Name>(LA) R'lyeh</Name>
-    <ID>107</ID>
+    <ID>127</ID>
     <WaterPercentage>0.4</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
@@ -1162,18 +1168,6 @@
     <TerrainData>SEA FOREST</TerrainData>
     <TerrainData>SEA</TerrainData>
     <TerrainData>SEA</TerrainData>
-    <TerrainData>SEA</TerrainData>
-  </Nation>
-  <Nation>
-    <Name>(LA) Erytheia</Name>
-    <ID>108</ID>
-    <WaterPercentage>0.5</WaterPercentage>
-    <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
-    <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>SEA</TerrainData>
   </Nation>
 </NationCollection>

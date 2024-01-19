@@ -119,7 +119,7 @@ public static class MapFileWriter
                 }
             }
 
-            /*write(fs, "\n-- Allowed Player Data");
+            write(fs, "\n-- Allowed Player Data");
 
             if (!nations.Any(nat => nat.NationData.ID == -1)) 
             {
@@ -127,7 +127,7 @@ public static class MapFileWriter
                 {
                     write(fs, "#allowedplayer " + d.NationData.ID);
                 }
-            }*/
+            }
 
             write(fs, "\n-- Player Start Location Data");
 
@@ -302,6 +302,16 @@ public static class MapFileWriter
                 if (m.Node.ProvinceData.CaveCustomName != string.Empty)
                 {
                     write(fs, "#landname " + m.ProvinceNumber + " \"" + m.Node.ProvinceData.CaveCustomName + "\"");
+                }
+            }
+
+            write(fs, "\n-- Allowed Player Data");
+
+            if (!nations.Any(nat => nat.NationData.ID == -1))
+            {
+                foreach (var d in nations)
+                {
+                    write(fs, "#allowedplayer " + d.NationData.ID);
                 }
             }
 
