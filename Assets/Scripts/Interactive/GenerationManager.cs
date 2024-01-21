@@ -46,6 +46,8 @@ public class GenerationManager : MonoBehaviour
     private Color m_border_color = new Color();
     private Color m_sea_border_color = new Color();
     private Color m_overlay_color = new Color();
+    private Color m_cave_color = new Color();
+    private Color m_sea_cave_color = new Color();
     private bool m_generic_starts = false;
     private bool m_cluster_water = true;
     private bool m_cluster_islands = false;
@@ -77,6 +79,8 @@ public class GenerationManager : MonoBehaviour
     public Color BorderColor => m_border_color;
     public Color SeaBorderColor => m_sea_border_color;
     public Color OverlayColor => m_overlay_color;
+    public Color CaveColor => m_cave_color;
+    public Color SeaCaveColor => m_sea_cave_color;
 
     public Season Season
     {
@@ -110,6 +114,13 @@ public class GenerationManager : MonoBehaviour
         load_nation_data();
         update_nations();
         hide_controls();
+
+        m_sea_cave_color = ArtManager.s_art_manager.CurrentArtConfiguration.SeaCaveBorderColor;
+        m_cave_color = ArtManager.s_art_manager.CurrentArtConfiguration.CaveBorderColor;
+        m_border_color = ArtManager.s_art_manager.CurrentArtConfiguration.LandBorderColor;
+        m_sea_border_color = ArtManager.s_art_manager.CurrentArtConfiguration.SeaBorderColor;
+        m_overlay_color = ArtManager.s_art_manager.CurrentArtConfiguration.DominionOverlayColor;
+
         OnBorderColorUpdate();
         OnSeaBorderColorUpdate();
         OnOverlayColorUpdate();
@@ -633,11 +644,13 @@ public class GenerationManager : MonoBehaviour
         MapFileWriter.OpenFolder();
     }
 
-    public void UpdateColors(Color overlay, Color land_border, Color sea_border)
+    public void UpdateColors(Color overlay, Color land_border, Color sea_cave_border, Color cave_border, Color sea_border)
     {
         m_overlay_color = overlay;
         m_border_color = land_border;
         m_sea_border_color = sea_border;
+        m_cave_color = cave_border;
+        m_sea_cave_color = sea_cave_border;
 
         OverlayPreview.color = m_overlay_color;
         BorderPreview.color = m_border_color;

@@ -13,6 +13,7 @@ public class ProvinceWrapMarker : MonoBehaviour
     public Material MatUnderworldForest;
     public Material MatUnderworldSwamp;
     public Material MatUnderworldHighland;
+    public Material MatUnderworldSea;
 
     public Material MatSwamp;
     public Material MatForest;
@@ -84,6 +85,7 @@ public class ProvinceWrapMarker : MonoBehaviour
         MatUnderworldHighland = art_config.MatUnderworldHighland;
         MatUnderworldNormal = art_config.MatUnderworldCave;
         MatUnderworldSwamp = art_config.MatUnderworldSwamp;
+        MatUnderworldSea = art_config.MatUnderworldSea;
 
         MatSwamp = art_config.MatSwamp;
         MatForest = art_config.MatForest;
@@ -325,6 +327,10 @@ public class ProvinceWrapMarker : MonoBehaviour
             {
                 Mesh.material = MatUnderworldWall;
             }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA))
+            {
+                Mesh.material = MatUnderworldSea;
+            }
             else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.FOREST))
             {
                 Mesh.material = MatUnderworldForest;
@@ -402,7 +408,7 @@ public class ProvinceWrapMarker : MonoBehaviour
             return m_sprites;
         }
 
-        var valid_ct = set.MapSprites.Where(x => m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain)).Count();
+        var valid_ct = set.MapSprites.Where(x => terrain.IsFlagSet(x.ValidTerrain)).Count();
 
         if (valid_ct == 0)
         {

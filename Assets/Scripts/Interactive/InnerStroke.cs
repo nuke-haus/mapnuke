@@ -8,6 +8,8 @@ public class InnerStroke : MonoBehaviour
     public Material SeaShore;
     public Material RiverShoreWinter;
     public Material SeaShoreWinter;
+    public Material SeaShoreCave;
+    public Material RiverShoreCave;
 
     private bool m_is_sea = false;
 
@@ -19,6 +21,8 @@ public class InnerStroke : MonoBehaviour
         SeaShore = art_config.MatShore;
         RiverShoreWinter = art_config.MatWinterRiverShore;
         SeaShoreWinter = art_config.MatWinterShore;
+        SeaShoreCave = art_config.MatUnderworldShore;
+        RiverShoreCave = art_config.MatUnderworldRiverShore;
     }
 
     /// <summary>
@@ -73,10 +77,20 @@ public class InnerStroke : MonoBehaviour
             if (m_is_sea)
             {
                 rend.material = SeaShore;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    rend.material = SeaShoreCave;
+                }
             }
             else
             {
                 rend.material = RiverShore;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    rend.material = RiverShoreCave;
+                }
             }
         }
         else
@@ -84,10 +98,20 @@ public class InnerStroke : MonoBehaviour
             if (m_is_sea)
             {
                 rend.material = SeaShoreWinter;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    rend.material = SeaShoreCave;
+                }
             }
             else
             {
                 rend.material = RiverShoreWinter;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    rend.material = RiverShoreCave;
+                }
             }
         }
     }

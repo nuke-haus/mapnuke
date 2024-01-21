@@ -8,6 +8,7 @@ using UnityEngine;
 public class ConnectionWrapMarker : MonoBehaviour
 {
     public Material MatSea;
+    public Material MatCaveSea;
     public Material MatDeepSea;
     public Material MatRoad;
     public Material MatWinterSea;
@@ -52,6 +53,7 @@ public class ConnectionWrapMarker : MonoBehaviour
     {
         var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
 
+        MatCaveSea = art_config.MatUnderworldRiver;
         MatSea = art_config.MatRiver;
         MatDeepSea = art_config.MatDeepRiver;
         MatRoad = art_config.MatRoad;
@@ -74,11 +76,14 @@ public class ConnectionWrapMarker : MonoBehaviour
         draw_border(pb, poly, offset);
         draw_shore(offset);
 
+        var is_river = m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER;
+        var is_cave_river = ArtManager.s_art_manager.IsUsingUnderworldTerrain && m_connection.CaveConnectionType == ConnectionType.RIVER;
+
         if (m_connection.ConnectionType == ConnectionType.ROAD)
         {
             draw_road(offset);
         }
-        if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
+        if (is_river || is_cave_river)
         {
             ConstructPoly(pb, offset);
             draw_river_shore(offset);
@@ -121,8 +126,7 @@ public class ConnectionWrapMarker : MonoBehaviour
             if (ct < 10)
             {
                 floats.Add(rand);
-                jitter.AddKey(rand, UnityEngine.Random.Range(ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRoadWidth,
-                    ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRoadWidth));
+                jitter.AddKey(rand, UnityEngine.Random.Range(ArtManager.s_art_manager.CurrentArtConfiguration.MinimumRoadWidth, ArtManager.s_art_manager.CurrentArtConfiguration.MaximumRoadWidth));
             }
         }
 
@@ -161,7 +165,10 @@ public class ConnectionWrapMarker : MonoBehaviour
             m_stroke = null;
         }
 
-        if ((m_parent.Prov1.Node.ProvinceData.IsWater && !m_parent.Prov2.Node.ProvinceData.IsWater) || (m_parent.Prov2.Node.ProvinceData.IsWater && !m_parent.Prov1.Node.ProvinceData.IsWater))
+        var is_water = (m_parent.Prov1.Node.ProvinceData.IsWater && !m_parent.Prov2.Node.ProvinceData.IsWater) || (m_parent.Prov2.Node.ProvinceData.IsWater && !m_parent.Prov1.Node.ProvinceData.IsWater);
+        var is_cave_water = ArtManager.s_art_manager.IsUsingUnderworldTerrain && ((m_parent.Prov1.Node.ProvinceData.IsCaveWater && !m_parent.Prov2.Node.ProvinceData.IsCaveWater) || (m_parent.Prov2.Node.ProvinceData.IsCaveWater && !m_parent.Prov1.Node.ProvinceData.IsCaveWater));
+
+        if (is_water || is_cave_water)
         {
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
@@ -210,6 +217,11 @@ public class ConnectionWrapMarker : MonoBehaviour
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatDeepSea;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    Mesh.material = MatCaveSea;
+                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -226,6 +238,11 @@ public class ConnectionWrapMarker : MonoBehaviour
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatWinterDeepSea;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    Mesh.material = MatCaveSea;
+                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -306,7 +323,10 @@ public class ConnectionWrapMarker : MonoBehaviour
             fix.Add(new Vector3(v.x + offset.x, v.y + offset.y, -0.8f));
         }
 
-        if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
+        var is_river = m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER;
+        var is_cave_river = ArtManager.s_art_manager.IsUsingUnderworldTerrain && m_connection.CaveConnectionType == ConnectionType.RIVER;
+
+        if (is_river || is_cave_river)
         {
             var offset_poly = new List<Vector3>();
             foreach (var v in poly)
@@ -314,11 +334,14 @@ public class ConnectionWrapMarker : MonoBehaviour
                 offset_poly.Add(new Vector3(v.x + offset.x, v.y + offset.y, -0.8f));
             }
 
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.CaveColor
+                : GenerationManager.s_generation_manager.BorderColor;
             var key_start = new Keyframe(0f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
             var key_end = new Keyframe(1f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
             BorderLine.widthCurve = new AnimationCurve(key_start, key_end);
-            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
             BorderLine.positionCount = offset_poly.Count;
             BorderLine.SetPositions(offset_poly.ToArray());
 
@@ -340,17 +363,23 @@ public class ConnectionWrapMarker : MonoBehaviour
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
 
-        if (m_connection.IsSeaConnection)
+        if ((m_connection.IsSeaConnection && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (m_connection.IsCaveSeaConnection && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.SeaCaveColor
+                : GenerationManager.s_generation_manager.SeaBorderColor;
             BorderLine.materials = new Material[] { MatSeaBorder };
-            BorderLine.startColor = GenerationManager.s_generation_manager.SeaBorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.SeaBorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
         }
         else
         {
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.CaveColor
+                : GenerationManager.s_generation_manager.BorderColor;
             BorderLine.materials = new Material[] { MatLandBorder };
-            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
         }
     }
 

@@ -89,12 +89,20 @@ public class ElementManager : MonoBehaviour
             province.Node.ProvinceData.SetTerrainFlags(desired_terrain);
         }
 
-        // For water and cave provinces we need only standard connections
-        if (t.IsFlagSet(Terrain.SEA) || t == Terrain.CAVE)
+        // For water provinces we need only standard connections
+        if (t.IsFlagSet(Terrain.SEA))
         {
             foreach (ConnectionMarker m in m_connections)
             {
                 m.Connection.SetConnection(ConnectionType.STANDARD);
+            }
+        }
+        // For caves we need to use their cave connection type
+        else if (t == Terrain.CAVE)
+        {
+            foreach (ConnectionMarker m in m_connections)
+            {
+                m.Connection.SetConnection(m.Connection.CaveConnectionType);
             }
         }
         else

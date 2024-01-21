@@ -697,7 +697,8 @@ internal static class WorldGenerator
 
         generate_cave_walls();
 
-        while (!cave_entrances_are_valid(cave_entrance_nodes) && attempt_count < 20)
+        // The cave wall algorithm is decent but still semi-random so sometimes it takes a few tries for it to hit the jackpot
+        while (!cave_entrances_are_valid(cave_entrance_nodes) && attempt_count < 25)
         {
             generate_cave_walls();
             attempt_count++;
@@ -724,15 +725,17 @@ internal static class WorldGenerator
             nodes_to_avoid.Add(node);
         }
 
+        var valid_lake_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x)).ToList();
         var non_cap_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x)).ToList();
         non_cap_nodes.Shuffle();
 
+        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.GetRandom() * valid_lake_nodes.Count);
         var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cap_nodes.Count);
         var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); 
         var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // crystal caves and drip caves should be a bit more common
         var count = 0;
 
-        while (count < num_forests)
+        while (count < num_forests && non_cap_nodes.Any())
         {
             var node = non_cap_nodes[0];
             non_cap_nodes.RemoveAt(0);
@@ -743,7 +746,7 @@ internal static class WorldGenerator
         }
 
         count = 0;
-        while (count < num_swamps)
+        while (count < num_swamps && non_cap_nodes.Any())
         {
             var node = non_cap_nodes[0];
             non_cap_nodes.RemoveAt(0);
@@ -754,7 +757,7 @@ internal static class WorldGenerator
         }
 
         count = 0;
-        while (count < num_highlands)
+        while (count < num_highlands && non_cap_nodes.Any())
         {
             var node = non_cap_nodes[0];
             non_cap_nodes.RemoveAt(0);
@@ -763,6 +766,92 @@ internal static class WorldGenerator
 
             count++;
         }
+
+        var wall_nodes = m_nodes.Where(x => x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x) && x.ConnectedNodes.Any(conn_node => !conn_node.ProvinceData.IsCaveWall)).ToList();
+        wall_nodes.Shuffle();
+
+        count = 0;
+        while (count < num_lakes && wall_nodes.Any())
+        {
+            var node = wall_nodes[0];
+            wall_nodes.RemoveAt(0);
+
+            node.ProvinceData.SetIsCaveWall(false);
+            node.ProvinceData.SetCaveTerrainFlags(Terrain.SEA);
+
+            // Small chance to produce sea reef or sea forest
+            if (UnityEngine.Random.Range(0f, 1f) <= GeneratorSettings.s_generator_settings.ForestFreq.Min)
+            {
+                node.ProvinceData.SetCaveTerrainFlags(Terrain.FOREST | Terrain.SEA);
+            }
+            else if (UnityEngine.Random.Range(0f, 1f) <= GeneratorSettings.s_generator_settings.FarmFreq.Min)
+            {
+                node.ProvinceData.SetCaveTerrainFlags(Terrain.HIGHLAND | Terrain.SEA);
+            }
+
+            count++;
+        }
+
+        var num_caves = m_nodes.Count(x => !x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x));
+        var num_rivers = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.RiverFreq.Min * num_caves);
+        var water_nodes = m_nodes.Where(x => (x.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA) || x.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SWAMP)) && !x.HasNation)
+            .Where(x => x.ConnectedNodes.Count(conn_node => !conn_node.ProvinceData.IsCaveWall && !conn_node.IsCapRing && !conn_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA)) > 2);
+
+        if (!water_nodes.Any())
+        {
+            Debug.LogWarning("No valid water nodes for underworld rivers!");
+        }
+
+        count = 0;
+        while (count < num_rivers && water_nodes.Any())
+        {
+            var node = water_nodes[0];
+            water_nodes.RemoveAt(0);
+
+            // All of this logic is just to ensure we don't block off a tight hallway with a stupid river
+            var node1 = node.ConnectedNodes.FirstOrDefault(x => is_valid_connected_river_province(x));
+            var node2 = node.ConnectedNodes.FirstOrDefault(x => x != node1 && is_valid_connected_river_province(x) && num_routes(x, node1) > 0);
+
+            if (node2 == null)
+            {
+                continue;
+            }
+
+            var connection = node1.Connections.FirstOrDefault(x => (x.Node1 == node2 || x.Node2 == node2));
+
+            if (connection == null)
+            {
+                continue;
+            }
+
+            connection.SetCaveConnection(ConnectionType.RIVER);
+
+            count++;
+        }
+    }
+
+    // Assume n1 and n2 are connected
+    private static int num_routes(Node n1, Node n2)
+    {
+        return n1.ConnectedNodes.Count(conn_node => conn_node != n2 
+            && !conn_node.ProvinceData.IsCaveWall 
+            && !conn_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA) 
+            && (conn_node.ConnectedNodes.Contains(n2) || is_connected_extended(n2, conn_node)));
+    }
+
+    // Assume n1 and n2 are connected and the tertiary node will be connected to n2
+    private static bool is_connected_extended(Node n2, Node tertiary)
+    {
+        return tertiary.ConnectedNodes.Any(conn_node => conn_node == n2);
+    }
+
+    private static bool is_valid_connected_river_province(Node n)
+    {
+        return !n.HasNation
+            && !n.IsCapRing
+            && !n.ProvinceData.IsCaveWall
+            && !n.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA)
+            && n.ConnectedNodes.Count(conn_node => !conn_node.ProvinceData.IsCaveWall && !conn_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA)) > 2;
     }
 
     private static bool cave_entrances_are_valid(List<Node> cave_entrance_nodes)

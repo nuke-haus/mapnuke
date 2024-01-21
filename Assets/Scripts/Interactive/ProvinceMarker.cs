@@ -15,6 +15,7 @@ public class ProvinceMarker : MonoBehaviour
     public Material MatUnderworldForest;
     public Material MatUnderworldSwamp;
     public Material MatUnderworldHighland;
+    public Material MatUnderworldSea;
 
     public Material MatSwamp;
     public Material MatForest;
@@ -161,6 +162,7 @@ public class ProvinceMarker : MonoBehaviour
         MatUnderworldHighland = art_config.MatUnderworldHighland;
         MatUnderworldNormal = art_config.MatUnderworldCave;
         MatUnderworldSwamp = art_config.MatUnderworldSwamp;
+        MatUnderworldSea = art_config.MatUnderworldSea;
 
         MatSwamp = art_config.MatSwamp;
         MatForest = art_config.MatForest;
@@ -871,9 +873,9 @@ public class ProvinceMarker : MonoBehaviour
             return new List<SpriteMarker>();
         }
 
-        var shuffled = set.MapSprites.Where(x => x.IsCenterpiece && m_node.ProvinceData.Terrain.IsFlagSet(x.ValidTerrain));
+        var shuffled = set.MapSprites.Where(x => x.IsCenterpiece && terrain.IsFlagSet(x.ValidTerrain));
 
-        if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) && !m_node.ProvinceData.IsWater)
+        if (m_node.ProvinceData.Terrain.IsFlagSet(Terrain.LARGEPROV) && !m_node.ProvinceData.IsWater && !ArtManager.s_art_manager.IsUsingUnderworldTerrain)
         {
             shuffled = set.MapSprites.Where(x => x.IsCenterpiece && x.ValidTerrain == Terrain.LARGEPROV);
         }
@@ -908,7 +910,7 @@ public class ProvinceMarker : MonoBehaviour
 
         foreach (var ps in set.MapSprites) // guarantee that we have at least 1 of each valid sprite
         {
-            if (!m_node.ProvinceData.Terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece)
+            if (!terrain.IsFlagSet(ps.ValidTerrain) || ps.IsCenterpiece)
             {
                 continue;
             }
@@ -1206,6 +1208,10 @@ public class ProvinceMarker : MonoBehaviour
             if (m_node.ProvinceData.IsCaveWall)
             {
                 Mesh.material = MatUnderworldWall;
+            }
+            else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.SEA))
+            {
+                Mesh.material = MatUnderworldSea;
             }
             else if (m_node.ProvinceData.CaveTerrain.IsFlagSet(Terrain.FOREST))
             {

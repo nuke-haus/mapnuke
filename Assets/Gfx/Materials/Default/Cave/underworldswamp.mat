@@ -80,21 +80,21 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _StencilRef: 10
-    - _Threshold1: 0.29
-    - _Threshold2: 0.48
-    - _Threshold3: 0.7
-    - _Threshold4: 0.9
+    - _Threshold1: 0.19
+    - _Threshold2: 0.45
+    - _Threshold3: 0.64
+    - _Threshold4: 0.85
     - _UVSec: 0
     - _X: 1
     - _Y: 6
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.30466196, g: 0.3207547, b: 0.26174796, a: 1}
-    - _Color2: {r: 0.36616996, g: 0.3773585, b: 0.35777858, a: 1}
-    - _Color3: {r: 0.40650588, g: 0.4209238, b: 0.4245283, a: 1}
-    - _Color4: {r: 0.36862746, g: 0.38039216, b: 0.36077663, a: 1}
-    - _Color5: {r: 0.29316482, g: 0.33962262, b: 0.3163937, a: 1}
+    - _Color1: {r: 0.3026119, g: 0.3301887, b: 0.26321647, a: 1}
+    - _Color2: {r: 0.3372549, g: 0.36078432, b: 0.3254902, a: 1}
+    - _Color3: {r: 0.38817462, g: 0.4056604, b: 0.376958, a: 1}
+    - _Color4: {r: 0.33718407, g: 0.3584906, b: 0.32297972, a: 1}
+    - _Color5: {r: 0.32941177, g: 0.3882353, b: 0.42745098, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

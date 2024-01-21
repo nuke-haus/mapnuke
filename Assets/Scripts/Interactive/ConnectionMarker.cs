@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ConnectionMarker : MonoBehaviour
 {
+    public Material MatCaveSea;
     public Material MatSea;
     public Material MatDeepSea;
     public Material MatRoad;
@@ -206,6 +207,7 @@ public class ConnectionMarker : MonoBehaviour
     {
         var art_config = ArtManager.s_art_manager.CurrentArtConfiguration;
 
+        MatCaveSea = art_config.MatUnderworldRiver;
         MatSea = art_config.MatRiver;
         MatDeepSea = art_config.MatDeepRiver;
         MatRoad = art_config.MatRoad;
@@ -561,6 +563,11 @@ public class ConnectionMarker : MonoBehaviour
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatDeepSea;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    Mesh.material = MatCaveSea;
+                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -577,6 +584,11 @@ public class ConnectionMarker : MonoBehaviour
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatWinterDeepSea;
+
+                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+                {
+                    Mesh.material = MatCaveSea;
+                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -656,10 +668,12 @@ public class ConnectionMarker : MonoBehaviour
         }
 
         draw_shore();
+        var is_river = !ArtManager.s_art_manager.IsUsingUnderworldTerrain && (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER);
+        var is_cave_river = ArtManager.s_art_manager.IsUsingUnderworldTerrain && m_connection.CaveConnectionType == ConnectionType.RIVER;
 
-        if (m_connection.ConnectionType == ConnectionType.RIVER || m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
+        if (is_river || is_cave_river)
         {
-            if (!ArtManager.s_art_manager.IsLockingProvinceShapes)
+            if (!ArtManager.s_art_manager.IsLockingProvinceShapes || (is_cave_river && (m_poly == null || !m_poly.Any())))
             {
                 // Only regenerate the polyborder if the province shape isn't locked
                 m_poly = get_contour(PolyBorder,
@@ -671,11 +685,14 @@ public class ConnectionMarker : MonoBehaviour
             m_full_contour.AddRange(m_poly);
             m_full_contour.Add(m_poly[0]);
 
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.CaveColor
+                : GenerationManager.s_generation_manager.BorderColor;
             var key_start = new Keyframe(0f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
             var key_end = new Keyframe(1f, ArtManager.s_art_manager.CurrentArtConfiguration.ProvinceBorderWidth * 2f);
             BorderLine.widthCurve = new AnimationCurve(key_start, key_end);
-            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
             BorderLine.positionCount = m_full_contour.Count;
             BorderLine.SetPositions(m_full_contour.ToArray());
 
@@ -729,17 +746,23 @@ public class ConnectionMarker : MonoBehaviour
         BorderLine.positionCount = arr.Length;
         BorderLine.SetPositions(arr);
 
-        if (m_connection.IsSeaConnection)
+        if ((m_connection.IsSeaConnection && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (m_connection.IsCaveSeaConnection && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.SeaCaveColor
+                : GenerationManager.s_generation_manager.SeaBorderColor;
             BorderLine.materials = new Material[] { MatSeaBorder };
-            BorderLine.startColor = GenerationManager.s_generation_manager.SeaBorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.SeaBorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
         }
         else
         {
+            var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.CaveColor
+                : GenerationManager.s_generation_manager.BorderColor;
             BorderLine.materials = new Material[] { MatLandBorder };
-            BorderLine.startColor = GenerationManager.s_generation_manager.BorderColor;
-            BorderLine.endColor = GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.startColor = color;
+            BorderLine.endColor = color;
         }
 
         SetSeason(GenerationManager.s_generation_manager.Season);
@@ -812,15 +835,18 @@ public class ConnectionMarker : MonoBehaviour
             m_stroke = null;
         }
 
-        if ((Prov1.Node.ProvinceData.IsWater && !Prov2.Node.ProvinceData.IsWater) || (Prov2.Node.ProvinceData.IsWater && !Prov1.Node.ProvinceData.IsWater))
+        var is_water = (Prov1.Node.ProvinceData.IsWater && !Prov2.Node.ProvinceData.IsWater) || (Prov2.Node.ProvinceData.IsWater && !Prov1.Node.ProvinceData.IsWater);
+        var is_cave_water = (Prov1.Node.ProvinceData.IsCaveWater && !Prov2.Node.ProvinceData.IsCaveWater) || (Prov2.Node.ProvinceData.IsCaveWater && !Prov1.Node.ProvinceData.IsCaveWater);
+
+        if ((is_water && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (is_cave_water && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
             var g = GameObject.Instantiate(InnerStrokePrefab);
             m_stroke = g.GetComponent<InnerStroke>();
             m_stroke.UpdateArtStyle();
-            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(), 
-                Vector3.zero, 
-                true, 
-                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumSeaShoreWidth, 
+            m_stroke.DrawStroke(PolyBorder.GetFullLengthBorder(),
+                Vector3.zero,
+                true,
+                ArtManager.s_art_manager.CurrentArtConfiguration.MinimumSeaShoreWidth,
                 ArtManager.s_art_manager.CurrentArtConfiguration.MaximumSeaShoreWidth);
         }
     }

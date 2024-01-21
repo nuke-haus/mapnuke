@@ -44,7 +44,9 @@ public class ArtConfiguration : MonoBehaviour
 
     public Color DominionOverlayColor = new Color(1f, 1f, 0.1176f, 0.1490f);
     public Color LandBorderColor = new Color(0.3529f, 0.3333f, 0.3137f, 0.7843f);
+    public Color CaveBorderColor = new Color(0.3529f, 0.3333f, 0.3137f, 0.7843f);
     public Color SeaBorderColor = new Color(0.2941f, 0.4509f, 0.5686f, 0.6078f);
+    public Color SeaCaveBorderColor = new Color(0.2941f, 0.4509f, 0.5686f, 0.6078f);
 
     [Header("Province Sprite Sets")]
     public MapSpriteSet Plains;
@@ -62,6 +64,7 @@ public class ArtConfiguration : MonoBehaviour
     public MapSpriteSet UnderworldSwamp;
     public MapSpriteSet UnderworldForest;
     public MapSpriteSet UnderworldHighland;
+    public MapSpriteSet UnderworldSea;
 
     [Header("Connection Sprite Sets")]
     public ConnectionSpriteSet Road;
@@ -75,6 +78,10 @@ public class ArtConfiguration : MonoBehaviour
     public Material MatUnderworldForest;
     public Material MatUnderworldHighland;
     public Material MatUnderworldCave;
+    public Material MatUnderworldSea;
+    public Material MatUnderworldRiver;
+    public Material MatUnderworldShore;
+    public Material MatUnderworldRiverShore;
     public Material MatUnderworldImpassable;
 
     [Header("Summer Province Mesh Materials")]
@@ -157,7 +164,11 @@ public class ArtConfiguration : MonoBehaviour
 
     public MapSpriteSet GetUnderworldSpriteSet(Terrain flags)
     {
-        if (flags.IsFlagSet(Terrain.SWAMP))
+        if (flags.IsFlagSet(Terrain.SEA))
+        {
+            return UnderworldSea;
+        }
+        else if (flags.IsFlagSet(Terrain.SWAMP))
         {
             return UnderworldSwamp;
         }
@@ -177,7 +188,11 @@ public class ArtConfiguration : MonoBehaviour
 
     public ProvinceSprite GetUnderworldSprite(Terrain flags)
     {
-        if (flags.IsFlagSet(Terrain.SWAMP))
+        if (flags.IsFlagSet(Terrain.SEA))
+        {
+            return UnderworldSea.GetSprite(flags);
+        }
+        else if (flags.IsFlagSet(Terrain.SWAMP))
         {
             return UnderworldSwamp.GetSprite(flags);
         }

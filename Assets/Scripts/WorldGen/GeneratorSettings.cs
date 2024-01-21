@@ -21,7 +21,7 @@ public class GeneratorSettings
     public FloatRange CaveFreq = new FloatRange(0.0f, 0.0f);
     public FloatRange FarmFreq = new FloatRange(0.14f, 0.16f);
     public FloatRange ForestFreq = new FloatRange(0.16f, 0.18f);
-    public FloatRange LakeFreq = new FloatRange(0.02f, 0.06f);
+    public FloatRange LakeFreq = new FloatRange(0.03f, 0.06f);
 
     public FloatRange LargeFreq = new FloatRange(0.28f, 0.32f);
     public FloatRange SmallFreq = new FloatRange(0.10f, 0.14f);
@@ -33,7 +33,7 @@ public class GeneratorSettings
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
 
     public float CustomNameFreq = 0.05f;
-    public float UnderworldCaveFreq = 0.18f;
+    public float UnderworldCaveFreq = 0.17f;
     public int NumCaveEntrancesPerPlayer = 1;
 
     public bool UseClassicMountains = true;

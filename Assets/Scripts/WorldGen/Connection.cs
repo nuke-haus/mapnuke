@@ -26,7 +26,19 @@ public class Connection
         private set;
     }
 
+    public ConnectionType CaveConnectionType
+    {
+        get;
+        private set;
+    }
+
     public ConnectionType LockedConnectionType
+    {
+        get;
+        private set;
+    }
+
+    public ConnectionType LockedCaveConnectionType
     {
         get;
         private set;
@@ -73,6 +85,14 @@ public class Connection
         get
         {
             return Node1.ProvinceData.IsWater && Node2.ProvinceData.IsWater;
+        }
+    }
+
+    public bool IsCaveSeaConnection
+    {
+        get
+        {
+            return Node1.ProvinceData.IsCaveWater && Node2.ProvinceData.IsCaveWater;
         }
     }
 
@@ -170,15 +190,22 @@ public class Connection
         ConnectionType = c;
     }
 
+    public void SetCaveConnection(ConnectionType c)
+    {
+        CaveConnectionType = c;
+    }
+
     public void LockConnectionData(bool is_locked)
     {
         if (is_locked)
         {
             LockedConnectionType = ConnectionType;
+            LockedCaveConnectionType = CaveConnectionType;
         }
         else
         {
             ConnectionType = LockedConnectionType;
+            CaveConnectionType = LockedCaveConnectionType;
         }
     }
 

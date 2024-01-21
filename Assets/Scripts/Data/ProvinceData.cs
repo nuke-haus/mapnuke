@@ -84,6 +84,13 @@ public class ProvinceData
             return Terrain.IsFlagSet(Terrain.SEA);
         }
     }
+    public bool IsCaveWater
+    {
+        get
+        {
+            return CaveTerrain.IsFlagSet(Terrain.SEA);
+        }
+    }
 
     public bool IsWaterSwamp
     {
