@@ -83,7 +83,15 @@ public static class TGAEncode
         System.Array.ConstrainedCopy(header_bytes, 0, tga_bytes, 0, header_bytes.Length);
         System.Array.ConstrainedCopy(TGA_FOOTER, 0, tga_bytes, cur_byte, TGA_FOOTER.Length);
 
-        return tga_bytes;
+        // return tga_bytes;
+
+        // This library compresses the tga file using RLE
+        // It does slow down output slightly but the filesize reduction is worth it
+
+        var tga = new TGASharpLib.TGA(tga_bytes);
+        tga.Header.ImageType = TGASharpLib.TgaImageType.RLE_TrueColor;
+
+        return tga.ToBytes();
     }
 
     private static byte GetChannel(Color32 color, Channel channel)

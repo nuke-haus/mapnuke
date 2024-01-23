@@ -16,7 +16,6 @@ public class ProvinceManager : MonoBehaviour
     public Toggle Plains;
     public Toggle Highland;
     public Toggle Mountain;
-    public Toggle Cave;
     public Toggle Swamp;
     public Toggle Waste;
     public Toggle Forest;
@@ -62,10 +61,6 @@ public class ProvinceManager : MonoBehaviour
         if (Mountain.isOn)
         {
             flags |= Terrain.MOUNTAINS;
-        }
-        if (Cave.isOn)
-        {
-            flags |= Terrain.CAVE;
         }
         if (Swamp.isOn)
         {
@@ -270,7 +265,6 @@ public class ProvinceManager : MonoBehaviour
     {
         Highland.isOn = false;
         Mountain.isOn = false;
-        Cave.isOn = false;
         Swamp.isOn = false;
         Waste.isOn = false;
         Farm.isOn = false;
@@ -298,11 +292,6 @@ public class ProvinceManager : MonoBehaviour
         if (flags.IsFlagSet(Terrain.MOUNTAINS))
         {
             Mountain.isOn = true;
-            plains = false;
-        }
-        if (flags.IsFlagSet(Terrain.CAVE))
-        {
-            Cave.isOn = true;
             plains = false;
         }
         if (flags.IsFlagSet(Terrain.SWAMP))

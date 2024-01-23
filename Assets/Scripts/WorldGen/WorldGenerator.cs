@@ -725,11 +725,10 @@ internal static class WorldGenerator
             nodes_to_avoid.Add(node);
         }
 
-        var valid_lake_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x)).ToList();
-        var non_cap_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x)).ToList();
+        var non_cap_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x)).ToList();
         non_cap_nodes.Shuffle();
 
-        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.GetRandom() * valid_lake_nodes.Count);
+        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.GetRandom() * non_cap_nodes.Count);
         var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cap_nodes.Count);
         var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); 
         var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // crystal caves and drip caves should be a bit more common
@@ -888,7 +887,6 @@ internal static class WorldGenerator
 
     private static void generate_cave_entrances()
     {
-        var valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && !x.IsCapRing).ToList();
         var max = Mathf.Clamp(GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer, 1, 3);
         var dict = new Dictionary<Node, List<Node>>();
 
@@ -1682,6 +1680,11 @@ internal static class WorldGenerator
 
                 n.SetPlayerInfo(d, new ProvinceData(d.NationData.CapTerrain));
                 n.SetAssignedTerrain(true);
+
+                if (d.NationData.StartsUnderground)
+                {
+                    n.ProvinceData.SetCaveTerrainFlags(d.NationData.CapTerrain);
+                }
             }
         }
         else
@@ -1695,6 +1698,11 @@ internal static class WorldGenerator
 
                 n.SetPlayerInfo(d, new ProvinceData(d.NationData.CapTerrain));
                 n.SetAssignedTerrain(true);
+
+                if (d.NationData.StartsUnderground)
+                {
+                    n.ProvinceData.SetCaveTerrainFlags(d.NationData.CapTerrain);
+                }
             }
         }
     }

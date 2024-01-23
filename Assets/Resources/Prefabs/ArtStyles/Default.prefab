@@ -65,7 +65,7 @@ MonoBehaviour:
   LandBorderColor: {r: 0.3529, g: 0.3333, b: 0.3137, a: 0.7843}
   CaveBorderColor: {r: 0.2924528, g: 0.2779681, b: 0.26348343, a: 0.74509805}
   SeaBorderColor: {r: 0.2941, g: 0.4509, b: 0.5686, a: 0.7058824}
-  SeaCaveBorderColor: {r: 0.22467962, g: 0.28244042, b: 0.31132078, a: 0.9019608}
+  SeaCaveBorderColor: {r: 0.22467962, g: 0.28244042, b: 0.31132078, a: 0.8039216}
   Plains:
     CullChance: 0.75
     ProvinceEdgeThreshold: 0.14
