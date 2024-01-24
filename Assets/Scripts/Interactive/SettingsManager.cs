@@ -13,8 +13,8 @@ public class SettingsManager : MonoBehaviour
     public InputField HighlandMax;
     public InputField WasteMin;
     public InputField WasteMax;
-    public InputField CaveMin;
-    public InputField CaveMax;
+    public InputField FortMin;
+    public InputField FortMax;
     public InputField FarmMin;
     public InputField FarmMax;
     public InputField ForestMin;
@@ -68,8 +68,8 @@ public class SettingsManager : MonoBehaviour
         MountainMax.text = GeneratorSettings.s_generator_settings.MountainFreq.MaxInt.ToString();
         HighlandMin.text = GeneratorSettings.s_generator_settings.HighlandFreq.MinInt.ToString();
         HighlandMax.text = GeneratorSettings.s_generator_settings.HighlandFreq.MaxInt.ToString();
-        CaveMin.text = GeneratorSettings.s_generator_settings.CaveFreq.MinInt.ToString();
-        CaveMax.text = GeneratorSettings.s_generator_settings.CaveFreq.MaxInt.ToString();
+        FortMin.text = GeneratorSettings.s_generator_settings.FortFreq.MinInt.ToString();
+        FortMax.text = GeneratorSettings.s_generator_settings.FortFreq.MaxInt.ToString();
         FarmMin.text = GeneratorSettings.s_generator_settings.FarmFreq.MinInt.ToString();
         FarmMax.text = GeneratorSettings.s_generator_settings.FarmFreq.MaxInt.ToString();
         ForestMin.text = GeneratorSettings.s_generator_settings.ForestFreq.MinInt.ToString();
@@ -97,7 +97,7 @@ public class SettingsManager : MonoBehaviour
 
     public void ResetSettings()
     {
-        GeneratorSettings.s_generator_settings.CaveFreq.Reset();
+        GeneratorSettings.s_generator_settings.FortFreq.Reset();
         GeneratorSettings.s_generator_settings.CliffFreq.Reset();
         GeneratorSettings.s_generator_settings.CliffPassFreq.Reset();
         GeneratorSettings.s_generator_settings.DeepRiverFreq.Reset();
@@ -114,7 +114,7 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
         GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = 1;
         GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.17f;
-        GeneratorSettings.s_generator_settings.CustomNameFreq = 0.05f;
+        GeneratorSettings.s_generator_settings.CustomNameFreq = 0.06f;
 
         update_textboxes();
         update_labels();
@@ -122,7 +122,7 @@ public class SettingsManager : MonoBehaviour
 
     public void ApplyChanges() // user clicks accept
     {
-        GeneratorSettings.s_generator_settings.CaveFreq.Update(get_float(CaveMin), get_float(CaveMax));
+        GeneratorSettings.s_generator_settings.FortFreq.Update(get_float(FortMin), get_float(FortMax));
         GeneratorSettings.s_generator_settings.CliffFreq.Update(get_float(CliffMin), get_float(CliffMax));
         GeneratorSettings.s_generator_settings.CliffPassFreq.Update(get_float(CliffPassMin), get_float(CliffPassMax));
         GeneratorSettings.s_generator_settings.DeepRiverFreq.Update(get_float(DeepRiverMin), get_float(DeepRiverMax));
@@ -158,7 +158,6 @@ public class SettingsManager : MonoBehaviour
             get_int(WasteMax) +
             get_int(MountainMax) +
             get_int(HighlandMax) +
-            get_int(CaveMax) +
             get_int(FarmMax) +
             get_int(ForestMax) +
             get_int(LakeMax);
@@ -262,7 +261,6 @@ public class SettingsManager : MonoBehaviour
             GeneratorSettings.s_generator_settings.WasteFreq.MaxInt +
             GeneratorSettings.s_generator_settings.MountainFreq.MaxInt +
             GeneratorSettings.s_generator_settings.HighlandFreq.MaxInt +
-            GeneratorSettings.s_generator_settings.CaveFreq.MaxInt +
             GeneratorSettings.s_generator_settings.FarmFreq.MaxInt +
             GeneratorSettings.s_generator_settings.ForestFreq.MaxInt +
             GeneratorSettings.s_generator_settings.LakeFreq.MaxInt;

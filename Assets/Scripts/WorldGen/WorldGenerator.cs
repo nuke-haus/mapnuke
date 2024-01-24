@@ -52,8 +52,15 @@ internal static class WorldGenerator
         generate_farms(valid);
         generate_sized(valid);
         generate_thrones();
-        generate_cave_entrances();
-        generate_cave_terrain();
+        generate_forts();
+
+        var place_caves = GeneratorSettings.s_generator_settings.UnderworldCaveFreq > 0f;
+        if (place_caves)
+        {
+            generate_cave_entrances();
+            generate_cave_terrain();
+        }
+        
         cleanup_connections();
     }
 
@@ -478,14 +485,12 @@ internal static class WorldGenerator
         var num_forest = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() + GeneratorSettings.s_generator_settings.FarmFreq.GetRandom();
         var num_trench = GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom();
         var num_deeps = GeneratorSettings.s_generator_settings.MountainFreq.GetRandom();
-        var num_cave = GeneratorSettings.s_generator_settings.CaveFreq.GetRandom();
 
         var water = m_nodes.Where(x => x.ProvinceData.IsWater && !x.HasNation && !x.IsAssignedTerrain).ToList();
 
         var dict = new Dictionary<Terrain, float>();
         dict.Add(Terrain.HIGHLAND, num_trench);
         dict.Add(Terrain.FOREST, num_forest);
-        dict.Add(Terrain.CAVE, num_cave);
 
         if (!m_nat_starts)
         {
@@ -725,7 +730,7 @@ internal static class WorldGenerator
             nodes_to_avoid.Add(node);
         }
 
-        var non_cap_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x)).ToList();
+        var non_cap_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x) && x.ProvinceData.CaveTerrain == Terrain.PLAINS).ToList();
         non_cap_nodes.Shuffle();
 
         var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.GetRandom() * non_cap_nodes.Count);
@@ -916,6 +921,11 @@ internal static class WorldGenerator
                 {
                     count++;
                     node.ProvinceData.SetHasCaveEntrance(true);
+
+                    if (node.ProvinceData.IsWater)
+                    {
+                        node.ProvinceData.SetCaveTerrainFlags(Terrain.SEA);
+                    }
                 }
 
                 if (count >= max)
@@ -947,6 +957,31 @@ internal static class WorldGenerator
 
                 n.ProvinceData.AddTerrainFlag(Terrain.THRONE);
             }
+        }
+    }
+
+    private static void generate_forts()
+    {
+        var valid = m_nodes.Where(x => !x.HasNation && !x.IsCapRing && !x.ProvinceData.IsThrone && !x.ProvinceData.HasCaveEntrance).ToList();
+        valid.Shuffle();
+
+        var num_forts = GeneratorSettings.s_generator_settings.FortFreq.GetRandom() * valid.Count;
+        var count = 0;
+
+        List<Node> placed_forts = new List<Node>();
+
+        while (count < num_forts && valid.Any())
+        {
+            Node node = valid[0];
+            valid.RemoveAt(0);
+
+            if (node.ProvinceData.Fort != Fort.NONE || node.ConnectedNodes.Any(conn_node => conn_node.ProvinceData.Fort != Fort.NONE || conn_node.ConnectedNodes.Any(conn_node2 => conn_node2.ProvinceData.Fort != Fort.NONE)))
+            {
+                continue;
+            }
+
+            node.ProvinceData.SetFortType(FortHelper.GetFort(node));
+            count++;
         }
     }
 
@@ -1037,7 +1072,6 @@ internal static class WorldGenerator
         var num_highlands = GeneratorSettings.s_generator_settings.HighlandFreq.GetRandom();
         var num_mountains = GeneratorSettings.s_generator_settings.MountainFreq.GetRandom();
         var num_forests = GeneratorSettings.s_generator_settings.ForestFreq.GetRandom();
-        var num_caves = GeneratorSettings.s_generator_settings.CaveFreq.GetRandom();
         var num_waste = GeneratorSettings.s_generator_settings.WasteFreq.GetRandom();
 
         if (GeneratorSettings.s_generator_settings.UseClassicMountains)
@@ -1050,7 +1084,6 @@ internal static class WorldGenerator
         dict.Add(Terrain.HIGHLAND, num_highlands);
         dict.Add(Terrain.MOUNTAINS, num_mountains);
         dict.Add(Terrain.FOREST, num_forests);
-        dict.Add(Terrain.CAVE, num_caves);
 
         var valid = m_nodes.Where(x => !x.HasNation && !x.IsAssignedTerrain && x.ProvinceData.IsPlains).ToList();
 

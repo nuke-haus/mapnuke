@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Flags]
-public enum Terrain
+public enum Terrain: uint
 {
     PLAINS = 0,
     SMALLPROV = 1,
@@ -17,12 +17,12 @@ public enum Terrain
     MANYSITES = 1024,
     DEEPSEA = 2048,
     CAVE = 4096,
-    MOUNTAINS = 4194304,
+    MOUNTAINS = 8388608,
     THRONE = 16777216,
     START = 33554432,
     GENERICSTART = 67108864,
-    WARMER = 536870912,
-    COLDER = 1073741824
+    WARMER = 1073741824,
+    COLDER = 2147483648
 }
 
 /// <summary>
@@ -34,6 +34,12 @@ public class ProvinceData
     // Dom6 has a new cave layer we need to support for those maps, it doesn't fit into the Terrain enum though 
     public static readonly long Dom6CaveWall = 68719476736;
     public static readonly long Dom6Cave = 576460752303423488;
+
+    public Fort Fort
+    {
+        get;
+        private set;
+    }
 
     public Terrain Terrain
     {
@@ -131,6 +137,7 @@ public class ProvinceData
     {
         CaveTerrain = Terrain.PLAINS;
         Terrain = Terrain.PLAINS;
+        Fort = Fort.NONE;
         ID = -1;
         CustomName = string.Empty;
         CaveCustomName = string.Empty;
@@ -139,6 +146,7 @@ public class ProvinceData
     public ProvinceData(Terrain t)
     {
         Terrain = t;
+        Fort = Fort.NONE;
         ID = -1;
         CustomName = string.Empty;
         CaveCustomName = string.Empty;
@@ -184,6 +192,11 @@ public class ProvinceData
         Terrain = Terrain | flag;
     }
 
+    public void SetFortType(Fort fort)
+    {
+        Fort = fort;
+    }
+
     public ProvinceData Clone()
     {
         ProvinceData clone = new ProvinceData();
@@ -192,6 +205,7 @@ public class ProvinceData
         clone.SetCustomName(CustomName);
         clone.SetCaveCustomName(CaveCustomName);
         clone.SetID(ID);
+        clone.SetFortType(Fort);
         clone.SetIsCaveWall(IsCaveWall);
         clone.SetHasCaveEntrance(HasCaveEntrance);
         return clone;

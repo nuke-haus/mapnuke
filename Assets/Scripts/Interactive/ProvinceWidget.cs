@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ProvinceWidget : MonoBehaviour
 {
-    public Sprite NormalSprite;
-    public Sprite CaveWallSprite;
-    public Sprite CaveEntranceSprite;
+    public GameObject CaveWallSprite;
+    public GameObject CaveEntranceSprite;
+    public GameObject FortSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
     public List<TextMesh> TextOutlines;
@@ -25,7 +25,7 @@ public class ProvinceWidget : MonoBehaviour
         m_selected = b;
         m_scale = 1.0f;
 
-        Renderer.transform.localScale = new Vector3(m_scale, m_scale, 1.0f);
+        transform.localScale = new Vector3(m_scale, m_scale, 1.0f);
     }
 
     public void SetNode(Node n)
@@ -68,17 +68,21 @@ public class ProvinceWidget : MonoBehaviour
 
     public void UpdateSprite(Node n)
     {
+        CaveEntranceSprite.SetActive(false);
+        FortSprite.SetActive(false);
+        CaveWallSprite.SetActive(false);
+
         if (n.ProvinceData.HasCaveEntrance)
         {
-            Renderer.sprite = CaveEntranceSprite;
+            CaveEntranceSprite.SetActive(true);
         }
-        else if (n.ProvinceData.IsCaveWall)
+        if (n.ProvinceData.Fort != Fort.NONE)
         {
-            Renderer.sprite = CaveWallSprite;
+            FortSprite.SetActive(true);
         }
-        else
+        if (!n.ProvinceData.IsCaveWall)
         {
-            Renderer.sprite = NormalSprite;
+            CaveWallSprite.SetActive(true);
         }
     }
 
@@ -127,7 +131,7 @@ public class ProvinceWidget : MonoBehaviour
         if (m_selected)
         {
             m_scale = 1.1f + 0.2f * Mathf.Sin(Time.time * 5.5f);
-            Renderer.transform.localScale = new Vector3(m_scale, m_scale, 1.0f);
+            transform.localScale = new Vector3(m_scale, m_scale, 1.0f);
         }
     }
 

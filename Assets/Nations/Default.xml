@@ -167,7 +167,7 @@
     <Age>EARLY</Age>
     <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>FOREST</TerrainData>
+    <TerrainData>SWAMP</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
@@ -420,6 +420,7 @@
     <Name>(EA) Atlantis</Name>
     <ID>43</ID>
     <WaterPercentage>0.4</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>
@@ -848,6 +849,7 @@
     <Name>(MA) Atlantis</Name>
     <ID>88</ID>
     <WaterPercentage>0.4</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>SEA DEEPSEA</CapTerrain>

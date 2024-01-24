@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,6 +57,7 @@ public class GenerationManager : MonoBehaviour
     private int m_player_count = 9;
     private Age m_age = Age.EARLY;
     private Season m_season = Season.SUMMER;
+    private Layer m_layer = Layer.STANDARD;
     private List<GameObject> m_log_content;
     private List<GameObject> m_content;
     private List<PlayerData> m_nations;
@@ -82,21 +84,9 @@ public class GenerationManager : MonoBehaviour
     public Color CaveColor => m_cave_color;
     public Color SeaCaveColor => m_sea_cave_color;
 
-    public Season Season
-    {
-        get
-        {
-            return m_season;
-        }
-    }
-
-    public List<PlayerData> NationData
-    {
-        get
-        {
-            return m_nations;
-        }
-    }
+    public Season Season => m_season;
+    public Layer Layer => m_layer;
+    public List<PlayerData> NationData => m_nations;
 
     private void Start()
     {
@@ -413,7 +403,22 @@ public class GenerationManager : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
+        m_season = m_season == Season.SUMMER
+            ? Season.WINTER
+            : Season.SUMMER;
+
         StartCoroutine(perform_async(() => do_season_change()));
+    }
+
+    public void OnLayerChanged()
+    {
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
+
+        m_layer = m_layer == Layer.STANDARD
+            ? Layer.CAVE
+            : Layer.STANDARD;
+
+        StartCoroutine(regenerate_map_for_layer(m_layer));
     }
 
     public void OnQuitPressed()
@@ -423,10 +428,6 @@ public class GenerationManager : MonoBehaviour
 
     private void do_season_change()
     {
-        m_season = m_season == Season.SUMMER
-            ? Season.WINTER
-            : Season.SUMMER;
-
         ArtManager.s_art_manager.ChangeSeason(m_season);
     }
 
@@ -443,11 +444,11 @@ public class GenerationManager : MonoBehaviour
 
     public void GenerateOutput()
     {
-        var str = MapName.text;
+        var str = new String(MapName.text.Where(c => char.IsDigit(c) || char.IsLetter(c) || c == '_').ToArray());
 
         if (string.IsNullOrEmpty(str))
         {
-            return;
+            str = "my_custom_map";
         }
 
         OutputWindow.SetActive(false);
@@ -537,6 +538,41 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
+    private IEnumerator regenerate_map_for_layer(Layer layer)
+    {
+        LoadingScreen.SetActive(true);
+
+        yield return null;
+        yield return new WaitUntil(() => LoadingScreen.activeInHierarchy);
+
+        var mgr = GetComponent<ElementManager>();
+
+        if (layer == Layer.CAVE)
+        {
+            ArtManager.s_art_manager.LockProvinceShapes(true);
+            ArtManager.s_art_manager.OnOverrideProvinceTerrain(true);
+            mgr.LockMapData(true);
+            mgr.OverrideAllProvinceTerrain(Terrain.CAVE);
+
+            yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+            yield return new WaitForEndOfFrame();
+            yield return null;
+        }
+        else
+        {
+            ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
+            mgr.LockMapData(false);
+
+            yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+            yield return new WaitForEndOfFrame();
+            yield return null;
+
+            ArtManager.s_art_manager.LockProvinceShapes(false);
+        }
+
+        LoadingScreen.SetActive(false);
+    }
+
     private IEnumerator output_async(bool is_for_dom6, string str, bool show_log = false)
     {
         LoadingScreen.SetActive(true);
@@ -547,6 +583,9 @@ public class GenerationManager : MonoBehaviour
         var mgr = GetComponent<ElementManager>();
         var layout = WorldGenerator.GetLayout();
         var province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
+
+        ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
+        mgr.LockMapData(false);
 
         MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids, is_for_dom6);
 
@@ -588,8 +627,15 @@ public class GenerationManager : MonoBehaviour
             ArtManager.s_art_manager.LockProvinceShapes(true);
             mgr.LockMapData(true);
 
+            var output_caves = GeneratorSettings.s_generator_settings.UnderworldCaveFreq > 0f;
+
             foreach (Terrain t in m_dom6_terrains)
             {
+                if (!output_caves && t == Terrain.CAVE)
+                {
+                    continue;
+                }
+
                 mgr.OverrideAllProvinceTerrain(t);
                 ArtManager.s_art_manager.OnOverrideProvinceTerrain(t == Terrain.CAVE);
 
@@ -632,7 +678,10 @@ public class GenerationManager : MonoBehaviour
 
             ArtManager.s_art_manager.LockProvinceShapes(false);
 
-            MapFileWriter.GenerateCaveLayerText(str, str + "_plane2", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+            if (output_caves)
+            {
+                MapFileWriter.GenerateCaveLayerText(str, str + "_plane2", layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids);
+            }
 
             yield return null;
         }
@@ -642,6 +691,8 @@ public class GenerationManager : MonoBehaviour
         LoadingScreen.SetActive(false);
 
         MapFileWriter.OpenFolder();
+
+        m_layer = Layer.STANDARD;
     }
 
     public void UpdateColors(Color overlay, Color land_border, Color sea_cave_border, Color cave_border, Color sea_border)

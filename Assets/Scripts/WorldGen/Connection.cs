@@ -200,12 +200,12 @@ public class Connection
         if (is_locked)
         {
             LockedConnectionType = ConnectionType;
-            LockedCaveConnectionType = CaveConnectionType;
+            //LockedCaveConnectionType = CaveConnectionType;
         }
         else
         {
             ConnectionType = LockedConnectionType;
-            CaveConnectionType = LockedCaveConnectionType;
+            //CaveConnectionType = LockedCaveConnectionType;
         }
     }
 

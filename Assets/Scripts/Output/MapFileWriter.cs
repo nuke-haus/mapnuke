@@ -199,6 +199,17 @@ public static class MapFileWriter
                 write(fs, "#terrain " + m.ProvinceNumber + " " + (int)terr);
             }
 
+            write(fs, "\n-- Province Fort Data");
+
+            foreach (var m in provs)
+            {
+                if (m.Node.ProvinceData.Fort != Fort.NONE)
+                {
+                    write(fs, "#setland " + m.ProvinceNumber);
+                    write(fs, "#fort " + (int)m.Node.ProvinceData.Fort);
+                }
+            }
+
             write(fs, "\n-- Province Neighbour Data");
 
             foreach (var m in provs)

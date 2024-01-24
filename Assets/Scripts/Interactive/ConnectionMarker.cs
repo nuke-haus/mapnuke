@@ -558,16 +558,15 @@ public class ConnectionMarker : MonoBehaviour
             }
         }
 
-        if (s == Season.SUMMER)
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            Mesh.material = MatCaveSea;
+        }
+        else if (s == Season.SUMMER)
         {
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatDeepSea;
-
-                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
-                {
-                    Mesh.material = MatCaveSea;
-                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -584,11 +583,6 @@ public class ConnectionMarker : MonoBehaviour
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
                 Mesh.material = MatWinterDeepSea;
-
-                if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
-                {
-                    Mesh.material = MatCaveSea;
-                }
             }
             else if (m_connection.ConnectionType == ConnectionType.SHALLOWRIVER)
             {
@@ -1087,6 +1081,11 @@ public class ConnectionMarker : MonoBehaviour
         }
 
         m_widget.SetConnection(m_connection);
+    }
+
+    public void UpdateCaveConnection(ConnectionType t)
+    {
+        m_connection.SetCaveConnection(t);
     }
 
     public void SetWidget(ConnectionWidget w)

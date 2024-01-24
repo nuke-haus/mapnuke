@@ -7,6 +7,12 @@ public enum Season
     WINTER
 }
 
+public enum Layer
+{
+    STANDARD,
+    CAVE
+}
+
 /// <summary>
 /// The behaviour class for sprite objects that are used to decorate provinces and connections.
 /// </summary>

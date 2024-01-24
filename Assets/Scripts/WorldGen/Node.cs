@@ -84,6 +84,12 @@ public class Node
         private set;
     }
 
+    public ProvinceData TempCaveProvinceData
+    {
+        get;
+        private set;
+    }
+
     public ProvinceData LockedProvinceData
     {
         get;
@@ -200,6 +206,7 @@ public class Node
         X = x;
         Y = y;
         ProvinceData = pd;
+        TempCaveProvinceData = pd.Clone();
         IsCapRing = false;
         IsAssignedTerrain = false;
         IsWrapCorner = false;
@@ -215,10 +222,12 @@ public class Node
         if (is_locked)
         {
             LockedProvinceData = ProvinceData.Clone();
+            TempCaveProvinceData = ProvinceData.Clone();
         }
         else
         {
             ProvinceData = LockedProvinceData.Clone();
+            ProvinceData.SetCaveTerrainFlags(TempCaveProvinceData.CaveTerrain);
         }
     }
 

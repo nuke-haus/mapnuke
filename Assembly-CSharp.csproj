@@ -165,7 +165,7 @@
       <HintPath>C:/Users/nuket/Desktop/Repo/Public/MapNuke/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/nuket/Desktop/Repo/Public/MapNuke/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:/Users/nuket/Desktop/Repo/Public/MapNuke/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
