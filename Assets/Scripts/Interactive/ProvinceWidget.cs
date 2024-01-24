@@ -13,7 +13,27 @@ public class ProvinceWidget : MonoBehaviour
     private ProvinceMarker m_parent;
     private bool m_selected = false;
     private float m_scale = 1.0f;
-    private Dictionary<Terrain, Color> m_colors;
+    private static Dictionary<Terrain, Color> m_colors = new Dictionary<Terrain, Color>
+            {
+                { Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f) },
+                { Terrain.SEA, new Color(0.4f, 0.6f, 0.9f) },
+                { Terrain.FARM, new Color(0.9f, 0.8f, 0.2f) },
+                { Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f) },
+                { Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f) },
+                { Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f) },
+                { Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f) },
+                { Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f) },
+                { Terrain.PLAINS, new Color(0.9f, 0.9f, 0.8f) }
+            };
+
+    private static Dictionary<Terrain, Color> m_cave_colors = new Dictionary<Terrain, Color>
+            {
+                { Terrain.SEA, new Color(0.2f, 0.3f, 0.9f) },
+                { Terrain.SWAMP, new Color(0.3f, 0.4f, 0.4f) },
+                { Terrain.HIGHLAND, new Color(0.6f, 0.5f, 0.7f) },
+                { Terrain.FOREST, new Color(0.6f, 0.7f, 0.1f) },
+                { Terrain.PLAINS, new Color(0.5f, 0.4f, 0.2f) }
+            };
 
     public void SetParent(ProvinceMarker m)
     {
@@ -30,22 +50,6 @@ public class ProvinceWidget : MonoBehaviour
 
     public void SetNode(Node n)
     {
-        if (m_colors == null)
-        {
-            m_colors = new Dictionary<Terrain, Color>
-            {
-                { Terrain.DEEPSEA, new Color(0.2f, 0.3f, 0.9f) },
-                { Terrain.SEA, new Color(0.4f, 0.6f, 0.9f) },
-                { Terrain.FARM, new Color(0.9f, 0.8f, 0.2f) },
-                { Terrain.SWAMP, new Color(0.6f, 0.8f, 0.1f) },
-                { Terrain.WASTE, new Color(0.6f, 0.4f, 0.3f) },
-                { Terrain.MOUNTAINS, new Color(0.4f, 0.3f, 0.4f) },
-                { Terrain.HIGHLAND, new Color(0.5f, 0.5f, 0.7f) },
-                { Terrain.FOREST, new Color(0.1f, 0.4f, 0.1f) },
-                { Terrain.CAVE, new Color(0.1f, 0.4f, 0.5f) }
-            };
-        }
-
         UpdateSprite(n);
         UpdateLabel(n);
         UpdateColor(n);
@@ -54,8 +58,15 @@ public class ProvinceWidget : MonoBehaviour
     private Color get_node_color(Node n)
     {
         var t = n.ProvinceData.Terrain;
+        var colors = m_colors;
 
-        foreach (var pair in m_colors)
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            t = n.ProvinceData.CaveTerrain;
+            colors = m_cave_colors;
+        }
+
+        foreach (var pair in colors)
         {
             if (t.IsFlagSet(pair.Key))
             {
@@ -63,7 +74,7 @@ public class ProvinceWidget : MonoBehaviour
             }
         }
 
-        return new Color(0.9f, 0.9f, 0.8f); //default is plains
+        return new Color(0.9f, 0.9f, 0.8f); //default to plains
     }
 
     public void UpdateSprite(Node n)

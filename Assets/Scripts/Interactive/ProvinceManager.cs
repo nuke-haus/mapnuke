@@ -204,6 +204,8 @@ public class ProvinceManager : MonoBehaviour
             m_current.Node.ProvinceData.SetFortType(global::Fort.NONE);
         }
 
+        m_current.Node.TempCaveProvinceData.SetHasCaveEntrance(HasCaveEntrance.isOn);
+        m_current.Node.TempCaveProvinceData.SetIsCaveWall(!HasCaveProvince.isOn);
         m_current.Node.TempCaveProvinceData.SetCaveTerrainFlags(cave_flags);
         m_current.Node.ProvinceData.SetCaveTerrainFlags(cave_flags);
         m_current.Node.ProvinceData.SetTerrainFlags(flags);

@@ -1062,16 +1062,26 @@ public class ConnectionMarker : MonoBehaviour
         m_widget.SetConnection(c);
     }
 
+    public void UpdateColor()
+    {
+        m_widget.SetConnection(m_connection);
+    }
+
     public void UpdateConnection(ConnectionType t)
     {
-        var col = m_colors[t];
+        /*var col = m_colors[t];
+
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            col = m_colors[m_connection.CaveConnectionType];
+        }
 
         var rend = GetComponent<LineRenderer>();
         rend.startColor = col;
         rend.endColor = col;
 
         var rend2 = SpriteObj.GetComponent<SpriteRenderer>();
-        rend2.color = col;
+        rend2.color = col;*/
 
         m_connection.SetConnection(t);
 

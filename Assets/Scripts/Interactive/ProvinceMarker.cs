@@ -416,7 +416,7 @@ public class ProvinceMarker : MonoBehaviour
 
     public void UpdateColor()
     {
-        Renderer.color = get_node_color(m_node);
+        //Renderer.color = get_node_color(m_node);
 
         assign_mat(GenerationManager.s_generation_manager.Season);
 
@@ -459,6 +459,13 @@ public class ProvinceMarker : MonoBehaviour
     private Color get_node_color(Node n)
     {
         var t = n.ProvinceData.Terrain;
+        var colors = m_colors;
+
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            t = n.ProvinceData.CaveTerrain;
+            colors = m_colors;
+        }
 
         foreach (var pair in m_colors)
         {

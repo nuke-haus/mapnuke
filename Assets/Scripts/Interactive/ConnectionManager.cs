@@ -119,6 +119,7 @@ public class ConnectionManager : MonoBehaviour
 
         m_current.SetSeason(GenerationManager.s_generation_manager.Season);
         m_current.UpdateCaveConnection(c);
+        m_current.UpdateColor();
 
         if (m_current.LinkedConnection != null)
         {

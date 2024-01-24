@@ -228,6 +228,8 @@ public class Node
         {
             ProvinceData = LockedProvinceData.Clone();
             ProvinceData.SetCaveTerrainFlags(TempCaveProvinceData.CaveTerrain);
+            ProvinceData.SetHasCaveEntrance(TempCaveProvinceData.HasCaveEntrance);
+            ProvinceData.SetIsCaveWall(TempCaveProvinceData.IsCaveWall);
         }
     }
 

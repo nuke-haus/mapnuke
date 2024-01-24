@@ -1290,12 +1290,6 @@ internal static class WorldGenerator
 
                     if (c.Node1 == n)
                     {
-                        if (!did_place_cave_gate && n.Nation.NationData.HasCaveEntranceInCapRing)
-                        {
-                            did_place_cave_gate = true;
-                            c.Node2.ProvinceData.SetHasCaveEntrance(true);
-                        }
-
                         if (n.Nation.NationData.StartsUnderground)
                         {
                             c.Node2.ProvinceData.SetCaveTerrainFlags(n.Nation.NationData.TerrainData[i]);
@@ -1303,15 +1297,20 @@ internal static class WorldGenerator
 
                         c.Node2.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node2.SetAssignedTerrain(true);
-                    }
-                    else
-                    {
+
                         if (!did_place_cave_gate && n.Nation.NationData.HasCaveEntranceInCapRing)
                         {
                             did_place_cave_gate = true;
-                            c.Node1.ProvinceData.SetHasCaveEntrance(true);
-                        }
+                            c.Node2.ProvinceData.SetHasCaveEntrance(true);
 
+                            if (c.Node2.ProvinceData.IsWater)
+                            {
+                                c.Node2.ProvinceData.SetCaveTerrainFlags(Terrain.SEA);
+                            }
+                        }
+                    }
+                    else
+                    {
                         if (n.Nation.NationData.StartsUnderground)
                         {
                             c.Node1.ProvinceData.SetCaveTerrainFlags(n.Nation.NationData.TerrainData[i]);
@@ -1319,6 +1318,17 @@ internal static class WorldGenerator
 
                         c.Node1.ProvinceData.SetTerrainFlags(n.Nation.NationData.TerrainData[i]);
                         c.Node1.SetAssignedTerrain(true);
+
+                        if (!did_place_cave_gate && n.Nation.NationData.HasCaveEntranceInCapRing)
+                        {
+                            did_place_cave_gate = true;
+                            c.Node1.ProvinceData.SetHasCaveEntrance(true);
+
+                            if (c.Node1.ProvinceData.IsWater)
+                            {
+                                c.Node1.ProvinceData.SetCaveTerrainFlags(Terrain.SEA);
+                            }
+                        }
                     }
 
                     i++;

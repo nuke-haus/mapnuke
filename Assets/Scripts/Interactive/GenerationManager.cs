@@ -538,6 +538,18 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
+    private void update_widgets(ElementManager mgr)
+    {
+        foreach (var province in mgr.Provinces)
+        {
+            province.UpdateColor();
+        }
+        foreach (var connection in mgr.Connections)
+        {
+            connection.UpdateColor();
+        }
+    }
+
     private IEnumerator regenerate_map_for_layer(Layer layer)
     {
         LoadingScreen.SetActive(true);
@@ -554,6 +566,8 @@ public class GenerationManager : MonoBehaviour
             mgr.LockMapData(true);
             mgr.OverrideAllProvinceTerrain(Terrain.CAVE);
 
+            update_widgets(mgr);
+
             yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
             yield return new WaitForEndOfFrame();
             yield return null;
@@ -562,6 +576,8 @@ public class GenerationManager : MonoBehaviour
         {
             ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
             mgr.LockMapData(false);
+
+            update_widgets(mgr);
 
             yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
             yield return new WaitForEndOfFrame();
@@ -586,6 +602,12 @@ public class GenerationManager : MonoBehaviour
 
         ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
         mgr.LockMapData(false);
+
+        yield return new WaitForEndOfFrame();
+        yield return null;
+        yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+        yield return new WaitForEndOfFrame();
+        yield return null;
 
         MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids, is_for_dom6);
 
