@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\Triangulator.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
     <Compile Include="Assets\Scripts\WorldGen\Connection.cs" />
+    <Compile Include="Assets\Scripts\WorldGen\Fort.cs" />
     <Compile Include="Assets\Scripts\WorldGen\GeneratorSettings.cs" />
     <Compile Include="Assets\Scripts\WorldGen\Node.cs" />
     <Compile Include="Assets\Scripts\WorldGen\WorldGenerator.cs" />
