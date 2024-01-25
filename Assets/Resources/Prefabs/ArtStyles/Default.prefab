@@ -3129,14 +3129,14 @@ MonoBehaviour:
       ValidWinterColors: []
       ValidTerrain: 0
   UnderworldSwamp:
-    CullChance: 0.84
+    CullChance: 0.91
     ProvinceEdgeThreshold: 0.2
     MapSprites:
     - Sprite: {fileID: 21300000, guid: 626f5a396618d1d419d3b2e4461115e8, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0.1
+      CullingRadius: 0.12
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3149,7 +3149,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0.1
+      CullingRadius: 0.12
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3162,7 +3162,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.1
-      CullingRadius: 0.1
+      CullingRadius: 0.12
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3188,7 +3188,7 @@ MonoBehaviour:
       WinterSprite: {fileID: 0}
       SpawnChance: 1
       Size: 0.2
-      CullingRadius: 0.2
+      CullingRadius: 0.22
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3200,8 +3200,8 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: c606a3fcc7a9217438ea071e1911323d, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.24
-      CullingRadius: 0.24
+      Size: 0.26
+      CullingRadius: 0.28
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0
@@ -3258,6 +3258,19 @@ MonoBehaviour:
       CanFlipWinter: 0
       IsCenterpiece: 0
       PlaceAtLeastOne: 0
+      CullSpritePositions: 1
+      ValidColors: []
+      ValidWinterColors: []
+      ValidTerrain: 0
+    - Sprite: {fileID: 21300000, guid: 44b60f00c703d914089b4ebcc2f71ccd, type: 3}
+      WinterSprite: {fileID: 0}
+      SpawnChance: 1
+      Size: 0.28
+      CullingRadius: 0.3
+      CanFlip: 0
+      CanFlipWinter: 0
+      IsCenterpiece: 0
+      PlaceAtLeastOne: 1
       CullSpritePositions: 1
       ValidColors: []
       ValidWinterColors: []
