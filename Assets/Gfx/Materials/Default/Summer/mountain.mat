@@ -79,6 +79,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _StencilRef: 10
     - _Threshold1: 0.3
     - _Threshold2: 0.35
     - _Threshold3: 0.6
@@ -89,11 +90,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.3254902, g: 0.3137255, b: 0.22352941, a: 1}
+    - _Color1: {r: 0.3490566, g: 0.33632794, b: 0.23874155, a: 1}
     - _Color2: {r: 0.39607844, g: 0.38039216, b: 0.2627451, a: 1}
     - _Color3: {r: 0.46666667, g: 0.4509804, b: 0.32156864, a: 1}
     - _Color4: {r: 0.3962264, g: 0.38188064, b: 0.26352793, a: 1}
-    - _Color5: {r: 0.3254902, g: 0.3137255, b: 0.22352941, a: 1}
+    - _Color5: {r: 0.3529412, g: 0.3372549, b: 0.23921569, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
