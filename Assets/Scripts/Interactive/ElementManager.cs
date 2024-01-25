@@ -49,6 +49,14 @@ public class ElementManager : MonoBehaviour
         }
     }
 
+    public void ResetConnectionsUsingLockedType()
+    {
+        foreach (ConnectionMarker m in m_connections)
+        {
+            m.RecalculatePoly();
+        }
+    }
+
     public void OverrideAllProvinceTerrain(Terrain t)
     {
         if (t.IsFlagSet(Terrain.DEEPSEA))
@@ -63,7 +71,7 @@ public class ElementManager : MonoBehaviour
 
             if (t == Terrain.CAVE)
             {
-                desired_terrain = Terrain.PLAINS; // We don't use CAVE for the underworld flags, it's a bit confusing so bear with me
+                desired_terrain = Terrain.PLAINS;
                 desired_terrain.SetFlags(province.Node.LockedProvinceData.CaveTerrain, true);
             }
 

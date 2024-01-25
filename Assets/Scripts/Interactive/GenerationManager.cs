@@ -68,14 +68,14 @@ public class GenerationManager : MonoBehaviour
     private Terrain[] m_dom6_terrains =
         {
             Terrain.PLAINS,
-            Terrain.SEA,
-            Terrain.SEA | Terrain.FOREST,
             Terrain.HIGHLAND,
             Terrain.SWAMP,
             Terrain.WASTE,
             Terrain.FOREST,
             Terrain.FARM,
-            Terrain.CAVE
+            Terrain.CAVE,
+            Terrain.SEA,
+            Terrain.SEA | Terrain.FOREST
         };
 
     public Color BorderColor => m_border_color;
@@ -600,14 +600,17 @@ public class GenerationManager : MonoBehaviour
         var layout = WorldGenerator.GetLayout();
         var province_ids = GetProvinceIdVals(new Vector3(0, 60, 0));
 
-        ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
-        mgr.LockMapData(false);
+        if (m_layer == Layer.CAVE)
+        {
+            ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
+            mgr.LockMapData(false);
 
-        yield return new WaitForEndOfFrame();
-        yield return null;
-        yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
-        yield return new WaitForEndOfFrame();
-        yield return null;
+            yield return new WaitForEndOfFrame();
+            yield return null;
+            yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
+            yield return new WaitForEndOfFrame();
+            yield return null;
+        }
 
         MapFileWriter.GenerateText(str, layout, mgr, m_nations, new Vector2(-mgr.X, -mgr.Y), new Vector2(mgr.X * (layout.X - 1), mgr.Y * (layout.Y - 1)), mgr.Provinces, m_teamplay, province_ids, is_for_dom6);
 
@@ -692,8 +695,10 @@ public class GenerationManager : MonoBehaviour
 
             ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
             mgr.LockMapData(false);
+            mgr.ResetConnectionsUsingLockedType();
 
             Resources.UnloadUnusedAssets();
+            yield return new WaitForEndOfFrame();
             yield return StartCoroutine(perform_async(() => do_regen(mgr.Provinces, mgr.Connections, m_layout)));
             yield return new WaitForEndOfFrame();
             yield return null;

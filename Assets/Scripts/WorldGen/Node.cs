@@ -226,10 +226,14 @@ public class Node
         }
         else
         {
-            ProvinceData = LockedProvinceData.Clone();
-            ProvinceData.SetCaveTerrainFlags(TempCaveProvinceData.CaveTerrain);
-            ProvinceData.SetHasCaveEntrance(TempCaveProvinceData.HasCaveEntrance);
-            ProvinceData.SetIsCaveWall(TempCaveProvinceData.IsCaveWall);
+            if (LockedProvinceData != null)
+            {
+                ProvinceData = LockedProvinceData.Clone();
+                ProvinceData.SetCaveTerrainFlags(TempCaveProvinceData.CaveTerrain);
+                ProvinceData.SetHasCaveEntrance(TempCaveProvinceData.HasCaveEntrance);
+                ProvinceData.SetIsCaveWall(TempCaveProvinceData.IsCaveWall);
+                LockedProvinceData = null;
+            }
         }
     }
 

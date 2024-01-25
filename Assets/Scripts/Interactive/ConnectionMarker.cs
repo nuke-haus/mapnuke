@@ -695,6 +695,13 @@ public class ConnectionMarker : MonoBehaviour
 
             SetSeason(GenerationManager.s_generation_manager.Season);
 
+            var border_color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
+                ? GenerationManager.s_generation_manager.CaveColor
+                : GenerationManager.s_generation_manager.BorderColor;
+            BorderLine.materials = new Material[] { MatLandBorder };
+            BorderLine.startColor = border_color;
+            BorderLine.endColor = border_color;
+
             return;
         }
         else if (m_connection.ConnectionType == ConnectionType.ROAD)
