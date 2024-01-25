@@ -22,7 +22,7 @@ public enum Terrain: uint
     START = 33554432,
     GENERICSTART = 67108864,
     WARMER = 1073741824,
-    COLDER = 2147483648
+    COLDER = 2147483648 // unity only supports 32 bit enums so we can't fit all the stuff in here
 }
 
 /// <summary>
@@ -32,8 +32,8 @@ public enum Terrain: uint
 public class ProvinceData
 {
     // Dom6 has a new cave layer we need to support for those maps, it doesn't fit into the Terrain enum though 
-    public static readonly long Dom6CaveWall = 68719476736;
-    public static readonly long Dom6Cave = 576460752303423488;
+    public static readonly ulong Dom6CaveWall = 68719476736;
+    public static readonly ulong Dom6Cave = 576460752303423488;
 
     public Fort Fort
     {

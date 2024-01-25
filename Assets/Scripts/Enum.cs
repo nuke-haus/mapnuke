@@ -11,8 +11,8 @@ public static class EnumExtensions
 
     public static bool IsFlagSet(this Terrain value, Terrain flag)
     {
-        var val_long = (long)value;
-        var flag_long = (long)flag;
+        var val_long = (uint)value;
+        var flag_long = (uint)flag;
         return ((val_long & flag_long) != 0) || (flag_long == 0); // The original implementation for this would return the wrong value when supplied 0.
     }
 
@@ -27,8 +27,8 @@ public static class EnumExtensions
 
     public static Terrain SetFlags(this Terrain value, Terrain flags, bool on)
     {
-        var lValue = (long)value;
-        var lFlag = (long)(flags);
+        var lValue = (uint)value;
+        var lFlag = (uint)(flags);
         if (on)
         {
             lValue |= lFlag;
@@ -52,10 +52,10 @@ public static class EnumExtensions
 
     public static Terrain CombineFlags(this IEnumerable<Terrain> flags)
     {
-        long lValue = 0;
+        uint lValue = 0;
         foreach (var flag in flags)
         {
-            var lFlag = (long)(flag);
+            var lFlag = (uint)(flag);
             lValue |= lFlag;
         }
         return (Terrain)Enum.ToObject(typeof(Terrain), lValue);

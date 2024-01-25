@@ -32,7 +32,7 @@ public class GeneratorSettings
     public FloatRange DeepRiverFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
 
-    public float CustomNameFreq = 0.06f;
+    public float CustomNameFreq = 0.05f;
     public float UnderworldCaveFreq = 0.17f;
     public int NumCaveEntrancesPerPlayer = 1;
 
