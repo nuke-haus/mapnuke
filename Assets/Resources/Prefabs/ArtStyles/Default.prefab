@@ -3321,8 +3321,8 @@ MonoBehaviour:
     - Sprite: {fileID: 21300000, guid: 94cfb003ea22c98479c92c60dac30863, type: 3}
       WinterSprite: {fileID: 0}
       SpawnChance: 1
-      Size: 0.2
-      CullingRadius: 0.25
+      Size: 0.23
+      CullingRadius: 0.26
       CanFlip: 0
       CanFlipWinter: 0
       IsCenterpiece: 0

@@ -20,8 +20,8 @@ public class ConnectionWidget : MonoBehaviour
 
     private static Dictionary<ConnectionType, Color> m_cave_colors = new Dictionary<ConnectionType, Color>
             {
-                { ConnectionType.STANDARD, new Color(0.4f, 0.3f, 0.2f) },
-                { ConnectionType.RIVER, new Color(0.1f, 0.3f, 0.7f) }
+                { ConnectionType.STANDARD, new Color(0.5f, 0.5f, 0.4f) },
+                { ConnectionType.RIVER, new Color(0.1f, 0.3f, 0.6f) }
             };
 
     public void SetParent(ConnectionMarker m)
