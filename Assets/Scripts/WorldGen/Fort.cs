@@ -20,18 +20,20 @@ public static class FortHelper
     public static Fort GetFort(Node n)
     {
         var terrain = n.ProvinceData.Terrain;
-        List<Fort> forts = new List<Fort> { Fort.PALISADE };
-
+        
         if (terrain.IsFlagSet(Terrain.SEA))
         {
-            forts.Add(Fort.KELP);
+            return Fort.KELP;
         }
-        if (terrain.IsFlagSet(Terrain.FOREST) && !terrain.IsFlagSet(Terrain.SEA))
+
+        List<Fort> forts = new List<Fort> { Fort.PALISADE };
+
+        if (terrain.IsFlagSet(Terrain.FOREST))
         {
             forts.Add(Fort.BRAMBLES);
             forts.Add(Fort.WOODENFORT);
         }
-        if ((terrain.IsFlagSet(Terrain.HIGHLAND) && !terrain.IsFlagSet(Terrain.SEA)) || terrain.IsFlagSet(Terrain.WASTE))
+        if (terrain.IsFlagSet(Terrain.HIGHLAND) || terrain.IsFlagSet(Terrain.WASTE))
         {
             forts.Add(Fort.ROCKWALLS);
             forts.Add(Fort.FORTIFIEDTOWN);
