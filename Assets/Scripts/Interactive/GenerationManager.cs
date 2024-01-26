@@ -194,7 +194,7 @@ public class GenerationManager : MonoBehaviour
             m_layer = Layer.STANDARD;
 
             GetComponent<AudioSource>().PlayOneShot(ClickAudio);
-            StartCoroutine(regenerate_map_for_layer(m_layer));
+            StartCoroutine(regenerate_map_for_layer(m_layer, OnGenerate));
             return;
         }
 
@@ -460,7 +460,7 @@ public class GenerationManager : MonoBehaviour
             ? Layer.CAVE
             : Layer.STANDARD;
 
-        StartCoroutine(regenerate_map_for_layer(m_layer));
+        StartCoroutine(regenerate_map_for_layer(m_layer, null));
     }
 
     public void OnQuitPressed()
@@ -605,7 +605,7 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    private IEnumerator regenerate_map_for_layer(Layer layer)
+    private IEnumerator regenerate_map_for_layer(Layer layer, Action callback)
     {
         LoadingScreen.SetActive(true);
 
@@ -643,6 +643,11 @@ public class GenerationManager : MonoBehaviour
 
         LoadingScreen.SetActive(false);
         SetInputLockState(false);
+
+        if (callback != null)
+        {
+            callback();
+        }
     }
 
     private IEnumerator output_async(bool is_for_dom6, string str, bool show_log = false)
