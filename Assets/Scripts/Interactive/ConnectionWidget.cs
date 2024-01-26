@@ -18,6 +18,12 @@ public class ConnectionWidget : MonoBehaviour
                 { ConnectionType.RIVER, new Color(0.2f, 0.2f, 0.9f) }
             };
 
+    private static Dictionary<ConnectionType, Color> m_cave_colors = new Dictionary<ConnectionType, Color>
+            {
+                { ConnectionType.STANDARD, new Color(0.4f, 0.3f, 0.2f) },
+                { ConnectionType.RIVER, new Color(0.1f, 0.3f, 0.7f) }
+            };
+
     public void SetParent(ConnectionMarker m)
     {
         m_parent = m;
@@ -44,7 +50,7 @@ public class ConnectionWidget : MonoBehaviour
 
         if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
         {
-            col = m_colors[c.CaveConnectionType];
+            col = m_cave_colors[c.CaveConnectionType];
         }
 
         var rend = GetComponent<LineRenderer>();
