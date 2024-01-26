@@ -380,6 +380,26 @@ public static class MapFileWriter
                     }
                 }
 
+                // Force cave walls that have gates to be actual provinces so we avoid bugs. 
+                // This is an edge case that should not happen unless a user edits the map manually and somehow fucks it up.
+                if (terr == ProvinceData.Dom6CaveWall && m.Node.ProvinceData.HasCaveEntrance)
+                {
+                    if (m.Node.ProvinceData.IsWater)
+                    {
+                        m.Node.ProvinceData.SetCaveTerrainFlags(Terrain.SEA);
+                        m.Node.ProvinceData.SetIsCaveWall(false);
+
+                        terr = (ulong)Terrain.CAVE + (ulong)Terrain.SEA;
+                    }
+                    else
+                    {
+                        m.Node.ProvinceData.SetCaveTerrainFlags(Terrain.PLAINS);
+                        m.Node.ProvinceData.SetIsCaveWall(false);
+
+                        terr = (ulong)Terrain.CAVE;
+                    }
+                }
+
                 write(fs, "#terrain " + m.ProvinceNumber + " " + terr);
             }
 
