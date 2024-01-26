@@ -16112,6 +16112,7 @@ MonoBehaviour:
   AcceptAudio: {fileID: 8300000, guid: 43fd9f71de6174b48a7cef2408802ace, type: 3}
   ClickAudio: {fileID: 8300000, guid: 46bba9c64d730954aacbc372ae256ad8, type: 3}
   DenyAudio: {fileID: 8300000, guid: f81160b6318135a48b9c44b9e553aeb0, type: 3}
+  SplineAudio: {fileID: 8300000, guid: 152fa4a5d825a1043ac15c839fbdd831, type: 3}
   OutputWindow: {fileID: 1828134022}
   LoadingScreen: {fileID: 541892322}
   MapName: {fileID: 1605232486}

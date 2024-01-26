@@ -21,6 +21,7 @@ public class GenerationManager : MonoBehaviour
     public AudioClip AcceptAudio;
     public AudioClip ClickAudio;
     public AudioClip DenyAudio;
+    public AudioClip SplineAudio;
     public GameObject OutputWindow;
     public GameObject LoadingScreen;
     public InputField MapName;
@@ -54,6 +55,7 @@ public class GenerationManager : MonoBehaviour
     private bool m_cluster_islands = false;
     private bool m_teamplay = false;
     private bool m_is_for_dom6 = false;
+    private bool m_is_input_locked = false;
     private int m_player_count = 9;
     private Age m_age = Age.EARLY;
     private Season m_season = Season.SUMMER;
@@ -83,6 +85,7 @@ public class GenerationManager : MonoBehaviour
     public Color OverlayColor => m_overlay_color;
     public Color CaveColor => m_cave_color;
     public Color SeaCaveColor => m_sea_cave_color;
+    public bool IsInputLocked => m_is_input_locked;
 
     public Season Season => m_season;
     public Layer Layer => m_layer;
@@ -179,6 +182,14 @@ public class GenerationManager : MonoBehaviour
 
     public void OnGenerate()
     {
+        if (m_is_input_locked)
+        {
+            return;
+        }
+
+        SetInputLockState(true);
+        GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
+
         var picks = new List<PlayerData>();
 
         foreach (var obj in m_content)
@@ -203,8 +214,8 @@ public class GenerationManager : MonoBehaviour
         {
             ElementManager.s_element_manager.WipeGeneratedObjects();
         }
-
-        GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
+        
+        GetComponent<AudioSource>().PlayOneShot(SplineAudio);
         var layout = m_layouts.Layouts.FirstOrDefault(x => x.Name == LayoutDropdown.options[LayoutDropdown.value].text && x.NumPlayers == m_player_count);
         MoveCameraForGeneration(layout);
         Resources.UnloadUnusedAssets();
@@ -262,6 +273,8 @@ public class GenerationManager : MonoBehaviour
         {
             obj.SetActive(true);
         }
+
+        SetInputLockState(false);
     }
 
     private void set_province_names(List<ProvinceMarker> provinces)
@@ -399,8 +412,20 @@ public class GenerationManager : MonoBehaviour
         LoadingScreen.SetActive(false);
     }
 
+    public void SetInputLockState(bool locked)
+    {
+        m_is_input_locked = locked;
+    }
+
     public void OnSeasonChanged()
     {
+        if (m_is_input_locked)
+        {
+            return;
+        }
+
+        SetInputLockState(true);
+
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         m_season = m_season == Season.SUMMER
@@ -412,6 +437,13 @@ public class GenerationManager : MonoBehaviour
 
     public void OnLayerChanged()
     {
+        if (m_is_input_locked)
+        {
+            return;
+        }
+
+        SetInputLockState(true);
+
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         m_layer = m_layer == Layer.STANDARD
@@ -429,10 +461,16 @@ public class GenerationManager : MonoBehaviour
     private void do_season_change()
     {
         ArtManager.s_art_manager.ChangeSeason(m_season);
+        SetInputLockState(false);
     }
 
     public void ShowOutputWindow(bool is_for_dom6)
     {
+        if (m_is_input_locked)
+        {
+            return;
+        }
+
         m_is_for_dom6 = is_for_dom6;
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
@@ -444,6 +482,13 @@ public class GenerationManager : MonoBehaviour
 
     public void GenerateOutput()
     {
+        if (m_is_input_locked)
+        {
+            return;
+        }
+
+        SetInputLockState(true);
+
         var str = new String(MapName.text.Where(c => char.IsDigit(c) || char.IsLetter(c) || c == '_').ToArray());
 
         if (string.IsNullOrEmpty(str))
@@ -587,6 +632,7 @@ public class GenerationManager : MonoBehaviour
         }
 
         LoadingScreen.SetActive(false);
+        SetInputLockState(false);
     }
 
     private IEnumerator output_async(bool is_for_dom6, string str, bool show_log = false)
@@ -716,8 +762,8 @@ public class GenerationManager : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
 
         LoadingScreen.SetActive(false);
-
         MapFileWriter.OpenFolder();
+        SetInputLockState(false);
 
         m_layer = Layer.STANDARD;
     }
