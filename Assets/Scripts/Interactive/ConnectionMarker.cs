@@ -712,7 +712,7 @@ public class ConnectionMarker : MonoBehaviour
             var p1 = m_pos1 + dir * scaled_reduction;
             var p2 = m_pos2 - dir * scaled_reduction;
 
-            if (!ArtManager.s_art_manager.IsLockingProvinceShapes || m_connection.CaveConnectionType == ConnectionType.RIVER)
+            if (!ArtManager.s_art_manager.IsLockingProvinceShapes || m_connection.CaveConnectionType == ConnectionType.RIVER || m_road == null)
             {
                 // Only regenerate the road shape if the province shape isn't locked or if it was used for the underground river
                 m_road = new PolyBorder(p1, p2, m_connection, true);

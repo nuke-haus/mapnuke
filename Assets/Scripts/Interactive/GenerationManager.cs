@@ -188,6 +188,16 @@ public class GenerationManager : MonoBehaviour
         }
 
         SetInputLockState(true);
+
+        if (m_layer == Layer.CAVE)
+        {
+            m_layer = Layer.STANDARD;
+
+            GetComponent<AudioSource>().PlayOneShot(ClickAudio);
+            StartCoroutine(regenerate_map_for_layer(m_layer));
+            return;
+        }
+
         GetComponent<AudioSource>().PlayOneShot(AcceptAudio);
 
         var picks = new List<PlayerData>();
