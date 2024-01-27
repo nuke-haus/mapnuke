@@ -61,6 +61,10 @@ internal static class WorldGenerator
             generate_cave_entrances();
             generate_cave_terrain();
         }
+        else
+        {
+            disable_caves();
+        }
         
         cleanup_connections();
     }
@@ -676,6 +680,15 @@ internal static class WorldGenerator
         }
 
         return null;
+    }
+
+    private static void disable_caves()
+    {
+        // Turn everything into cave wall
+        foreach (var node in m_nodes)
+        {
+            node.ProvinceData.SetIsCaveWall(true);
+        }
     }
 
     private static void generate_cave_walls()
