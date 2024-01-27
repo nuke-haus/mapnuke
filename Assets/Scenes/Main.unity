@@ -18393,6 +18393,7 @@ MonoBehaviour:
   AudioApply: {fileID: 8300000, guid: 43fd9f71de6174b48a7cef2408802ace, type: 3}
   AudioClick: {fileID: 8300000, guid: 46bba9c64d730954aacbc372ae256ad8, type: 3}
   Audio: {fileID: 8300000, guid: 2e558406ff9e61a4ab57a8b5a0cf77f5, type: 3}
+  PanelTransform: {fileID: 891474919}
   Plains: {fileID: 1049376679}
   Highland: {fileID: 2032358521}
   Mountain: {fileID: 281347941}

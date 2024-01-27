@@ -15,6 +15,8 @@ public class ProvinceManager : MonoBehaviour
     public AudioClip AudioClick;
     public AudioClip Audio;
 
+    public RectTransform PanelTransform;
+
     // Standard province stuff
     public Toggle Plains;
     public Toggle Highland;
@@ -51,6 +53,15 @@ public class ProvinceManager : MonoBehaviour
     private void Awake()
     {
         s_province_manager = this;
+    }
+
+    private void update_panel_position()
+    {
+        // If the user is using a small ass screen then move the panel to a nice spot
+        if (Screen.height <= 900)
+        {
+            PanelTransform.anchoredPosition = new Vector3(PanelTransform.anchoredPosition.x, -5f, 0f);
+        }
     }
 
     private void clear_checkboxes()
@@ -324,6 +335,7 @@ public class ProvinceManager : MonoBehaviour
 
         m_current = p;
 
+        update_panel_position();
         clear_checkboxes();
         update_checkboxes(p.Node.ProvinceData);
         update_name(p.Node.ProvinceData);

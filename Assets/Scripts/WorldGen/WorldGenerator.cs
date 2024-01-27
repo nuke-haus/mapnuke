@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,6 +18,7 @@ internal static class WorldGenerator
     private static List<Node> m_starts;
     private static List<Connection> m_connections;
     private static List<PlayerData> m_nations;
+    private const int MAX_CAVE_ATTEMPTS = 50;
 
     public static void GenerateWorld(bool teamplay, bool cluster_water, bool cluster_islands, bool nat_starts, List<PlayerData> picks, NodeLayoutData layout)
     {
@@ -581,50 +582,156 @@ internal static class WorldGenerator
         }
     }
 
-
-    private static void generate_cave_walls()
+    // I hate this so much but it gets results
+    private static List<Node> get_smallest_blob(Node p1)
     {
-        foreach (var node in m_nodes.Where(x => !x.HasNation && !x.ProvinceData.HasCaveEntrance))
+        List<Node> r7 = null;
+        List<Node> r6 = null;
+        List<Node> r5 = null;
+        List<Node> r4 = null;
+
+        foreach (var p2 in p1.ConnectedNodes)
         {
-            node.ProvinceData.SetIsCaveWall(true);
-        }
-
-        var cap_nodes = m_nodes.Where(x => x.HasNation && !x.Nation.NationData.StartsUnderground).ToList();
-
-        foreach (var node in cap_nodes)
-        {
-            node.ProvinceData.SetIsCaveWall(true);
-        }
-
-        int num_player_caves = 0;
-
-        // cave nations should have an underground capring
-        foreach (var node in m_nodes.Where(x => x.HasNation))
-        {
-            if (node.Nation.NationData.StartsUnderground)
+            foreach (var p3 in p2.ConnectedNodes)
             {
-                foreach (var connected_node in node.ConnectedNodes)
+                if (p1 == p3)
                 {
-                    connected_node.ProvinceData.SetIsCaveWall(false);
-                    num_player_caves++;
+                    continue;
                 }
 
-                node.ProvinceData.SetIsCaveWall(false);
+                if (p3.ProvinceData.HasCaveEntrance)
+                {
+                    return new List<Node> { p1, p2, p3 };
+                }
+
+                foreach (var p4 in p3.ConnectedNodes)
+                {
+                    if (r4 != null || p1 == p4 || p2 == p4)
+                    {
+                        continue;
+                    }
+
+                    if (p4.ProvinceData.HasCaveEntrance)
+                    {
+                        r4 = new List<Node> { p1, p2, p3, p4 };
+                    }
+
+                    foreach (var p5 in p4.ConnectedNodes)
+                    {
+                        if (r5 != null || p1 == p5 || p2 == p5 || p3 == p5)
+                        {
+                            continue;
+                        }
+
+                        if (p5.ProvinceData.HasCaveEntrance)
+                        {
+                            r5 = new List<Node> { p1, p2, p3, p4, p5 };
+                        }
+
+                        foreach (var p6 in p5.ConnectedNodes)
+                        {
+                            if (r6 != null || p1 == p6 || p2 == p6 || p3 == p6 || p4 == p6)
+                            {
+                                continue;
+                            }
+
+                            if (p6.ProvinceData.HasCaveEntrance)
+                            {
+                                r6 = new List<Node> { p1, p2, p3, p4, p5, p6 };
+                            }
+
+                            foreach (var p7 in p6.ConnectedNodes)
+                            {
+                                if (r7 != null || p1 == p7 || p2 == p7 || p3 == p7 || p4 == p7 || p5 == p7)
+                                {
+                                    continue;
+                                }
+
+                                if (p7.ProvinceData.HasCaveEntrance)
+                                {
+                                    r7 = new List<Node> { p1, p2, p3, p4, p5, p6, p7 };
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        var cave_entrances = m_nodes.Where(x => x.ProvinceData.HasCaveEntrance).ToList();
-        var ignored_nodes = new HashSet<Node>();
-        var blobs = new List<List<Node>>();
-
-        foreach (var entrance in cave_entrances)
+        if (r4 != null)
         {
-            blobs.Add(new List<Node>() { entrance });
+            return r4;
+        }
+        if (r5 != null)
+        {
+            return r5;
+        }
+        if (r6 != null)
+        {
+            return r6;
+        }
+        if (r7 != null)
+        {
+            return r7;
         }
 
-        var valid_cave_nodes = m_nodes.Where(x => x.ProvinceData.IsCaveWall).ToList();
-        var num_underworld_caves = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.UnderworldCaveFreq * valid_cave_nodes.Count);
+        return null;
+    }
+
+    private static void generate_cave_walls()
+    {
+        // Turn everything into cave wall
+        foreach (var node in m_nodes)
+        {
+            node.ProvinceData.SetIsCaveWall(true);
+        }
+
+        var cave_entrances = m_nodes.Where(x => x.ProvinceData.HasCaveEntrance).ToList();
+        var blobs = new List<List<Node>>();
+        var easy_blobs = new List<List<Node>>();
+
+        // For cave entrances close together let's join them up and put them aside and focus on the others
+        foreach (var node in cave_entrances)
+        {
+            node.ConnectedNodes.Shuffle();
+            var blob = get_smallest_blob(node);
+            easy_blobs.Add(blob);
+        }
+
+        // Hollow out the easy blobs
+        foreach (var blob in easy_blobs)
+        {
+            foreach (var n in blob) 
+            {
+                n.ProvinceData.SetIsCaveWall(false);
+            }
+        }
+
+        // Anything left over will be harder to connect to other blobs
+        foreach (var entrance in cave_entrances)
+        {
+            if (entrance.ProvinceData.IsCaveWall)
+            {
+                entrance.ConnectedNodes.Shuffle();
+                entrance.ProvinceData.SetIsCaveWall(false);
+                blobs.Add(new List<Node>() { entrance });
+            }
+        }
+
+        //Debug.Log("Number of easy to make blobs: " + easy_blobs.Count);
+        //Debug.Log("Number of difficult blobs: " + blobs.Count);
+
+        if (!blobs.Any())
+        {
+            blobs.AddRange(easy_blobs);
+            easy_blobs.Clear();
+        }
+
+        var valid_cave_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall).ToList();
+        var num_underworld_caves = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.UnderworldCaveFreq * (valid_cave_nodes.Count));
         var current_caves_count = 0;
+
+        //Debug.Log("Number of caves to add: " + num_underworld_caves);
 
         while (current_caves_count < num_underworld_caves)
         {
@@ -633,37 +740,32 @@ internal static class WorldGenerator
             var ideal_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.HasNation && !x.ProvinceData.HasCaveEntrance && get_cave_weight(blob, x) >= 10);
             var connected_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.HasNation && !x.ProvinceData.HasCaveEntrance);
 
-            if (ideal_node != null)
+            if (ideal_node != null && !blob.Contains(ideal_node))
             {
                 ideal_node.ProvinceData.SetIsCaveWall(false);
                 blob.Add(ideal_node);
                 current_caves_count++;
 
-                // we want to have a 66% chance to not create super small blobs
-                if (blob.Count == 2 && UnityEngine.Random.Range(0, 3) > 0)
-                {
-                    continue;
-                }
-
                 var other_node = ideal_node.ConnectedNodes.FirstOrDefault(x => !x.HasNation && !x.ProvinceData.IsCaveWall && !blob.Contains(x));
-                List<Node> blob_to_remove = null;
 
-                foreach (var other_blob in blobs)
+                if (other_node != null && blobs.Count > 2)
                 {
-                    if (other_blob.Contains(other_node))
+                    foreach (var other_blob in blobs)
                     {
-                        blob_to_remove = other_blob;
-                        break;
+                        if (other_blob.Contains(other_node))
+                        {
+                            blobs.Remove(other_blob);
+                            blobs.Remove(blob);
+                            break;
+                        }
                     }
                 }
-
-                if (blob_to_remove != null && blobs.Count > 2)
+                else if (other_node != null && blobs.Count == 1) // We are down to one blob and we just connected it
                 {
-                    blobs.Remove(blob_to_remove);
-                    blobs.Remove(blob);
+                    blobs.AddRange(easy_blobs);
                 }
             }
-            else if (connected_node != null)
+            else if (connected_node != null && !blob.Contains(connected_node))
             {
                 connected_node.ProvinceData.SetIsCaveWall(false);
                 blob.Add(connected_node);
@@ -671,12 +773,29 @@ internal static class WorldGenerator
                 current_caves_count++;
             }
         }
+
+        // Cave nations should have an underground capring and be hollowed out (do this part last)
+        foreach (var node in m_nodes.Where(x => x.HasNation))
+        {
+            if (node.Nation.NationData.StartsUnderground)
+            {
+                foreach (var connected_node in node.ConnectedNodes)
+                {
+                    if (!connected_node.ProvinceData.HasCaveEntrance)
+                    {
+                        connected_node.ProvinceData.SetIsCaveWall(false);
+                    }
+                }
+
+                node.ProvinceData.SetIsCaveWall(false);
+            }
+        }
     }
 
     private static int get_cave_weight(List<Node> blob, Node node)
     {
         int value = 0;
-        var nodes = node.ConnectedNodes.Where(x => !x.HasNation && !x.ProvinceData.IsCaveWall);
+        var nodes = node.ConnectedNodes.Where(x => !x.HasNation && !x.ProvinceData.IsCaveWall && !blob.Contains(x));
 
         if (nodes.Count >= 2)
         {
@@ -687,10 +806,11 @@ internal static class WorldGenerator
                 value += 10;
             }
         }
-        else if (nodes.Count == 0)
+        /*else if (nodes.Count == 0)
         {
             value += 3;
-        }
+        }*/
+        value += nodes.Count;
 
         return value;
     }
@@ -703,13 +823,13 @@ internal static class WorldGenerator
         generate_cave_walls();
 
         // The cave wall algorithm is decent but still semi-random so sometimes it takes a few tries for it to hit the jackpot
-        while (!cave_entrances_are_valid(cave_entrance_nodes) && attempt_count < 25)
+        while (!cave_entrances_are_valid(cave_entrance_nodes) && attempt_count < MAX_CAVE_ATTEMPTS)
         {
             generate_cave_walls();
             attempt_count++;
         }
 
-        if (attempt_count == 20)
+        if (attempt_count == MAX_CAVE_ATTEMPTS)
         {
             Debug.LogWarning("Generating valid caves took too long, settling with imperfect results");
         }
@@ -733,7 +853,7 @@ internal static class WorldGenerator
         var non_cap_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x) && x.ProvinceData.CaveTerrain == Terrain.PLAINS).ToList();
         non_cap_nodes.Shuffle();
 
-        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.GetRandom() * non_cap_nodes.Count);
+        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.Min * non_cap_nodes.Count);
         var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cap_nodes.Count);
         var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); 
         var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // crystal caves and drip caves should be a bit more common
@@ -803,7 +923,7 @@ internal static class WorldGenerator
 
         if (!water_nodes.Any())
         {
-            Debug.LogWarning("No valid water nodes for underworld rivers!");
+            Debug.LogWarning("No valid water nodes found for underworld rivers, no rivers will be placed");
         }
 
         count = 0;

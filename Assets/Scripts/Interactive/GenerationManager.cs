@@ -752,6 +752,16 @@ public class GenerationManager : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                     yield return null;
                 }
+                else
+                {
+                    mgr.ShowLabels(true);
+
+                    yield return null;
+
+                    MapFileWriter.GenerateImage(str, str + "_cave_with_labels", mgr.Texture, false); // labeled image
+
+                    mgr.ShowLabels(false);
+                }
             }
 
             ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
