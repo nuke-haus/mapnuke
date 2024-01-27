@@ -437,12 +437,9 @@ public class GenerationManager : MonoBehaviour
         SetInputLockState(true);
 
         GetComponent<AudioSource>().PlayOneShot(ClickAudio);
-
-        m_season = m_season == Season.SUMMER
-            ? Season.WINTER
-            : Season.SUMMER;
-
         StartCoroutine(perform_async(() => do_season_change()));
+
+        SetInputLockState(false);
     }
 
     public void OnLayerChanged()
@@ -470,8 +467,11 @@ public class GenerationManager : MonoBehaviour
 
     private void do_season_change()
     {
+        m_season = m_season == Season.SUMMER
+            ? Season.WINTER
+            : Season.SUMMER;
+
         ArtManager.s_art_manager.ChangeSeason(m_season);
-        SetInputLockState(false);
     }
 
     public void ShowOutputWindow(bool is_for_dom6)
