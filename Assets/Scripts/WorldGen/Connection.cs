@@ -96,6 +96,14 @@ public class Connection
         }
     }
 
+    public bool IsTouchingCaveSea
+    {
+        get
+        {
+            return Node1.ProvinceData.IsCaveWater || Node2.ProvinceData.IsCaveWater;
+        }
+    }
+
     public bool IsTouchingSea
     {
         get
