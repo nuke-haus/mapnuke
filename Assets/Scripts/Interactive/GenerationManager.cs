@@ -54,6 +54,7 @@ public class GenerationManager : MonoBehaviour
     private bool m_cluster_water = true;
     private bool m_cluster_islands = false;
     private bool m_teamplay = false;
+    private bool m_fog_of_war = false;
     private bool m_is_for_dom6 = false;
     private bool m_is_input_locked = false;
     private int m_player_count = 9;
@@ -86,6 +87,7 @@ public class GenerationManager : MonoBehaviour
     public Color CaveColor => m_cave_color;
     public Color SeaCaveColor => m_sea_cave_color;
     public bool IsInputLocked => m_is_input_locked;
+    public bool HasFogOfWar => m_fog_of_war;
 
     public Season Season => m_season;
     public Layer Layer => m_layer;
@@ -902,6 +904,11 @@ public class GenerationManager : MonoBehaviour
         m_generic_starts = !m_generic_starts;
 
         update_nations();
+    }
+
+    public void OnToggleFogOfWar()
+    {
+        m_fog_of_war = !m_fog_of_war;
     }
 
     public void OnTeamplay()
