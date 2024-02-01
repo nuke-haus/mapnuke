@@ -734,7 +734,7 @@ public class ConnectionMarker : MonoBehaviour
 
         var border_scale = 1f;
 
-        if ((m_connection.IsTouchingSea && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (m_connection.IsTouchingCaveSea && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
+        if ((m_connection.IsShore && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (m_connection.IsCaveShore && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
             border_scale = 2f;
         }

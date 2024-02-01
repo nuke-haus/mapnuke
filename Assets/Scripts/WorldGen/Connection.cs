@@ -112,6 +112,22 @@ public class Connection
         }
     }
 
+    public bool IsShore
+    {
+        get
+        {
+            return Node1.ProvinceData.IsWater ^ Node2.ProvinceData.IsWater;
+        }
+    }
+
+    public bool IsCaveShore
+    {
+        get
+        {
+            return Node1.ProvinceData.IsCaveWater ^ Node2.ProvinceData.IsCaveWater;
+        }
+    }
+
     public bool IsTouchingSeaOrSwamp
     {
         get

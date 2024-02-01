@@ -212,7 +212,11 @@ public class ConnectionWrapMarker : MonoBehaviour
             m_stroke.SetSeason(s);
         }
 
-        if (s == Season.SUMMER)
+        if (ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+        {
+            Mesh.material = MatCaveSea;
+        }
+        else if (s == Season.SUMMER)
         {
             if (m_connection.ConnectionType == ConnectionType.RIVER)
             {
@@ -329,10 +333,13 @@ public class ConnectionWrapMarker : MonoBehaviour
         if (is_river || is_cave_river)
         {
             var offset_poly = new List<Vector3>();
+
             foreach (var v in poly)
             {
                 offset_poly.Add(new Vector3(v.x + offset.x, v.y + offset.y, -0.8f));
             }
+
+            offset_poly.Add(offset_poly[0]);
 
             var color = ArtManager.s_art_manager.IsUsingUnderworldTerrain
                 ? GenerationManager.s_generation_manager.CaveColor
@@ -351,8 +358,7 @@ public class ConnectionWrapMarker : MonoBehaviour
         var arr = fix.ToArray();
         var border_scale = 1f;
 
-        if ((m_connection.Node1.ProvinceData.IsWater && !m_connection.Node2.ProvinceData.IsWater) ||
-            (!m_connection.Node1.ProvinceData.IsWater && m_connection.Node2.ProvinceData.IsWater))
+        if ((m_connection.IsShore && !ArtManager.s_art_manager.IsUsingUnderworldTerrain) || (m_connection.IsCaveShore && ArtManager.s_art_manager.IsUsingUnderworldTerrain))
         {
             border_scale = 2f;
         }
