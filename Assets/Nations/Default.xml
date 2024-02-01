@@ -211,12 +211,12 @@
     <ID>19</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
-    <TerrainData>LARGEPROV</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>LARGEPROV SWAMP</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SMALLPROV</TerrainData>
+    <TerrainData>SWAMP</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Kailasa</Name>
@@ -256,12 +256,12 @@
     <ID>23</ID>
     <WaterPercentage>0</WaterPercentage>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>6</CapRingSize>
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>HIGHLAND</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>SMALLPROV</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Caelum</Name>
@@ -342,7 +342,6 @@
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>HIGHLAND</TerrainData>
-	<TerrainData>SEA</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Helheim</Name>
@@ -776,12 +775,11 @@
     <ID>78</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>MIDDLE</Age>
-    <CapRingSize>6</CapRingSize>
+    <CapRingSize>5</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND SMALLPROV</TerrainData>
-	  <TerrainData>SEA</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Vanarus</Name>
@@ -1095,12 +1093,11 @@
     <ID>115</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>LATE</Age>
-    <CapRingSize>6</CapRingSize>
+    <CapRingSize>5</CapRingSize>
     <CapTerrain>HIGHLAND</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>HIGHLAND SMALLPROV</TerrainData>
-	  <TerrainData>SEA</TerrainData>
+    <TerrainData>HIGHLAND</TerrainData>
   </Nation>
   <Nation>
     <Name>(LA) Bogarus</Name>
