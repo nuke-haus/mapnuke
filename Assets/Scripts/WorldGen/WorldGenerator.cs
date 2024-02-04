@@ -707,8 +707,12 @@ internal static class WorldGenerator
         foreach (var node in cave_entrances)
         {
             node.ConnectedNodes.Shuffle();
+
             var blob = get_smallest_blob(node);
-            easy_blobs.Add(blob);
+            if (blob != null)
+            {
+                easy_blobs.Add(blob);
+            }
         }
 
         // Hollow out the easy blobs
