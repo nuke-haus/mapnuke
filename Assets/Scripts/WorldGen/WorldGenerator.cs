@@ -55,7 +55,7 @@ internal static class WorldGenerator
         generate_thrones();
         generate_forts();
 
-        var place_caves = GeneratorSettings.s_generator_settings.UnderworldCaveFreq > 0f;
+        var place_caves = GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer > 0 || picks.Any(pick => pick.NationData.StartsUnderground || pick.NationData.HasCaveEntranceInCapRing);
         if (place_caves)
         {
             generate_cave_entrances();
