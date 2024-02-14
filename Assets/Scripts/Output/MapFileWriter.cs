@@ -371,7 +371,7 @@ public static class MapFileWriter
                     //terr = ProvinceData.Dom6Cave + (long)Terrain.CAVE + (long)m.Node.ProvinceData.CaveTerrain;
                     terr = (ulong)Terrain.CAVE + (ulong)m.Node.ProvinceData.CaveTerrain;
 
-                    if (!m.Node.HasNation)
+                    if (!m.Node.HasNation || !m.Node.Nation.NationData.StartsUnderground)
                     {
                         // Force all non player start provinces to have NOSTART because dom6 loves putting players in weird spots
                         terr += (ulong)Terrain.NOSTART;
