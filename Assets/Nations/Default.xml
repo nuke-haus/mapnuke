@@ -184,6 +184,19 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(EA) Abysia (Cave)</Name>
+    <ID>16</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>EARLY</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(EA) Hinnom</Name>
     <ID>17</ID>
     <WaterPercentage>0</WaterPercentage>
@@ -592,6 +605,19 @@
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
+    <Name>(MA) Abysia (Cave)</Name>
+    <ID>63</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <StartsUnderground>true</StartsUnderground>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>MIDDLE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
     <Name>(MA) Ashdod</Name>
     <ID>64</ID>
     <WaterPercentage>0</WaterPercentage>
@@ -983,6 +1009,19 @@
     <CapRingSize>5</CapRingSize>
     <CapTerrain>WASTE</CapTerrain>
     <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
+  <Nation>
+    <Name>(LA) Abysia (Cave)</Name>
+    <ID>104</ID>
+    <StartsUnderground>true</StartsUnderground>
+    <WaterPercentage>0</WaterPercentage>
+    <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
