@@ -212,7 +212,7 @@ public class ProvinceMarker : MonoBehaviour
 
     public void ShowLabel(bool on)
     {
-        if (on && m_node.ProvinceData.Fort != Fort.NONE)
+        if (on && m_node.ProvinceData.Fort != Fort.NONE && !ArtManager.s_art_manager.IsUsingUnderworldTerrain)
         {
             FortSprite.SetActive(true);
             FortSprite.gameObject.layer = 9;
