@@ -870,7 +870,7 @@ internal static class WorldGenerator
         var non_cap_nodes = m_nodes.Where(x => !nodes_to_avoid.Contains(x) && x.ProvinceData.CaveTerrain == Terrain.PLAINS).ToList();
         non_cap_nodes.Shuffle();
 
-        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.LakeFreq.Min * non_cap_nodes.Count);
+        var num_lakes = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.CaveLakeFreq.GetRandom() * non_cap_nodes.Count);
         var num_forests = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.ForestFreq.GetRandom() * non_cap_nodes.Count);
         var num_swamps = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); 
         var num_highlands = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.FarmFreq.GetRandom() * non_cap_nodes.Count); // crystal caves and drip caves should be a bit more common

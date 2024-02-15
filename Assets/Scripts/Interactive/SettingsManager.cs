@@ -25,6 +25,8 @@ public class SettingsManager : MonoBehaviour
     public InputField LargeMax;
     public InputField SmallMin;
     public InputField SmallMax;
+    public InputField CaveLakeMin;
+    public InputField CaveLakeMax;
 
     public InputField RoadMin;
     public InputField RoadMax;
@@ -76,6 +78,8 @@ public class SettingsManager : MonoBehaviour
         ForestMax.text = GeneratorSettings.s_generator_settings.ForestFreq.MaxInt.ToString();
         LakeMin.text = GeneratorSettings.s_generator_settings.LakeFreq.MinInt.ToString();
         LakeMax.text = GeneratorSettings.s_generator_settings.LakeFreq.MaxInt.ToString();
+        CaveLakeMin.text = GeneratorSettings.s_generator_settings.CaveLakeFreq.MinInt.ToString();
+        CaveLakeMax.text = GeneratorSettings.s_generator_settings.CaveLakeFreq.MaxInt.ToString();
         LargeMin.text = GeneratorSettings.s_generator_settings.LargeFreq.MinInt.ToString();
         LargeMax.text = GeneratorSettings.s_generator_settings.LargeFreq.MaxInt.ToString();
         SmallMin.text = GeneratorSettings.s_generator_settings.SmallFreq.MinInt.ToString();
@@ -104,6 +108,7 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.FarmFreq.Reset();
         GeneratorSettings.s_generator_settings.ForestFreq.Reset();
         GeneratorSettings.s_generator_settings.HighlandFreq.Reset();
+        GeneratorSettings.s_generator_settings.CaveLakeFreq.Reset();
         GeneratorSettings.s_generator_settings.LakeFreq.Reset();
         GeneratorSettings.s_generator_settings.LargeFreq.Reset();
         GeneratorSettings.s_generator_settings.MountainFreq.Reset();
@@ -114,7 +119,7 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.WasteFreq.Reset();
         GeneratorSettings.s_generator_settings.NumCaveEntrancesPerPlayer = 1;
         GeneratorSettings.s_generator_settings.UnderworldCaveFreq = 0.15f;
-        GeneratorSettings.s_generator_settings.CustomNameFreq = 0.05f;
+        GeneratorSettings.s_generator_settings.CustomNameFreq = 0.06f;
 
         update_textboxes();
         update_labels();
@@ -130,6 +135,7 @@ public class SettingsManager : MonoBehaviour
         GeneratorSettings.s_generator_settings.ForestFreq.Update(get_float(ForestMin), get_float(ForestMax));
         GeneratorSettings.s_generator_settings.HighlandFreq.Update(get_float(HighlandMin), get_float(HighlandMax));
         GeneratorSettings.s_generator_settings.LakeFreq.Update(get_float(LakeMin), get_float(LakeMax));
+        GeneratorSettings.s_generator_settings.CaveLakeFreq.Update(get_float(CaveLakeMin), get_float(CaveLakeMax));
         GeneratorSettings.s_generator_settings.LargeFreq.Update(get_float(LargeMin), get_float(LargeMax));
         GeneratorSettings.s_generator_settings.MountainFreq.Update(get_float(MountainMin), get_float(MountainMax));
         GeneratorSettings.s_generator_settings.RiverFreq.Update(get_float(RiverMin), get_float(RiverMax));
