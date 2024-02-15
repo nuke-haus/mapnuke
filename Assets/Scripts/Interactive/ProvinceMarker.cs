@@ -46,6 +46,7 @@ public class ProvinceMarker : MonoBehaviour
     public Sprite CaveEntranceSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
+    public GameObject FortSprite;
     public MeshRenderer Mesh;
     public MeshFilter MeshFilter;
     public MeshCollider MeshCollider;
@@ -211,6 +212,16 @@ public class ProvinceMarker : MonoBehaviour
 
     public void ShowLabel(bool on)
     {
+        if (on && m_node.ProvinceData.Fort != Fort.NONE)
+        {
+            FortSprite.SetActive(true);
+            FortSprite.gameObject.layer = 9;
+        }
+        else
+        {
+            FortSprite.SetActive(false);
+        }
+
         if (Text.text != string.Empty)
         {
             if (on)

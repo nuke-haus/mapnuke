@@ -393,6 +393,7 @@ Transform:
   - {fileID: 4583850235875760}
   - {fileID: 4858253645047248}
   - {fileID: 4552063296680948}
+  - {fileID: 4881001497940978378}
   - {fileID: 8601319687097609104}
   - {fileID: 9048428495290917636}
   m_Father: {fileID: 0}
@@ -410,6 +411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f704e66aeb428f4408a4eda5a89abf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MatUnderworldWall: {fileID: 0}
+  MatUnderworldNormal: {fileID: 0}
+  MatUnderworldForest: {fileID: 0}
+  MatUnderworldSwamp: {fileID: 0}
+  MatUnderworldHighland: {fileID: 0}
+  MatUnderworldSea: {fileID: 0}
   MatSwamp: {fileID: 2100000, guid: 3a2d36a07ffce3a4e972e43fe35846bf, type: 2}
   MatForest: {fileID: 2100000, guid: d66c29983bea2874a84f9239b63d940a, type: 2}
   MatWaste: {fileID: 2100000, guid: d6c3602522938b04491b1083299e3fec, type: 2}
@@ -438,6 +445,7 @@ MonoBehaviour:
   CaveEntranceSprite: {fileID: 21300000, guid: 9b2380e324983f944945dac7e167a7d9, type: 3}
   Renderer: {fileID: 212424617286562402}
   Text: {fileID: 102400257190412448}
+  FortSprite: {fileID: 7367730135921409551}
   Mesh: {fileID: 23798304006021742}
   MeshFilter: {fileID: 33873325489972138}
   MeshCollider: {fileID: 64156643490342904}
@@ -598,7 +606,7 @@ Transform:
   - {fileID: 1540637125443088019}
   - {fileID: 7078170769620259257}
   m_Father: {fileID: 4312225018628020}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7307463766850447116
 GameObject:
@@ -784,6 +792,86 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!1 &7367730135921409551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4881001497940978378}
+  - component: {fileID: 7869442306658910970}
+  m_Layer: 9
+  m_Name: Fort
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4881001497940978378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367730135921409551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5.1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4312225018628020}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7869442306658910970
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367730135921409551}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2033155825
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: e7f24b916b4886347923b05d3279af6b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.03, y: 0.03}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &9129672304562819454
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +1014,7 @@ PrefabInstance:
     - target: {fileID: 4902117906146576767, guid: 77afb74915850e1448432187c2ddba28,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4902117906146576767, guid: 77afb74915850e1448432187c2ddba28,
         type: 3}

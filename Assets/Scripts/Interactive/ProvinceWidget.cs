@@ -6,6 +6,7 @@ public class ProvinceWidget : MonoBehaviour
     public GameObject CaveWallSprite;
     public GameObject CaveEntranceSprite;
     public GameObject FortSprite;
+    public GameObject FortHelperSprite;
     public SpriteRenderer Renderer;
     public TextMesh Text;
     public List<TextMesh> TextOutlines;
