@@ -114,7 +114,7 @@
   <Nation>
     <Name>(EA) Fomoria</Name>
     <ID>10</ID>
-    <WaterPercentage>0.1</WaterPercentage>
+    <WaterPercentage>0.2</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -130,7 +130,6 @@
     <Age>EARLY</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
@@ -155,7 +154,6 @@
     <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -190,7 +188,7 @@
     <StartsUnderground>true</StartsUnderground>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>EARLY</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
@@ -224,12 +222,12 @@
     <ID>19</ID>
     <WaterPercentage>0.1</WaterPercentage>
     <Age>EARLY</Age>
-    <CapRingSize>6</CapRingSize>
+    <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>SMALLPROV</TerrainData>
-    <TerrainData>SWAMP</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>LARGEPROV SWAMP</TerrainData>
   </Nation>
   <Nation>
     <Name>(EA) Kailasa</Name>
@@ -336,7 +334,7 @@
   <Nation>
     <Name>(EA) Berytos</Name>
     <ID>29</ID>
-    <WaterPercentage>0.1</WaterPercentage>
+    <WaterPercentage>0.2</WaterPercentage>
     <Age>EARLY</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -465,7 +463,6 @@
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Phlegra</Name>
@@ -476,7 +473,6 @@
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -553,7 +549,6 @@
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
@@ -611,7 +606,7 @@
     <StartsUnderground>true</StartsUnderground>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>MIDDLE</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
@@ -651,7 +646,6 @@
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Ind</Name>
@@ -662,7 +656,6 @@
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -707,7 +700,6 @@
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -768,7 +760,6 @@
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
     <Name>(MA) Phaeacia (Land)</Name>
@@ -816,7 +807,6 @@
     <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
   <Nation>
@@ -904,7 +894,6 @@
     <CapRingSize>5</CapRingSize>
     <CapTerrain>MOUNTAINS</CapTerrain>
     <TerrainData>PLAINS</TerrainData>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
   </Nation>
@@ -937,7 +926,6 @@
     <Age>LATE</Age>
     <CapRingSize>5</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
-    <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
@@ -991,7 +979,7 @@
   <Nation>
     <Name>(LA) Marignon</Name>
     <ID>103</ID>
-    <WaterPercentage>0.1</WaterPercentage>
+    <WaterPercentage>0.2</WaterPercentage>
     <Age>LATE</Age>
     <CapRingSize>6</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
@@ -1019,7 +1007,7 @@
     <WaterPercentage>0</WaterPercentage>
     <HasCaveEntranceInCapRing>true</HasCaveEntranceInCapRing>
     <Age>LATE</Age>
-    <CapRingSize>5</CapRingSize>
+    <CapRingSize>4</CapRingSize>
     <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>HIGHLAND</TerrainData>
     <TerrainData>PLAINS</TerrainData>
