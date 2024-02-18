@@ -114,6 +114,116 @@
       <String>Devil's Labyrinth</String>
   </NameData>
 
+  <NameData>  
+      <ID>PLAINS_PREMADE</ID>
+
+      <String>bare hollow</String>
+      <String>the sister hills</String>
+      <String>the neck</String>
+      <String>the old empire</String>
+      <String>anconus</String>
+      <String>calaine</String>
+      <String>andelos</String>
+      <String>stasterholm</String>
+      <String>angland</String>
+      <String>hoskopp</String>
+      <String>affoia</String>
+      <String>salva</String>
+      <String>vincis</String>
+      <String>ensall</String>
+  </NameData>
+
+  <NameData>  
+      <ID>FARM_PREMADE</ID>
+
+      <String>summerhall</String>
+      <String>springhall</String>
+      <String>fairgarden</String>
+      <String>great millstone</String>
+      <String>golden garrison</String>
+      <String>highmarket</String>
+      <String>hayford</String>
+      <String>maidenfield</String>
+      <String>the bronze lands</String>
+      <String>criban</String>
+      <String>cambar</String>
+      <String>dorante</String>
+  </NameData>
+
+  <NameData>  
+      <ID>FOREST_PREMADE</ID>
+
+      <String>raven peak</String>
+      <String>wicker vale</String>
+      <String>jade forest</String>
+      <String>ivy ridge</String>
+      <String>old oaks</String>
+      <String>crow's nest</String>
+      <String>the splints</String>
+      <String>greencrown</String>
+      <String>antler tower</String>
+      <String>pinehall</String>
+      <String>bonewood</String>
+      <String>flintwood</String>
+      <String>axehead</String>
+      <String>prythia</String>
+      <String>lograd</String>
+  </NameData>
+
+  <NameData>  
+      <ID>SWAMP_PREMADE</ID>
+
+      <String>driftmoor</String>
+      <String>bitter keep</String>
+      <String>the sunken city</String>
+      <String>fever delta</String>
+      <String>mistvale</String>
+      <String>rustmoor</String>
+      <String>the foglands</String>
+      <String>bog of moss</String>
+      <String>mudkeep</String>
+      <String>murrata</String>
+      <String>banekeep</String>
+      <String>sunga</String>
+      <String>lost hope</String>
+  </NameData>
+
+  <NameData>  
+      <ID>WASTE_PREMADE</ID>
+
+      <String>saltsong</String>
+      <String>parchment flats</String>
+      <String>ashlands</String>
+      <String>the dust fields</String>
+      <String>the dead empire</String>
+      <String>the lost city</String>
+      <String>sea of smoke</String>
+      <String>the singing sands</String>
+      <String>skullsands</String>
+      <String>solitude</String>
+      <String>bonebarrow</String>
+      <String>pillar of bone</String>
+      <String>pale sands</String>
+      <String>bonegarden</String>
+  </NameData>
+
+  <NameData>  
+      <ID>HIGHLANDS_PREMADE</ID>
+
+      <String>bald peak</String>
+      <String>fury peak</String>
+      <String>the splintered hills</String>
+      <String>the dead hills</String>
+      <String>great iron mound</String>
+      <String>the lost mountain</String>
+      <String>pilgrim's pass</String>
+      <String>headless mountain</String>
+      <String>stonetower</String>
+      <String>the overlook</String>
+      <String>horn hills</String>
+      <String>windspring</String>
+  </NameData>
+
   <!-- Actual string collections to use for generating names -->
   <!-- CONCEPT is used primarily in names like "the <noun> of <concept>" -->
   <NameData>  

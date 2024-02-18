@@ -42,6 +42,79 @@
     <Segment>CONCEPT</Segment>
   </NameFormat>
 
+  <!--CUSTOM PREMADE NAMES-->
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>PLAINS_PREMADE</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>PLAINS</BlockedTerrain>
+    <Segment>FOREST_PREMADE</Segment>
+  </NameFormat>
+
+   <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>PLAINS</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>FARM_PREMADE</Segment>
+  </NameFormat>
+
+  <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>PLAINS</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>SWAMP_PREMADE</Segment>
+  </NameFormat>
+
+   <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>PLAINS</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>HIGHLAND</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>WASTE_PREMADE</Segment>
+  </NameFormat>
+
+   <NameFormat>
+    <BlockedTerrain>SEA</BlockedTerrain>
+    <BlockedTerrain>THRONE</BlockedTerrain>
+    <BlockedTerrain>SWAMP</BlockedTerrain>
+    <BlockedTerrain>WASTE</BlockedTerrain>
+    <BlockedTerrain>CAVE</BlockedTerrain>
+    <BlockedTerrain>FARM</BlockedTerrain>
+    <BlockedTerrain>PLAINS</BlockedTerrain>
+    <BlockedTerrain>FOREST</BlockedTerrain>
+    <Segment>HIGHLANDS_PREMADE</Segment>
+  </NameFormat>
+
   <NameFormat>
     <CaveOnly>true</CaveOnly>
     <Segment>CAVESTART</Segment>

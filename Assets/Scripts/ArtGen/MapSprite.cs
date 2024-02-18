@@ -67,7 +67,7 @@ public class MapSprite
 [Serializable]
 public class ProvinceSprite : MapSprite
 {
-    // [CustomEnumFlag] for some reason this doesn't work, thanks unity
+    [CustomEnumFlag]
     public Terrain ValidTerrain;
 }
 

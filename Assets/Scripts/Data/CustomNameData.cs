@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 
 [XmlRoot]
@@ -77,9 +78,26 @@ public class CustomNameFormatCollection
         Data.AddRange(n.Data);
     }
 
+    private bool terrain_is_plains(Terrain terrain)
+    {
+        return !terrain.IsFlagSet(Terrain.FOREST)
+            && !terrain.IsFlagSet(Terrain.FARM)
+            && !terrain.IsFlagSet(Terrain.SEA)
+            && !terrain.IsFlagSet(Terrain.CAVE)
+            && !terrain.IsFlagSet(Terrain.HIGHLAND)
+            && !terrain.IsFlagSet(Terrain.SWAMP)
+            && !terrain.IsFlagSet(Terrain.WASTE)
+            && !terrain.IsFlagSet(Terrain.THRONE);
+    }
+
+    private bool is_blocked_terrain(CustomNameFormat format, Terrain terrain)
+    {
+        return format.BlockedTerrain.Any(x => (x == Terrain.PLAINS && terrain_is_plains(terrain)) || (x != Terrain.PLAINS && terrain.IsFlagSet(x)));
+    }
+
     public CustomNameFormat GetRandom(Terrain terrain)
     {
-        var valid = Data.Where(x => !x.CaveOnly && !x.BlockedTerrain.Where(y => terrain.HasFlag(y)).Any());
+        var valid = Data.Where(x => !x.CaveOnly && !is_blocked_terrain(x, terrain));
 
         if (terrain == Terrain.CAVE)
         {

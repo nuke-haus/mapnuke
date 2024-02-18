@@ -2513,7 +2513,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 536870912
+      ValidTerrain: 1073741824
     - Sprite: {fileID: 21300000, guid: fbda58a6c3b65a04eb880b2d88e36052, type: 3}
       WinterSprite: {fileID: 21300000, guid: 5857c6d360400af4cadf6fff4c838cd0, type: 3}
       SpawnChance: 0.6
@@ -2528,7 +2528,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 536870912
+      ValidTerrain: 1073741824
     - Sprite: {fileID: 21300000, guid: fe0cf3cac92f13e429049bd04c15d213, type: 3}
       WinterSprite: {fileID: 21300000, guid: 03c171058c53b0a459f2bee5b73c1494, type: 3}
       SpawnChance: 0.6
@@ -2543,7 +2543,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 536870912
+      ValidTerrain: 1073741824
     - Sprite: {fileID: 21300000, guid: bbad87109ed7139478da68614fb0b7bb, type: 3}
       WinterSprite: {fileID: 21300000, guid: b03eb51b6004f334b9e4a0570d30e498, type: 3}
       SpawnChance: 0.5
@@ -2718,7 +2718,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 1073741824
+      ValidTerrain: 2147483648
     - Sprite: {fileID: 21300000, guid: 7f3f95ec25104c54badc31ab7941d03c, type: 3}
       WinterSprite: {fileID: 21300000, guid: dff1464e61532b1479df20e325b437d5, type: 3}
       SpawnChance: 0.8
@@ -2733,7 +2733,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 1073741824
+      ValidTerrain: 2147483648
     - Sprite: {fileID: 21300000, guid: b955685cc33bd724b939b5b24c2eb3ee, type: 3}
       WinterSprite: {fileID: 21300000, guid: 0e8ae3cf45627954fba984f7bc3c571d, type: 3}
       SpawnChance: 0.8
@@ -2748,7 +2748,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       ValidWinterColors:
       - {r: 1, g: 1, b: 1, a: 1}
-      ValidTerrain: 1073741824
+      ValidTerrain: 2147483648
     - Sprite: {fileID: 21300000, guid: 91ea512213324bd4ba7140c0487ecc0b, type: 3}
       WinterSprite: {fileID: 21300000, guid: a354be097240ad64585686f5812d41d5, type: 3}
       SpawnChance: 0.6

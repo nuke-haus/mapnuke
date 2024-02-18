@@ -11,12 +11,13 @@ internal class EnumFlagAttributePropertyDrawer : PropertyDrawer
     {
         label = EditorGUI.BeginProperty(position, label, property);
 
-        var oldValue = (Enum)fieldInfo.GetValue(property.serializedObject.targetObject);
-        var newValue = EditorGUI.EnumFlagsField(position, label, oldValue);
+        var oldValue = (Terrain)property.longValue; 
+        var newValue = (Terrain)EditorGUI.EnumFlagsField(position, label, oldValue);
 
         if (!newValue.Equals(oldValue))
         {
-            property.intValue = (int)Convert.ChangeType(newValue, fieldInfo.FieldType);
+            var longVal = (long)newValue;
+            property.longValue = longVal;
         }
 
         EditorGUI.EndProperty();
