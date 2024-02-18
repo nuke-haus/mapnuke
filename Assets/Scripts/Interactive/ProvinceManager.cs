@@ -146,20 +146,24 @@ public class ProvinceManager : MonoBehaviour
         // Size modifiers
         if (Large.isOn)
         {
+            Small.isOn = false;
             flags |= Terrain.LARGEPROV;
         }
         else if (Small.isOn)
         {
+            Large.isOn = false;
             flags |= Terrain.SMALLPROV;
         }
 
         // Hot and cold modifiers
         if (Colder.isOn)
         {
+            Warmer.isOn = false;
             flags |= Terrain.COLDER;
         }
         else if (Warmer.isOn)
         {
+            Colder.isOn = false;
             flags |= Terrain.WARMER;
         }
 
