@@ -27,13 +27,13 @@ public class GeneratorSettings
     public FloatRange LargeFreq = new FloatRange(0.28f, 0.32f);
     public FloatRange SmallFreq = new FloatRange(0.10f, 0.14f);
 
-    public FloatRange CliffFreq = new FloatRange(0.06f, 0.08f);
+    public FloatRange CliffFreq = new FloatRange(0.07f, 0.09f);
     public FloatRange CliffPassFreq = new FloatRange(0.04f, 0.06f);
     public FloatRange RiverFreq = new FloatRange(0.06f, 0.08f);
-    public FloatRange DeepRiverFreq = new FloatRange(0.04f, 0.06f);
+    public FloatRange DeepRiverFreq = new FloatRange(0.05f, 0.07f);
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
 
-    public float CustomNameFreq = 0.08f;
+    public float CustomNameFreq = 0.10f;
     public float UnderworldCaveFreq = 0.15f;
     public int NumCaveEntrancesPerPlayer = 1;
 
