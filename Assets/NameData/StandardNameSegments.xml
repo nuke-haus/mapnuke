@@ -65,33 +65,26 @@
       <String>darkrock</String>
       <String>hellbrand</String>
       <String>The Breach</String>
-      <String>craghart</String>
-      <String>mirabar</String>
-      <String>adbar</String>
-      <String>olmbar</String>
       <String>Bracken Cairn</String>
       <String>Godcradle</String>
       <String>deadstone</String>
-      <String>barkhane</String>
       <String>urvass</String>
       <String>megara</String>
       <String>jeskyne</String>
       <String>haverno</String>
       <String>gupha</String>
       <String>oudmond</String>
-      <String>greathand</String>
       <String>crease</String>
       <String>Black Well</String>
       <String>Cradle Of Stone</String>
       <String>sudlendal</String>
-      <String>Lost Hope</String>
       <String>The Low Places</String>
       <String>Pit Of The Damned</String>
       <String>Tomb of Bayaz</String>
       <String>Titan's Cairn</String>
       <String>hardgrave</String>
       <String>fellstone</String>
-      <String>dorrick</String>
+      <String>aurioch</String>
       <String>Stygia</String>
       <String>Daggerstone</String>
       <String>The Sealed Stone</String>
@@ -100,7 +93,7 @@
       <String>The Red Sanctum</String>
       <String>Crail Rock</String>
       <String>The Weeping Cavern</String>
-      <String>Cryle's Escape</String>
+      <String>Cryle's Cairn</String>
       <String>Earth Wound</String>
       <String>The Opal Halls</String>
       <String>Sapphire Maze</String>
@@ -120,10 +113,11 @@
       <String>bare hollow</String>
       <String>the sister hills</String>
       <String>the neck</String>
-      <String>the old empire</String>
+      <String>old jome</String>
       <String>anconus</String>
       <String>calaine</String>
       <String>andelos</String>
+      <String>stoffenbeck</String>
       <String>stasterholm</String>
       <String>angland</String>
       <String>hoskopp</String>
@@ -138,16 +132,19 @@
 
       <String>summerhall</String>
       <String>springhall</String>
-      <String>fairgarden</String>
       <String>great millstone</String>
       <String>golden garrison</String>
-      <String>highmarket</String>
-      <String>hayford</String>
       <String>maidenfield</String>
       <String>the bronze lands</String>
+      <String>the fork</String>
       <String>criban</String>
-      <String>cambar</String>
+      <String>cambarre</String>
+      <String>ensar</String>
+      <String>isha</String>
+      <String>malende</String>
+      <String>arrentos</String>
       <String>dorante</String>
+      <String>vos</String>
   </NameData>
 
   <NameData>  
@@ -160,32 +157,39 @@
       <String>old oaks</String>
       <String>crow's nest</String>
       <String>the splints</String>
-      <String>greencrown</String>
+      <String>the green crown</String>
       <String>antler tower</String>
       <String>pinehall</String>
       <String>bonewood</String>
       <String>flintwood</String>
       <String>axehead</String>
       <String>prythia</String>
+      <String>barkhane</String>
       <String>lograd</String>
+      <String>kemi</String>
   </NameData>
 
   <NameData>  
       <ID>SWAMP_PREMADE</ID>
 
       <String>driftmoor</String>
+      <String>rustmoor</String>
+      <String>the fever moors</String>
       <String>bitter keep</String>
       <String>the sunken city</String>
-      <String>fever delta</String>
+      <String>the gutter</String>
+      <String>pale mire</String>
+      <String>lost hope</String>
+      <String>ash fen</String>
       <String>mistvale</String>
-      <String>rustmoor</String>
       <String>the foglands</String>
       <String>bog of moss</String>
-      <String>mudkeep</String>
+      <String>titan's grave</String>
+      <String>jantha</String>
       <String>murrata</String>
-      <String>banekeep</String>
       <String>sunga</String>
-      <String>lost hope</String>
+      <String>muris</String>
+      <String>erethus</String>
   </NameData>
 
   <NameData>  
@@ -195,6 +199,7 @@
       <String>parchment flats</String>
       <String>ashlands</String>
       <String>the dust fields</String>
+      <String>the ash wastes</String>
       <String>the dead empire</String>
       <String>the lost city</String>
       <String>sea of smoke</String>
@@ -205,6 +210,10 @@
       <String>pillar of bone</String>
       <String>pale sands</String>
       <String>bonegarden</String>
+      <String>sictus</String>
+      <String>septus</String>
+      <String>kanta</String>
+      <String>shabulyan</String>
   </NameData>
 
   <NameData>  
@@ -212,16 +221,21 @@
 
       <String>bald peak</String>
       <String>fury peak</String>
+      <String>the cairns</String>
       <String>the splintered hills</String>
       <String>the dead hills</String>
+      <String>the hero stones</String>
+      <String>horn hills</String>
       <String>great iron mound</String>
       <String>the lost mountain</String>
       <String>pilgrim's pass</String>
       <String>headless mountain</String>
       <String>stonetower</String>
       <String>the overlook</String>
-      <String>horn hills</String>
       <String>windspring</String>
+      <String>yaws</String>
+      <String>aldan</String>
+      <String>thond</String>
   </NameData>
 
   <!-- Actual string collections to use for generating names -->
