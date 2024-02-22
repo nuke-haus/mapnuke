@@ -67,7 +67,9 @@ public class MapSprite
 [Serializable]
 public class ProvinceSprite : MapSprite
 {
+#if UNITY_EDITOR
     [CustomEnumFlag]
+#endif
     public Terrain ValidTerrain;
 }
 
