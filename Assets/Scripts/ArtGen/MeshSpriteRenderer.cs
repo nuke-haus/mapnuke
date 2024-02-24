@@ -98,13 +98,19 @@ public class MeshSpriteRenderer : MonoBehaviour
 
     private void InitMaterial(Texture2D t)
     {
-        // TODO(johan): This is a hack and only works when all sprites comes from the same atlas, make proper fix! 
+        // TODO: This is a hack and only works when all sprites comes from the same atlas
         if (INIT_ATLAS_MATERIAL)
         {
-            /*if (t != set_texture)
+            if (t != m_set_texture)
             {
-                Debug.LogWarning("Trying to write wrong texture.");
-            }*/
+                Debug.LogWarning("More than one sprite atlas is in use, this may cause render issues.");
+            }
+            return;
+        }
+
+        if (!t.name.Contains("Atlas"))
+        {
+            Debug.LogError("A sprite is not assigned the 'Art' packing tag: " + t.name);
             return;
         }
 
