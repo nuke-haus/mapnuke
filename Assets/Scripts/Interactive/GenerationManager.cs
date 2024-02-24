@@ -631,6 +631,7 @@ public class GenerationManager : MonoBehaviour
         }
         else
         {
+            ArtManager.s_art_manager.ForceRegenConnections(true);
             ArtManager.s_art_manager.OnOverrideProvinceTerrain(false);
             mgr.LockMapData(false);
 
@@ -641,6 +642,7 @@ public class GenerationManager : MonoBehaviour
             yield return null;
 
             ArtManager.s_art_manager.LockProvinceShapes(false);
+            ArtManager.s_art_manager.ForceRegenConnections(false);
         }
 
         LoadingScreen.SetActive(false);

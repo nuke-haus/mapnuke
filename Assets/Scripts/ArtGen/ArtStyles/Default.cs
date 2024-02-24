@@ -179,7 +179,9 @@ public class DefaultArtStyle : ArtStyle
 
         foreach (var cm in conns)
         {
-            if (!ArtManager.s_art_manager.IsLockingProvinceShapes || ArtManager.s_art_manager.IsUsingUnderworldTerrain)
+            if (!ArtManager.s_art_manager.IsLockingProvinceShapes 
+                || ArtManager.s_art_manager.IsUsingUnderworldTerrain 
+                || ArtManager.s_art_manager.IsForcingRegenConnections)
             {
                 m_all_sprites.AddRange(cm.PlaceSprites());
             }

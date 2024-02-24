@@ -27,6 +27,7 @@ public class ArtManager : MonoBehaviour
     private RenderTexture m_render_texture;
     private bool m_lock_province_shapes = false;
     private bool m_override_underworld = false;
+    private bool m_force_regen_connections = false;
 
     public RenderTexture Texture
     {
@@ -49,6 +50,7 @@ public class ArtManager : MonoBehaviour
 
     public bool IsUsingUnderworldTerrain => m_override_underworld;
     public bool IsLockingProvinceShapes => m_lock_province_shapes;
+    public bool IsForcingRegenConnections => m_force_regen_connections;
 
     public void OnArtStyleDropdownValueChanged(Dropdown d)
     {
@@ -110,6 +112,11 @@ public class ArtManager : MonoBehaviour
         }
 
         ArtStyleDropdown.value = index;
+    }
+
+    public void ForceRegenConnections(bool is_forcing)
+    {
+        m_force_regen_connections = is_forcing;
     }
 
     public void LockProvinceShapes(bool is_locked)
