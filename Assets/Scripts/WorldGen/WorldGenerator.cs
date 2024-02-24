@@ -710,9 +710,6 @@ internal static class WorldGenerator
             }
         }
 
-        //Debug.Log("Number of easy to make blobs: " + easy_blobs.Count);
-        //Debug.Log("Number of difficult blobs: " + blobs.Count);
-
         if (!blobs.Any())
         {
             blobs.AddRange(easy_blobs);
@@ -722,8 +719,6 @@ internal static class WorldGenerator
         var valid_cave_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall).ToList();
         var num_underworld_caves = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.UnderworldCaveFreq * (valid_cave_nodes.Count));
         var current_caves_count = 0;
-
-        //Debug.Log("Number of caves to add: " + num_underworld_caves);
 
         while (current_caves_count < num_underworld_caves)
         {
