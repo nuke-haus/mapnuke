@@ -883,7 +883,7 @@ internal static class WorldGenerator
             count++;
         }
 
-        var wall_nodes = m_nodes.Where(x => x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x) && x.ConnectedNodes.Any(conn_node => !conn_node.ProvinceData.IsCaveWall)).ToList();
+        var wall_nodes = m_nodes.Where(x => x.ProvinceData.IsCaveWall && !nodes_to_avoid.Contains(x) && x.ConnectedNodes.Count(conn_node => !conn_node.ProvinceData.IsCaveWall) >= 2).ToList();
         wall_nodes.Shuffle();
 
         count = 0;
