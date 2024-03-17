@@ -483,19 +483,32 @@ public class GenerationManager : MonoBehaviour
             return;
         }
 
+        if (m_layer == Layer.CAVE)
+        {
+            OnLayerChanged();
+            return;
+        } 
+
         m_is_for_dom6 = is_for_dom6;
-        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
 
         if (!OutputWindow.activeSelf)
         {
             OutputWindow.SetActive(true);
         }
+
+        GetComponent<AudioSource>().PlayOneShot(ClickAudio);
     }
 
     public void GenerateOutput()
     {
         if (m_is_input_locked)
         {
+            return;
+        }
+
+        if (m_layer == Layer.CAVE)
+        {
+            OnLayerChanged();
             return;
         }
 

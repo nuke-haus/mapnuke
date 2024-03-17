@@ -33,7 +33,7 @@ public class GeneratorSettings
     public FloatRange RoadFreq = new FloatRange(0.04f, 0.06f);
 
     public float CustomNameFreq = 0.10f;
-    public float UnderworldCaveFreq = 0.15f;
+    public float UnderworldCaveFreq = 0.06f;
     public int NumCaveEntrancesPerPlayer = 1;
 
     public bool UseClassicMountains = true;

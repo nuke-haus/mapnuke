@@ -20,6 +20,7 @@ internal static class WorldGenerator
     private static List<PlayerData> m_nations;
     private const int MAX_CAVE_ATTEMPTS = 50;
     private const int AVOID_SWAMP_CHANCE = 30;
+    private const int MAX_CAVE_WALL_ATTEMPTS = 3000;
 
     public static void GenerateWorld(bool teamplay, bool cluster_water, bool cluster_islands, bool nat_starts, List<PlayerData> picks, NodeLayoutData layout)
     {
@@ -716,16 +717,19 @@ internal static class WorldGenerator
             easy_blobs.Clear();
         }
 
-        var valid_cave_nodes = m_nodes.Where(x => !x.ProvinceData.IsCaveWall).ToList();
+        var valid_cave_nodes = m_nodes.Where(x => x.ProvinceData.IsCaveWall).ToList();
         var num_underworld_caves = Mathf.RoundToInt(GeneratorSettings.s_generator_settings.UnderworldCaveFreq * (valid_cave_nodes.Count));
         var current_caves_count = 0;
+        var attempts = 0;
 
-        while (current_caves_count < num_underworld_caves)
+        while (current_caves_count < num_underworld_caves && attempts < MAX_CAVE_WALL_ATTEMPTS)
         {
+            attempts++;
+
             var blob = blobs.GetRandom();
             var node = blob.GetRandom();
-            var ideal_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.HasNation && !x.ProvinceData.HasCaveEntrance && get_cave_weight(blob, x) >= 10);
-            var connected_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.HasNation && !x.ProvinceData.HasCaveEntrance);
+            var ideal_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.ProvinceData.HasCaveEntrance && get_cave_weight(blob, x) >= 10);
+            var connected_node = node.ConnectedNodes.FirstOrDefault(x => x.ProvinceData.IsCaveWall && !x.ProvinceData.HasCaveEntrance);
 
             if (ideal_node != null && !blob.Contains(ideal_node))
             {
