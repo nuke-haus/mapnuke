@@ -415,9 +415,16 @@ public static class MapFileWriter
                 {
                     write(fs, "#neighbour " + c.Node1.ID + " " + c.Node2.ID);
 
-                    if (c.CaveConnectionType != ConnectionType.STANDARD && c.CaveConnectionType != ConnectionType.SHALLOWRIVER)
+                    var connectionType = c.CaveConnectionType;
+
+                    if (c.Node1.ProvinceData.IsCaveWall || c.Node2.ProvinceData.IsCaveWall)
                     {
-                        write(fs, "#neighbourspec " + c.Node1.ID + " " + c.Node2.ID + " " + (int)c.CaveConnectionType);
+                        connectionType = ConnectionType.MOUNTAIN; // cave walls are impassable
+                    }
+
+                    if (connectionType != ConnectionType.STANDARD && connectionType != ConnectionType.SHALLOWRIVER)
+                    {
+                        write(fs, "#neighbourspec " + c.Node1.ID + " " + c.Node2.ID + " " + (int)connectionType);
                     }
                 }
             }
