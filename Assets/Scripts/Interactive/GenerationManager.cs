@@ -730,7 +730,7 @@ public class GenerationManager : MonoBehaviour
             ArtManager.s_art_manager.LockProvinceShapes(true);
             mgr.LockMapData(true);
 
-            var output_caves = GeneratorSettings.s_generator_settings.UnderworldCaveFreq > 0f;
+            var output_caves = mgr.Provinces.Any(province => !province.Node.LockedProvinceData.IsCaveWall);
 
             foreach (Terrain t in m_dom6_terrains)
             {
