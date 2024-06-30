@@ -90,5 +90,16 @@
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>PLAINS</TerrainData>
   </Nation>
- 
+  <Nation>
+    <Name>(LA) Pyrene</Name>
+    <ID>123</ID>
+    <WaterPercentage>0</WaterPercentage>
+    <Age>LATE</Age>
+    <CapRingSize>5</CapRingSize>
+    <CapTerrain>PLAINS</CapTerrain>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>FOREST</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+    <TerrainData>PLAINS</TerrainData>
+  </Nation>
 </NationCollection>
