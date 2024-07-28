@@ -368,7 +368,6 @@ public static class MapFileWriter
 
                 if (!m.Node.ProvinceData.IsCaveWall)
                 {
-                    //terr = ProvinceData.Dom6Cave + (long)Terrain.CAVE + (long)m.Node.ProvinceData.CaveTerrain;
                     terr = (ulong)Terrain.CAVE + (ulong)m.Node.ProvinceData.CaveTerrain;
 
                     if (!m.Node.HasNation || !m.Node.Nation.NationData.StartsUnderground)

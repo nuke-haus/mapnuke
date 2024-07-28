@@ -602,7 +602,7 @@ public class GenerationManager : MonoBehaviour
             case Terrain.WASTE:
                 return "waste";
             case Terrain.SEA:
-                return "sea";
+                return "water";
             default:
                 return "kelp"; // sea and forest
         }
