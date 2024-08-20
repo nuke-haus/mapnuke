@@ -141,20 +141,27 @@ public static class MapFileWriter
             {
                 if (m.Node.HasNation)
                 {
-                    if (m.Node.Nation.NationData.ID == -1 && !m.Node.Nation.NationData.StartsUnderground)
+                    int provinceNumber = m.ProvinceNumber;
+
+                    if (m.Node.Nation.NationData.StartsUnderground)
+                    { 
+                        provinceNumber += layout.TotalProvinces;
+                    }
+
+                    if (m.Node.Nation.NationData.ID == -1)
                     {
                         if (teamplay)
                         {
-                            write(fs, "#teamstart " + m.ProvinceNumber + " " + m.Node.Nation.TeamNum);
+                            write(fs, "#teamstart " + provinceNumber + " " + m.Node.Nation.TeamNum);
                         }
                         else
                         {
-                            write(fs, "#start " + m.ProvinceNumber);
+                            write(fs, "#start " + provinceNumber);
                         }
                     }
-                    else if (!m.Node.Nation.NationData.StartsUnderground)
+                    else 
                     {
-                        write(fs, "#specstart " + m.Node.Nation.NationData.ID + " " + m.ProvinceNumber);
+                        write(fs, "#specstart " + m.Node.Nation.NationData.ID + " " + provinceNumber);
                     }
                 }
             }
@@ -332,30 +339,6 @@ public static class MapFileWriter
                 foreach (var d in nations)
                 {
                     write(fs, "#allowedplayer " + d.NationData.ID);
-                }
-            }
-
-            write(fs, "\n-- Player Cave Start Location Data");
-
-            foreach (var m in provs)
-            {
-                if (m.Node.HasNation)
-                {
-                    if (m.Node.Nation.NationData.ID == -1 && m.Node.Nation.NationData.StartsUnderground)
-                    {
-                        if (teamplay)
-                        {
-                            write(fs, "#teamstart " + m.ProvinceNumber + " " + m.Node.Nation.TeamNum);
-                        }
-                        else
-                        {
-                            write(fs, "#start " + m.ProvinceNumber);
-                        }
-                    }
-                    else if (m.Node.Nation.NationData.StartsUnderground)
-                    {
-                        write(fs, "#specstart " + m.Node.Nation.NationData.ID + " " + m.ProvinceNumber);
-                    }
                 }
             }
 
