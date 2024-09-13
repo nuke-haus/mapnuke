@@ -6,7 +6,7 @@
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>FARM</CapTerrain>
+    <CapTerrain>PLAINS</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
     <TerrainData>LARGEPROV WASTE</TerrainData>
@@ -18,7 +18,7 @@
     <WaterPercentage>0</WaterPercentage>
     <Age>MIDDLE</Age>
     <CapRingSize>5</CapRingSize>
-    <CapTerrain>MOUNTAINS</CapTerrain>
+    <CapTerrain>FOREST</CapTerrain>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>FOREST</TerrainData>
     <TerrainData>PLAINS</TerrainData>
